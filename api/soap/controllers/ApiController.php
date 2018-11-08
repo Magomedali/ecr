@@ -22,9 +22,7 @@ class ApiController extends Controller
         return [
             'index' => [
                 'class'=>'mongosoft\soapserver\Action',
-                'serviceOptions'=>[
-                    'disableWsdlMode'=>true
-                ]
+                
             ]
         ];
     }
@@ -34,12 +32,14 @@ class ApiController extends Controller
     /**
      * unload Brigade
      * @param api\soap\models\Brigade[] $brigades
-     * @return string
-     * 
+     * @param int $id
+     * @return api\soap\models\Brigade $v
+     * @soap
      */
     public function unloadbrigade($brigades)
     {   
-        return "Hello";
+        $v = $brigades[$id];
+        return $v;
     }
 
 
@@ -51,7 +51,8 @@ class ApiController extends Controller
      */
     public function say($msg)
     {   
-        return "Hello ".$msg;
+        $return = "Leeee ".$msg;
+        return $return;
     }
 
    
