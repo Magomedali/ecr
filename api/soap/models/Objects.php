@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Brigade  extends Model
+class Objects  extends Model
 {
     /**
      * @var string
@@ -21,5 +21,11 @@ class Brigade  extends Model
     * @var string
     */
     public $name;
+
+
+    /**
+    * @var string
+    */
+    public $boundary_guid;
 
 }

@@ -10,16 +10,26 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Brigade  extends Model
+class Remnant  extends Model
 {
     /**
      * @var string
     */
-    public $guid;
+    public $brigade_guid;
 
     /**
-    * @var string
+    * @var datetime
     */
-    public $name;
+    public $updated_at;
+
+    /**
+     * @var string
+    */
+    public $nomenclature_guid;
+
+    /**
+     * @var float
+    */
+    public $count;
 
 }

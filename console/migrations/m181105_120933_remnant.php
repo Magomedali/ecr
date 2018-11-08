@@ -26,7 +26,6 @@ class m181105_120933_remnant extends Migration
             'brigade_guid' => $this->string(32)->notNull()->unique(),
             'updated_at'=>$this->timestamp(),
             'nomenclature_guid'=>$this->string(32)->notNull(),
-            'series_guid'=>$this->string(32)->notNull(),
             'count'=>$this->float()->notNull()->defaultValue(0),
 
             'version_id'=>$this->integer()->null(),
@@ -41,7 +40,6 @@ class m181105_120933_remnant extends Migration
             'brigade_guid' => $this->string(32)->notNull(),
             'updated_at'=>$this->timestamp(),
             'nomenclature_guid'=>$this->string(32)->notNull(),
-            'series_guid'=>$this->string(32)->notNull(),
             'count'=>$this->float()->notNull()->defaultValue(0),
 
             'created_at'=>$this->timestamp(),
@@ -58,7 +56,6 @@ class m181105_120933_remnant extends Migration
         $this->addForeignKey('fk-remnant-version_id',"{{%remnant}}",'version_id',"{{%remnant_history}}",'id','CASCADE','CASCADE');
         $this->addForeignKey('fk-remnant-brigade_guid',"{{%remnant}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
         $this->addForeignKey('fk-remnant-nomenclature_guid',"{{%remnant}}",'nomenclature_guid',"{{%nomenclature}}",'guid','CASCADE','CASCADE');
-        $this->addForeignKey('fk-remnant-series_guid',"{{%remnant}}",'series_guid',"{{%series}}",'guid','CASCADE','CASCADE');
 
     }
 
@@ -67,7 +64,6 @@ class m181105_120933_remnant extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-remnant-series_guid',"{{%remnant}}");
         $this->dropForeignKey('fk-remnant-nomenclature_guid',"{{%remnant}}");
         $this->dropForeignKey('fk-remnant-brigade_guid',"{{%remnant}}");
         $this->dropForeignKey('fk-remnant-version_id',"{{%remnant}}");

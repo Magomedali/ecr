@@ -32,8 +32,6 @@ class Nomenclature extends ActiveRecordVersionable
         return [
             'guid',
             'name',
-            'unit',
-            'type_guid',
             'isDeleted',
         ];
     }
@@ -43,11 +41,11 @@ class Nomenclature extends ActiveRecordVersionable
     public function rules(){
         return [
             // name, email, subject and body are required
-            [['guid','name','unit','type_guid'], 'required'],
+            [['guid','name'], 'required'],
             ['guid','unique','targetClass' => '\common\models\Nomenclature', 'message' => 'Запись с таким guid уже существует!'],
-            [['name','unit'],'string','max'=>128],
-            [['guid','type_guid'],'string','max'=>32],
-            [['name','unit'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
+            [['name'],'string','max'=>128],
+            [['guid'],'string','max'=>32],
+            [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
         ];
     }
@@ -62,9 +60,7 @@ class Nomenclature extends ActiveRecordVersionable
         return array(
             'id'=>'Id',
             'guid'=>'Идентификатор в 1С',
-            'name'=>'Наименование',
-            'unit'=>"Единица измерения",
-            'type_guid'=>"Тип"
+            'name'=>'Наименование'
         );
     }
 

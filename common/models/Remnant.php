@@ -33,7 +33,6 @@ class Remnant extends ActiveRecordVersionable
             'brigade_guid',
             'updated_at',
             'nomenclature_guid',
-            'series_guid',
             'count',
             'isDeleted',
         ];
@@ -45,11 +44,11 @@ class Remnant extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['brigade_guid','nomenclature_guid','series_guid','count'], 'required'],
+            [['brigade_guid','nomenclature_guid','count'], 'required'],
             ['brigade_guid','unique','targetClass' => '\common\models\Remnant', 'message' => 'Запись с таким brigade_guid уже существует!'],
             ['updated_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             [['count'],'number'],
-            [['brigade_guid','nomenclature_guid','series_guid'],'string','max'=>32],
+            [['brigade_guid','nomenclature_guid'],'string','max'=>32],
         ];
 	}
 
@@ -64,7 +63,6 @@ class Remnant extends ActiveRecordVersionable
     		'id'=>'Id',
     		'brigade_guid'=>'Бригада',
             'nomenclature_guid'=>'Номенклатура',
-            'series_guid'=>'Серия',
             'updated_at'=>'Время обновления',
             'count'=>'Количество'
     	);
