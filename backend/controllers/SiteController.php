@@ -5,6 +5,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use backend\models\LoginForm;
+use backend\models\ApiTest;
 use yii\filters\VerbFilter;
 use common\models\User;
 use backend\modules\UserSearch;
@@ -31,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','view'],
+                        'actions' => ['logout', 'index','view','test'],
                         'allow' => true,
                         'roles' => ['@','?'],
                     ],
@@ -109,6 +110,14 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+
+
+    public function actionTest(){
+
+
+        ApiTest::sendBrigades();
     }
 
    
