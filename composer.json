@@ -19,7 +19,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "ext-soap": "*",
-        "php2wsdl/php2wsdl": "*"
+        "wingu/reflection": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

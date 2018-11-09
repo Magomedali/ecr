@@ -2,7 +2,7 @@
 
 namespace api\soap;
 
-use PHP2WSDL\PHPClass2WSDL;
+use api\soap\php2wsdl\PHPClass2WSDL;
 use SoapServer;
 use Yii;
 use yii\base\Component;
@@ -34,6 +34,14 @@ class Service extends Component
      * @var string the URL for WSDL.
      */
     public $wsdlUrl;
+    
+    
+    /**
+     * @var string the URL for WSDL.
+     */
+    public $targetNamespace;
+    
+    
     /**
      * @var boolean indicating if the WSDL mode of SoapServer should be disabled.
      */
@@ -121,21 +129,21 @@ class Service extends Component
             ];
             $result = $this->cache->get($key);
             if ($result === false) {
-                $result = $this->generateWsdlInternal($providerClass, $this->serviceUrl);
+                $result = $this->generateWsdlInternal($providerClass, $this->serviceUrl, $this->targetNamespace);
                 $this->cache->set($key, $result, $this->cachingDuration);
             }
             return $result;
         } else {
-            return $this->generateWsdlInternal($providerClass, $this->serviceUrl);
+            return $this->generateWsdlInternal($providerClass, $this->serviceUrl,$this->targetNamespace);
         }
     }
 
     /**
      * @see Service::generateWsdl()
      */
-    protected function generateWsdlInternal($className, $serviceUrl)
+    protected function generateWsdlInternal($className, $serviceUrl, $targetNamespace = null)
     {
-        $wsdlGenerator = new PHPClass2WSDL($className, $serviceUrl);
+        $wsdlGenerator = new PHPClass2WSDL($className, $serviceUrl,$targetNamespace);
         $wsdlGenerator->generateWSDL(true);
         return $wsdlGenerator->dump();
     }

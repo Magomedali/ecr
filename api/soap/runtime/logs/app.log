@@ -6416,3 +6416,1023 @@ $_SERVER = [
     'argv' => []
     'argc' => 0
 ]
+2018-11-09 15:13:42 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:13:42 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@V59gVlnMcAAHdfIL8AAAAJ'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '62386'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765622.87
+    'REQUEST_TIME' => 1541765622
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 15:13:49 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:13:49 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@V5-QVlnMcAAHc52q0AAAAD'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '64244'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765629.068
+    'REQUEST_TIME' => 1541765629
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 15:14:00 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:14:00 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@V6CAVlnMcAAHfp65AAAAAL'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@V6CAVlnMcAAHfp65AAAAAL'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '7440'
+    'REDIRECT_URL' => '/api/soap/web/wsdl/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/wsdl/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765640.484
+    'REQUEST_TIME' => 1541765640
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 15:14:39 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:14:39 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@V6LwVlnMcAAHdhvhEAAAAK'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@V6LwVlnMcAAHdhvhEAAAAK'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '18660'
+    'REDIRECT_URL' => '/api/soap/web/wsdl/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/wsdl/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765679.944
+    'REQUEST_TIME' => 1541765679
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 15:14:43 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:14:43 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@V6MwVlnMcAAHitN9wAAAAB'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '19726'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765683.71
+    'REQUEST_TIME' => 1541765683
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 15:14:51 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:14:51 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@V6OgVlnMcAAHhCTzsAAAAC'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '22142'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/index.php'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765690.99
+    'REQUEST_TIME' => 1541765690
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 15:15:00 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Request.php:284
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(82): yii\web\Request->resolve()
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+2018-11-09 15:15:00 [46.28.89.34][-][-][info][application] $_GET = [
+    'r' => 'api/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@V6QwVlnMcAAHfp65AAAAAL'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '24840'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=api/index'
+    'REQUEST_URI' => '/api/soap/web/index.php?r=api/index'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765699.989
+    'REQUEST_TIME' => 1541765699
+    'argv' => [
+        0 => 'r=api/index'
+    ]
+    'argc' => 1
+]
+2018-11-09 15:15:48 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "wsdl/". in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('wsdl/', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 15:15:48 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@V6dAVlnMcAAHdhvhEAAAAK'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@V6dAVlnMcAAHdhvhEAAAAK'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '39146'
+    'REDIRECT_URL' => '/api/soap/web/wsdl/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/wsdl/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541765748.981
+    'REQUEST_TIME' => 1541765748
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 17:46:45 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "ws=1". in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('ws=1', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 17:46:45 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@Wd1QVlnMcAADAXLp0AAAAB'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@Wd1QVlnMcAADAXLp0AAAAB'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '26758'
+    'REDIRECT_URL' => '/api/soap/web/ws=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/ws=1'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541774805.05
+    'REQUEST_TIME' => 1541774805
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 17:49:43 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "ws=1". in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('ws=1', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 17:49:43 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@WehwVlnMcAADFIZ6gAAAAF'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@WehwVlnMcAADFIZ6gAAAAF'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '17218'
+    'REDIRECT_URL' => '/api/soap/web/ws=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/ws=1'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541774983.762
+    'REQUEST_TIME' => 1541774983
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 17:53:44 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "ws=1". in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('ws=1', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 17:53:44 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@WfeAVlnMcAADGuP@IAAAAB'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@WfeAVlnMcAADGuP@IAAAAB'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'CONTENT_LENGTH' => '1059'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.8'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/web/ws=1#unloadbrigade\"'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '24228'
+    'REDIRECT_URL' => '/api/soap/web/ws=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/ws=1'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541775224.222
+    'REQUEST_TIME' => 1541775224
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 17:54:12 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "ws=1". in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('ws=1', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 17:54:12 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@WflAVlnMcAADi4oZ8AAAAE'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@WflAVlnMcAADi4oZ8AAAAE'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'CONTENT_LENGTH' => '1059'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.8'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/web/ws=1#unloadbrigade\"'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '32444'
+    'REDIRECT_URL' => '/api/soap/web/ws=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/ws=1'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541775252.588
+    'REQUEST_TIME' => 1541775252
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 17:54:35 [10.1.5.176][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "ws=1". in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php:537
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('ws=1', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 17:54:35 [10.1.5.176][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'W@WfqwVlnMcAADoVWfUAAAAI'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'W@WfqwVlnMcAADoVWfUAAAAI'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '38490'
+    'REDIRECT_URL' => '/api/soap/web/ws=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/ws=1'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541775275.048
+    'REQUEST_TIME' => 1541775275
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 18:18:35 [46.28.89.34][-][-][error][Error] Error: Class 'api\soap\php2wdl\PHPClass2WSDL' not found in /home/w/webali/lk.web-ali.ru/public_html/api/soap/Service.php:138
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/api/soap/Service.php(129): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://lk.web-a...')
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/Action.php(104): api\soap\Service->generateWsdl()
+#2 [internal function]: api\soap\Action->run()
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Action.php(94): call_user_func_array(Array, Array)
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\Action->runWithParams(Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#9 {main}
+2018-11-09 18:18:35 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@WlSwVlnMcAAFRRorcAAAAD'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '48636'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541776715.609
+    'REQUEST_TIME' => 1541776715
+    'argv' => []
+    'argc' => 0
+]

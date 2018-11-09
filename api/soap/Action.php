@@ -75,7 +75,7 @@ class Action extends \yii\base\Action
         
         $defaultRoute = Yii::$app->defaultRoute . "/" . $this->controller->defaultAction;
         $uniqueId = $this->getUniqueId() == $defaultRoute ? "/" : $this->getUniqueId();
-        
+        #$uniqueId = $this->getUniqueId();
         if ($this->serviceUrl === null) {
             $this->serviceUrl = Yii::$app->getUrlManager()->createAbsoluteUrl([$uniqueId, $this->serviceVar => 1]);
         }
@@ -115,7 +115,8 @@ class Action extends \yii\base\Action
             $this->_service = new Service([
                 'provider' => $this->provider,
                 'serviceUrl' => $this->serviceUrl,
-                'wsdlUrl' => $this->wsdlUrl
+                'wsdlUrl' => $this->wsdlUrl,
+                'targetNamespace'=>"http://lk.web-ali.ru/api/soap/"
             ]);
             if (is_array($this->classMap)) {
                 $this->_service->classMap = $this->classMap;

@@ -321,7 +321,7 @@
 </binding>
 <service name="api.soap.controllers.ApiControllerService">
 <port name="api.soap.controllers.ApiControllerPort" binding="tns:api.soap.controllers.ApiControllerBinding">
-<soap:address location="http://lk.web-ali.ru/api/soap/web/ws=1"/>
+<soap:address location="http://lk.web-ali.ru/api/soap/web/?ws=1"/>
 </port>
 </service>
 <message name="testIn">

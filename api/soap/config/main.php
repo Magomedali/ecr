@@ -23,11 +23,14 @@ return [
                 ],
             ],
         ],
-        // 'urlManager'=>[
-        //     'enablePrettyUrl' => true,
-        //     'enableStrictParsing'=>false,
-        //     'showScriptName' => false,
-        // ]
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => false,
+            'showScriptName' => false,
+            'rules' => [
+                'wsdl'=>'api/index'
+            ],
+        ],
     ],
     'params' => [
     ]

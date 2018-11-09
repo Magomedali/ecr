@@ -65,7 +65,7 @@ class ApiController extends Controller
      */
     public function unloadbrigade($brigades)
     {   
-        $responce = new Responce(['success'=>true]);
+        $responce = new Responce(['success'=>false]);
         return $responce;
     }
 
