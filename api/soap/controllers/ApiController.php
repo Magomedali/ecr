@@ -22,14 +22,28 @@ class ApiController extends Controller
     {
         return [
             'index' => [
-                'class'=>'mongosoft\soapserver\Action',
+                'class'=>'api\soap\Action',
                 'serviceOptions'=>[
                     'disableWsdlMode'=>false
                 ]
             ]
         ];
     }
-
+    
+    
+    public function actionTest(){
+        
+        $id = "api/index";
+        
+        $url = Yii::$app->getUrlManager();
+        
+        $url->enablePrettyUrl = true;
+        
+        print_r($url->createAbsoluteUrl($id));
+        exit;
+    }
+    
+    
     /**
      * Stest method
      * @param string $msg

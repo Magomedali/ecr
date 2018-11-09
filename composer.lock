@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b759c2e596d5e54a071121fd2f3610d1",
+    "content-hash": "76610afbe5ce878352af3762a4baef5e",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -317,56 +317,6 @@
                 "html"
             ],
             "time": "2018-02-23T01:58:20+00:00"
-        },
-        {
-            "name": "mongosoft/yii2-soap-server",
-            "version": "0.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mongosoft/yii2-soap-server.git",
-                "reference": "1389940cf1756b5e493231db4398e28bee1d9e2c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mongosoft/yii2-soap-server/zipball/1389940cf1756b5e493231db4398e28bee1d9e2c",
-                "reference": "1389940cf1756b5e493231db4398e28bee1d9e2c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-soap": "*",
-                "php": ">=5.4.0",
-                "php2wsdl/php2wsdl": "*",
-                "yiisoft/yii2": "*"
-            },
-            "require-dev": {
-                "codeception/codeception": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "mongosoft\\soapserver\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander Mohorev",
-                    "email": "dev.mohorev@gmail.com"
-                }
-            ],
-            "description": "SOAP Server Extension for Yii 2",
-            "homepage": "https://github.com/mongosoft/yii2-soap-server",
-            "keywords": [
-                "extension",
-                "server",
-                "soap",
-                "wsdl",
-                "yii2"
-            ],
-            "time": "2015-04-23T11:50:30+00:00"
         },
         {
             "name": "php2wsdl/php2wsdl",
@@ -1097,7 +1047,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.7.0"
+        "php": ">=5.7.0",
+        "ext-soap": "*"
     },
     "platform-dev": []
 }

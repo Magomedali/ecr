@@ -5545,3 +5545,874 @@ $_SERVER = [
     ]
     'argc' => 1
 ]
+2018-11-09 12:16:49 [46.28.89.34][-][-][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: api\soap\controllers\ApiController::getgetUniqueId() in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php(76): yii\base\Component->__call('getgetUniqueId', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/BaseObject.php(109): mongosoft\soapserver\Action->init()
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Action.php(62): yii\base\BaseObject->__construct(Array)
+#3 [internal function]: yii\base\Action->__construct('index', Object(api\soap\controllers\ApiController), Array)
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(383): ReflectionClass->newInstanceArgs(Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:16:49 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VQgQVlnMcAAKopN6EAAAAL'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '10094'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755009.156
+    'REQUEST_TIME' => 1541755009
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:22:42 [46.28.89.34][-][-][error][ParseError] ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:133
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('mongosoft\\soaps...')
+#1 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#12 {main}
+
+Next ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:133
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/w/webali/...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('mongosoft\\soaps...')
+#2 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:22:42 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VR4gVlnMcAALHziCsAAAAC'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '56934'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755362.526
+    'REQUEST_TIME' => 1541755362
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:23:36 [46.28.89.34][-][-][error][ParseError] ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('mongosoft\\soaps...')
+#1 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#12 {main}
+
+Next ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/w/webali/...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('mongosoft\\soaps...')
+#2 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:23:36 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VSGAVlnMcAALGt9RIAAAAE'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '11868'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755416.552
+    'REQUEST_TIME' => 1541755416
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:24:28 [46.28.89.34][-][-][error][ParseError] ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('mongosoft\\soaps...')
+#1 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#12 {main}
+
+Next ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/w/webali/...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('mongosoft\\soaps...')
+#2 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:24:28 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VSTAVlnMcAALPREUoAAAAH'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '27502'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755468.376
+    'REQUEST_TIME' => 1541755468
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:25:02 [46.28.89.34][-][-][error][ParseError] ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('mongosoft\\soaps...')
+#1 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#12 {main}
+
+Next ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/w/webali/...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('mongosoft\\soaps...')
+#2 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:25:02 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VSbgVlnMcAALUBKMYAAAAR'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '38126'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755502.58
+    'REQUEST_TIME' => 1541755502
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:25:12 [46.28.89.34][-][-][error][ParseError] ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('mongosoft\\soaps...')
+#1 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#12 {main}
+
+Next ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:134
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/w/webali/...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('mongosoft\\soaps...')
+#2 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:25:12 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VSeAVlnMcAALL8-g8AAAAI'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '41504'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755512.169
+    'REQUEST_TIME' => 1541755512
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:27:06 [46.28.89.34][-][-][error][ParseError] ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:138
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('mongosoft\\soaps...')
+#1 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#12 {main}
+
+Next ParseError: syntax error, unexpected end of file in /home/w/webali/lk.web-ali.ru/public_html/vendor/mongosoft/yii2-soap-server/Action.php:138
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/w/webali/...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('mongosoft\\soaps...')
+#2 [internal function]: spl_autoload_call('mongosoft\\soaps...')
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('mongosoft\\soaps...')
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('mongosoft\\soaps...')
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('mongosoft\\soaps...', Array, Array)
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('mongosoft\\soaps...', Array, Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#9 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#11 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#13 {main}
+2018-11-09 12:27:06 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VS6gVlnMcAALeKfMMAAAAA'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '15462'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755626.97
+    'REQUEST_TIME' => 1541755626
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:28:27 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: api/ in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 12:28:27 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VTOwVlnMcAALn@T1cAAAAG'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '39022'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541755707.014
+    'REQUEST_TIME' => 1541755707
+    'argv' => []
+    'argc' => 0
+]
+2018-11-09 12:33:25 [46.28.89.34][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request: api/service in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php:128
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('service', Array)
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/service', Array)
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\web\NotFoundHttpException: Страница не найдена. in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#2 {main}
+2018-11-09 12:33:25 [46.28.89.34][-][-][info][application] $_GET = [
+    'r' => 'api/service'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VUZQVlnMcAAMBbdpgAAAAD'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '6172'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=api/service'
+    'REQUEST_URI' => '/api/soap/web/?r=api/service'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541756005.29
+    'REQUEST_TIME' => 1541756005
+    'argv' => [
+        0 => 'r=api/service'
+    ]
+    'argc' => 1
+]
+2018-11-09 12:33:28 [46.28.89.34][-][-][error][ReflectionException] ReflectionException: Class api\soap\core\Action does not exist in /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php:428
+Stack trace:
+#0 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(428): ReflectionClass->__construct('api\\soap\\core\\A...')
+#1 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(364): yii\di\Container->getDependencies('api\\soap\\core\\A...')
+#2 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/di/Container.php(156): yii\di\Container->build('api\\soap\\core\\A...', Array, Array)
+#3 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/BaseYii.php(349): yii\di\Container->get('api\\soap\\core\\A...', Array, Array)
+#4 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(227): yii\BaseYii::createObject(Array, Array)
+#5 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Controller.php(126): yii\base\Controller->createAction('index')
+#6 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#7 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('', Array)
+#8 /home/w/webali/lk.web-ali.ru/public_html/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php(20): yii\base\Application->run()
+#10 {main}
+2018-11-09 12:33:28 [46.28.89.34][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'UNIQUE_ID' => 'W@VUaAVlnMcAAL-bo-YAAAAH'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/api/soap/web/index.php'
+    'REMOTE_PORT' => '8196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/soap/web/'
+    'SCRIPT_NAME' => '/api/soap/web/index.php'
+    'PHP_SELF' => '/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541756008.3
+    'REQUEST_TIME' => 1541756008
+    'argv' => []
+    'argc' => 0
+]
