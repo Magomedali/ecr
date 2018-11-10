@@ -10,6 +10,8 @@ use api\soap\Exceptions\ApiExceptionMethodNotExists;
 use api\soap\Exceptions\ApiExceptionWrongType;
 
 use common\models\Brigade;
+use common\models\Technic;
+use common\models\User;
 
 class Api{
 
@@ -35,7 +37,7 @@ class Api{
             return $e->getResponce();
         
         }catch(Exception $e){
-            return new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>"Error on Site Soap Server"]);
+            return new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$e->getMessage()]);
         }
 
 	}
@@ -108,7 +110,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadworker($workers){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadworker'");
+        self::log("Parameter Type:".gettype($workers));
+        self::log("Parameter Value:".json_encode($workers));
+
+        if(!is_array($workers)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($workers as $key => $wr) {
+            $worker = new User();
+            self::log("Parameter Value:".gettype($wr));
+            
+            //stdObject to array
+            $arWorker = json_decode(json_encode($wr),1);
+            $params = ['User'=>$arWorker];
+
+            if(!$worker->load($params) || !$worker->save(1)){
+                if(isset($arWorker['guid'])){
+                   $erros[$arWorker['guid']] = json_encode($worker->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
@@ -123,7 +157,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadtechnics($technics){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadbrigade'");
+        self::log("Parameter Type:".gettype($technics));
+        self::log("Parameter Value:".json_encode($technics));
+
+        if(!is_array($technics)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($technics as $key => $br) {
+            $model = new Technic();
+            self::log("Parameter Value:".gettype($br));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($br),1);
+            $params = ['Technic'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 

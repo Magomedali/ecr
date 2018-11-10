@@ -52,10 +52,10 @@ class Brigade extends ActiveRecordVersionable
         
         if(parent::load($data, $formName)){
 
-            $brigade = self::find()->where(['guid'=>$this->guid])->one();
-            if ($brigade && isset($brigade->id)) {
-                $this->id = $brigade->id;
-                $this->setOldAttributes($brigade->attributes);           
+            $model = self::find()->where(['guid'=>$this->guid])->one();
+            if ($model && isset($model->id)) {
+                $this->id = $model->id;
+                $this->setOldAttributes($model->attributes);           
             }
 
             return true;

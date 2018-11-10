@@ -51,20 +51,35 @@ class ClientController extends Controller
 
         $model = new \common\models\Brigade();
 
-        $par = ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'];
+        $par = [
+            ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
+            ['guid'=>'2asdasjdhuu32423jkasdfa','name'=>'Бригадbh2']
+        ];
 
-        if($model->load(['Brigade'=>$par]) && $model->save(1)){
+        $answer = Yii::$app->testclient->getClient()->unloadbrigade($par); 
 
-        }
-        
-
+        print_r($answer);
     }
 
 
 
 
     
-    public function actionUnloadworker($workers = null){  
+    public function actionUnloadworker($workers = null){
+
+
+        $par = [
+            'guid'=>'1asdasjdhuu32423jkasdfa',
+            'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+            'name'=>'Бригада1',
+            'ktu'=>1.2,
+            'is_master'=>true
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadworker([$par]); 
+
+        print_r($answer);
+
     }
 
 

@@ -19,6 +19,11 @@ class Worker  extends ApiModel
 
     /**
      * @var string
+    */
+    public $name;
+
+    /**
+     * @var string
      * @nillable
     */
     public $brigade_guid;

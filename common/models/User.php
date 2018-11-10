@@ -30,6 +30,8 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $password;
+
     /**
      * @inheritdoc
      */
@@ -46,37 +48,54 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['login','auth_key','password_hash','name','guid'], 'required'],
-            [['login','name'], 'filter', 'filter' => 'trim'],
+            [['name','guid'], 'required'],
+            [['login','name','password'], 'filter', 'filter' => 'trim'],
             [['brigade_guid','technic_guid'],'default','value'=>null],
             [['ktu'],'number'],
             [['ktu'],'default','value'=>0],
+            [['login','password'],'default','value'=>null],
             ['is_master','boolean'],
             [['is_master'],'default','value'=>false],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            ['login','checkUniqueUser'],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]]
         ];
     }
 
 
 
 
-    /**
-     * Validates the unique user.
-     * This method serves as the inline validation for unique user.
-     *
-     * @param string $attribute the attribute currently being validated
-     * @param array $params the additional name-value pairs given in the rule
-     */
-    public function checkUniqueUser($attribute, $params)
-    {
-        if (!$this->hasErrors()) {
-            $user = self::find()->where(['guid'=>$this->guid])->orWhere(['login'=>$this->login])->one();
-            if ($user && isset($user->id)) {
-                $this->addError($attribute, 'Учетная запись уже существует');
+    public function load($data, $formName = null){
+        
+        if(parent::load($data, $formName)){
+
+            if($this->login){
+                //Обязателен пароль, если логин есть
+                if(!$this->password){
+                    $this->addError("password",'Password is required for login');
+                    return false;
+                }
+
+                //Проверяем, есть ли другой пользователь с таким логином
+                $user = self::find()->where("guid != '{$this->guid}'")->andWhere(['login'=>$this->login])->one();
+                if(isset($user->id)){
+                    $this->addError("login",'login is busy');
+                    return false;
+                }
+
+                $this->setPassword($this->password);
+                $this->generateAuthKey();
             }
+
+            $model = self::find()->where(['guid'=>$this->guid])->one();
+            if ($model && isset($model->id)) {
+                $this->id = $model->id;
+                $this->setOldAttributes($model->attributes);           
+            }
+
+            return true;
         }
+
+        return false;
     }
 
 

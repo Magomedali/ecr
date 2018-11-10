@@ -53,6 +53,22 @@ class Technic extends ActiveRecordVersionable
     }
 
 
+
+    public function load($data, $formName = null){
+        
+        if(parent::load($data, $formName)){
+
+            $model = self::find()->where(['guid'=>$this->guid])->one();
+            if ($model && isset($model->id)) {
+                $this->id = $model->id;
+                $this->setOldAttributes($model->attributes);           
+            }
+
+            return true;
+        }
+
+        return false;
+    }
     
     
     /**

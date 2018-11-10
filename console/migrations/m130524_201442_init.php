@@ -24,10 +24,10 @@ class m130524_201442_init extends Migration
             'ktu' => $this->float()->notNull()->defaultValue(0),
             'is_master' => $this->boolean()->notNull()->defaultValue(0),
 
-            'login' => $this->string()->notNull()->unique(),
-            'auth_key' => $this->string(32)->notNull(),
-            'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string()->unique(),
+            'login' => $this->string()->unique()->null(),
+            'auth_key' => $this->string(32)->null(),
+            'password_hash' => $this->string()->null(),
+            'password_reset_token' => $this->string()->unique()->null(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10)
         ], $tableOptions);
 
