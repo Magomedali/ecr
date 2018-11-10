@@ -10,16 +10,28 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Boundary  extends ApiModel
+class RaportMaterial  extends ApiModel
 {
-    /**
-     * @var string 
-    */
-    public $guid;
 
     /**
-    * @var string
+     * @var string
     */
-    public $name;
+    public $nomenclature_guid;
+
+    /**
+    * @var float
+    */
+    public $was;
+
+
+    /**
+    * @var float
+    */
+    public $spen;
+
+    /**
+    * @var float
+    */
+    public $rest;
 
 }

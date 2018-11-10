@@ -10,16 +10,9 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Boundary  extends ApiModel
+class ApiModel  extends Model
 {
-    /**
-     * @var string 
-    */
-    public $guid;
-
-    /**
-    * @var string
-    */
-    public $name;
-
+    public function __toString(){
+        return json_encode($this->attributes);
+    }
 }

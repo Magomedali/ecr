@@ -10,31 +10,36 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Responce  extends Model
+class Responce  extends ApiModel
 {
     /**
      * @var boolean
     */
-    public $success;
+    public $success = false;
 
     /**
     * @var string
+    * @nillable
     */
     public $error;
 
     /**
     * @var string
+    * @nillable
     */
     public $errorMessage;
 
     /**
     * @var string
+    * @nillable
     */
     public $errorUserMessage;
 
     /**
     * @var array
+    * @nillable
     */
     public $errorsExtend;
+
 
 }

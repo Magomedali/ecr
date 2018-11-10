@@ -30,18 +30,12 @@ class RaportFile extends ActiveRecord
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['name','email','phone','password'], 'required'],
-            
-            [['name','username','email','phone'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            ['email','email'],
-            ['username','default','value'=>null],
-            
-            ['password', 'string', 'min' => 6],
-            [['password_hash','auth_key'],'safe'],
-            ['email','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой email уже используется'],
-            ['phone','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой телефон уже используется'],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['raport_id','file_name','file_type','file'], 'required'],
+            [['file_name','file_type','file'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
+            ['creator_id','default','value'=>null],
+            ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
+            [['created_at'], 'filter','filter'=>function($v){return $v ? date("Y-m-d\TH:i:s",time()) : null;}],
+            ['file_type', 'string', 'min' => 32]
         ];
 	}
 
@@ -54,11 +48,12 @@ class RaportFile extends ActiveRecord
     public function attributeLabels(){
     	return array(
     		'id'=>'Id',
-    		'name'=>'Название',
-            'username'=>'Логин',
-            'email'=>'E-mail',
-            'phone'=>'Теленфон',
-            'password'=>'Пароль'
+    		'raport_id'=>'Рапорт',
+            'created_at'=>'Дата',
+            'file_name'=>'Имя файла',
+            'file_type'=>'Тип файла',
+            'file'=>'Файл',
+            'creator_id'=>"Пользователь"
     	);
     }
 

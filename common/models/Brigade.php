@@ -42,16 +42,29 @@ class Brigade extends ActiveRecordVersionable
         return [
             // name, email, subject and body are required
             [['guid','name'], 'required'],
-            ['guid','unique','targetClass' => '\common\models\Brigade', 'message' => 'Запись с таким guid уже существует!'],
             [['guid'],'string','max'=>32],
             [['name'],'string','max'=>128],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            
         ];
     }
 
+    public function load($data, $formName = null){
+        
+        if(parent::load($data, $formName)){
 
-    
+            $brigade = self::find()->where(['guid'=>$this->guid])->one();
+            if ($brigade && isset($brigade->id)) {
+                $this->id = $brigade->id;
+                $this->setOldAttributes($brigade->attributes);           
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+
     
     /**
      * @return array customized attribute labels (name=>label)

@@ -12,7 +12,7 @@ use yii\db\ActiveRecord;
 use common\models\User;
 
 
-class RaportBrigade extends ActiveRecord 
+class RaportConsist extends ActiveRecord 
 {
     
 
@@ -22,23 +22,19 @@ class RaportBrigade extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%raport_brigade}}';
+        return '{{%raport_consist}}';
     }
-
-
-
-
     
 
 
 	public function rules(){
-		return [
+        return [
             // name, email, subject and body are required
-            [['raport_id','user_guid'], 'required'],
+            [['raport_id','technic_guid','user_guid'], 'required'],
             ['raport_id','number'],
-            ['user_guid','string','max'=>32]
+            [['technic_guid','user_guid'],'string','max'=>32]
         ];
-	}
+    }
 
 
     
@@ -47,11 +43,12 @@ class RaportBrigade extends ActiveRecord
      * @return array customized attribute labels (name=>label)
      */
     public function attributeLabels(){
-    	return array(
-    		'id'=>'Id',
-    		'raport_id'=>'Рапорт',
-            'user_guid'=>'Физ.лицо'
-    	);
+        return array(
+            'id'=>'Id',
+            'raport_id'=>'Рапорт',
+            'technic_guid'=>'Техника',
+            'user_guid'=>'Физ лицо'
+        );
     }
 
 

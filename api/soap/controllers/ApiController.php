@@ -6,7 +6,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use api\soap\models\Brigade;
 use api\soap\models\Responce;
-
+use api\soap\Exceptions\ApiException;
+use api\soap\Api;
 
 /**
  * Api controller
@@ -30,30 +31,27 @@ class ApiController extends Controller
         ];
     }
     
-    
-    public function actionTest(){
+
+    /**
+     * @inheritdoc
+     */
+    public function exec($method,$params){
         
-        $id = "api/index";
-        
-        $url = Yii::$app->getUrlManager();
-        
-        $url->enablePrettyUrl = true;
-        
-        print_r($url->createAbsoluteUrl($id));
-        exit;
+        $methodName = str_replace(__CLASS__."::", "", $method);
+
+        return Api::exec($methodName,$params);
     }
     
-    
+
+
     /**
      * Stest method
      * @param string $msg
-     * @return string
+     * @return api\soap\models\Responce
      * @soap
      */
-    public function test($msg)
-    {   
-        $return = "Leeee ".$msg;
-        return $return;
+    public function test($msg){   
+        return $this->exec(__METHOD__,$msg);
     }
 
 
@@ -63,10 +61,8 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadbrigade($brigades)
-    {   
-        $responce = new Responce(['success'=>false]);
-        return $responce;
+    public function unloadbrigade($brigades){   
+        return $this->exec(__METHOD__,$brigades);
     }
 
 
@@ -78,10 +74,8 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadworker($workers)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadworker($workers){   
+        return $this->exec(__METHOD__,$workers);
     }
 
 
@@ -95,10 +89,8 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadtechnics($technics)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadtechnics($technics){   
+        return $this->exec(__METHOD__,$technics);
     }
 
 
@@ -112,11 +104,11 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadobject($objects)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadobject($objects){   
+        return $this->exec(__METHOD__,$objects);
     }
+
+
 
 
 
@@ -126,13 +118,14 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadboundary($boundaries)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadboundary($boundaries){   
+        return $this->exec(__METHOD__,$boundaries);
     }
 
     
+
+
+
 
     /**
      * unload projects
@@ -140,10 +133,8 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadproject($projects)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadproject($projects){   
+        return $this->exec(__METHOD__,$projects);
     }
 
 
@@ -155,10 +146,8 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadtypeofwork($works)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadtypeofwork($works){   
+        return $this->exec(__METHOD__,$works);
     }
 
 
@@ -171,10 +160,8 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadline($lines)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadline($lines){   
+        return $this->exec(__METHOD__,$lines);
     }
 
 
@@ -186,11 +173,11 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadnomenclature($nomenclatures)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadnomenclature($nomenclatures){   
+        return $this->exec(__METHOD__,$nomenclatures);
     }
+
+
 
 
 
@@ -200,9 +187,7 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadraport($raports)
-    {   
-        $responce = new Responce(['success'=>true]);
-        return $responce;
+    public function unloadraport($raports){   
+        return $this->exec(__METHOD__,$raports);
     }
 }

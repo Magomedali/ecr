@@ -7436,3 +7436,1741 @@ $_SERVER = [
     'argv' => []
     'argc' => 0
 ]
+2018-11-10 11:18:49 [::1][-][-][error][ReflectionException] ReflectionException: Class api/soap/models/RaportFile does not exist in D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php:423
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(423): ReflectionClass->__construct('api/soap/models...')
+#1 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api/soap/models...')
+#2 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api/soap/models...', 'api/soap/models...')
+#3 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api/soap/models...')
+#4 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(437): api\soap\php2wsdl\WSDL->getXSDType('api/soap/models...')
+#5 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#6 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api\\soap\\models...', 'api\\soap\\models...')
+#7 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#8 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(201): api\soap\php2wsdl\WSDL->getXSDType('api\\soap\\models...')
+#9 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(148): api\soap\php2wsdl\PHPClass2WSDL->addMethodToWsdl(Object(Wingu\OctopusCore\Reflection\ReflectionMethod), Object(DOMElement), Object(DOMElement))
+#10 D:\usr\www\ecr\api\soap\Service.php(147): api\soap\php2wsdl\PHPClass2WSDL->generateWSDL(true)
+#11 D:\usr\www\ecr\api\soap\Service.php(137): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://localhos...', 'http://lk.web-a...')
+#12 D:\usr\www\ecr\api\soap\Action.php(104): api\soap\Service->generateWsdl()
+#13 [internal function]: api\soap\Action->run()
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#17 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#18 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#20 {main}
+2018-11-10 11:18:49 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18202'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ecr/api/soap/web/'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541848729.255
+    'REQUEST_TIME' => 1541848729
+]
+2018-11-10 11:19:14 [::1][-][-][error][ReflectionException] ReflectionException: Class api/soap/models/RaportFile does not exist in D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php:423
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(423): ReflectionClass->__construct('api/soap/models...')
+#1 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api/soap/models...')
+#2 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(437): api\soap\php2wsdl\WSDL->getXSDType('api/soap/models...')
+#3 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#4 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api\\soap\\models...', 'api\\soap\\models...')
+#5 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#6 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(201): api\soap\php2wsdl\WSDL->getXSDType('api\\soap\\models...')
+#7 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(148): api\soap\php2wsdl\PHPClass2WSDL->addMethodToWsdl(Object(Wingu\OctopusCore\Reflection\ReflectionMethod), Object(DOMElement), Object(DOMElement))
+#8 D:\usr\www\ecr\api\soap\Service.php(147): api\soap\php2wsdl\PHPClass2WSDL->generateWSDL(true)
+#9 D:\usr\www\ecr\api\soap\Service.php(137): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://localhos...', 'http://lk.web-a...')
+#10 D:\usr\www\ecr\api\soap\Action.php(104): api\soap\Service->generateWsdl()
+#11 [internal function]: api\soap\Action->run()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 11:19:14 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18205'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ecr/api/soap/web/'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541848754.499
+    'REQUEST_TIME' => 1541848754
+]
+2018-11-10 11:19:42 [::1][-][-][error][ReflectionException] ReflectionException: Class api/soap/models/RaportFile does not exist in D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php:423
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(423): ReflectionClass->__construct('api/soap/models...')
+#1 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api/soap/models...')
+#2 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(437): api\soap\php2wsdl\WSDL->getXSDType('api/soap/models...')
+#3 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#4 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api\\soap\\models...', 'api\\soap\\models...')
+#5 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#6 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(201): api\soap\php2wsdl\WSDL->getXSDType('api\\soap\\models...')
+#7 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(148): api\soap\php2wsdl\PHPClass2WSDL->addMethodToWsdl(Object(Wingu\OctopusCore\Reflection\ReflectionMethod), Object(DOMElement), Object(DOMElement))
+#8 D:\usr\www\ecr\api\soap\Service.php(147): api\soap\php2wsdl\PHPClass2WSDL->generateWSDL(true)
+#9 D:\usr\www\ecr\api\soap\Service.php(137): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://localhos...', 'http://lk.web-a...')
+#10 D:\usr\www\ecr\api\soap\Action.php(104): api\soap\Service->generateWsdl()
+#11 [internal function]: api\soap\Action->run()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 11:19:42 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18209'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ecr/api/soap/web/'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541848782.63
+    'REQUEST_TIME' => 1541848782
+]
+2018-11-10 11:20:03 [::1][-][-][error][ReflectionException] ReflectionException: Class api/soap/models/RaportFile does not exist in D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php:423
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(423): ReflectionClass->__construct('api/soap/models...')
+#1 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api/soap/models...')
+#2 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(437): api\soap\php2wsdl\WSDL->getXSDType('api/soap/models...')
+#3 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#4 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api\\soap\\models...', 'api\\soap\\models...')
+#5 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#6 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(201): api\soap\php2wsdl\WSDL->getXSDType('api\\soap\\models...')
+#7 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(148): api\soap\php2wsdl\PHPClass2WSDL->addMethodToWsdl(Object(Wingu\OctopusCore\Reflection\ReflectionMethod), Object(DOMElement), Object(DOMElement))
+#8 D:\usr\www\ecr\api\soap\Service.php(147): api\soap\php2wsdl\PHPClass2WSDL->generateWSDL(true)
+#9 D:\usr\www\ecr\api\soap\Service.php(137): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://localhos...', 'http://lk.web-a...')
+#10 D:\usr\www\ecr\api\soap\Action.php(104): api\soap\Service->generateWsdl()
+#11 [internal function]: api\soap\Action->run()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 11:20:03 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18215'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ecr/api/soap/web/'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541848803.133
+    'REQUEST_TIME' => 1541848803
+]
+2018-11-10 11:20:26 [::1][-][-][error][ReflectionException] ReflectionException: Class RaportFile does not exist in D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php:423
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(423): ReflectionClass->__construct('RaportFile')
+#1 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('RaportFile')
+#2 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(437): api\soap\php2wsdl\WSDL->getXSDType('RaportFile')
+#3 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#4 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api\\soap\\models...', 'api\\soap\\models...')
+#5 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#6 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(201): api\soap\php2wsdl\WSDL->getXSDType('api\\soap\\models...')
+#7 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(148): api\soap\php2wsdl\PHPClass2WSDL->addMethodToWsdl(Object(Wingu\OctopusCore\Reflection\ReflectionMethod), Object(DOMElement), Object(DOMElement))
+#8 D:\usr\www\ecr\api\soap\Service.php(147): api\soap\php2wsdl\PHPClass2WSDL->generateWSDL(true)
+#9 D:\usr\www\ecr\api\soap\Service.php(137): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://localhos...', 'http://lk.web-a...')
+#10 D:\usr\www\ecr\api\soap\Action.php(104): api\soap\Service->generateWsdl()
+#11 [internal function]: api\soap\Action->run()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 11:20:26 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18217'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ecr/api/soap/web/'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541848826.298
+    'REQUEST_TIME' => 1541848826
+]
+2018-11-10 11:41:31 [::1][-][-][error][ReflectionException] ReflectionException: Class string @nillable does not exist in D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php:423
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(423): ReflectionClass->__construct('string @nillabl...')
+#1 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('string @nillabl...')
+#2 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(437): api\soap\php2wsdl\WSDL->getXSDType('string @nillabl...')
+#3 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(484): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#4 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(420): api\soap\php2wsdl\WSDL->addComplexTypeArray('api\\soap\\models...', 'api\\soap\\models...')
+#5 D:\usr\www\ecr\api\soap\php2wsdl\WSDL.php(389): api\soap\php2wsdl\WSDL->addComplexType('api\\soap\\models...')
+#6 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(201): api\soap\php2wsdl\WSDL->getXSDType('api\\soap\\models...')
+#7 D:\usr\www\ecr\api\soap\php2wsdl\PHPClass2WSDL.php(148): api\soap\php2wsdl\PHPClass2WSDL->addMethodToWsdl(Object(Wingu\OctopusCore\Reflection\ReflectionMethod), Object(DOMElement), Object(DOMElement))
+#8 D:\usr\www\ecr\api\soap\Service.php(147): api\soap\php2wsdl\PHPClass2WSDL->generateWSDL(true)
+#9 D:\usr\www\ecr\api\soap\Service.php(137): api\soap\Service->generateWsdlInternal('api\\soap\\contro...', 'http://localhos...', 'http://lk.web-a...')
+#10 D:\usr\www\ecr\api\soap\Action.php(104): api\soap\Service->generateWsdl()
+#11 [internal function]: api\soap\Action->run()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 11:41:31 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18271'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ecr/api/soap/web/'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541850091.47
+    'REQUEST_TIME' => 1541850091
+]
+2018-11-10 12:02:14 [127.0.0.1][-][-][error][ParseError] ParseError: syntax error, unexpected 'Responce' (T_STRING) in D:\usr\www\ecr\api\soap\controllers\ApiController.php:44
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('api\\soap\\contro...')
+#1 [internal function]: spl_autoload_call('api\\soap\\contro...')
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(637): class_exists('api\\soap\\contro...')
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(596): yii\base\Module->createControllerByID('api')
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(522): yii\base\Module->createController('')
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#8 {main}
+2018-11-10 12:02:14 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'close'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18420'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541851334.11
+    'REQUEST_TIME' => 1541851334
+]
+2018-11-10 12:08:11 [127.0.0.1][-][-][error][api\soap\Service::run] Use of undefined constant fale - assumed 'fale' (this will throw an Error in a future version of PHP)
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:08:11 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18448'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541851691.728
+    'REQUEST_TIME' => 1541851691
+]
+2018-11-10 12:08:22 [127.0.0.1][-][-][error][api\soap\Service::run] Setting unknown property: api\soap\models\Responce::succes
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:08:22 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18453'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541851702.144
+    'REQUEST_TIME' => 1541851702
+]
+2018-11-10 12:10:23 [127.0.0.1][-][-][error][api\soap\Service::run] Setting unknown property: api\soap\models\Responce::succes
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:10:23 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18461'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541851823.896
+    'REQUEST_TIME' => 1541851823
+]
+2018-11-10 12:10:55 [127.0.0.1][-][-][error][api\soap\Service::run] Setting unknown property: api\soap\models\Responce::succes
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:10:55 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18480'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541851855.911
+    'REQUEST_TIME' => 1541851855
+]
+2018-11-10 12:25:19 [127.0.0.1][-][-][error][api\soap\Service::run] Method api\soap\controllers\ApiController::test does not exist
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:25:18 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18566'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541852718.979
+    'REQUEST_TIME' => 1541852718
+]
+2018-11-10 12:25:54 [127.0.0.1][-][-][error][api\soap\Service::run] Method api\soap\controllers\ApiController::test does not exist
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:25:54 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18576'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541852754.758
+    'REQUEST_TIME' => 1541852754
+]
+2018-11-10 12:27:02 [127.0.0.1][-][-][error][api\soap\Service::run] Method api\soap\controllers\ApiController::exec does not exist
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:27:02 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18582'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541852822.345
+    'REQUEST_TIME' => 1541852822
+]
+2018-11-10 12:27:18 [127.0.0.1][-][-][error][api\soap\Service::run] Method api\soap\controllers\ApiController::test does not exist
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:27:18 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18587'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541852838.517
+    'REQUEST_TIME' => 1541852838
+]
+2018-11-10 12:37:53 [127.0.0.1][-][-][error][api\soap\Service::run] Object of class api\soap\models\Responce could not be converted to string
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:37:53 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18604'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541853473.133
+    'REQUEST_TIME' => 1541853473
+]
+2018-11-10 12:45:27 [127.0.0.1][-][-][error][api\soap\Service::run] Object of class api\soap\models\Responce could not be converted to string
+    in D:\usr\www\ecr\api\soap\Service.php:182
+    in D:\usr\www\ecr\api\soap\Action.php:100
+2018-11-10 12:45:27 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18695'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541853927.068
+    'REQUEST_TIME' => 1541853927
+]
+2018-11-10 12:58:07 [127.0.0.1][-][-][error][yii\base\ErrorException:64] yii\base\ErrorException: Cannot redeclare api\soap\Api::test() in D:\usr\www\ecr\api\soap\Api.php:50
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2018-11-10 12:58:07 [127.0.0.1][-][-][info][application] $_GET = [
+    'ws' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'api.ecr:8081'
+    'HTTP_CONNECTION' => 'Keep-Alive'
+    'HTTP_USER_AGENT' => 'PHP-SOAP/7.2.12'
+    'CONTENT_TYPE' => 'text/xml; charset=utf-8'
+    'HTTP_SOAPACTION' => '\"http://lk.web-ali.ru/api/soap/#test\"'
+    'CONTENT_LENGTH' => '489'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'api.ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/api/soap/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '18822'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'ws=1'
+    'REQUEST_URI' => '/?ws=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1541854687.548
+    'REQUEST_TIME' => 1541854687
+]
+2018-11-10 14:00:40 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: answer in D:\usr\www\ecr\api\soap\controllers\ClientController.php:44
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\controllers\ClientController.php(44): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', 'D:\\usr\\www\\ecr\\...', 44, Array)
+#1 [internal function]: api\soap\controllers\ClientController->actionTest()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#8 {main}
+2018-11-10 14:00:40 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19281'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858440.767
+    'REQUEST_TIME' => 1541858440
+]
+2018-11-10 14:00:54 [::1][-][-][error][ParseError] ParseError: syntax error, unexpected 'use' (T_USE), expecting '{' in D:\usr\www\ecr\api\soap\test\TestClient.php:5
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('api\\soap\\test\\T...')
+#1 [internal function]: spl_autoload_call('api\\soap\\test\\T...')
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(428): ReflectionClass->__construct('api\\soap\\test\\T...')
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(364): yii\di\Container->getDependencies('api\\soap\\test\\T...')
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\soap\\test\\T...', Array, Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('api\\soap\\test\\T...', Array, Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(742): yii\di\ServiceLocator->get('testclient', true)
+#8 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(74): yii\base\Module->get('testclient')
+#9 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\di\ServiceLocator->__get('testclient')
+#10 [internal function]: api\soap\controllers\ClientController->actionTest()
+#11 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#17 {main}
+2018-11-10 14:00:54 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19283'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858454.882
+    'REQUEST_TIME' => 1541858454
+]
+2018-11-10 14:01:12 [::1][-][-][error][SoapFault] SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://localhost:8081/ecr/api/soap/web/' : failed to load external entity "http://localhost:8081/ecr/api/soap/web/"
+ in D:\usr\www\ecr\api\soap\test\TestClient.php:42
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\test\TestClient.php(42): SoapClient->SoapClient('http://localhos...', Array)
+#1 D:\usr\www\ecr\api\soap\test\TestClient.php(22): api\soap\test\TestClient->createSoapClient()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\BaseObject.php(109): api\soap\test\TestClient->init()
+#3 [internal function]: yii\base\BaseObject->__construct(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(383): ReflectionClass->newInstanceArgs(Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\soap\\test\\T...', Array, Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('api\\soap\\test\\T...', Array, Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#8 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(742): yii\di\ServiceLocator->get('testclient', true)
+#9 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(74): yii\base\Module->get('testclient')
+#10 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\di\ServiceLocator->__get('testclient')
+#11 [internal function]: api\soap\controllers\ClientController->actionTest()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 14:01:12 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19285'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858472.207
+    'REQUEST_TIME' => 1541858472
+]
+2018-11-10 14:01:42 [::1][-][-][error][SoapFault] SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://localhost:8081/ecr/api/soap/web/' : failed to load external entity "http://localhost:8081/ecr/api/soap/web/"
+ in D:\usr\www\ecr\api\soap\test\TestClient.php:44
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\test\TestClient.php(44): SoapClient->SoapClient('http://localhos...', Array)
+#1 D:\usr\www\ecr\api\soap\test\TestClient.php(22): api\soap\test\TestClient->createSoapClient()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\BaseObject.php(109): api\soap\test\TestClient->init()
+#3 [internal function]: yii\base\BaseObject->__construct(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(383): ReflectionClass->newInstanceArgs(Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\soap\\test\\T...', Array, Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('api\\soap\\test\\T...', Array, Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#8 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(742): yii\di\ServiceLocator->get('testclient', true)
+#9 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(74): yii\base\Module->get('testclient')
+#10 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\di\ServiceLocator->__get('testclient')
+#11 [internal function]: api\soap\controllers\ClientController->actionTest()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 14:01:42 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19288'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858502.92
+    'REQUEST_TIME' => 1541858502
+]
+2018-11-10 14:01:44 [::1][-][-][error][SoapFault] SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://localhost:8081/ecr/api/soap/web/' : failed to load external entity "http://localhost:8081/ecr/api/soap/web/"
+ in D:\usr\www\ecr\api\soap\test\TestClient.php:44
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\test\TestClient.php(44): SoapClient->SoapClient('http://localhos...', Array)
+#1 D:\usr\www\ecr\api\soap\test\TestClient.php(22): api\soap\test\TestClient->createSoapClient()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\BaseObject.php(109): api\soap\test\TestClient->init()
+#3 [internal function]: yii\base\BaseObject->__construct(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(383): ReflectionClass->newInstanceArgs(Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\soap\\test\\T...', Array, Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('api\\soap\\test\\T...', Array, Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#8 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(742): yii\di\ServiceLocator->get('testclient', true)
+#9 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(74): yii\base\Module->get('testclient')
+#10 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\di\ServiceLocator->__get('testclient')
+#11 [internal function]: api\soap\controllers\ClientController->actionTest()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 14:01:44 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19289'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858504.718
+    'REQUEST_TIME' => 1541858504
+]
+2018-11-10 14:04:37 [::1][-][-][error][SoapFault] SoapFault exception: [WSDL] SOAP-ERROR: Parsing WSDL: Couldn't load from 'http://localhost:8081/ecr/api/soap/web/' : failed to load external entity "http://localhost:8081/ecr/api/soap/web/"
+ in D:\usr\www\ecr\api\soap\test\TestClient.php:45
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\test\TestClient.php(45): SoapClient->SoapClient('http://localhos...', Array)
+#1 D:\usr\www\ecr\api\soap\test\TestClient.php(22): api\soap\test\TestClient->createSoapClient()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\BaseObject.php(109): api\soap\test\TestClient->init()
+#3 [internal function]: yii\base\BaseObject->__construct(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(383): ReflectionClass->newInstanceArgs(Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('api\\soap\\test\\T...', Array, Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('api\\soap\\test\\T...', Array, Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(137): yii\BaseYii::createObject(Array)
+#8 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(742): yii\di\ServiceLocator->get('testclient', true)
+#9 D:\usr\www\ecr\vendor\yiisoft\yii2\di\ServiceLocator.php(74): yii\base\Module->get('testclient')
+#10 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\di\ServiceLocator->__get('testclient')
+#11 [internal function]: api\soap\controllers\ClientController->actionTest()
+#12 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#15 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#16 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#18 {main}
+2018-11-10 14:04:37 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19325'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858677.819
+    'REQUEST_TIME' => 1541858677
+]
+2018-11-10 14:05:30 [::1][-][-][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: api\soap\test\TestClient::test() in D:\usr\www\ecr\vendor\yiisoft\yii2\base\Component.php:300
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\base\Component->__call('test', Array)
+#1 [internal function]: api\soap\controllers\ClientController->actionTest()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#8 {main}
+2018-11-10 14:05:30 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19332'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858730.529
+    'REQUEST_TIME' => 1541858730
+]
+2018-11-10 14:05:51 [::1][-][-][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: api\soap\test\TestClient::client in D:\usr\www\ecr\vendor\yiisoft\yii2\base\Component.php:154
+Stack trace:
+#0 D:\usr\www\ecr\api\soap\controllers\ClientController.php(42): yii\base\Component->__get('client')
+#1 [internal function]: api\soap\controllers\ClientController->actionTest()
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#8 {main}
+2018-11-10 14:05:51 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19335'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541858751.631
+    'REQUEST_TIME' => 1541858751
+]
+2018-11-10 14:11:12 [::1][-][-][error][Error] Error: Class 'api\soap\controllers\Test' not found in D:\usr\www\ecr\api\soap\controllers\ClientController.php:42
+Stack trace:
+#0 [internal function]: api\soap\controllers\ClientController->actionTest()
+#1 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#7 {main}
+2018-11-10 14:11:12 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19350'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541859072.767
+    'REQUEST_TIME' => 1541859072
+]
+2018-11-10 14:11:30 [::1][-][-][error][ParseError] ParseError: syntax error, unexpected '}', expecting ';' in D:\usr\www\ecr\api\soap\test\requests\Test.php:15
+Stack trace:
+#0 [internal function]: yii\BaseYii::autoload('api\\soap\\test\\r...')
+#1 D:\usr\www\ecr\api\soap\controllers\ClientController.php(43): spl_autoload_call('api\\soap\\test\\r...')
+#2 [internal function]: api\soap\controllers\ClientController->actionTest()
+#3 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#9 {main}
+2018-11-10 14:11:30 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19353'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541859090.81
+    'REQUEST_TIME' => 1541859090
+]
+2018-11-10 14:11:46 [::1][-][-][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Setting unknown property: api\soap\test\requests\Test::0 in D:\usr\www\ecr\vendor\yiisoft\yii2\base\Component.php:209
+Stack trace:
+#0 D:\usr\www\ecr\vendor\yiisoft\yii2\BaseYii.php(546): yii\base\Component->__set('0', 'test message')
+#1 D:\usr\www\ecr\vendor\yiisoft\yii2\base\BaseObject.php(107): yii\BaseYii::configure(Object(api\soap\test\requests\Test), Array)
+#2 D:\usr\www\ecr\api\soap\controllers\ClientController.php(43): yii\base\BaseObject->__construct(Array)
+#3 [internal function]: api\soap\controllers\ClientController->actionTest()
+#4 D:\usr\www\ecr\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('test', Array)
+#7 D:\usr\www\ecr\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('client/test', Array)
+#8 D:\usr\www\ecr\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 D:\usr\www\ecr\api\soap\web\index.php(20): yii\base\Application->run()
+#10 {main}
+2018-11-10 14:11:46 [::1][-][-][info][application] $_GET = [
+    'r' => 'client/test'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_ga' => 'GA1.1.843121482.1526807752'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_ga=GA1.1.843121482.1526807752'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/'
+    'SERVER_ADMIN' => 'webmaster@dummy-host2.example.com'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/api/soap/web/index.php'
+    'REMOTE_PORT' => '19356'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=client/test'
+    'REQUEST_URI' => '/ecr/api/soap/web/index.php?r=client/test'
+    'SCRIPT_NAME' => '/ecr/api/soap/web/index.php'
+    'PHP_SELF' => '/ecr/api/soap/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1541859106.47
+    'REQUEST_TIME' => 1541859106
+]

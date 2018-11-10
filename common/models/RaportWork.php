@@ -30,14 +30,13 @@ class RaportWork extends ActiveRecordVersionable
 
     public static function versionableAttributes(){
         return [
-            'username',
-            'email',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            'status',
-            'phone',
-            'name',
+            'raport_id',
+            'work_guid',
+            'line_guid',
+            'mechanized',
+            'length',
+            'count',
+            'squaremeter',
             'isDeleted',
         ];
     }
@@ -48,18 +47,18 @@ class RaportWork extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['name','email','phone','password'], 'required'],
+            [['raport_id','work_guid','line_guid','length','count'], 'required'],
             
-            [['name','username','email','phone'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            ['email','email'],
-            ['username','default','value'=>null],
+            [['length','count','squaremeter'], 'number'],
+
+            [['length','count','squaremeter'], 'default','value'=>0],
             
-            ['password', 'string', 'min' => 6],
-            [['password_hash','auth_key'],'safe'],
-            ['email','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой email уже используется'],
-            ['phone','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой телефон уже используется'],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['work_guid','line_guid'],'string','max'=>32],
+            
+            ['mechanized','boolean'],
+            ['mechanized','default','value'=>false],
+
+            ['raport_id', 'number','integerOnly'=>true],
         ];
 	}
 
@@ -72,11 +71,13 @@ class RaportWork extends ActiveRecordVersionable
     public function attributeLabels(){
     	return array(
     		'id'=>'Id',
-    		'name'=>'Название',
-            'username'=>'Логин',
-            'email'=>'E-mail',
-            'phone'=>'Теленфон',
-            'password'=>'Пароль'
+    		'raport_id'=>'Рапорт',
+            'work_guid'=>'Вид работы',
+            'line_guid'=>'Линия',
+            'length'=>'Длина',
+            'count'=>'Количество',
+            'mechanized'=>'Механизированная работа',
+            'squaremeter'=>'Квадратура'
     	);
     }
 

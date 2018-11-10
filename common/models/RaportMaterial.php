@@ -30,14 +30,12 @@ class RaportMaterial extends ActiveRecordVersionable
 
     public static function versionableAttributes(){
         return [
-            'username',
-            'email',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            'status',
-            'phone',
-            'name',
+            'raport_id',
+            'brigade_guid',
+            'item_guid',
+            'it_was',
+            'spent',
+            'rest',
             'isDeleted',
         ];
     }
@@ -48,18 +46,13 @@ class RaportMaterial extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['name','email','phone','password'], 'required'],
-            
-            [['name','username','email','phone'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            ['email','email'],
-            ['username','default','value'=>null],
-            
-            ['password', 'string', 'min' => 6],
-            [['password_hash','auth_key'],'safe'],
-            ['email','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой email уже используется'],
-            ['phone','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой телефон уже используется'],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['raport_id','brigade_guid','item_guid','it_was','spent','rest'], 'required'],
+            ['raport_id', 'number','integerOnly'=>true],
+            [['brigade_guid','item_guid'],'string','max'=>32],
+
+            [['it_was','spent','rest'], 'number'],
+
+            [['it_was','spent','rest'], 'default','value'=>0]
         ];
 	}
 
@@ -72,11 +65,12 @@ class RaportMaterial extends ActiveRecordVersionable
     public function attributeLabels(){
     	return array(
     		'id'=>'Id',
-    		'name'=>'Название',
-            'username'=>'Логин',
-            'email'=>'E-mail',
-            'phone'=>'Теленфон',
-            'password'=>'Пароль'
+    		'raport_id'=>'Рапорт',
+            'brigade_guid'=>'Бригада',
+            'item_guid'=>'Номенклатура',
+            'it_was'=>'Начальный остаток',
+            'spent'=>'Израсходовано',
+            'rest'=>'Исходный остаток'
     	);
     }
 

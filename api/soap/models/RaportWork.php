@@ -10,28 +10,38 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Technic  extends ApiModel
+class RaportWork  extends ApiModel
 {
+
     /**
      * @var string
     */
-    public $guid;
+    public $work_guid;
 
     /**
     * @var string
     */
-    public $name;
+    public $line_guid;
+
 
     /**
-    * @var string
+    * @var boolean
     */
-    public $marka;
-    
+    public $mechanized;
+
     /**
-     * @var string
+    * @var float
     */
-    public $number;
+    public $length;
 
-    
+    /**
+    * @var float
+    */
+    public $count;
 
+
+    /**
+    * @var float
+    */
+    public $squaremeter;
 }

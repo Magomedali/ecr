@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Worker  extends Model
+class Worker  extends ApiModel
 {
     /**
      * @var string
@@ -19,11 +19,13 @@ class Worker  extends Model
 
     /**
      * @var string
+     * @nillable
     */
     public $brigade_guid;
 
     /**
     * @var string
+    * @nillable
     */
     public $technic_guid;
 
@@ -39,11 +41,13 @@ class Worker  extends Model
 
     /**
     * @var string
+    * @nillable
     */
     public $login;
 
     /**
     * @var boolean
+    * @nillable
     */
     public $password;
 

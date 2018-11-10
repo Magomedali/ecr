@@ -12,6 +12,9 @@ use yii\db\ActiveRecord;
 use common\models\User;
 
 use common\base\ActiveRecordVersionable;
+use common\dictionaries\RaportStatuses;
+
+
 
 class Raport extends ActiveRecordVersionable 
 {
@@ -30,14 +33,25 @@ class Raport extends ActiveRecordVersionable
 
     public static function versionableAttributes(){
         return [
-            'username',
-            'email',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
+            'guid',
+            'number',
             'status',
-            'phone',
-            'name',
+            'created_at',
+            'starttime',
+            'endtime',
+            'temperature_start',
+            'temperature_end',
+            'surface_temperature_start',
+            'surface_temperature_end',
+            'airhumidity_start',
+            'airhumidity_end',
+            'brigade_guid',
+            'object_guid',
+            'boundary_guid',
+            'project_guid',
+            'master_guid',
+            'comment',
+
             'isDeleted',
         ];
     }
@@ -48,18 +62,27 @@ class Raport extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['name','email','phone','password'], 'required'],
+            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','created_at'], 'required'],
             
-            [['name','username','email','phone'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            ['email','email'],
-            ['username','default','value'=>null],
+            [['number','comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
-            ['password', 'string', 'min' => 6],
-            [['password_hash','auth_key'],'safe'],
-            ['email','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой email уже используется'],
-            ['phone','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой телефон уже используется'],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['created_at','starttime','endtime'],'filter','filter'=>function($v){ return $v ? date("Y-m-d\TH:i:s",strtotime($v)) : null}],
+
+            [['temperature_start','temperature_end','surface_temperature_start','surface_temperature_end','airhumidity_start','airhumidity_end'],'number'],
+
+            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid'],'string','max'=>32],
+            
+            ['number', 'string', 'max' => 255],
+
+            ['guid','unique','targetClass' => '\common\models\Seller', 'message' => 'Такой рапорт уже создан'],
+           
+            ['status', 'default', 'value' => RaportStatuses::CREATED],
+            ['status', 'in', 'range' => [
+                RaportStatuses::CREATED, 
+                RaportStatuses::IN_CONFIRMING,
+                RaportStatuses::CONFIRMED,
+                RaportStatuses::DELETED]
+            ],
         ];
 	}
 
@@ -72,11 +95,25 @@ class Raport extends ActiveRecordVersionable
     public function attributeLabels(){
     	return array(
     		'id'=>'Id',
-    		'name'=>'Название',
-            'username'=>'Логин',
-            'email'=>'E-mail',
-            'phone'=>'Теленфон',
-            'password'=>'Пароль'
+    		'guid'=>'Идентификатор 1С',
+            'number'=>'Номер',
+            'status'=>'Статус',
+            'created_at'=>'Дата',
+            'starttime'=>'Время начало работ',
+            'endtime'=>'Время окончания работ',
+            'temperature_start'=>"",
+            'temperature_end'=>"",
+            'surface_temperature_start'=>"",
+            'surface_temperature_end'=>"",
+            'airhumidity_start'=>"",
+            'airhumidity_end'=>"",
+            'brigade_guid'=>"Бригада",
+            'object_guid'=>"Объект",
+            'boundary_guid'=>"Округ",
+            'project_guid'=>"Контракт",
+            'master_guid'=>"Мастер",
+            'comment'=>"Комментарии",
+            'isDeleted'=>"Удалена",
     	);
     }
 

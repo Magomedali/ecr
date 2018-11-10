@@ -10,16 +10,24 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Boundary  extends ApiModel
+class RaportFile  extends ApiModel
 {
+
     /**
-     * @var string 
+     * @var base64binary
     */
-    public $guid;
+    public $file;
+
 
     /**
     * @var string
     */
-    public $name;
+    public $type;
+
+
+    /**
+    * @var string
+    */
+    public $file_name;
 
 }

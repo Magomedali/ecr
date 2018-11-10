@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Project  extends Model
+class Project  extends ApiModel
 {
     /**
      * @var string

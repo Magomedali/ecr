@@ -10,16 +10,16 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Boundary  extends ApiModel
+class RaportConsist  extends ApiModel
 {
+
     /**
-     * @var string 
+     * @var string
     */
-    public $guid;
+    public $technic_guid;
 
     /**
     * @var string
     */
-    public $name;
-
+    public $user_guid;
 }
