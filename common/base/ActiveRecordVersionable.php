@@ -140,9 +140,8 @@ class ActiveRecordVersionable extends ActiveRecord implements Versionable{
 	*/
 	public static function resourceTableName(){
 		
-        $t = str_replace(['%','&','{','}'], '', self::tableName());
+        $t = str_replace(['%','&','{','}'], '', static::tableName());
         
-		
         return "{{%".$t."_history}}";
 	}
 
@@ -309,7 +308,7 @@ class ActiveRecordVersionable extends ActiveRecord implements Versionable{
     public function setCurrentVersion($v){
     	if($v == null) return false;
 
-    	return \Yii::$app->db->createCommand()->update(self::tableName(), ['version_id' => (int)$v], static::getPrimaryKeyTitle() . " = " . $this->getid())->execute();
+    	return \Yii::$app->db->createCommand()->update(static::tableName(), ['version_id' => (int)$v], static::getPrimaryKeyTitle() . " = " . $this->getid())->execute();
     }
 
 

@@ -116,6 +116,7 @@ class Raport  extends ApiModel
     
     /**
     * @var api\soap\models\RaportFile[]
+    * @nillable
     */
     public $files;
 

@@ -12,6 +12,14 @@ use api\soap\Exceptions\ApiExceptionWrongType;
 use common\models\Brigade;
 use common\models\Technic;
 use common\models\User;
+use common\models\TypeOfWork;
+use common\models\Line;
+use common\models\Nomenclature;
+use common\models\Boundary;
+use common\models\Objects;
+use common\models\Project;
+use common\models\Remnant;
+use common\models\Raport;
 
 class Api{
 
@@ -37,7 +45,9 @@ class Api{
             return $e->getResponce();
         
         }catch(Exception $e){
-            return new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$e->getMessage()]);
+
+            $message = YII_DEBUG ? $e->getMessage() : "Error on Server";
+            return new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$message]);
         }
 
 	}
@@ -156,8 +166,8 @@ class Api{
      * @param api\soap\models\Technic[] $technics
      * @return api\soap\models\Responce
      */
-    public static function unloadtechnics($technics){   
-        self::log("Called Method 'unloadbrigade'");
+    public static function unloadtechnic($technics){   
+        self::log("Called Method 'unloadtechnic'");
         self::log("Parameter Type:".gettype($technics));
         self::log("Parameter Value:".json_encode($technics));
 
@@ -204,7 +214,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadobject($objects){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadobject'");
+        self::log("Parameter Type:".gettype($objects));
+        self::log("Parameter Value:".json_encode($objects));
+
+        if(!is_array($objects)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($objects as $key => $item) {
+            $model = new Objects();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Objects'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
@@ -218,7 +260,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadboundary($boundaries){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadboundary'");
+        self::log("Parameter Type:".gettype($boundaries));
+        self::log("Parameter Value:".json_encode($boundaries));
+
+        if(!is_array($boundaries)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($boundaries as $key => $item) {
+            $model = new Boundary();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Boundary'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
@@ -233,7 +307,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadproject($projects){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadproject'");
+        self::log("Parameter Type:".gettype($projects));
+        self::log("Parameter Value:".json_encode($projects));
+
+        if(!is_array($projects)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($projects as $key => $item) {
+            $model = new Project();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Project'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
@@ -244,7 +350,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadtypeofwork($works){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadtypeofwork'");
+        self::log("Parameter Type:".gettype($works));
+        self::log("Parameter Value:".json_encode($works));
+
+        if(!is_array($works)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($works as $key => $item) {
+            $model = new TypeOfWork();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['TypeOfWork'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
@@ -256,7 +394,39 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadline($lines){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadline'");
+        self::log("Parameter Type:".gettype($lines));
+        self::log("Parameter Value:".json_encode($lines));
+
+        if(!is_array($lines)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($lines as $key => $item) {
+            $model = new Line();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Line'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
@@ -267,10 +437,84 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadnomenclature($nomenclatures){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadnomenclature'");
+        self::log("Parameter Type:".gettype($nomenclatures));
+        self::log("Parameter Value:".json_encode($nomenclatures));
+
+        if(!is_array($nomenclatures)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($nomenclatures as $key => $item) {
+            $model = new Nomenclature();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Nomenclature'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
 
+
+
+    
+    /**
+     * @return api\soap\models\Responce
+     */
+    public static function unloadremnant($remnants){   
+        self::log("Called Method 'unloadremnant'");
+        self::log("Parameter Type:".gettype($remnants));
+        self::log("Parameter Value:".json_encode($remnants));
+
+        if(!is_array($remnants)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($remnants as $key => $item) {
+            $model = new Remnant();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Remnant'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['brigade_guid'])){
+                   $erros[$arData['brigade_guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
+        return $responce;
+    }
 
 
 
@@ -279,8 +523,41 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadraport($raports){   
-        $responce = new Responce(['success'=>true]);
+        self::log("Called Method 'unloadraport'");
+        self::log("Parameter Type:".gettype($raports));
+        self::log("Parameter Value:".json_encode($raports));
+
+        if(!is_array($raports)){
+            throw new ApiExceptionWrongType();
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($raports as $key => $item) {
+            $model = new Raport();
+            self::log("Parameter Value:".gettype($item));
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['Raport'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
         return $responce;
     }
+
 
 }

@@ -10,7 +10,8 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
-
+use common\models\Brigade;
+use common\models\Nomenclature;
 use common\base\ActiveRecordVersionable;
 
 class Remnant extends ActiveRecordVersionable 
@@ -45,7 +46,10 @@ class Remnant extends ActiveRecordVersionable
 		return [
             // name, email, subject and body are required
             [['brigade_guid','nomenclature_guid','count'], 'required'],
-            ['brigade_guid','unique','targetClass' => '\common\models\Remnant', 'message' => 'Запись с таким brigade_guid уже существует!'],
+            ['updated_at','filter','filter'=>function($v){
+                $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s");
+                return $date;
+            }],
             ['updated_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             [['count'],'number'],
             [['brigade_guid','nomenclature_guid'],'string','max'=>32],
@@ -53,6 +57,46 @@ class Remnant extends ActiveRecordVersionable
 	}
 
 
+
+    public function load($data, $formName = null){
+        
+        if(parent::load($data, $formName)){
+
+            
+            //Проверяем есть ли гуид бригады в базе
+            if($this->brigade_guid){
+
+                $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
+
+                if(!isset($br->id)){
+                    $this->addError('brigade_guid',"Бригада с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+            //Проверяем есть ли гуид техники в базе
+            if($this->nomenclature_guid){
+                $m = Nomenclature::findOne(['guid'=>$this->nomenclature_guid]);
+                if(!isset($m->id)){
+                    $this->addError('nomenclature_guid',"Номенклатура с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+            
+
+            $model = self::find()->where(['brigade_guid'=>$this->brigade_guid])->one();
+            if ($model && isset($model->id)) {
+                $this->id = $model->id;
+                $this->setOldAttributes($model->attributes);           
+            }
+
+            
+            return true;
+        }
+
+        return false;
+    }
     
     
     /**

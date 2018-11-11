@@ -89,7 +89,7 @@ class ApiController extends Controller
      * @return api\soap\models\Responce
      * @soap
      */
-    public function unloadtechnics($technics){   
+    public function unloadtechnic($technics){   
         return $this->exec(__METHOD__,$technics);
     }
 
@@ -178,9 +178,6 @@ class ApiController extends Controller
     }
 
 
-
-
-
     /**
      * unload raports
      * @param api\soap\models\Raport[] $raports
@@ -189,5 +186,16 @@ class ApiController extends Controller
      */
     public function unloadraport($raports){   
         return $this->exec(__METHOD__,$raports);
+    }
+
+
+    /**
+     * unload Remnant
+     * @param api\soap\models\Remnant[] $remnants
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function unloadremnant($remnants){   
+        return $this->exec(__METHOD__,$remnants);
     }
 }

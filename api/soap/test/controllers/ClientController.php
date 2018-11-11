@@ -29,59 +29,115 @@ class ClientController extends Controller
     }
     
 
-    
-    
     public function actionIndex(){
-        echo "salam";
+        echo "\n---Start testing";
+        $this->actionTest();
+        $this->actionUnloadbrigade();
+        $this->actionUnloadtechnic();
+        $this->actionUnloadline();
+        $this->actionUnloadnomenclature();
+        $this->actionUnloadtypeofwork();
+        $this->actionUnloadboundary();
+        $this->actionUnloadobject();
+        $this->actionUnloadproject();
+        $this->actionUnloadworker();
+        $this->actionUnloadremnant();
+        $this->actionUnloadraport();
+
+        echo "\n---Finish testing";
     }
 
     
-    public function actionTest($msg = null){
-        echo "\n---Method Test\n";
+
+
+    public function actionTest(){
+        echo "\n---Method Test : ";
 
 
         $answer = Yii::$app->testclient->getClient()->test("test message"); 
 
-        print_r($answer);
-
-        echo "\n---------------\n";
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
 
 
   
-    public function actionUnloadbrigade($brigades = null){ 
-        echo "\n---Method Test\n";
+    
+
+    
 
 
-        $brigades = [
-            new Brigade(['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада 1']),
-            new Brigade(['guid'=>'2asdasjdhuu32423jkasdfa','name'=>'Бригада 2']),
-            new Brigade(['guid'=>'3asdasjdhuu32423jkasdfa','name'=>'Бригада 4']),
-            new Brigade(['guid'=>'4asdasjdhuu32423jkasdfa','name'=>'Бригада 3']),
-            new Brigade(['guid'=>'6asdasjdhuu32423jkasdfa','name'=>'Бригада 5'])
+  
+    public function actionUnloadbrigade(){
+        echo "\n---Method Unloadbrigade : ";
+
+        $model = new \common\models\Brigade();
+
+        $par = [
+            ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
+            ['guid'=>'2asdasjdhuu32423jkasdfa','name'=>'Бригадbh2']
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadbrigade($par); 
+
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
+    }
+
+
+
+
+    
+    public function actionUnloadworker(){
+        echo "\n---Method Unloadworker : ";
+
+        $par = [
+            'guid'=>'10sdasjdhuu32423jkasdfa',
+            'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+            'technic_guid'=>'1asdasjdhuu32413jkasdfa',
+            'name'=>'Бригада1',
+            'ktu'=>1.2,
+            'is_master'=>true
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadworker([$par]); 
+
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
+    }
+
+
+
+
+
+
+    
+    public function actionUnloadtechnic(){
+        echo "\n---Method Unloadtechnic : ";
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Газель07',
+                'marka'=>"Газель",
+                'number'=>"soccer"
+            ],
+            [
+
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Газель09',
+                'marka'=>"Газель",
+                'number'=>"soccer"
+            ]
         ];
 
 
-        $answer = Yii::$app->testclient->getClient()->unloadbrigade($brigades); 
-
-        print_r($answer);
-
-        echo "\n---------------\n";
-    }
+        $answer = Yii::$app->testclient->getClient()->unloadtechnic($par); 
 
 
-
-
-    
-    public function actionUnloadworker($workers = null){
-        echo "\n---Method Test\n";
-
-
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
-
-        print_r($answer);
-
-        echo "\n---------------\n";
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
 
 
@@ -89,32 +145,28 @@ class ClientController extends Controller
 
 
 
-    
-    public function actionUnloadtechnics($technics = null){
-        echo "\n---Method Test\n";
+    public function actionUnloadobject(){
+        echo "\n---Method Unloadobject : ";
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Газель07',
+                'boundary_guid'=>"2asdasjdhuu32413jkasdfa"
+            ],
+            [
+
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Газель09',
+                'boundary_guid'=>"1asdasjdhuu32413jkasdfa"
+            ]
+        ];
 
 
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
-
-        print_r($answer);
-
-        echo "\n---------------\n";
-    }
+        $answer = Yii::$app->testclient->getClient()->unloadobject($par); 
 
 
-
-
-
-
-    public function actionUnloadobject($objects = null){
-        echo "\n---Method Test\n";
-
-
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
-
-        print_r($answer);
-
-        echo "\n---------------\n";
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
 
 
@@ -122,74 +174,198 @@ class ClientController extends Controller
 
 
     
-    public function actionUnloadboundary($boundaries = null){
-        echo "\n---Method Test\n";
+    public function actionUnloadboundary(){
+        echo "\n---Method Unloadboundary : ";
+
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Граница 1'
+            ],
+            [
+
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Граница 2',
+            ]
+        ];
 
 
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
+        $answer = Yii::$app->testclient->getClient()->unloadboundary($par); 
 
-        print_r($answer);
 
-        echo "\n---------------\n";
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
-    
-    public function actionUnloadproject($projects = null){
-        echo "\n---Method Test\n";
 
 
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
-
-        print_r($answer);
-
-        echo "\n---------------\n";
-    }
-    
-    public function actionUnloadtypeofwork($works = null){
-        echo "\n---Method Test\n";
-
-
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
-
-        print_r($answer);
-
-        echo "\n---------------\n";
-    }
 
     
-    public function actionUnloadline($lines = null){
-        echo "\n---Method Test\n";
+    public function actionUnloadproject(){
+        echo "\n---Method Unloadproject : ";
+
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Проект 1',
+                'objects_guids'=>[
+                    '1asdasjdhuu32413jkasdfa',
+                ]
+            ],
+            [
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Проект 2',
+                'objects_guids'=>[
+                ]
+            ]
+        ];
 
 
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
+        $answer = Yii::$app->testclient->getClient()->unloadproject($par); 
 
-        print_r($answer);
 
-        echo "\n---------------\n";
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
+    }
+    
 
+
+
+    public function actionUnloadtypeofwork(){
+        echo "\n---Method Unloadtypeofwork : ";
+
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Работа2',
+            ],
+            [
+
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Работа1',
+            ]
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadtypeofwork($par); 
+
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
+    }
+
+    
+
+
+
+    public function actionUnloadline(){
+        echo "\n---Method Unloadline : ";
+
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Линия 1.1.1',
+            ],
+            [
+
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Линия 1.1.2',
+            ]
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadline($par); 
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
 
 
-    public function actionUnloadnomenclature($nomenclatures = null){
-        echo "\n---Method Test\n";
 
 
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
 
-        print_r($answer);
 
-        echo "\n---------------\n";
+    public function actionUnloadnomenclature(){
 
+        echo "\n---Method Unloadnomenclature : ";
+
+        $par = [
+            [
+                'guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'абота2',
+            ],
+            [
+
+                'guid'=>'2asdasjdhuu32413jkasdfa',
+                'name'=>'Работа1',
+            ]
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadnomenclature($par); 
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
 
-    public function actionUnloadraport($raports = null){
-        echo "\n---Method Test\n";
 
 
-        $answer = Yii::$app->testclient->getClient()->test("test message"); 
+    public function actionUnloadremnant(){
+        
+        echo "\n---Method Unloadremnant : ";
 
-        print_r($answer);
+        $par = [
+            [
+                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+                'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                'count'=>10
+            ],
+            [
+                'brigade_guid'=>'2asdasjdhuu32423jkasdfa',
+                'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                'count'=>12
+            ]
+        ];
 
-        echo "\n---------------\n";
+        
 
+        $answer = Yii::$app->testclient->getClient()->unloadremnant($par); 
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
+    }
+
+
+
+    public function actionUnloadraport(){
+
+        echo "\n---Method Unloadraport : ";
+
+        $par = [
+            [
+                'guid'=>'2asdasjdhuu32423jkasdfa',
+                'number'=>'1asdasjdhuu32413jkasdfa',
+                'status'=>"ывфывлжд",
+                'created_at'=>date("Y-m-d\TH:i:s"),
+                'starttime'=>date("H:i:s",time()-3600),
+                'endtime'=>date("H:i:s"),
+                'temperature_start'=>10.1,
+                'temperature_end'=>10.3,
+                'surface_temperature_start'=>10.2,
+                'surface_temperature_end'=>10.5,
+                'airhumidity_start'=>10.1,
+                'airhumidity_end'=>2.2,
+                'brigade_guid'=>"1asdasjdhuu32423jkasdfa",
+                'object_guid'=>"1asdasjdhuu32413jkasdfa",
+                'boundary_guid'=>"1asdasjdhuu32413jkasdfa",
+                'project_guid'=>"1asdasjdhuu32413jkasdfa",
+                'master_guid'=>"10sdasjdhuu32423jkasdfa",
+                'comment'=>"Тест",
+                'materials'=>[],
+                'works'=>[],
+                'consist'=>[],
+            ]
+        ];
+
+        $answer = Yii::$app->testclient->getClient()->unloadraport($par); 
+
+        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        echo $result;
     }
 }

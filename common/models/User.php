@@ -9,6 +9,9 @@ use yii\web\IdentityInterface;
 use frontend\models\ExpensesManager;
 use frontend\models\PaymentsExpenses;
 
+use common\models\Brigade;
+use common\models\Technic;
+
 use common\base\ActiveRecordVersionable;
 
 /**
@@ -86,6 +89,24 @@ class User extends ActiveRecord implements IdentityInterface
                 $this->generateAuthKey();
             }
 
+            //Проверяем есть ли гуид бригады в базе
+            if($this->brigade_guid){
+                $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
+                if(!isset($br->id)){
+                    $this->addError('brigade_guid',"Бригада с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+            //Проверяем есть ли гуид техники в базе
+            if($this->technic_guid){
+                $m = Technic::findOne(['guid'=>$this->technic_guid]);
+                if(!isset($m->id)){
+                    $this->addError('technic_guid',"Техника с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
             $model = self::find()->where(['guid'=>$this->guid])->one();
             if ($model && isset($model->id)) {
                 $this->id = $model->id;
@@ -96,6 +117,18 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         return false;
+    }
+
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+
+        //Удаляем технику у других физ лиц, если она закреплена за другими пользователями
+        if(($insert && $this->technic_guid) || (is_array($changedAttributes) && count($changedAttributes) 
+            && isset($changedAttributes['technic_guid']) && $this->technic_guid)){
+            Yii::$app->db->createCommand()->update(self::tableName(),['technic_guid'=>null],"technic_guid = '{$this->technic_guid}' AND id != {$this->id}")->execute();
+        }
     }
 
 

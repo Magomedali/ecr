@@ -17,11 +17,7 @@ class Remnant  extends ApiModel
     */
     public $brigade_guid;
 
-    /**
-    * @var datetime
-    */
-    public $updated_at;
-
+    
     /**
      * @var string
     */

@@ -16,7 +16,9 @@ use common\base\ActiveRecordVersionable;
 class Project extends ActiveRecordVersionable 
 {
     
+    protected static $rel_table_objects = "{{%rel_project_object}}";
 
+    public $objects_guids = [];
     
     /**
      * @inheritdoc
@@ -62,12 +64,49 @@ class Project extends ActiveRecordVersionable
                 $this->setOldAttributes($model->attributes);           
             }
 
+            $scope = $formName === null ? $this->formName() : $formName;
+            $this->objects_guids = isset($data[$scope]['objects_guids']) && is_array($data[$scope]['objects_guids']) ? $data[$scope]['objects_guids'] : [];
+
             return true;
         }
 
         return false;
     }
     
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+
+        //Связываем объекты с проектом
+        
+        if($this->objects_guids && $this->guid){
+            
+            $inserts = [];
+            foreach ($this->objects_guids as $value) {
+                    $inserts[]=['project_guid'=>$this->guid,'object_guid'=>$value];
+            }
+            if(!$inserts) return false;
+            
+            $transaction = Yii::$app->db->beginTransaction();
+            try {
+                Yii::$app->db->createCommand()->delete(self::$rel_table_objects,['project_guid'=>$this->guid])->execute();
+                
+                Yii::$app->db->createCommand()->batchInsert(self::$rel_table_objects,['project_guid','object_guid'],$inserts)->execute();
+
+                $transaction->commit();
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+                throw $e;
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                throw $e;
+            }
+            
+        }elseif($this->guid){
+            //Если оъъектов нет удаляем из базы, если они есть
+            Yii::$app->db->createCommand()->delete(self::$rel_table_objects,['project_guid'=>$this->guid])->execute();
+        }
+    }
     
     /**
      * @return array customized attribute labels (name=>label)
