@@ -10,7 +10,8 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
-
+use common\models\TypeOfWork;
+use common\models\Line;
 use common\base\ActiveRecordVersionable;
 
 class RaportWork extends ActiveRecordVersionable 
@@ -79,6 +80,42 @@ class RaportWork extends ActiveRecordVersionable
             'mechanized'=>'Механизированная работа',
             'squaremeter'=>'Квадратура'
     	);
+    }
+
+
+
+    public function load($data, $formName = null){
+        
+        if(parent::load($data, $formName)){
+
+            //Проверяем есть ли гуид номенклатуры в базе
+            if($this->work_guid){
+                $m = TypeOfWork::findOne(['guid'=>$this->work_guid]);
+                if(!isset($m->id)){
+                    $this->addError('work_guid',"Вид работы с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+            if($this->line_guid){
+                $m = Line::findOne(['guid'=>$this->line_guid]);
+                if(!isset($m->id)){
+                    $this->addError('line_guid',"Физ.лицо с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+
+            $model = self::find()->where(['line_guid'=>$this->line_guid,'work_guid'=>$this->work_guid,'raport_id'=>$this->raport_id])->one();
+            if ($model && isset($model->id)) {
+                $this->id = $model->id;
+                $this->setOldAttributes($model->attributes);           
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
 

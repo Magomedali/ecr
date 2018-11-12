@@ -15,7 +15,7 @@ return [
         ],
         'testclient' => [
             'class' => 'api\soap\test\TestClient',
-            'wsdl' => 'http://api.ecr:8081/'
+            'wsdl' => 'http://localhost:8082/ecr/api/soap/web/'
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

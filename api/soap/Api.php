@@ -546,14 +546,25 @@ class Api{
                    $erros[$arData['guid']] = json_encode($model->getErrors());
                 }
                 $responce->success = false;
+                $responce->errorsExtend = $erros;
             }else{
-                $responce->success = true;
-            }
-        }
 
-        if(count($erros)){
-            $responce->success = false;
-            $responce->errorsExtend = $erros;
+                $tablePartsErrors = [];
+                if(count($model->getMaterialsErrors())){
+                    $tablePartsErrors['materials'] = json_encode($model->getMaterialsErrors());
+                }
+
+                if(count($model->getConsistErrors())){
+                    $tablePartsErrors['consist'] = json_encode($model->getConsistErrors());
+                }
+
+                if(count($model->getWorksErrors())){
+                    $tablePartsErrors['works'] = json_encode($model->getWorksErrors());
+                }
+
+                $responce->success = true;
+                $responce->errorsExtend = $tablePartsErrors;
+            }
         }
 
         return $responce;

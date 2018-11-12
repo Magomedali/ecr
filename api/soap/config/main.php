@@ -14,7 +14,7 @@ return [
         ],
         'testclient' => [
             'class' => 'api\soap\test\TestClient',
-            'wsdl' => 'http://api.ecr:8081/'
+            'wsdl' => 'http://localhost:8082/ecr/api/soap/web/'
         ],
     
         'session' => [

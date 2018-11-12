@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
-
+use common\models\Technic;
 
 class RaportConsist extends ActiveRecord 
 {
@@ -53,5 +53,38 @@ class RaportConsist extends ActiveRecord
 
 
 
+    public function load($data, $formName = null){
+        
+        if(parent::load($data, $formName)){
+
+            //Проверяем есть ли гуид номенклатуры в базе
+            if($this->technic_guid){
+                $m = Technic::findOne(['guid'=>$this->technic_guid]);
+                if(!isset($m->id)){
+                    $this->addError('technic_guid',"Техника с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+            if($this->user_guid){
+                $m = User::findOne(['guid'=>$this->user_guid]);
+                if(!isset($m->id)){
+                    $this->addError('user_guid',"Физ.лицо с таким guid отсутствует в базе");
+                    return false;
+                }
+            }
+
+
+            $model = self::find()->where(['user_guid'=>$this->user_guid,'raport_id'=>$this->raport_id])->one();
+            if ($model && isset($model->id)) {
+                $this->id = $model->id;
+                $this->setOldAttributes($model->attributes);           
+            }
+
+            return true;
+        }
+
+        return false;
+    }
 
 }

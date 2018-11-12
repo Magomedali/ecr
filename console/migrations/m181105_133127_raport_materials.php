@@ -26,10 +26,9 @@ class m181105_133127_raport_materials extends Migration
 
             'raport_id' => $this->integer()->notNull(),
 
-            'brigade_guid' => $this->string(32)->notNull(),
-            'item_guid' => $this->string(32)->notNull(),
+            'nomenclature_guid' => $this->string(32)->notNull(),
 
-            'it_was'=>$this->float()->notNull()->defaultValue(0),
+            'was'=>$this->float()->notNull()->defaultValue(0),
             'spent'=> $this->float()->notNull()->defaultValue(0),
             'rest'=>$this->float()->notNull()->defaultValue(0),
 
@@ -44,10 +43,9 @@ class m181105_133127_raport_materials extends Migration
 
             'raport_id' => $this->integer()->notNull(),
             
-            'brigade_guid' => $this->string(32)->notNull(),
-            'item_guid' => $this->string(32)->notNull(),
+            'nomenclature_guid' => $this->string(32)->notNull(),
 
-            'it_was'=>$this->float()->notNull()->defaultValue(0),
+            'was'=>$this->float()->notNull()->defaultValue(0),
             'spent'=> $this->float()->notNull()->defaultValue(0),
             'rest'=>$this->float()->notNull()->defaultValue(0),
 
@@ -65,8 +63,7 @@ class m181105_133127_raport_materials extends Migration
         $this->addForeignKey('fk-raport_materials-version_id',"{{%raport_materials}}",'version_id',"{{%raport_materials_history}}",'id','CASCADE','CASCADE');
 
         $this->addForeignKey('fk-raport_materials-raport_id',"{{%raport_materials}}",'raport_id',"{{%raport}}",'id','CASCADE','CASCADE');
-        $this->addForeignKey('fk-raport_materials-brigade_guid',"{{%raport_materials}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
-        $this->addForeignKey('fk-raport_materials-item_guid',"{{%raport_materials}}",'item_guid',"{{%nomenclature}}",'guid','CASCADE','CASCADE');
+        $this->addForeignKey('fk-raport_materials-nomenclature_guid',"{{%raport_materials}}",'nomenclature_guid',"{{%nomenclature}}",'guid','CASCADE','CASCADE');
 
     }
 
@@ -75,8 +72,7 @@ class m181105_133127_raport_materials extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-raport_materials-item_guid',"{{%raport_materials}}");
-        $this->dropForeignKey('fk-raport_materials-brigade_guid',"{{%raport_materials}}");
+        $this->dropForeignKey('fk-raport_materials-nomenclature_guid',"{{%raport_materials}}");
         $this->dropForeignKey('fk-raport_materials-raport_id',"{{%raport_materials}}");
         $this->dropForeignKey('fk-raport_materials-version_id',"{{%raport_materials}}");
 

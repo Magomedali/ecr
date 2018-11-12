@@ -27,7 +27,7 @@ class RaportMaterial  extends ApiModel
     /**
     * @var float
     */
-    public $spen;
+    public $spent;
 
     /**
     * @var float
