@@ -48,12 +48,12 @@ AppAsset::register($this);
                 <a class="navbar-brand" href="<?php echo Url::to(['/site/index']);?>"><?php echo Html::encode("Личный кабинет") ?></a>
             </div>
             <!-- /.navbar-header -->
-
+            <?php if(!Yii::$app->user->isGuest){?>
             <ul class="nav navbar-top-links navbar-right">
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a href="/">Иванов Иван</a>
+                    <?php echo Html::a(Yii::$app->user->identity->name,['site/index']);?>
                 </li>
                 <li>
                     <?php 
@@ -69,10 +69,8 @@ AppAsset::register($this);
             </ul>
             <!-- /.navbar-top-links -->
 
-            <?php
-                echo $this->render("menu",[]);
-            ?>
-            
+            <?php echo $this->render("menu",[]);?>
+            <?php } ?>
             <!-- /.navbar-static-side -->
         </nav>
 

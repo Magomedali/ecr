@@ -8,7 +8,6 @@ use backend\models\LoginForm;
 use backend\models\ApiTest;
 use yii\filters\VerbFilter;
 use common\models\User;
-use backend\modules\UserSearch;
 
 /**
  * Site controller
@@ -32,14 +31,14 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','view','test'],
+                        'actions' => ['index','', 'index','view','test'],
                         'allow' => true,
-                        'roles' => ['@','?'],
+                        'roles' => ['superadmin','administrator'],
                     ],
                     [
-                        'actions' => ['index'],
+                        'actions' => ['logout'],
                         'allow' => true,
-                        'roles' => ['admin'],
+                        'roles' => ['@'],
                     ]
                 ],
             ],
@@ -75,6 +74,8 @@ class SiteController extends Controller
     }
 
 
+
+
     public function actionView()
     {   
 
@@ -105,12 +106,14 @@ class SiteController extends Controller
 
 
 
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
+
 
 
 

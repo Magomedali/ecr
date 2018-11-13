@@ -83,15 +83,25 @@ class ClientController extends Controller
 
 
         $par = [
-            'guid'=>'10sdasjdhuu32423jkasdfa',
-            'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-            'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-            'name'=>'Бригада1',
-            'ktu'=>1.2,
-            'is_master'=>true
+            [
+                'guid'=>'10sdasjdhuu32423jkasdfa',
+                'name'=>'Бригада1',
+                'ktu'=>1.2,
+                'is_master'=>true
+            ],
+            [
+                'guid'=>'1sdasjdhuu32423jkasdfa',
+                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+                'technic_guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Бригадир тест',
+                'ktu'=>1.2,
+                'is_master'=>false,
+                'login'=>'tester',
+                'password'=>'12345qwE'
+            ]
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadworker([$par]); 
+        $answer = Yii::$app->testclient->getClient()->unloadworker($par); 
 
         print_r($answer);
 

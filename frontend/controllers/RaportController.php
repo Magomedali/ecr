@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 
-class AutocompleteController extends Controller{
+class RaportController extends Controller{
 
 
 	/**
@@ -21,7 +21,7 @@ class AutocompleteController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['form'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -32,16 +32,11 @@ class AutocompleteController extends Controller{
 
 	
 
-    public function actionIndex(){
+    public function actionForm(){
 
-        if(Yii::$app->request->isAjax){
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-
-            return ['result'=>1,'managers'=>$expM];
-        }else{
-            return $this->redirect(['site/index']);
-        }
         
+
+        return $this->render('form',['site/index']);
     }
 
 

@@ -6,7 +6,7 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
         'authManager' => [
-            'class' => 'common\rbac\DbManager',
+            'class' => 'yii\rbac\DbManager',
   		],
     ],
 ];

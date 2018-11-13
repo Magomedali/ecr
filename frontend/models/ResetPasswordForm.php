@@ -31,7 +31,29 @@ class ResetPasswordForm extends Model
         return [
             [['password','confirm_password','old_password'], 'required'],
             [['password','confirm_password','old_password'], 'string', 'min' => 6],
+            ['password', 'compare', 'compareAttribute'=>'confirm_password', 'message'=>"Пароли не совпадают!"],
+            ['old_password','validateOldPassword']
         ];
+    }
+
+
+    /**
+     * Validates the password.
+     * This method serves as the inline validation for password.
+     *
+     * @param string $attribute the attribute currently being validated
+     * @param array $params the additional name-value pairs given in the rule
+     */
+    public function validateOldPassword($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            if (!$user || !$user->validatePassword($this->old_password)) {
+                $this->addError($attribute, 'Неверный пароль');
+            }else{
+                $this->_user = $user;
+            }
+        }
     }
 
     /**
@@ -45,6 +67,19 @@ class ResetPasswordForm extends Model
             );
     }
 
+
+    /**
+     * @return Current User|null
+     */
+    protected function getUser()
+    {
+        if ($this->_user === null) {
+            $this->_user =Yii::$app->user->identity;
+        }
+
+        return $this->_user;
+    }
+
     /**
      * Resets password.
      *
@@ -52,10 +87,10 @@ class ResetPasswordForm extends Model
      */
     public function resetPassword()
     {
-        $user = $this->_user;
+        $user = $this->getUser();
         $user->setPassword($this->password);
         $user->removePasswordResetToken();
 
-        return $user->save(false);
+        return $user->save();
     }
 }

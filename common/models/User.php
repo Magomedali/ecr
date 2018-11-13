@@ -149,26 +149,27 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by username
+     * Finds user by login
      *
-     * @param string $username
+     * @param string $login
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByLogin($login)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['login' => $login, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
-     * Finds user by username
+     * Finds user by guid
      *
-     * @param string $username
+     * @param string $guid
      * @return static|null
      */
-    public static function findByEmail($email)
+    public static function findByGuid($guid)
     {
-        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['guid' => $guid, 'status' => self::STATUS_ACTIVE]);
     }
+
 
     /**
      * Finds user by password reset token
@@ -277,8 +278,27 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function hasRole($role){
         if(!$role) return false;
+        if(!$this->id) return false;
 
         return Yii::$app->authManager->checkAccess($this->id,$role);
+    }
+
+
+    public function hasRoles($roles = []){
+        if(!count($roles)) return false;
+        if(!$this->id) return false;
+
+        $rolesUser = Yii::$app->authManager->getRolesByUser($this->id);
+
+        if(!count($rolesUser)) return false;
+
+        foreach ($roles as $r) {
+            if(array_key_exists($r, $rolesUser)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

@@ -11,7 +11,7 @@ $this->title = 'Сброс пароля';
 ?>
     <div class="row">
         <div class="col-md-5">
-            <div class="login-panel panel panel-default">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Сброс пароля</h3>
                 </div>
@@ -25,7 +25,7 @@ $this->title = 'Сброс пароля';
                         <?php echo $form->field($model, 'confirm_password')->passwordInput() ?>
 
                         <div class="form-group">
-                            <?php echo Html::submitButton('Сбросить', ['class' => 'btn btn-lg btn-success btn-block', 'name' => 'login-button']) ?>
+                            <?php echo Html::submitButton('Сбросить', ['class' => 'btn btn-success', 'name' => 'password-reset-button']) ?>
                         </div>
                     </fieldset>
                      <?php ActiveForm::end(); ?>

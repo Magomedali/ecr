@@ -51,7 +51,7 @@ class Worker  extends ApiModel
     public $login;
 
     /**
-    * @var boolean
+    * @var string
     * @nillable
     */
     public $password;
