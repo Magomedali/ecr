@@ -12,10 +12,6 @@ return [
         'user'=>[
             'identityClass'=>'common\models\User'
         ],
-        'testclient' => [
-            'class' => 'api\soap\test\TestClient',
-            'wsdl' => 'http://localhost:8082/ecr/api/soap/web/'
-        ],
     
         'session' => [
             // this is the name of the session cookie used for login on the backend
