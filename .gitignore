@@ -32,7 +32,9 @@ phpunit.phar
 
 /api/soap/logs/
 /api/soap/runtime/
+/api/soap/config/main-local.php
 /api/soap/test/runtime/
+/api/soap/test/config/main-local.php
 
 /frontend/web/assets
 /frontend/web/assets/
