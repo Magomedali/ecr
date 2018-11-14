@@ -66,8 +66,7 @@ class ClientController extends Controller
         $model = new \common\models\Brigade();
 
         $par = [
-            ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
-            ['guid'=>'2asdasjdhuu32423jkasdfa','name'=>'Бригадbh2']
+            ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100']
         ];
 
         $answer = Yii::$app->testclient->getClient()->unloadbrigade($par); 
@@ -88,16 +87,6 @@ class ClientController extends Controller
                 'name'=>'Бригада1',
                 'ktu'=>1.2,
                 'is_master'=>true
-            ],
-            [
-                'guid'=>'1sdasjdhuu32423jkasdfa',
-                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-                'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Бригадир тест',
-                'ktu'=>1.2,
-                'is_master'=>false,
-                'login'=>'tester',
-                'password'=>'12345qwE'
             ]
         ];
 
@@ -121,13 +110,6 @@ class ClientController extends Controller
                 'name'=>'Газель07',
                 'marka'=>"Газель",
                 'number'=>"soccer"
-            ],
-            [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Газель09',
-                'marka'=>"Газель",
-                'number'=>"soccer"
             ]
         ];
 
@@ -148,12 +130,6 @@ class ClientController extends Controller
             [
                 'guid'=>'1asdasjdhuu32413jkasdfa',
                 'name'=>'Газель07',
-                'boundary_guid'=>"2asdasjdhuu32413jkasdfa"
-            ],
-            [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Газель09',
                 'boundary_guid'=>"1asdasjdhuu32413jkasdfa"
             ]
         ];
@@ -174,11 +150,6 @@ class ClientController extends Controller
             [
                 'guid'=>'1asdasjdhuu32413jkasdfa',
                 'name'=>'Граница 1'
-            ],
-            [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Граница 2',
             ]
         ];
 
@@ -200,12 +171,6 @@ class ClientController extends Controller
                 'objects_guids'=>[
                     '1asdasjdhuu32413jkasdfa',
                 ]
-            ],
-            [
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Проект 2',
-                'objects_guids'=>[
-                ]
             ]
         ];
 
@@ -224,11 +189,6 @@ class ClientController extends Controller
             [
                 'guid'=>'1asdasjdhuu32413jkasdfa',
                 'name'=>'Работа2',
-            ],
-            [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Работа1',
             ]
         ];
 
@@ -247,11 +207,6 @@ class ClientController extends Controller
                 'guid'=>'1asdasjdhuu32413jkasdfa',
                 'name'=>'Линия 1.1.1',
             ],
-            [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Линия 1.1.2',
-            ]
         ];
 
         $answer = Yii::$app->testclient->getClient()->unloadline($par); 
@@ -269,11 +224,6 @@ class ClientController extends Controller
             [
                 'guid'=>'1asdasjdhuu32413jkasdfa',
                 'name'=>'абота2',
-            ],
-            [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Работа1',
             ]
         ];
 
@@ -290,11 +240,6 @@ class ClientController extends Controller
                 'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
                 'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
                 'count'=>10
-            ],
-            [
-                'brigade_guid'=>'2asdasjdhuu32423jkasdfa',
-                'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
-                'count'=>12
             ]
         ];
 
@@ -334,34 +279,14 @@ class ClientController extends Controller
                         'was'=>11,
                         'spent'=>2,
                         'rest'=>8
-                    ],
-                    [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'was'=>14,
-                        'spent'=>2,
-                        'rest'=>12
-                    ],
-                    [
-                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'was'=>13,
-                        'spent'=>2,
-                        'rest'=>11
                     ]
                 ],
                 'works'=>[
                     [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'work_guid'=>'1asdasjdhuu32413jkasdfa',
                         'line_guid'=>'1asdasjdhuu32413jkasdfa',
                         'mechanized'=>true,
                         'length'=>10,
-                        'count'=>2.3,
-                        'squaremeter'=>222.2
-                    ],
-                    [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'mechanized'=>false,
-                        'length'=>20,
                         'count'=>2.3,
                         'squaremeter'=>222.2
                     ]
@@ -370,80 +295,8 @@ class ClientController extends Controller
                     [
                         'technic_guid'=>'1asdasjdhuu32413jkasdfa',
                         'user_guid'=>'10sdasjdhuu32423jkasdfa',
-                    ],
-                    [
-                        'technic_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
                     ]
-                ],
-            ],
-            [
-                'guid'=>'1asdasjdhuu32423jkasdfa',
-                'number'=>'1asdasjdhuu32413jkasdfa',
-                'status'=>"ывфывлжд",
-                'created_at'=>date("Y-m-d\TH:i:s"),
-                'starttime'=>date("H:i:s",time()-3600),
-                'endtime'=>date("H:i:s"),
-                'temperature_start'=>10.1,
-                'temperature_end'=>10.3,
-                'surface_temperature_start'=>10.2,
-                'surface_temperature_end'=>10.5,
-                'airhumidity_start'=>10.1,
-                'airhumidity_end'=>2.2,
-                'brigade_guid'=>"1asdasjdhuu32423jkasdfa",
-                'object_guid'=>"1asdasjdhuu32413jkasdfa",
-                'boundary_guid'=>"1asdasjdhuu32413jkasdfa",
-                'project_guid'=>"1asdasjdhuu32413jkasdfa",
-                'master_guid'=>"10sdasjdhuu32423jkasdfa",
-                'comment'=>"Тест",
-                'materials'=>[
-                    [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'was'=>11,
-                        'spent'=>2,
-                        'rest'=>8
-                    ],
-                    [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'was'=>14,
-                        'spent'=>2,
-                        'rest'=>12
-                    ],
-                    [
-                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'was'=>13,
-                        'spent'=>2,
-                        'rest'=>11
-                    ]
-                ],
-                'works'=>[
-                    [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'mechanized'=>true,
-                        'length'=>10,
-                        'count'=>2.3,
-                        'squaremeter'=>222.2
-                    ],
-                    [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'mechanized'=>false,
-                        'length'=>30,
-                        'count'=>2.3,
-                        'squaremeter'=>222.2
-                    ]
-                ],
-                'consist'=>[
-                    [
-                        'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
-                    ],
-                    [
-                        'technic_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
-                    ]
-                ],
+                ]
             ]
         ];
 

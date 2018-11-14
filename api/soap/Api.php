@@ -23,10 +23,11 @@ use common\models\Raport;
 
 class Api{
 
-
     public static function log($msg){
         Yii::info($msg,'api');
     }
+
+
 
 	/**
 	* @return Responce
@@ -72,24 +73,30 @@ class Api{
      * @param api\soap\models\Brigade[] $brigades
      * @return api\soap\models\Responce
      */
-    public static function unloadbrigade($brigades){
+    public static function unloadbrigade($data){
         
         self::log("Called Method 'unloadbrigade'");
-        self::log("Parameter Type:".gettype($brigades));
-        self::log("Parameter Value:".json_encode($brigades));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($brigades)){
+        $Type = "Brigade";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($brigades as $key => $br) {
+        foreach ($data[$Type] as $key => $item) {
             $brigade = new Brigade();
-            self::log("Parameter Value:".gettype($br));
+            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
-            $arBrigade = json_decode(json_encode($br),1);
+            $arBrigade = json_decode(json_encode($item),1);
             $params = ['Brigade'=>$arBrigade];
 
             if(!$brigade->load($params) || !$brigade->save(1)){
@@ -119,23 +126,28 @@ class Api{
      * @param api\soap\models\Worker[] $workers
      * @return api\soap\models\Responce
      */
-    public static function unloadworker($workers){   
+    public static function unloadworker($data){   
         self::log("Called Method 'unloadworker'");
-        self::log("Parameter Type:".gettype($workers));
-        self::log("Parameter Value:".json_encode($workers));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($workers)){
+        $Type = "Worker";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($workers as $key => $wr) {
+        foreach ($data[$Type] as $key => $item) {
             $worker = new User();
-            self::log("Parameter Value:".gettype($wr));
             
             //stdObject to array
-            $arWorker = json_decode(json_encode($wr),1);
+            $arWorker = json_decode(json_encode($item),1);
             $params = ['User'=>$arWorker];
 
             if(!$worker->load($params) || !$worker->save(1)){
@@ -166,23 +178,27 @@ class Api{
      * @param api\soap\models\Technic[] $technics
      * @return api\soap\models\Responce
      */
-    public static function unloadtechnic($technics){   
+    public static function unloadtechnic($data){   
         self::log("Called Method 'unloadtechnic'");
-        self::log("Parameter Type:".gettype($technics));
-        self::log("Parameter Value:".json_encode($technics));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($technics)){
+        $Type = "Technic";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($technics as $key => $br) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Technic();
-            self::log("Parameter Value:".gettype($br));
-            
             //stdObject to array
-            $arData = json_decode(json_encode($br),1);
+            $arData = json_decode(json_encode($item),1);
             $params = ['Technic'=>$arData];
 
             if(!$model->load($params) || !$model->save(1)){
@@ -213,20 +229,25 @@ class Api{
      * @param api\soap\models\Objects[] $objects
      * @return api\soap\models\Responce
      */
-    public static function unloadobject($objects){   
+    public static function unloadobject($data){   
         self::log("Called Method 'unloadobject'");
-        self::log("Parameter Type:".gettype($objects));
-        self::log("Parameter Value:".json_encode($objects));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($objects)){
+        $Type = "Objects";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($objects as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Objects();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
@@ -259,20 +280,25 @@ class Api{
      * @param api\soap\models\Boundary[] $boundaries
      * @return api\soap\models\Responce
      */
-    public static function unloadboundary($boundaries){   
+    public static function unloadboundary($data){   
         self::log("Called Method 'unloadboundary'");
-        self::log("Parameter Type:".gettype($boundaries));
-        self::log("Parameter Value:".json_encode($boundaries));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($boundaries)){
+        $Type = "Boundary";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($boundaries as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Boundary();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
@@ -306,18 +332,24 @@ class Api{
      * @param api\soap\models\Project[] $projects
      * @return api\soap\models\Responce
      */
-    public static function unloadproject($projects){   
+    public static function unloadproject($data){   
         self::log("Called Method 'unloadproject'");
-        self::log("Parameter Type:".gettype($projects));
-        self::log("Parameter Value:".json_encode($projects));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($projects)){
+        $Type = "Project";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($projects as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Project();
             self::log("Parameter Value:".gettype($item));
             
@@ -349,20 +381,25 @@ class Api{
     /**
      * @return api\soap\models\Responce
      */
-    public static function unloadtypeofwork($works){   
+    public static function unloadtypeofwork($data){   
         self::log("Called Method 'unloadtypeofwork'");
-        self::log("Parameter Type:".gettype($works));
-        self::log("Parameter Value:".json_encode($works));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($works)){
+        $Type = "TypeOfWork";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($works as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new TypeOfWork();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
@@ -393,20 +430,25 @@ class Api{
     /**
      * @return api\soap\models\Responce
      */
-    public static function unloadline($lines){   
+    public static function unloadline($data){   
         self::log("Called Method 'unloadline'");
-        self::log("Parameter Type:".gettype($lines));
-        self::log("Parameter Value:".json_encode($lines));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($lines)){
+        $Type = "Line";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($lines as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Line();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
@@ -436,20 +478,25 @@ class Api{
     /**
      * @return api\soap\models\Responce
      */
-    public static function unloadnomenclature($nomenclatures){   
+    public static function unloadnomenclature($data){   
         self::log("Called Method 'unloadnomenclature'");
-        self::log("Parameter Type:".gettype($nomenclatures));
-        self::log("Parameter Value:".json_encode($nomenclatures));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($nomenclatures)){
+        $Type = "Nomenclature";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($nomenclatures as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Nomenclature();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
@@ -479,20 +526,25 @@ class Api{
     /**
      * @return api\soap\models\Responce
      */
-    public static function unloadremnant($remnants){   
+    public static function unloadremnant($data){   
         self::log("Called Method 'unloadremnant'");
-        self::log("Parameter Type:".gettype($remnants));
-        self::log("Parameter Value:".json_encode($remnants));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($remnants)){
+        $Type = "Remnant";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($remnants as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Remnant();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
@@ -522,20 +574,25 @@ class Api{
     /**
      * @return api\soap\models\Responce
      */
-    public static function unloadraport($raports){   
+    public static function unloadraport($data){   
         self::log("Called Method 'unloadraport'");
-        self::log("Parameter Type:".gettype($raports));
-        self::log("Parameter Value:".json_encode($raports));
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
 
-        if(!is_array($raports)){
+        $Type = "Raport";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
+        }
+
+        if(!array_key_exists(0, $data[$Type])){
+            $data[$Type] =  [$data[$Type]];
         }
 
         $responce = new Responce();
         $erros = [];
-        foreach ($raports as $key => $item) {
+        foreach ($data[$Type] as $key => $item) {
             $model = new Raport();
-            self::log("Parameter Value:".gettype($item));
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);

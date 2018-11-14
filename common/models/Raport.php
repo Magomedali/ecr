@@ -192,6 +192,7 @@ class Raport extends ActiveRecordVersionable
 
             $scope = $formName === null ? $this->formName() : $formName;
             
+
             $this->materials = isset($data[$scope]['materials']) && is_array($data[$scope]['materials']) ? $data[$scope]['materials'] : [];
 
             $this->consist = isset($data[$scope]['consist']) && is_array($data[$scope]['consist']) ? $data[$scope]['consist'] : [];
@@ -252,9 +253,23 @@ class Raport extends ActiveRecordVersionable
 
         $materials = count($data) ? $data : $this->materials;
 
-        foreach ($materials as $key => $mdata) {
-            $model = new RaportMaterial();
+        if(!is_array($materials)){
+            return false;
+        }
+        // print_r($materials);
+        Yii::error(json_encode($materials),"api");
+        $Type = "RaportMaterial";
+        if(!isset($materials[$Type])){
+            $materials[$Type] = $materials;
+        }
+        
+        if(!array_key_exists(0, $materials[$Type])){
+            $materials[$Type] =  [$materials[$Type]];
+        }
 
+        foreach ($materials[$Type] as $key => $mdata) {
+            $model = new RaportMaterial();
+            Yii::error(json_encode($mdata),"api");
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
             $arData['raport_id'] = $this->id;
 
@@ -284,7 +299,20 @@ class Raport extends ActiveRecordVersionable
 
         $consist = count($data) ? $data : $this->consist;
 
-        foreach ($consist as $key => $mdata) {
+        if(!is_array($consist)){
+            return false;
+        }
+        // print_r($materials);
+        Yii::error(json_encode($consist),"api");
+        $Type = "RaportConsist";
+        if(!isset($consist[$Type])){
+            $consist[$Type] = $consist;
+        }
+        
+        if(!array_key_exists(0, $consist[$Type])){
+            $consist[$Type] =  [$consist[$Type]];
+        }
+        foreach ($consist[$Type] as $key => $mdata) {
             $model = new RaportConsist();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
@@ -312,8 +340,19 @@ class Raport extends ActiveRecordVersionable
         if(!$this->id) return false;
 
         $works = count($data) ? $data : $this->works;
-
-        foreach ($works as $key => $mdata) {
+        if(!is_array($works)){
+            return false;
+        }
+        
+        $Type = "RaportWork";
+        if(!isset($works[$Type])){
+            $works[$Type] = $works;
+        }
+        
+        if(!array_key_exists(0, $works[$Type])){
+            $works[$Type] =  [$works[$Type]];
+        }
+        foreach ($works[$Type] as $key => $mdata) {
             $model = new RaportWork();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;

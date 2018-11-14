@@ -428,6 +428,7 @@ class WSDL
         $this->addType($type, $soapType);
 
         $all = $this->dom->createElement('xsd:all');
+       // $all = $this->dom->createElement('xsd:sequence');//Ali upgrades
         foreach ($class->getProperties() as $property) {
             $annotationsCollection = $property->getReflectionDocComment()->getAnnotationsCollection();
             if ($property->isPublic() && $annotationsCollection->hasAnnotationTag('var')) {
@@ -458,6 +459,9 @@ class WSDL
 
         $complexType = $this->dom->createElement('xsd:complexType');
         $complexType->setAttribute('name', $soapTypeName);
+        
+        $all = $this->changeAllToSequence($all); //Ali upgrades
+        
         $complexType->appendChild($all);
 
         $this->schema->appendChild($complexType);
@@ -487,17 +491,36 @@ class WSDL
         $complexType = $this->dom->createElement('xsd:complexType');
         $complexType->setAttribute('name', $xsdComplexTypeName);
 
-        $complexContent = $this->dom->createElement('xsd:complexContent');
-        $complexType->appendChild($complexContent);
 
-        $xsdRestriction = $this->dom->createElement('xsd:restriction');
-        $xsdRestriction->setAttribute('base', 'soap-enc:Array');
-        $complexContent->appendChild($xsdRestriction);
+        //Ali upgrades start
+        $sequence = $this->dom->createElement('xsd:sequence');
 
-        $xsdAttribute = $this->dom->createElement('xsd:attribute');
-        $xsdAttribute->setAttribute('ref', 'soap-enc:arrayType');
-        $xsdAttribute->setAttribute('wsdl:arrayType', 'tns:' . static::typeToQName($singularType) . '[]');
-        $xsdRestriction->appendChild($xsdAttribute);
+        $element = $this->dom->createElement('xsd:element');
+        $elementType = 'tns:' . static::typeToQName($singularType);
+        $parts = explode(".",$xsdComplexTypeName);
+        $elementName = end($parts);
+        $element->setAttribute('name', $elementName);
+        $element->setAttribute('type', $elementType);
+        $element->setAttribute('minOccurs', 1);
+        $element->setAttribute('maxOccurs', "unbounded");
+        
+        $sequence->appendChild($element);
+        
+        $complexType->appendChild($sequence);
+        //Ali upgrades end
+
+
+        // $complexContent = $this->dom->createElement('xsd:complexContent');
+        // $complexType->appendChild($complexContent);
+
+        // $xsdRestriction = $this->dom->createElement('xsd:restriction');
+        // $xsdRestriction->setAttribute('base', 'soap-enc:Array');
+        // $complexContent->appendChild($xsdRestriction);
+
+        // $xsdAttribute = $this->dom->createElement('xsd:attribute');
+        // $xsdAttribute->setAttribute('ref', 'soap-enc:arrayType');
+        // $xsdAttribute->setAttribute('wsdl:arrayType', 'tns:' . static::typeToQName($singularType) . '[]');
+        // $xsdRestriction->appendChild($xsdAttribute);
 
         $this->schema->appendChild($complexType);
 

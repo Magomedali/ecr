@@ -24,7 +24,7 @@ return [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['info'],
                     'logFile'=>'@api/soap/logs/info.txt',
-                    'logVars'=>[]
+                    'logVars'=>['api']
                 ],
                 [
                     'class' => 'yii\log\FileTarget',
