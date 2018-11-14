@@ -76,13 +76,20 @@ class Action extends \yii\base\Action
         $defaultRoute = Yii::$app->defaultRoute . "/" . $this->controller->defaultAction;
         $uniqueId = $this->getUniqueId() == $defaultRoute ? "/" : $this->getUniqueId();
         #$uniqueId = $this->getUniqueId();
+        
         if ($this->serviceUrl === null) {
-            $this->serviceUrl = Yii::$app->getUrlManager()->createAbsoluteUrl([$uniqueId, $this->serviceVar => 1]);
+            $serviceUrl = Yii::$app->getUrlManager()->createAbsoluteUrl([$uniqueId, $this->serviceVar => 1]);
+            $serviceUrl = $uniqueId == "/" ? str_replace("r=&", "", $serviceUrl) : $serviceUrl ;
+            $this->serviceUrl = $serviceUrl;
         }
+        
         if ($this->wsdlUrl === null) {
-            $this->wsdlUrl = Yii::$app->getUrlManager()->createAbsoluteUrl($uniqueId);
+            $wsdlUrl = Yii::$app->getUrlManager()->createAbsoluteUrl($uniqueId);
+            $wsdlUrl = $uniqueId == "/" ? str_replace("r=&", "", $wsdlUrl) : $wsdlUrl ;
+            $this->wsdlUrl = $wsdlUrl;
         }
 
+        
         // Disable CSRF (Cross-Site Request Forgery) validation for this action.
         Yii::$app->getRequest()->enableCsrfValidation = false;
     }
