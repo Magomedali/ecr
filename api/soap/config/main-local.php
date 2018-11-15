@@ -8,7 +8,7 @@ $config = [
         ],
         'testclient' => [
             'class' => 'api\soap\test\TestClient',
-            'wsdl' => 'http://localhost:8082/ecr/api/soap/web/wsdl.xml'
+            'wsdl' => 'http://lk.web-ali.ru/api/soap/web/wsdl.xml'
         ],
     ],
 ];
