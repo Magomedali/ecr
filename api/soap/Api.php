@@ -53,11 +53,9 @@ class Api{
 
         if(0){
             //rpc
-            
             return $responce;
         }else{
             //document
-            
             $r = new \stdClass();
             $r->returns = $responce;
             return $r;
