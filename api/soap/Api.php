@@ -48,6 +48,8 @@ class Api{
             $message = YII_DEBUG ? $e->getMessage() : "Error on Server";
             $responce = new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$message]);
         }
+        //self::log(json_encode($params));
+        //$responce = new Responce(['success'=>true,'error'=>"ServerError",'errorMessage'=>"Test"]);
 
         if(0){
             //rpc
@@ -69,7 +71,7 @@ class Api{
 	* @return Responce
 	*/
 	public static function test($msg){
-		return new Responce(['success'=>true,'error'=>$msg]);
+		return new Responce(['success'=>true,'error'=>json_encode($msg)]);
 	}
 
 
