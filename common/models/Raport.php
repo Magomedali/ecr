@@ -79,7 +79,7 @@ class Raport extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','created_at'], 'required'],
+            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','created_at'], 'required','message'=>'Обязательное поле'],
             
             [['number','comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
@@ -116,12 +116,12 @@ class Raport extends ActiveRecordVersionable
             'created_at'=>'Дата',
             'starttime'=>'Время начало работ',
             'endtime'=>'Время окончания работ',
-            'temperature_start'=>"",
-            'temperature_end'=>"",
-            'surface_temperature_start'=>"",
-            'surface_temperature_end'=>"",
-            'airhumidity_start'=>"",
-            'airhumidity_end'=>"",
+            'temperature_start'=>"Темп. воздх. до",
+            'temperature_end'=>"Темп. воздх. после",
+            'surface_temperature_start'=>"Темп. поверх. до",
+            'surface_temperature_end'=>"Темп. поверх. после",
+            'airhumidity_start'=>"Влажность воздх. до",
+            'airhumidity_end'=>"Влажность воздх. после",
             'brigade_guid'=>"Бригада",
             'object_guid'=>"Объект",
             'boundary_guid'=>"Округ",

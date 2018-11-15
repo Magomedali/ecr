@@ -30,7 +30,7 @@ class ClientController extends Controller
     
 
     public function actionIndex(){
-        echo "\n---Start testing";
+        echo "\n---Start testing\n";
         $this->actionTest();
         $this->actionUnloadbrigade();
         $this->actionUnloadtechnic();
@@ -44,7 +44,7 @@ class ClientController extends Controller
         $this->actionUnloadremnant();
         $this->actionUnloadraport();
 
-        echo "\n---Finish testing";
+        echo "\n---Finish testing\n\n";
     }
 
     
@@ -101,6 +101,16 @@ class ClientController extends Controller
                 'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
                 'technic_guid'=>'1asdasjdhuu32413jkasdfa',
                 'name'=>'Бригада1',
+                'ktu'=>1.2,
+                'is_master'=>true
+            ],
+            [
+                'guid'=>'1sdasjdhuu32423jkasdfa',
+                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+                'technic_guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Тестер',
+                'login'=>'tester',
+                'password'=>'12345qwE',
                 'ktu'=>1.2,
                 'is_master'=>true
             ]

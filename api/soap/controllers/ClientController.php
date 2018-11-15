@@ -47,7 +47,7 @@ class ClientController extends Controller
         $this->actionUnloadremnant();echo "<br>";
         $this->actionUnloadraport();echo "<br>";
 
-        echo "\n---Finish testing";
+        echo "\n---Finish testing<br>";
     }
 
     
