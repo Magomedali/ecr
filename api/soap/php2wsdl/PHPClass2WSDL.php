@@ -54,7 +54,7 @@ class PHPClass2WSDL
      * @var array
      */
     protected $bindingStyle = array(
-        'style' => 'rpc',
+        'style' => 'document',
         'transport' => 'http://schemas.xmlsoap.org/soap/http'
     );
 
@@ -219,7 +219,7 @@ class PHPClass2WSDL
                 $sequence = array();
                 if ($returnType !== null) {
                     $sequence[] = array(
-                        'name' => $qNameMethodName . 'Result',
+                        'name' => 'return',
                         'type' => $this->wsdl->getXSDType($returnType)
                     );
                 }

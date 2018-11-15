@@ -410,7 +410,7 @@ class WSDL
      * @param string $type Name of the class.
      * @return string
      */
-    public function addComplexType($type)
+    public function addComplexType($type,$isOfArray = false)
     {
         if (isset($this->includedTypes[$type])) {
             return $this->includedTypes[$type];
@@ -422,7 +422,7 @@ class WSDL
 
         $class = new ReflectionClass($type);
 
-        $soapTypeName = static::typeToQName($type);
+        $soapTypeName =static::typeToQName($type);
         $soapType = 'tns:' . $soapTypeName;
 
         $this->addType($type, $soapType);
@@ -478,14 +478,14 @@ class WSDL
      */
     protected function addComplexTypeArray($singularType, $type)
     {
-        $xsdComplexTypeName = 'ArrayOf' . static::typeToQName($singularType);
+        $xsdComplexTypeName = "ArrayOf".static::typeToQName($singularType);
         $xsdComplexType = 'tns:' . $xsdComplexTypeName;
 
         // Register type here to avoid recursion.
         $this->addType($type, $xsdComplexType);
 
         // Process singular type using DefaultComplexType strategy.
-        $this->addComplexType($singularType);
+        $this->addComplexType($singularType,true);
 
         // Add array type structure to WSDL document.
         $complexType = $this->dom->createElement('xsd:complexType');
@@ -612,13 +612,16 @@ class WSDL
      * @param string $type The PHP type.
      * @return string
      */
-    public static function typeToQName($type)
+    public static function typeToQName($type,$onlyName = true)
     {
         if ($type[0] === '\\') {
             $type = substr($type, 1);
         }
-
-        return str_replace('\\', '.', $type);
+        
+        $type = str_replace('\\', '.', $type);
+        $parts = explode(".",$type);
+        
+        return $onlyName ? end($parts) : $type ;
     }
 
     /**

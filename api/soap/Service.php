@@ -145,6 +145,10 @@ class Service extends Component
     {
         $wsdlGenerator = new PHPClass2WSDL($className, $serviceUrl,$targetNamespace);
         $wsdlGenerator->generateWSDL(true);
+
+        //
+        $mixed = $wsdlGenerator->save("wsdl.xml");
+
         return $wsdlGenerator->dump();
     }
 

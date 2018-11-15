@@ -66,10 +66,16 @@ class ClientController extends Controller
         $model = new \common\models\Brigade();
 
         $par = [
+            ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
             ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100']
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadbrigade($par); 
+        $req = new \stdClass();
+        
+        $req->brigades = $par;
+        //$req->ArrayOfBrigade = $par;
+
+        $answer = Yii::$app->testclient->getClient()->unloadbrigade($req); 
 
         print_r($answer);
     }
@@ -113,8 +119,10 @@ class ClientController extends Controller
             ]
         ];
 
-
-        $answer = Yii::$app->testclient->getClient()->unloadtechnic($par); 
+        $req = new \stdClass();
+        
+        $req->technics = $par;
+        $answer = Yii::$app->testclient->getClient()->unloadtechnic($req); 
 
         print_r($answer);
     }

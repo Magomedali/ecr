@@ -1,500 +1,638 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://lk.web-ali.ru/api/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="api.soap.controllers.ApiController" targetNamespace="http://lk.web-ali.ru/api/soap/">
-<types>
-<xsd:schema targetNamespace="http://lk.web-ali.ru/api/soap/">
-<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
-<xsd:complexType name="api.soap.models.Responce">
-<xsd:all>
-<xsd:element name="success" type="xsd:boolean"/>
-<xsd:element name="error" type="xsd:string" nillable="true"/>
-<xsd:element name="errorMessage" type="xsd:string" nillable="true"/>
-<xsd:element name="errorUserMessage" type="xsd:string" nillable="true"/>
-<xsd:element name="errorsExtend" type="soap-enc:Array" nillable="true"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Brigade">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Brigade">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Brigade[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Worker">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-<xsd:element name="brigade_guid" type="xsd:string" nillable="true"/>
-<xsd:element name="technic_guid" type="xsd:string" nillable="true"/>
-<xsd:element name="ktu" type="xsd:float"/>
-<xsd:element name="is_master" type="xsd:boolean"/>
-<xsd:element name="login" type="xsd:string" nillable="true"/>
-<xsd:element name="password" type="xsd:string" nillable="true"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Worker">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Worker[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Technic">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-<xsd:element name="marka" type="xsd:string"/>
-<xsd:element name="number" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Technic">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Technic[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Objects">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-<xsd:element name="boundary_guid" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Objects">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Objects[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Boundary">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Boundary">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Boundary[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Project">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-<xsd:element name="objects_guids" type="soap-enc:Array"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Project">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Project[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.TypeOfWork">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.TypeOfWork">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.TypeOfWork[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Line">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Line">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Line[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Nomenclature">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="name" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Nomenclature">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Nomenclature[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.RaportFile">
-<xsd:all>
-<xsd:element name="file" type="xsd:base64Binary"/>
-<xsd:element name="type" type="xsd:string"/>
-<xsd:element name="file_name" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.RaportFile">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportFile[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.RaportMaterial">
-<xsd:all>
-<xsd:element name="nomenclature_guid" type="xsd:string"/>
-<xsd:element name="was" type="xsd:float"/>
-<xsd:element name="spent" type="xsd:float"/>
-<xsd:element name="rest" type="xsd:float"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.RaportMaterial">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportMaterial[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.RaportWork">
-<xsd:all>
-<xsd:element name="work_guid" type="xsd:string"/>
-<xsd:element name="line_guid" type="xsd:string"/>
-<xsd:element name="mechanized" type="xsd:boolean"/>
-<xsd:element name="length" type="xsd:float"/>
-<xsd:element name="count" type="xsd:float"/>
-<xsd:element name="squaremeter" type="xsd:float"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.RaportWork">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportWork[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.RaportConsist">
-<xsd:all>
-<xsd:element name="technic_guid" type="xsd:string"/>
-<xsd:element name="user_guid" type="xsd:string"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.RaportConsist">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportConsist[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Raport">
-<xsd:all>
-<xsd:element name="guid" type="xsd:string"/>
-<xsd:element name="number" type="xsd:string"/>
-<xsd:element name="status" type="xsd:string"/>
-<xsd:element name="created_at" type="xsd:dateTime"/>
-<xsd:element name="starttime" type="xsd:time"/>
-<xsd:element name="endtime" type="xsd:time"/>
-<xsd:element name="temperature_start" type="xsd:float" nillable="true"/>
-<xsd:element name="temperature_end" type="xsd:float" nillable="true"/>
-<xsd:element name="surface_temperature_start" type="xsd:float" nillable="true"/>
-<xsd:element name="surface_temperature_end" type="xsd:float" nillable="true"/>
-<xsd:element name="airhumidity_start" type="xsd:float" nillable="true"/>
-<xsd:element name="airhumidity_end" type="xsd:float" nillable="true"/>
-<xsd:element name="brigade_guid" type="xsd:string"/>
-<xsd:element name="object_guid" type="xsd:string"/>
-<xsd:element name="boundary_guid" type="xsd:string"/>
-<xsd:element name="project_guid" type="xsd:string"/>
-<xsd:element name="master_guid" type="xsd:string"/>
-<xsd:element name="comment" type="xsd:string" nillable="true"/>
-<xsd:element name="files" type="tns:ArrayOfapi.soap.models.RaportFile" nillable="true"/>
-<xsd:element name="materials" type="tns:ArrayOfapi.soap.models.RaportMaterial" minOccurs="1"/>
-<xsd:element name="works" type="tns:ArrayOfapi.soap.models.RaportWork" minOccurs="1"/>
-<xsd:element name="consist" type="tns:ArrayOfapi.soap.models.RaportConsist" minOccurs="1"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Raport">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Raport[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-<xsd:complexType name="api.soap.models.Remnant">
-<xsd:all>
-<xsd:element name="brigade_guid" type="xsd:string"/>
-<xsd:element name="nomenclature_guid" type="xsd:string"/>
-<xsd:element name="count" type="xsd:float"/>
-</xsd:all>
-</xsd:complexType>
-<xsd:complexType name="ArrayOfapi.soap.models.Remnant">
-<xsd:complexContent>
-<xsd:restriction base="soap-enc:Array">
-<xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Remnant[]"/>
-</xsd:restriction>
-</xsd:complexContent>
-</xsd:complexType>
-</xsd:schema>
-</types>
-<portType name="api.soap.controllers.ApiControllerPort">
-<operation name="test">
-<documentation>Stest method</documentation>
-<input message="tns:testIn"/>
-<output message="tns:testOut"/>
-</operation>
-<operation name="unloadbrigade">
-<documentation>unload Brigades</documentation>
-<input message="tns:unloadbrigadeIn"/>
-<output message="tns:unloadbrigadeOut"/>
-</operation>
-<operation name="unloadworker">
-<documentation>unload workers</documentation>
-<input message="tns:unloadworkerIn"/>
-<output message="tns:unloadworkerOut"/>
-</operation>
-<operation name="unloadtechnic">
-<documentation>unload technics</documentation>
-<input message="tns:unloadtechnicIn"/>
-<output message="tns:unloadtechnicOut"/>
-</operation>
-<operation name="unloadobject">
-<documentation>unload objects</documentation>
-<input message="tns:unloadobjectIn"/>
-<output message="tns:unloadobjectOut"/>
-</operation>
-<operation name="unloadboundary">
-<documentation>unload boundary</documentation>
-<input message="tns:unloadboundaryIn"/>
-<output message="tns:unloadboundaryOut"/>
-</operation>
-<operation name="unloadproject">
-<documentation>unload projects</documentation>
-<input message="tns:unloadprojectIn"/>
-<output message="tns:unloadprojectOut"/>
-</operation>
-<operation name="unloadtypeofwork">
-<documentation>unload typeofworks</documentation>
-<input message="tns:unloadtypeofworkIn"/>
-<output message="tns:unloadtypeofworkOut"/>
-</operation>
-<operation name="unloadline">
-<documentation>unload lines</documentation>
-<input message="tns:unloadlineIn"/>
-<output message="tns:unloadlineOut"/>
-</operation>
-<operation name="unloadnomenclature">
-<documentation>unload nomenclatures</documentation>
-<input message="tns:unloadnomenclatureIn"/>
-<output message="tns:unloadnomenclatureOut"/>
-</operation>
-<operation name="unloadraport">
-<documentation>unload raports</documentation>
-<input message="tns:unloadraportIn"/>
-<output message="tns:unloadraportOut"/>
-</operation>
-<operation name="unloadremnant">
-<documentation>unload Remnant</documentation>
-<input message="tns:unloadremnantIn"/>
-<output message="tns:unloadremnantOut"/>
-</operation>
-</portType>
-<binding name="api.soap.controllers.ApiControllerBinding" type="tns:api.soap.controllers.ApiControllerPort">
-<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
-<operation name="test">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#test"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadbrigade">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadbrigade"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadworker">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadworker"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadtechnic">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadtechnic"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadobject">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadobject"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadboundary">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadboundary"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadproject">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadproject"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadtypeofwork">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadtypeofwork"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadline">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadline"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadnomenclature">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadnomenclature"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadraport">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadraport"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-<operation name="unloadremnant">
-<soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadremnant"/>
-<input>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</input>
-<output>
-<soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8082/ecr/api/soap/web/index.php?r=&amp;ws=1"/>
-</output>
-</operation>
-</binding>
-<service name="api.soap.controllers.ApiControllerService">
-<port name="api.soap.controllers.ApiControllerPort" binding="tns:api.soap.controllers.ApiControllerBinding">
-<soap:address location="http://localhost:8082/ecr/api/soap/web/index.php?ws=1"/>
-</port>
-</service>
-<message name="testIn">
-<part name="msg" type="xsd:string"/>
-</message>
-<message name="testOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadbrigadeIn">
-<part name="brigades" type="tns:ArrayOfapi.soap.models.Brigade"/>
-</message>
-<message name="unloadbrigadeOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadworkerIn">
-<part name="workers" type="tns:ArrayOfapi.soap.models.Worker"/>
-</message>
-<message name="unloadworkerOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadtechnicIn">
-<part name="technics" type="tns:ArrayOfapi.soap.models.Technic"/>
-</message>
-<message name="unloadtechnicOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadobjectIn">
-<part name="objects" type="tns:ArrayOfapi.soap.models.Objects"/>
-</message>
-<message name="unloadobjectOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadboundaryIn">
-<part name="boundaries" type="tns:ArrayOfapi.soap.models.Boundary"/>
-</message>
-<message name="unloadboundaryOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadprojectIn">
-<part name="projects" type="tns:ArrayOfapi.soap.models.Project"/>
-</message>
-<message name="unloadprojectOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadtypeofworkIn">
-<part name="works" type="tns:ArrayOfapi.soap.models.TypeOfWork"/>
-</message>
-<message name="unloadtypeofworkOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadlineIn">
-<part name="lines" type="tns:ArrayOfapi.soap.models.Line"/>
-</message>
-<message name="unloadlineOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadnomenclatureIn">
-<part name="nomenclatures" type="tns:ArrayOfapi.soap.models.Nomenclature"/>
-</message>
-<message name="unloadnomenclatureOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadraportIn">
-<part name="raports" type="tns:ArrayOfapi.soap.models.Raport"/>
-</message>
-<message name="unloadraportOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
-<message name="unloadremnantIn">
-<part name="remnants" type="tns:ArrayOfapi.soap.models.Remnant"/>
-</message>
-<message name="unloadremnantOut">
-<part name="return" type="tns:api.soap.models.Responce"/>
-</message>
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://lk.web-ali.ru/api/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://lk.web-ali.ru/api/soap/">
+  <types>
+    <xsd:schema targetNamespace="http://lk.web-ali.ru/api/soap/">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:element name="test">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="msg" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Responce">
+        <xsd:sequence>
+          <xsd:element name="success" type="xsd:boolean"/>
+          <xsd:element name="error" type="xsd:string" nillable="true"/>
+          <xsd:element name="errorMessage" type="xsd:string" nillable="true"/>
+          <xsd:element name="errorUserMessage" type="xsd:string" nillable="true"/>
+          <xsd:element name="errorsExtend" type="soap-enc:Array" nillable="true"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="testResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Brigade">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfBrigade">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfBrigade" type="tns:Brigade" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadbrigade">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="brigades" type="tns:ArrayOfBrigade"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadbrigadeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Worker">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="brigade_guid" type="xsd:string" nillable="true"/>
+          <xsd:element name="technic_guid" type="xsd:string" nillable="true"/>
+          <xsd:element name="ktu" type="xsd:float"/>
+          <xsd:element name="is_master" type="xsd:boolean"/>
+          <xsd:element name="login" type="xsd:string" nillable="true"/>
+          <xsd:element name="password" type="xsd:string" nillable="true"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfWorker">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfWorker" type="tns:Worker" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadworker">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="workers" type="tns:ArrayOfWorker"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadworkerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Technic">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="marka" type="xsd:string"/>
+          <xsd:element name="number" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfTechnic">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfTechnic" type="tns:Technic" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadtechnic">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="technics" type="tns:ArrayOfTechnic"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadtechnicResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Objects">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="boundary_guid" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfObjects">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfObjects" type="tns:Objects" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadobject">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="objects" type="tns:ArrayOfObjects"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadobjectResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Boundary">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfBoundary">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfBoundary" type="tns:Boundary" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadboundary">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="boundaries" type="tns:ArrayOfBoundary"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadboundaryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Project">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="objects_guids" type="soap-enc:Array"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfProject">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfProject" type="tns:Project" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadproject">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="projects" type="tns:ArrayOfProject"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadprojectResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="TypeOfWork">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfTypeOfWork">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfTypeOfWork" type="tns:TypeOfWork" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadtypeofwork">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="works" type="tns:ArrayOfTypeOfWork"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadtypeofworkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Line">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfLine">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfLine" type="tns:Line" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadline">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="lines" type="tns:ArrayOfLine"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadlineResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Nomenclature">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfNomenclature">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfNomenclature" type="tns:Nomenclature" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadnomenclature">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nomenclatures" type="tns:ArrayOfNomenclature"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadnomenclatureResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="RaportFile">
+        <xsd:sequence>
+          <xsd:element name="file" type="xsd:base64Binary"/>
+          <xsd:element name="type" type="xsd:string"/>
+          <xsd:element name="file_name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfRaportFile">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfRaportFile" type="tns:RaportFile" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RaportMaterial">
+        <xsd:sequence>
+          <xsd:element name="nomenclature_guid" type="xsd:string"/>
+          <xsd:element name="was" type="xsd:float"/>
+          <xsd:element name="spent" type="xsd:float"/>
+          <xsd:element name="rest" type="xsd:float"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfRaportMaterial">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfRaportMaterial" type="tns:RaportMaterial" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RaportWork">
+        <xsd:sequence>
+          <xsd:element name="work_guid" type="xsd:string"/>
+          <xsd:element name="line_guid" type="xsd:string"/>
+          <xsd:element name="mechanized" type="xsd:boolean"/>
+          <xsd:element name="length" type="xsd:float"/>
+          <xsd:element name="count" type="xsd:float"/>
+          <xsd:element name="squaremeter" type="xsd:float"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfRaportWork">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfRaportWork" type="tns:RaportWork" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RaportConsist">
+        <xsd:sequence>
+          <xsd:element name="technic_guid" type="xsd:string"/>
+          <xsd:element name="user_guid" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfRaportConsist">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfRaportConsist" type="tns:RaportConsist" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Raport">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="number" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+          <xsd:element name="created_at" type="xsd:dateTime"/>
+          <xsd:element name="starttime" type="xsd:time"/>
+          <xsd:element name="endtime" type="xsd:time"/>
+          <xsd:element name="temperature_start" type="xsd:float" nillable="true"/>
+          <xsd:element name="temperature_end" type="xsd:float" nillable="true"/>
+          <xsd:element name="surface_temperature_start" type="xsd:float" nillable="true"/>
+          <xsd:element name="surface_temperature_end" type="xsd:float" nillable="true"/>
+          <xsd:element name="airhumidity_start" type="xsd:float" nillable="true"/>
+          <xsd:element name="airhumidity_end" type="xsd:float" nillable="true"/>
+          <xsd:element name="brigade_guid" type="xsd:string"/>
+          <xsd:element name="object_guid" type="xsd:string"/>
+          <xsd:element name="boundary_guid" type="xsd:string"/>
+          <xsd:element name="project_guid" type="xsd:string"/>
+          <xsd:element name="master_guid" type="xsd:string"/>
+          <xsd:element name="comment" type="xsd:string" nillable="true"/>
+          <xsd:element name="files" type="tns:ArrayOfRaportFile" nillable="true"/>
+          <xsd:element name="materials" type="tns:ArrayOfRaportMaterial" minOccurs="1"/>
+          <xsd:element name="works" type="tns:ArrayOfRaportWork" minOccurs="1"/>
+          <xsd:element name="consist" type="tns:ArrayOfRaportConsist" minOccurs="1"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfRaport">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfRaport" type="tns:Raport" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadraport">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="raports" type="tns:ArrayOfRaport"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadraportResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Remnant">
+        <xsd:sequence>
+          <xsd:element name="brigade_guid" type="xsd:string"/>
+          <xsd:element name="nomenclature_guid" type="xsd:string"/>
+          <xsd:element name="count" type="xsd:float"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfRemnant">
+        <xsd:sequence>
+          <xsd:element name="ArrayOfRemnant" type="tns:Remnant" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadremnant">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="remnants" type="tns:ArrayOfRemnant"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadremnantResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="return" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <portType name="ApiControllerPort">
+    <operation name="test">
+      <documentation>Stest method</documentation>
+      <input message="tns:testIn"/>
+      <output message="tns:testOut"/>
+    </operation>
+    <operation name="unloadbrigade">
+      <documentation>unload Brigades</documentation>
+      <input message="tns:unloadbrigadeIn"/>
+      <output message="tns:unloadbrigadeOut"/>
+    </operation>
+    <operation name="unloadworker">
+      <documentation>unload workers</documentation>
+      <input message="tns:unloadworkerIn"/>
+      <output message="tns:unloadworkerOut"/>
+    </operation>
+    <operation name="unloadtechnic">
+      <documentation>unload technics</documentation>
+      <input message="tns:unloadtechnicIn"/>
+      <output message="tns:unloadtechnicOut"/>
+    </operation>
+    <operation name="unloadobject">
+      <documentation>unload objects</documentation>
+      <input message="tns:unloadobjectIn"/>
+      <output message="tns:unloadobjectOut"/>
+    </operation>
+    <operation name="unloadboundary">
+      <documentation>unload boundary</documentation>
+      <input message="tns:unloadboundaryIn"/>
+      <output message="tns:unloadboundaryOut"/>
+    </operation>
+    <operation name="unloadproject">
+      <documentation>unload projects</documentation>
+      <input message="tns:unloadprojectIn"/>
+      <output message="tns:unloadprojectOut"/>
+    </operation>
+    <operation name="unloadtypeofwork">
+      <documentation>unload typeofworks</documentation>
+      <input message="tns:unloadtypeofworkIn"/>
+      <output message="tns:unloadtypeofworkOut"/>
+    </operation>
+    <operation name="unloadline">
+      <documentation>unload lines</documentation>
+      <input message="tns:unloadlineIn"/>
+      <output message="tns:unloadlineOut"/>
+    </operation>
+    <operation name="unloadnomenclature">
+      <documentation>unload nomenclatures</documentation>
+      <input message="tns:unloadnomenclatureIn"/>
+      <output message="tns:unloadnomenclatureOut"/>
+    </operation>
+    <operation name="unloadraport">
+      <documentation>unload raports</documentation>
+      <input message="tns:unloadraportIn"/>
+      <output message="tns:unloadraportOut"/>
+    </operation>
+    <operation name="unloadremnant">
+      <documentation>unload Remnant</documentation>
+      <input message="tns:unloadremnantIn"/>
+      <output message="tns:unloadremnantOut"/>
+    </operation>
+  </portType>
+  <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="test">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#test"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadbrigade">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadbrigade"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadworker">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadworker"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadtechnic">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadtechnic"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadobject">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadobject"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadboundary">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadboundary"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadproject">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadproject"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadtypeofwork">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadtypeofwork"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadline">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadline"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadnomenclature">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadnomenclature"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadraport">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadraport"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadremnant">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadremnant"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ApiControllerService">
+    <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
+      <soap:address location="http://localhost:8082/ecr/api/soap/web/index.php?ws=1"/>
+    </port>
+  </service>
+  <message name="testIn">
+    <part name="parameters" element="tns:test"/>
+  </message>
+  <message name="testOut">
+    <part name="parameters" element="tns:testResponse"/>
+  </message>
+  <message name="unloadbrigadeIn">
+    <part name="parameters" element="tns:unloadbrigade"/>
+  </message>
+  <message name="unloadbrigadeOut">
+    <part name="parameters" element="tns:unloadbrigadeResponse"/>
+  </message>
+  <message name="unloadworkerIn">
+    <part name="parameters" element="tns:unloadworker"/>
+  </message>
+  <message name="unloadworkerOut">
+    <part name="parameters" element="tns:unloadworkerResponse"/>
+  </message>
+  <message name="unloadtechnicIn">
+    <part name="parameters" element="tns:unloadtechnic"/>
+  </message>
+  <message name="unloadtechnicOut">
+    <part name="parameters" element="tns:unloadtechnicResponse"/>
+  </message>
+  <message name="unloadobjectIn">
+    <part name="parameters" element="tns:unloadobject"/>
+  </message>
+  <message name="unloadobjectOut">
+    <part name="parameters" element="tns:unloadobjectResponse"/>
+  </message>
+  <message name="unloadboundaryIn">
+    <part name="parameters" element="tns:unloadboundary"/>
+  </message>
+  <message name="unloadboundaryOut">
+    <part name="parameters" element="tns:unloadboundaryResponse"/>
+  </message>
+  <message name="unloadprojectIn">
+    <part name="parameters" element="tns:unloadproject"/>
+  </message>
+  <message name="unloadprojectOut">
+    <part name="parameters" element="tns:unloadprojectResponse"/>
+  </message>
+  <message name="unloadtypeofworkIn">
+    <part name="parameters" element="tns:unloadtypeofwork"/>
+  </message>
+  <message name="unloadtypeofworkOut">
+    <part name="parameters" element="tns:unloadtypeofworkResponse"/>
+  </message>
+  <message name="unloadlineIn">
+    <part name="parameters" element="tns:unloadline"/>
+  </message>
+  <message name="unloadlineOut">
+    <part name="parameters" element="tns:unloadlineResponse"/>
+  </message>
+  <message name="unloadnomenclatureIn">
+    <part name="parameters" element="tns:unloadnomenclature"/>
+  </message>
+  <message name="unloadnomenclatureOut">
+    <part name="parameters" element="tns:unloadnomenclatureResponse"/>
+  </message>
+  <message name="unloadraportIn">
+    <part name="parameters" element="tns:unloadraport"/>
+  </message>
+  <message name="unloadraportOut">
+    <part name="parameters" element="tns:unloadraportResponse"/>
+  </message>
+  <message name="unloadremnantIn">
+    <part name="parameters" element="tns:unloadremnant"/>
+  </message>
+  <message name="unloadremnantOut">
+    <part name="parameters" element="tns:unloadremnantResponse"/>
+  </message>
 </definitions>

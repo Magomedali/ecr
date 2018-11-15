@@ -34,23 +34,35 @@ class Api{
 	*/
 	public static function exec($method,$params){
 
+        $responce = null;
 		try {
-        	
         	if(!method_exists(__CLASS__, $method))
         		throw new ApiExceptionMethodNotExists();
         	
-        	return self::$method($params); 
+        	$responce = self::$method($params); 
         
         }catch(ApiException $e) {
         
-            return $e->getResponce();
+            $responce = $e->getResponce();
         
         }catch(Exception $e){
-
             $message = YII_DEBUG ? $e->getMessage() : "Error on Server";
-            return new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$message]);
+            $responce = new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$message]);
         }
 
+        // $responce = new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>"test"]);
+        if(0){
+            //rpc
+           
+            return $responce;
+        }else{
+            //document
+            
+            $r = new \stdClass();
+            // $r->unloadbrigadeResponse = $responce;
+            $r->return = $responce;
+            return $r;
+        }
 	}
 
 
