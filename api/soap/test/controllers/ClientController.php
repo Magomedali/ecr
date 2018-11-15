@@ -56,7 +56,7 @@ class ClientController extends Controller
 
         $answer = Yii::$app->testclient->getClient()->test("test message"); 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -78,10 +78,13 @@ class ClientController extends Controller
             ['guid'=>'2asdasjdhuu32423jkasdfa','name'=>'Бригадbh2']
         ];
 
+
+
+        $par['brigades'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadbrigade($par); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -93,18 +96,23 @@ class ClientController extends Controller
         echo "\n---Method Unloadworker : ";
 
         $par = [
-            'guid'=>'10sdasjdhuu32423jkasdfa',
-            'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-            'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-            'name'=>'Бригада1',
-            'ktu'=>1.2,
-            'is_master'=>true
+            [
+                'guid'=>'10sdasjdhuu32423jkasdfa',
+                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+                'technic_guid'=>'1asdasjdhuu32413jkasdfa',
+                'name'=>'Бригада1',
+                'ktu'=>1.2,
+                'is_master'=>true
+            ]
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadworker([$par]); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $par['workers'] = $par;
+        $answer = Yii::$app->testclient->getClient()->unloadworker($par); 
+
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -133,10 +141,12 @@ class ClientController extends Controller
         ];
 
 
+        $par['technics'] = $par;
+
         $answer = Yii::$app->testclient->getClient()->unloadtechnic($par); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -162,10 +172,11 @@ class ClientController extends Controller
         ];
 
 
+        $par['objects'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadobject($par); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -190,10 +201,11 @@ class ClientController extends Controller
         ];
 
 
+        $par['boundaries'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadboundary($par); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -220,10 +232,12 @@ class ClientController extends Controller
         ];
 
 
+
+        $par['projects'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadproject($par); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
     
@@ -245,10 +259,12 @@ class ClientController extends Controller
             ]
         ];
 
+
+        $par['works'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadtypeofwork($par); 
 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -271,9 +287,11 @@ class ClientController extends Controller
             ]
         ];
 
+
+        $par['lines'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadline($par); 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -298,9 +316,11 @@ class ClientController extends Controller
             ]
         ];
 
+
+        $par['nomenclatures'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadnomenclature($par); 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -325,9 +345,10 @@ class ClientController extends Controller
 
         
 
+        $par['remnants'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadremnant($par); 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 
@@ -476,9 +497,10 @@ class ClientController extends Controller
             ]
         ];
 
+        $par['raports'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadraport($par); 
 
-        $result = isset($answer->success) && $answer->success ? "true" : "false";
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
 }

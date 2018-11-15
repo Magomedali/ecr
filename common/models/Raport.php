@@ -256,7 +256,7 @@ class Raport extends ActiveRecordVersionable
         if(!is_array($materials)){
             return false;
         }
-        // print_r($materials);
+        
         Yii::error(json_encode($materials),"api");
         $Type = "RaportMaterial";
         if(!isset($materials[$Type])){

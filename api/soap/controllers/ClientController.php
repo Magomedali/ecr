@@ -33,17 +33,19 @@ class ClientController extends Controller
     public function actionIndex(){
         echo "\n---Start testing";
         $this->actionTest();
+        echo "<br>";
         $this->actionUnloadbrigade();
-        $this->actionUnloadtechnic();
-        $this->actionUnloadline();
-        $this->actionUnloadnomenclature();
-        $this->actionUnloadtypeofwork();
-        $this->actionUnloadboundary();
-        $this->actionUnloadobject();
-        $this->actionUnloadproject();
-        $this->actionUnloadworker();
-        $this->actionUnloadremnant();
-        $this->actionUnloadraport();
+        echo "<br>";
+        $this->actionUnloadtechnic();echo "<br>";
+        $this->actionUnloadline();echo "<br>";
+        $this->actionUnloadnomenclature();echo "<br>";
+        $this->actionUnloadtypeofwork();echo "<br>";
+        $this->actionUnloadboundary();echo "<br>";
+        $this->actionUnloadobject();echo "<br>";
+        $this->actionUnloadproject();echo "<br>";
+        $this->actionUnloadworker();echo "<br>";
+        $this->actionUnloadremnant();echo "<br>";
+        $this->actionUnloadraport();echo "<br>";
 
         echo "\n---Finish testing";
     }
@@ -63,8 +65,6 @@ class ClientController extends Controller
   
     public function actionUnloadbrigade($brigades = null){
 
-        $model = new \common\models\Brigade();
-
         $par = [
             ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
             ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100']
@@ -73,10 +73,9 @@ class ClientController extends Controller
         $req = new \stdClass();
         
         $req->brigades = $par;
-        //$req->ArrayOfBrigade = $par;
         
-        $par = ['guid'=>'asdasd','name'=>'sadas'];
-        $answer = Yii::$app->testclient->getClient()->unloadbrigade($par);
+        $par['brigades']=$par;
+        $answer = Yii::$app->testclient->getClient()->unloadbrigade($req);
         
         print_r($answer);
     }
@@ -97,7 +96,7 @@ class ClientController extends Controller
             ]
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadworker($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadworker(['workers'=>$par]); 
 
         print_r($answer);
 
@@ -144,7 +143,7 @@ class ClientController extends Controller
         ];
 
 
-        $answer = Yii::$app->testclient->getClient()->unloadobject($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadobject(['objects'=>$par]); 
 
         print_r($answer);
     }
@@ -163,7 +162,7 @@ class ClientController extends Controller
         ];
 
 
-        $answer = Yii::$app->testclient->getClient()->unloadboundary($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadboundary(['boundaries'=>$par]); 
 
         print_r($answer);
     }
@@ -184,7 +183,7 @@ class ClientController extends Controller
         ];
 
 
-        $answer = Yii::$app->testclient->getClient()->unloadproject($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadproject(['projects'=>$par]); 
 
         print_r($answer);
     }
@@ -201,7 +200,7 @@ class ClientController extends Controller
             ]
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadtypeofwork($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadtypeofwork(['works'=>$par]); 
 
         print_r($answer);
     }
@@ -218,7 +217,7 @@ class ClientController extends Controller
             ],
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadline($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadline(['lines'=>$par]); 
 
         print_r($answer);
     }
@@ -236,7 +235,7 @@ class ClientController extends Controller
             ]
         ];
 
-        $answer = Yii::$app->testclient->getClient()->unloadnomenclature($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadnomenclature(['nomenclatures'=>$par]); 
 
         print_r($answer);
     }
@@ -254,7 +253,7 @@ class ClientController extends Controller
 
         
 
-        $answer = Yii::$app->testclient->getClient()->unloadremnant($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadremnant(['remnants'=>$par]); 
 
         print_r($answer);
     }
@@ -310,7 +309,7 @@ class ClientController extends Controller
         ];
 
         
-        $answer = Yii::$app->testclient->getClient()->unloadraport($par); 
+        $answer = Yii::$app->testclient->getClient()->unloadraport(['raports'=>$par]); 
 
         print_r($answer);
     }

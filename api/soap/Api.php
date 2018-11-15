@@ -85,12 +85,11 @@ class Api{
      * @return api\soap\models\Responce
      */
     public static function unloadbrigade($data){
-        
         self::log("Called Method 'unloadbrigade'");
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Brigade";
+        $Type = "brigades";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -142,7 +141,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Worker";
+        $Type = "workers";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -194,7 +193,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Technic";
+        $Type = "technics";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -245,7 +244,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Objects";
+        $Type = "objects";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -296,7 +295,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Boundary";
+        $Type = "boundaries";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -348,7 +347,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Project";
+        $Type = "projects";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -390,6 +389,8 @@ class Api{
 
 
     /**
+     * unload TypeOfWork
+     * @param api\soap\models\TypeOfWork[] $works
      * @return api\soap\models\Responce
      */
     public static function unloadtypeofwork($data){   
@@ -397,7 +398,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "TypeOfWork";
+        $Type = "works";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -439,6 +440,8 @@ class Api{
 
 
     /**
+     * unload lines
+     * @param api\soap\models\Line[] $lines
      * @return api\soap\models\Responce
      */
     public static function unloadline($data){   
@@ -446,7 +449,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Line";
+        $Type = "lines";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -487,6 +490,8 @@ class Api{
 
 
     /**
+     * unload nomenclatures
+     * @param api\soap\models\Nomenclature[] $nomenclatures
      * @return api\soap\models\Responce
      */
     public static function unloadnomenclature($data){   
@@ -494,7 +499,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Nomenclature";
+        $Type = "nomenclatures";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -535,6 +540,8 @@ class Api{
 
     
     /**
+     * unload Remnant
+     * @param api\soap\models\Remnant[] $remnants
      * @return api\soap\models\Responce
      */
     public static function unloadremnant($data){   
@@ -542,7 +549,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Remnant";
+        $Type = "remnants";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -583,6 +590,8 @@ class Api{
 
 
     /**
+     * unload raports
+     * @param api\soap\models\Raport[] $raports
      * @return api\soap\models\Responce
      */
     public static function unloadraport($data){   
@@ -590,7 +599,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Raport";
+        $Type = "raports";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
