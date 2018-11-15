@@ -75,7 +75,7 @@ class ClientController extends Controller
         $req->brigades = $par;
         //$req->ArrayOfBrigade = $par;
 
-        $answer = Yii::$app->testclient->getClient()->unloadbrigade($req); 
+        $answer = Yii::$app->testclient->getClient()->unloadbrigade(['brigades'=>$par]); 
 
         print_r($answer);
     }
@@ -122,7 +122,7 @@ class ClientController extends Controller
         $req = new \stdClass();
         
         $req->technics = $par;
-        $answer = Yii::$app->testclient->getClient()->unloadtechnic($req); 
+        $answer = Yii::$app->testclient->getClient()->unloadtechnic(['technics'=>$par]); 
 
         print_r($answer);
     }
