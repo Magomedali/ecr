@@ -40,13 +40,12 @@ class TestClient extends Component
         $wsdl = Yii::getAlias($this->wsdl);
 
         $this->client = new SoapClient($wsdl, [
-            // 'trace' => 1,
-            // 'compression' => SOAP_COMPRESSION_ACCEPT,
+            'trace' => 1,
+            //'compression' => SOAP_COMPRESSION_ACCEPT,
             // 'login' => $this->username,
             // 'password' => $this->password,
-            // 'exceptions' => 1,
-            // 'soap_version' => SOAP_1_2,
-            // 'cache_wsdl' =>  WSDL_CACHE_MEMORY,
+            'exceptions' => 1,
+            //'cache_wsdl' =>  WSDL_CACHE_MEMORY,
         ]);
 
     }

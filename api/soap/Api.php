@@ -34,7 +34,6 @@ class Api{
 	*/
 	public static function exec($method,$params){
 
-        $responce = null;
 		try {
         	if(!method_exists(__CLASS__, $method))
         		throw new ApiExceptionMethodNotExists();
@@ -50,17 +49,15 @@ class Api{
             $responce = new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>$message]);
         }
 
-        // $responce = new Responce(['success'=>false,'error'=>"ServerError",'errorMessage'=>"test"]);
         if(0){
             //rpc
-           
+            
             return $responce;
         }else{
             //document
             
             $r = new \stdClass();
-            // $r->unloadbrigadeResponse = $responce;
-            $r->return = $responce;
+            $r->returns = $responce;
             return $r;
         }
 	}

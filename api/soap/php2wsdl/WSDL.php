@@ -611,7 +611,7 @@ class WSDL
      * @param string $type The PHP type.
      * @return string
      */
-    public static function typeToQName($type,$onlyName = false)
+    public static function typeToQName($type,$onlyName = true)
     {
         if ($type[0] === '\\') {
             $type = substr($type, 1);

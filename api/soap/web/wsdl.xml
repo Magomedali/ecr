@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://lk.web-ali.ru/api/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="api.soap.controllers.ApiController" targetNamespace="http://lk.web-ali.ru/api/soap/">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://lk.web-ali.ru/api/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://lk.web-ali.ru/api/soap/">
   <types>
     <xsd:schema targetNamespace="http://lk.web-ali.ru/api/soap/">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -10,7 +10,7 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Responce">
+      <xsd:complexType name="Responce">
         <xsd:all>
           <xsd:element name="success" type="xsd:boolean"/>
           <xsd:element name="error" type="xsd:string" nillable="true"/>
@@ -22,38 +22,38 @@
       <xsd:element name="testResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Brigade">
+      <xsd:complexType name="Brigade">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Brigade">
+      <xsd:complexType name="ArrayOfBrigade">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Brigade[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Brigade[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadbrigade">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="brigades" type="tns:ArrayOfapi.soap.models.Brigade"/>
+            <xsd:element name="brigades" type="tns:ArrayOfBrigade"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadbrigadeResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Worker">
+      <xsd:complexType name="Worker">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
@@ -65,28 +65,28 @@
           <xsd:element name="password" type="xsd:string" nillable="true"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Worker">
+      <xsd:complexType name="ArrayOfWorker">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Worker[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Worker[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadworker">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="workers" type="tns:ArrayOfapi.soap.models.Worker"/>
+            <xsd:element name="workers" type="tns:ArrayOfWorker"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadworkerResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Technic">
+      <xsd:complexType name="Technic">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
@@ -94,206 +94,206 @@
           <xsd:element name="number" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Technic">
+      <xsd:complexType name="ArrayOfTechnic">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Technic[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Technic[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadtechnic">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="technics" type="tns:ArrayOfapi.soap.models.Technic"/>
+            <xsd:element name="technics" type="tns:ArrayOfTechnic"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadtechnicResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Objects">
+      <xsd:complexType name="Objects">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="boundary_guid" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Objects">
+      <xsd:complexType name="ArrayOfObjects">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Objects[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Objects[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadobject">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="objects" type="tns:ArrayOfapi.soap.models.Objects"/>
+            <xsd:element name="objects" type="tns:ArrayOfObjects"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadobjectResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Boundary">
+      <xsd:complexType name="Boundary">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Boundary">
+      <xsd:complexType name="ArrayOfBoundary">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Boundary[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Boundary[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadboundary">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="boundaries" type="tns:ArrayOfapi.soap.models.Boundary"/>
+            <xsd:element name="boundaries" type="tns:ArrayOfBoundary"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadboundaryResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Project">
+      <xsd:complexType name="Project">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="objects_guids" type="soap-enc:Array"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Project">
+      <xsd:complexType name="ArrayOfProject">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Project[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Project[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadproject">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="projects" type="tns:ArrayOfapi.soap.models.Project"/>
+            <xsd:element name="projects" type="tns:ArrayOfProject"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadprojectResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.TypeOfWork">
+      <xsd:complexType name="TypeOfWork">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.TypeOfWork">
+      <xsd:complexType name="ArrayOfTypeOfWork">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.TypeOfWork[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:TypeOfWork[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadtypeofwork">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="works" type="tns:ArrayOfapi.soap.models.TypeOfWork"/>
+            <xsd:element name="works" type="tns:ArrayOfTypeOfWork"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadtypeofworkResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Line">
+      <xsd:complexType name="Line">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Line">
+      <xsd:complexType name="ArrayOfLine">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Line[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Line[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadline">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="lines" type="tns:ArrayOfapi.soap.models.Line"/>
+            <xsd:element name="lines" type="tns:ArrayOfLine"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadlineResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Nomenclature">
+      <xsd:complexType name="Nomenclature">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Nomenclature">
+      <xsd:complexType name="ArrayOfNomenclature">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Nomenclature[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Nomenclature[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadnomenclature">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="nomenclatures" type="tns:ArrayOfapi.soap.models.Nomenclature"/>
+            <xsd:element name="nomenclatures" type="tns:ArrayOfNomenclature"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadnomenclatureResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.RaportFile">
+      <xsd:complexType name="RaportFile">
         <xsd:all>
           <xsd:element name="file" type="xsd:base64Binary"/>
           <xsd:element name="type" type="xsd:string"/>
           <xsd:element name="file_name" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.RaportFile">
+      <xsd:complexType name="ArrayOfRaportFile">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportFile[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportFile[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
-      <xsd:complexType name="api.soap.models.RaportMaterial">
+      <xsd:complexType name="RaportMaterial">
         <xsd:all>
           <xsd:element name="nomenclature_guid" type="xsd:string"/>
           <xsd:element name="was" type="xsd:float"/>
@@ -301,14 +301,14 @@
           <xsd:element name="rest" type="xsd:float"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.RaportMaterial">
+      <xsd:complexType name="ArrayOfRaportMaterial">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportMaterial[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportMaterial[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
-      <xsd:complexType name="api.soap.models.RaportWork">
+      <xsd:complexType name="RaportWork">
         <xsd:all>
           <xsd:element name="work_guid" type="xsd:string"/>
           <xsd:element name="line_guid" type="xsd:string"/>
@@ -318,27 +318,27 @@
           <xsd:element name="squaremeter" type="xsd:float"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.RaportWork">
+      <xsd:complexType name="ArrayOfRaportWork">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportWork[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportWork[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
-      <xsd:complexType name="api.soap.models.RaportConsist">
+      <xsd:complexType name="RaportConsist">
         <xsd:all>
           <xsd:element name="technic_guid" type="xsd:string"/>
           <xsd:element name="user_guid" type="xsd:string"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.RaportConsist">
+      <xsd:complexType name="ArrayOfRaportConsist">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.RaportConsist[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportConsist[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
-      <xsd:complexType name="api.soap.models.Raport">
+      <xsd:complexType name="Raport">
         <xsd:all>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="number" type="xsd:string"/>
@@ -358,64 +358,64 @@
           <xsd:element name="project_guid" type="xsd:string"/>
           <xsd:element name="master_guid" type="xsd:string"/>
           <xsd:element name="comment" type="xsd:string" nillable="true"/>
-          <xsd:element name="files" type="tns:ArrayOfapi.soap.models.RaportFile" nillable="true"/>
-          <xsd:element name="materials" type="tns:ArrayOfapi.soap.models.RaportMaterial" minOccurs="1"/>
-          <xsd:element name="works" type="tns:ArrayOfapi.soap.models.RaportWork" minOccurs="1"/>
-          <xsd:element name="consist" type="tns:ArrayOfapi.soap.models.RaportConsist" minOccurs="1"/>
+          <xsd:element name="files" type="tns:ArrayOfRaportFile" nillable="true"/>
+          <xsd:element name="materials" type="tns:ArrayOfRaportMaterial" minOccurs="1"/>
+          <xsd:element name="works" type="tns:ArrayOfRaportWork" minOccurs="1"/>
+          <xsd:element name="consist" type="tns:ArrayOfRaportConsist" minOccurs="1"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Raport">
+      <xsd:complexType name="ArrayOfRaport">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Raport[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Raport[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadraport">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="raports" type="tns:ArrayOfapi.soap.models.Raport"/>
+            <xsd:element name="raports" type="tns:ArrayOfRaport"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadraportResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="api.soap.models.Remnant">
+      <xsd:complexType name="Remnant">
         <xsd:all>
           <xsd:element name="brigade_guid" type="xsd:string"/>
           <xsd:element name="nomenclature_guid" type="xsd:string"/>
           <xsd:element name="count" type="xsd:float"/>
         </xsd:all>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfapi.soap.models.Remnant">
+      <xsd:complexType name="ArrayOfRemnant">
         <xsd:complexContent>
           <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:api.soap.models.Remnant[]"/>
+            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Remnant[]"/>
           </xsd:restriction>
         </xsd:complexContent>
       </xsd:complexType>
       <xsd:element name="unloadremnant">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="remnants" type="tns:ArrayOfapi.soap.models.Remnant"/>
+            <xsd:element name="remnants" type="tns:ArrayOfRemnant"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadremnantResponse">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="return" type="tns:api.soap.models.Responce"/>
+            <xsd:element name="returns" type="tns:Responce"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
     </xsd:schema>
   </types>
-  <portType name="api.soap.controllers.ApiControllerPort">
+  <portType name="ApiControllerPort">
     <operation name="test">
       <documentation>Stest method</documentation>
       <input message="tns:testIn"/>
@@ -477,7 +477,7 @@
       <output message="tns:unloadremnantOut"/>
     </operation>
   </portType>
-  <binding name="api.soap.controllers.ApiControllerBinding" type="tns:api.soap.controllers.ApiControllerPort">
+  <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="test">
       <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#test"/>
@@ -588,9 +588,9 @@
       </output>
     </operation>
   </binding>
-  <service name="api.soap.controllers.ApiControllerService">
-    <port name="api.soap.controllers.ApiControllerPort" binding="tns:api.soap.controllers.ApiControllerBinding">
-      <soap:address location="http://localhost:8082/ecr/api/soap/web/index.php?ws=1"/>
+  <service name="ApiControllerService">
+    <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
+      <soap:address location="http://lk.web-ali.ru/api/soap/web/index.php?ws=1"/>
     </port>
   </service>
   <message name="testIn">

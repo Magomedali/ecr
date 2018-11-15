@@ -219,7 +219,7 @@ class PHPClass2WSDL
                 $sequence = array();
                 if ($returnType !== null) {
                     $sequence[] = array(
-                        'name' => 'return',
+                        'name' => 'returns',
                         'type' => $this->wsdl->getXSDType($returnType)
                     );
                 }
