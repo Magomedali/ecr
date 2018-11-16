@@ -73,9 +73,10 @@ class ClientController extends Controller
         $req = new \stdClass();
         
         $req->brigades = $par;
-        
+    
         $par['brigades']=$par;
-        $answer = Yii::$app->testclient->getClient()->unloadbrigade($req);
+
+        $answer = Yii::$app->testclient->getClient()->unloadbrigade($par);
         
         print_r($answer);
     }

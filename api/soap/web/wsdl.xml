@@ -3,49 +3,33 @@
   <types>
     <xsd:schema targetNamespace="http://lk.web-ali.ru/api/soap/">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
-      <xsd:element name="test">
+      <xsd:complexType name="itemOfBrigade">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Brigade">
+        <xsd:sequence>
+          <xsd:element name="Brigade" type="tns:itemOfBrigade" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadbrigade">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="msg" type="xsd:string"/>
+            <xsd:element name="brigades" type="tns:Brigade"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:complexType name="Responce">
-        <xsd:all>
+        <xsd:sequence>
           <xsd:element name="success" type="xsd:boolean"/>
           <xsd:element name="error" type="xsd:string" nillable="true"/>
           <xsd:element name="errorMessage" type="xsd:string" nillable="true"/>
           <xsd:element name="errorUserMessage" type="xsd:string" nillable="true"/>
           <xsd:element name="errorsExtend" type="soap-enc:Array" nillable="true"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:element name="testResponse">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="returns" type="tns:Responce"/>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-      <xsd:complexType name="Brigade">
-        <xsd:all>
-          <xsd:element name="guid" type="xsd:string"/>
-          <xsd:element name="name" type="xsd:string"/>
-        </xsd:all>
-      </xsd:complexType>
-      <xsd:complexType name="ArrayOfBrigade">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Brigade[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
-      </xsd:complexType>
-      <xsd:element name="unloadbrigade">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="brigades" type="tns:ArrayOfBrigade"/>
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
       <xsd:element name="unloadbrigadeResponse">
         <xsd:complexType>
           <xsd:sequence>
@@ -53,8 +37,22 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Worker">
-        <xsd:all>
+      <xsd:element name="test">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="msg" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="testResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="returns" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="itemOfWorker">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="brigade_guid" type="xsd:string" nillable="true"/>
@@ -63,19 +61,17 @@
           <xsd:element name="is_master" type="xsd:boolean"/>
           <xsd:element name="login" type="xsd:string" nillable="true"/>
           <xsd:element name="password" type="xsd:string" nillable="true"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfWorker">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Worker[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Worker">
+        <xsd:sequence>
+          <xsd:element name="Worker" type="tns:itemOfWorker" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadworker">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="workers" type="tns:ArrayOfWorker"/>
+            <xsd:element name="workers" type="tns:Worker"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -86,25 +82,23 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Technic">
-        <xsd:all>
+      <xsd:complexType name="itemOfTechnic">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="marka" type="xsd:string"/>
           <xsd:element name="number" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfTechnic">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Technic[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Technic">
+        <xsd:sequence>
+          <xsd:element name="Technic" type="tns:itemOfTechnic" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadtechnic">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="technics" type="tns:ArrayOfTechnic"/>
+            <xsd:element name="technics" type="tns:Technic"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -115,24 +109,22 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Objects">
-        <xsd:all>
+      <xsd:complexType name="itemOfObjects">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="boundary_guid" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfObjects">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Objects[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Objects">
+        <xsd:sequence>
+          <xsd:element name="Objects" type="tns:itemOfObjects" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadobject">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="objects" type="tns:ArrayOfObjects"/>
+            <xsd:element name="objects" type="tns:Objects"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -143,23 +135,21 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Boundary">
-        <xsd:all>
+      <xsd:complexType name="itemOfBoundary">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfBoundary">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Boundary[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Boundary">
+        <xsd:sequence>
+          <xsd:element name="Boundary" type="tns:itemOfBoundary" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadboundary">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="boundaries" type="tns:ArrayOfBoundary"/>
+            <xsd:element name="boundaries" type="tns:Boundary"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -170,24 +160,22 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Project">
-        <xsd:all>
+      <xsd:complexType name="itemOfProject">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="objects_guids" type="soap-enc:Array"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfProject">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Project[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Project">
+        <xsd:sequence>
+          <xsd:element name="Project" type="tns:itemOfProject" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadproject">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="projects" type="tns:ArrayOfProject"/>
+            <xsd:element name="projects" type="tns:Project"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -198,23 +186,21 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="TypeOfWork">
-        <xsd:all>
+      <xsd:complexType name="itemOfTypeOfWork">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfTypeOfWork">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:TypeOfWork[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="TypeOfWork">
+        <xsd:sequence>
+          <xsd:element name="TypeOfWork" type="tns:itemOfTypeOfWork" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadtypeofwork">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="works" type="tns:ArrayOfTypeOfWork"/>
+            <xsd:element name="works" type="tns:TypeOfWork"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -225,23 +211,21 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Line">
-        <xsd:all>
+      <xsd:complexType name="itemOfLine">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfLine">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Line[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Line">
+        <xsd:sequence>
+          <xsd:element name="Line" type="tns:itemOfLine" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadline">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="lines" type="tns:ArrayOfLine"/>
+            <xsd:element name="lines" type="tns:Line"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -252,23 +236,21 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Nomenclature">
-        <xsd:all>
+      <xsd:complexType name="itemOfNomenclature">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfNomenclature">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Nomenclature[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Nomenclature">
+        <xsd:sequence>
+          <xsd:element name="Nomenclature" type="tns:itemOfNomenclature" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadnomenclature">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="nomenclatures" type="tns:ArrayOfNomenclature"/>
+            <xsd:element name="nomenclatures" type="tns:Nomenclature"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -279,67 +261,59 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="RaportFile">
-        <xsd:all>
+      <xsd:complexType name="itemOfRaportFile">
+        <xsd:sequence>
           <xsd:element name="file" type="xsd:base64Binary"/>
           <xsd:element name="type" type="xsd:string"/>
           <xsd:element name="file_name" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfRaportFile">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportFile[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="RaportFile">
+        <xsd:sequence>
+          <xsd:element name="RaportFile" type="tns:itemOfRaportFile" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="RaportMaterial">
-        <xsd:all>
+      <xsd:complexType name="itemOfRaportMaterial">
+        <xsd:sequence>
           <xsd:element name="nomenclature_guid" type="xsd:string"/>
           <xsd:element name="was" type="xsd:float"/>
           <xsd:element name="spent" type="xsd:float"/>
           <xsd:element name="rest" type="xsd:float"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfRaportMaterial">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportMaterial[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="RaportMaterial">
+        <xsd:sequence>
+          <xsd:element name="RaportMaterial" type="tns:itemOfRaportMaterial" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="RaportWork">
-        <xsd:all>
+      <xsd:complexType name="itemOfRaportWork">
+        <xsd:sequence>
           <xsd:element name="work_guid" type="xsd:string"/>
           <xsd:element name="line_guid" type="xsd:string"/>
           <xsd:element name="mechanized" type="xsd:boolean"/>
           <xsd:element name="length" type="xsd:float"/>
           <xsd:element name="count" type="xsd:float"/>
           <xsd:element name="squaremeter" type="xsd:float"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfRaportWork">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportWork[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="RaportWork">
+        <xsd:sequence>
+          <xsd:element name="RaportWork" type="tns:itemOfRaportWork" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="RaportConsist">
-        <xsd:all>
+      <xsd:complexType name="itemOfRaportConsist">
+        <xsd:sequence>
           <xsd:element name="technic_guid" type="xsd:string"/>
           <xsd:element name="user_guid" type="xsd:string"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfRaportConsist">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:RaportConsist[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="RaportConsist">
+        <xsd:sequence>
+          <xsd:element name="RaportConsist" type="tns:itemOfRaportConsist" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="Raport">
-        <xsd:all>
+      <xsd:complexType name="itemOfRaport">
+        <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="number" type="xsd:string"/>
           <xsd:element name="status" type="xsd:string"/>
@@ -358,23 +332,21 @@
           <xsd:element name="project_guid" type="xsd:string"/>
           <xsd:element name="master_guid" type="xsd:string"/>
           <xsd:element name="comment" type="xsd:string" nillable="true"/>
-          <xsd:element name="files" type="tns:ArrayOfRaportFile" nillable="true"/>
-          <xsd:element name="materials" type="tns:ArrayOfRaportMaterial" minOccurs="1"/>
-          <xsd:element name="works" type="tns:ArrayOfRaportWork" minOccurs="1"/>
-          <xsd:element name="consist" type="tns:ArrayOfRaportConsist" minOccurs="1"/>
-        </xsd:all>
+          <xsd:element name="files" type="tns:RaportFile" nillable="true"/>
+          <xsd:element name="materials" type="tns:RaportMaterial" minOccurs="1"/>
+          <xsd:element name="works" type="tns:RaportWork" minOccurs="1"/>
+          <xsd:element name="consist" type="tns:RaportConsist" minOccurs="1"/>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfRaport">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Raport[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Raport">
+        <xsd:sequence>
+          <xsd:element name="Raport" type="tns:itemOfRaport" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadraport">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="raports" type="tns:ArrayOfRaport"/>
+            <xsd:element name="raports" type="tns:Raport"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -385,24 +357,22 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="Remnant">
-        <xsd:all>
+      <xsd:complexType name="itemOfRemnant">
+        <xsd:sequence>
           <xsd:element name="brigade_guid" type="xsd:string"/>
           <xsd:element name="nomenclature_guid" type="xsd:string"/>
           <xsd:element name="count" type="xsd:float"/>
-        </xsd:all>
+        </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="ArrayOfRemnant">
-        <xsd:complexContent>
-          <xsd:restriction base="soap-enc:Array">
-            <xsd:attribute ref="soap-enc:arrayType" wsdl:arrayType="tns:Remnant[]"/>
-          </xsd:restriction>
-        </xsd:complexContent>
+      <xsd:complexType name="Remnant">
+        <xsd:sequence>
+          <xsd:element name="Remnant" type="tns:itemOfRemnant" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadremnant">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="remnants" type="tns:ArrayOfRemnant"/>
+            <xsd:element name="remnants" type="tns:Remnant"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -416,15 +386,15 @@
     </xsd:schema>
   </types>
   <portType name="ApiControllerPort">
-    <operation name="test">
-      <documentation>Stest method</documentation>
-      <input message="tns:testIn"/>
-      <output message="tns:testOut"/>
-    </operation>
     <operation name="unloadbrigade">
       <documentation>unload Brigades</documentation>
       <input message="tns:unloadbrigadeIn"/>
       <output message="tns:unloadbrigadeOut"/>
+    </operation>
+    <operation name="test">
+      <documentation>Stest method</documentation>
+      <input message="tns:testIn"/>
+      <output message="tns:testOut"/>
     </operation>
     <operation name="unloadworker">
       <documentation>unload workers</documentation>
@@ -479,8 +449,8 @@
   </portType>
   <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <operation name="test">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#test"/>
+    <operation name="unloadbrigade">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadbrigade"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -488,8 +458,8 @@
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
-    <operation name="unloadbrigade">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#unloadbrigade"/>
+    <operation name="test">
+      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/#test"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -593,17 +563,17 @@
       <soap:address location="http://localhost:8082/ecr/api/soap/web/index.php?ws=1"/>
     </port>
   </service>
-  <message name="testIn">
-    <part name="parameters" element="tns:test"/>
-  </message>
-  <message name="testOut">
-    <part name="parameters" element="tns:testResponse"/>
-  </message>
   <message name="unloadbrigadeIn">
     <part name="parameters" element="tns:unloadbrigade"/>
   </message>
   <message name="unloadbrigadeOut">
     <part name="parameters" element="tns:unloadbrigadeResponse"/>
+  </message>
+  <message name="testIn">
+    <part name="parameters" element="tns:test"/>
+  </message>
+  <message name="testOut">
+    <part name="parameters" element="tns:testResponse"/>
   </message>
   <message name="unloadworkerIn">
     <part name="parameters" element="tns:unloadworker"/>

@@ -171,7 +171,7 @@ class PHPClass2WSDL
             }
         }
 
-        if ($this->bindingStyle['style'] === 'document') {
+        if($this->bindingStyle['style'] === 'document'){
             $sequence = array();
             /** @var \Wingu\OctopusCore\Reflection\ReflectionParameter $param */
             foreach ($method->getParameters() as $param) {
@@ -187,10 +187,11 @@ class PHPClass2WSDL
 
                 $sequence[] = $sequenceElement;
             }
-
             $element = array('name' => $qNameMethodName, 'sequence' => $sequence);
+            
+            
             $args['parameters'] = array('element' => $this->wsdl->addElement($element));
-        } else {
+        }else{
             /** @var \Wingu\OctopusCore\Reflection\ReflectionParameter $param */
             foreach ($method->getParameters() as $param) {
                 $type = 'anytype';
@@ -201,6 +202,7 @@ class PHPClass2WSDL
                 $args[$param->getName()] = array('type' => $this->wsdl->getXSDType($type));
             }
         }
+
 
         $this->wsdl->addMessage($qNameMethodName . 'In', $args);
 

@@ -87,7 +87,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "brigades";
+        $Type = "Brigade";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -139,7 +139,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "workers";
+        $Type = "Worker";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -191,7 +191,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "technics";
+        $Type = "Technic";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -242,7 +242,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "objects";
+        $Type = "Objects";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -293,7 +293,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "boundaries";
+        $Type = "Boundary";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -345,7 +345,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "projects";
+        $Type = "Project";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -396,7 +396,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "works";
+        $Type = "TypeOfWork";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -447,7 +447,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "lines";
+        $Type = "Line";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -497,7 +497,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "nomenclatures";
+        $Type = "Nomenclature";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -547,7 +547,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "remnants";
+        $Type = "Remnant";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -597,7 +597,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "raports";
+        $Type = "Raport";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();

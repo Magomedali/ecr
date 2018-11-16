@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use api\soap\models\Brigade;
 use api\soap\models\Responce;
 use api\soap\Exceptions\ApiException;
+use api\soap\Exceptions\ApiExceptionWrongType;
 use api\soap\Api;
 
 /**
@@ -31,17 +32,32 @@ class ApiController extends Controller
         ];
     }
     
+    
 
     /**
      * @inheritdoc
      */
     public function exec($method,$params){
-        
         $methodName = str_replace(__CLASS__."::", "", $method);
 
         return Api::exec($methodName,$params);
     }
     
+
+    /**
+     * unload Brigades
+     * @param api\soap\models\Brigade[] $brigades
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function unloadbrigade($brigades){
+        $type = 'brigades';
+        $brigades = json_decode(json_encode($brigades),1); 
+        if(!isset($brigades[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'brigades'");
+
+        return $this->exec(__METHOD__,$brigades[$type]);
+    }
 
 
     /**
@@ -55,28 +71,19 @@ class ApiController extends Controller
     }
 
 
-
-    /**
-     * unload Brigades
-     * @param api\soap\models\Brigade[] $brigades
-     * @return api\soap\models\Responce
-     * @soap
-     */
-    public function unloadbrigade($brigades){   
-        return $this->exec(__METHOD__,$brigades);
-    }
-
-
-
-
     /**
      * unload workers
-     * @param api\soap\models\Worker[] $workers
+     * @param api\soap\models\Worker[] $workers 
      * @return api\soap\models\Responce
      * @soap
      */
     public function unloadworker($workers){   
-        return $this->exec(__METHOD__,$workers);
+        $type = 'workers';
+        $workers = json_decode(json_encode($workers),1); 
+        if(!isset($workers[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'workers'");
+
+        return $this->exec(__METHOD__,$workers[$type]);
     }
 
 
@@ -91,7 +98,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadtechnic($technics){   
-        return $this->exec(__METHOD__,$technics);
+        $type = 'technics';
+        $technics = json_decode(json_encode($technics),1); 
+        if(!isset($technics[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'technics'");
+
+        return $this->exec(__METHOD__,$technics[$type]);
     }
 
 
@@ -106,7 +118,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadobject($objects){   
-        return $this->exec(__METHOD__,$objects);
+        $type = 'objects';
+        $objects = json_decode(json_encode($objects),1); 
+        if(!isset($objects[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'objects'");
+
+        return $this->exec(__METHOD__,$objects[$type]);
     }
 
 
@@ -120,7 +137,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadboundary($boundaries){   
-        return $this->exec(__METHOD__,$boundaries);
+        $type = 'boundaries';
+        $boundaries = json_decode(json_encode($boundaries),1); 
+        if(!isset($boundaries[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'boundaries'");
+
+        return $this->exec(__METHOD__,$boundaries[$type]);
     }
 
     
@@ -135,7 +157,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadproject($projects){   
-        return $this->exec(__METHOD__,$projects);
+        $type = 'projects';
+        $projects = json_decode(json_encode($projects),1); 
+        if(!isset($projects[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'projects'");
+
+        return $this->exec(__METHOD__,$projects[$type]);
     }
 
 
@@ -148,7 +175,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadtypeofwork($works){   
-        return $this->exec(__METHOD__,$works);
+        $type = 'works';
+        $works = json_decode(json_encode($works),1); 
+        if(!isset($works[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'works'");
+
+        return $this->exec(__METHOD__,$works[$type]);
     }
 
 
@@ -162,7 +194,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadline($lines){   
-        return $this->exec(__METHOD__,$lines);
+        $type = 'lines';
+        $lines = json_decode(json_encode($lines),1); 
+        if(!isset($lines[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'lines'");
+
+        return $this->exec(__METHOD__,$lines[$type]);
     }
 
 
@@ -175,7 +212,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadnomenclature($nomenclatures){   
-        return $this->exec(__METHOD__,$nomenclatures);
+        $type = 'nomenclatures';
+        $nomenclatures = json_decode(json_encode($nomenclatures),1); 
+        if(!isset($nomenclatures[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'nomenclatures'");
+
+        return $this->exec(__METHOD__,$nomenclatures[$type]);
     }
 
 
@@ -186,7 +228,12 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadraport($raports){   
-        return $this->exec(__METHOD__,$raports);
+        $type = 'raports';
+        $raports = json_decode(json_encode($raports),1); 
+        if(!isset($raports[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'raports'");
+
+        return $this->exec(__METHOD__,$raports[$type]);
     }
 
 
@@ -197,6 +244,11 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadremnant($remnants){   
-        return $this->exec(__METHOD__,$remnants);
+        $type = 'remnants';
+        $remnants = json_decode(json_encode($remnants),1); 
+        if(!isset($remnants[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'remnants'");
+
+        return $this->exec(__METHOD__,$remnants[$type]);
     }
 }
