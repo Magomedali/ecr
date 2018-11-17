@@ -560,7 +560,7 @@
   </binding>
   <service name="ApiControllerService">
     <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
-      <soap:address location="http://localhost:8082/ecr/api/soap/web/index.php?ws=1"/>
+      <soap:address location="http://api.ecr:8081/index.php?ws=1"/>
     </port>
   </service>
   <message name="unloadbrigadeIn">

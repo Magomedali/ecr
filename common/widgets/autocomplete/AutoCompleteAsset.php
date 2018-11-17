@@ -9,13 +9,13 @@ class AutoCompleteAsset extends AssetBundle{
 	public $sourcePath = '@common/widgets/autocomplete/assets';
 	
 	public $css = [
-        'css/jquery.ui.min.css',
+        'css/autocomplete.css',
     ];
 
     
 
 	public $js = [
-		"js/jquery.ui.js"
+		"js/autocomplete.js"
 	];
 
 	public $depends = [

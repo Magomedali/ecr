@@ -57,3 +57,8 @@ a.asc:after, a.desc:after {
 a.asc:after {
     content: /*"\e113"*/ "\e151";
 }
+
+
+.pager li{
+    cursor: pointer;
+}

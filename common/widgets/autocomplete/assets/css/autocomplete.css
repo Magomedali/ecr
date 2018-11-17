@@ -1,0 +1,38 @@
+
+.autocomplete__widget_block{
+    position: relative;
+}
+
+
+    
+    .autocomplete_data{
+        position: absolute;
+        display: none;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px;
+        z-index: 1000;
+        width: 100%;
+    }
+
+        .autocomplete_items{
+            position: absolute;
+            z-index: 199;
+            height: 285px;
+            width: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            margin: 0px;
+            padding: 0px;
+            background: #fff;
+        }
+
+            .autocomplete_items li{
+                list-style: none;
+                cursor: pointer;
+            }
+
+            .autocomplete_items li:hover{
+                background-color: #ccc;
+            }

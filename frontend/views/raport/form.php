@@ -1,9 +1,11 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use common\models\User;
+use common\widgets\autocomplete\AutoComplete;
 
 
 $masters = User::find()->where(['is_master'=>true])->asArray()->all();
@@ -16,9 +18,21 @@ $this->title = "Форма рапорта";
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-3">
-				<?php echo $form->field($model,'master_guid')->dropDownList(ArrayHelper::map([],'guid','name'),['prompt'=>'Укажите мастера']);?>
-				<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid]);?>
+				<?php 
+					echo AutoComplete::widget([
+						'data'=>ArrayHelper::map($masters,'guid','name'),
+						'apiUrl'=>Url::to(['/autocomplete/masters']),
+						'inputValueName'=>'Raport[master_guid]',
+						'inputValueName_Value'=>"",
+						'inputKeyName'=>'master_key',
+						'inputKeyName_Value'=>"",
+						'placeholder'=>'Укажите мастера',
+						'label'=>'Мастер'
+					]);
+				?>
+				<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
 			</div>
+
 			<div class="col-md-6">
 				<?php echo Html::submitButton("Сохранить",['class'=>'btn btn-primary']);?>
 			</div>
@@ -78,6 +92,21 @@ $this->title = "Форма рапорта";
 											</div>
 										</div>
 
+										<div class="col-md-3">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group">
+														<label class="form-label">Прикрепить файлы:</label>
+														<?php echo Html::fileInput("files[]",null,['multiple'=>true]);?>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<?php echo $form->field($model,'comment')->textarea();?>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -88,7 +117,19 @@ $this->title = "Форма рапорта";
 							<h3>Состав бригады</h3>
 							<div class="row">
 								<div class="col-md-12">
-									
+									<table id="tableConsist" class="table table-bordered table-hovered table-collapsed">
+										<thead>
+											<tr>
+												<td>#</td>
+												<td>Физ.лицо</td>
+												<td>Техника</td>
+												<td><?php echo html::a('+',['raport/get-row-consist'],['class'=>'btn btn-sm btn-primary','id'=>'btnAddConsist'])?></td>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -99,7 +140,23 @@ $this->title = "Форма рапорта";
 							<h3>Характеристики работ</h3>
 							<div class="row">
 								<div class="col-md-12">
-									
+									<table id="tableWorks" class="table table-bordered table-hovered table-collapsed">
+										<thead>
+											<tr>
+												<td>#</td>
+												<td>Вид работы</td>
+												<td>Линия</td>
+												<td>Механизировання</td>
+												<td>Длина</td>
+												<td>Количество</td>
+												<td>кв. м</td>
+												<td><?php echo html::a('+',['raport/get-row-work'],['class'=>'btn btn-sm btn-primary','id'=>'btnAddWork'])?></td>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -111,7 +168,20 @@ $this->title = "Форма рапорта";
 							<h3>Остатки</h3>
 							<div class="row">
 								<div class="col-md-12">
-									
+									<table id="tableRemnants" class="table table-bordered table-hovered table-collapsed">
+										<thead>
+											<tr>
+												<td>#</td>
+												<td>Номенклатура</td>
+												<td>Начальный остаток</td>
+												<td>Израсходовано</td>
+												<td>Конечный остаток</td>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -137,6 +207,7 @@ $this->title = "Форма рапорта";
 <?php 
 
 $script = <<<JS
+	//pager script
 	$("body").on("click",".pager li",function(){
 		var active_tab = $(".nav-tabs li.active");
 		if($(this).hasClass("prev_tab")){
@@ -151,6 +222,53 @@ $script = <<<JS
 			}
 		}
 	});
+
+
+
+
+	//handler click on buttons for add form row
+
+	var sendGetConsistRow = 0;
+	$("#btnAddConsist,#btnAddWork").click(function(event){
+		event.preventDefault();
+		var action = $(this).attr("href");
+		var table = $(this).parents("table");
+		if(!table.length) return;
+		var count = table.find("tbody tr").length;
+		if(action && !sendGetConsistRow){
+			$.ajax({
+				url:action,
+				type:"GET",
+				data:{count:count},
+				dataType:'json',
+				beforeSend:function(){
+					sendGetConsistRow = 1;
+				},
+				success:function(json){
+					console.log(json);
+					if(json.hasOwnProperty("html")){
+						table.find("tbody").append(json.html);
+					}
+				},
+				error:function(msg){
+					console.log(msg);
+				},
+				complete:function(){
+					sendGetConsistRow = 0;
+				}
+			});
+		}
+	});
+
+
+
+	//handler click on remove row buttons
+	$("body").on("click",'.btnRemoveRow',function(event){
+		event.preventDefault();
+		var tr = $(this).parents("tr");
+		if(tr.length) tr.remove();
+	})
+
 JS;
 
 

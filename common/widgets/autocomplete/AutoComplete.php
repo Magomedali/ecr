@@ -7,64 +7,42 @@
 
 namespace common\widgets\autocomplete;
 
-use yii\jui\JuiAsset;
-use yii\jui\InputWidget;
-use yii\helpers\Html;
+use Yii;
+use yii\base\Widget;
 
-/**
- * AutoComplete renders an autocomplete jQuery UI widget.
- *
- * For example:
- *
- * ```php
- * echo AutoComplete::widget([
- *     'model' => $model,
- *     'attribute' => 'country',
- *     'clientOptions' => [
- *         'source' => ['USA', 'RUS'],
- *     ],
- * ]);
- * ```
- *
- * The following example will use the name property instead:
- *
- * ```php
- * echo AutoComplete::widget([
- *     'name' => 'country',
- *     'clientOptions' => [
- *         'source' => ['USA', 'RUS'],
- *     ],
- * ]);
- * ```
- *
- * You can also use this widget in an [[yii\widgets\ActiveForm|ActiveForm]] using the [[yii\widgets\ActiveField::widget()|widget()]]
- * method, for example like this:
- *
- * ```php
- * <?= $form->field($model, 'from_date')->widget(\yii\jui\AutoComplete::classname(), [
- *     'clientOptions' => [
- *         'source' => ['USA', 'RUS'],
- *     ],
- * ]) ?>
- * ```
- *
- * @see http://api.jqueryui.com/autocomplete/
- * @author Alexander Kochetov <creocoder@gmail.com>
- * @since 2.0
- */
-class AutoComplete extends InputWidget
+
+class AutoComplete extends Widget
 {   
 
-    public $includeJs = true;
+    public static $autoIdPrefix = 'w';
+
+    public $inputValueName = "autocomplete_input_name";
+
+    public $inputKeyName = "autocomplete_input_key";
+
+
+    public $inputValueName_Value = "";
+
+    public $inputKeyName_Value = "";
+
+    public $placeholder = 'Введите строку для поиска';
+
+    public $label = "Label";
+
+    public $labelShow = true;
+
+    public $apiUrl = "";
+
+    public $data = [];
+
     /**
      * @inheritdoc
      */
     public function run()
     {   
+        $idCount = $this->getId();
         
-
-        $this->registerWidget('autocomplete');
-        
+        $this->registerAssets();
         return $this->renderWidget();
     }
 
@@ -72,13 +50,19 @@ class AutoComplete extends InputWidget
      * Renders the AutoComplete widget.
      * @return string the rendering result.
      */
-    public function renderWidget()
-    {
-        if ($this->hasModel()) {
-            return Html::activeTextInput($this->model, $this->attribute, $this->options);
-        } else {
-            return Html::textInput($this->name, $this->value, $this->options);
-        }
+    public function renderWidget(){
+        return $this->view->renderFile($this->getViewPath()."/widget.php",[
+            'id'=>$this->getId(),
+            'data'=>$this->data,
+            'inputValueName'=>$this->inputValueName,
+            'inputKeyName'=>$this->inputKeyName,
+            'apiUrl'=>$this->apiUrl,
+            'placeholder'=>$this->placeholder,
+            'inputValueName_Value'=>$this->inputValueName_Value,
+            'inputKeyName_Value'=>$this->inputKeyName_Value,
+            'label'=>$this->label,
+            'labelShow'=>$this->labelShow
+        ]);
     }
 
     /**
@@ -90,20 +74,4 @@ class AutoComplete extends InputWidget
         AutoCompleteAsset::register($view);
     }
 
-
-
-    protected function registerWidget($name, $id = null)
-    {
-        if ($id === null) {
-            $id = $this->options['id'];
-        }
-        
-        if($this->includeJs){
-            $this->registerAssets();
-        }
-        
-
-        $this->registerClientEvents($name, $id);
-        $this->registerClientOptions($name, $id);
-    }
 }
