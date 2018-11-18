@@ -77,29 +77,15 @@ $this->title = "Форма рапорта";
 							<div class="row">
 								<div class="col-md-12">
 									<div class="row">
-										<div class="col-md-2">
-											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true]);?>
+										<div class="col-md-6">
+											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true,'class'=>'form-control input-sm']);?>
 
-											<?php echo $form->field($model,'starttime')->input("time");?>
+											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm']);?>
 
-											<?php echo $form->field($model,'endtime')->input("time");?>
+											<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm']);?>
 										</div>
 
-										<div class="col-md-3">
-											<div class="row">
-												<div class="col-md-6">
-													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01']);?>
-													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01']);?>
-													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01']);?>
-												</div>
-												<div class="col-md-6">
-													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01']);?>
-													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01']);?><?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01']);?>
-												</div>
-											</div>
-										</div>
-
-										<div class="col-md-3 object_form">
+										<div class="col-md-6 object_form">
 											<div class="row">
 												<div class="col-md-12">
 													<?php 
@@ -142,26 +128,40 @@ $this->title = "Форма рапорта";
 												</div>
 												<div class="col-md-12">
 													<label>Округ</label>
-													<?php echo Html::textInput("boundary_name",$boundary_name,['class'=>'form-control input_boundary_name isRequired','readonly'=>true]);?>
+													<?php echo Html::textInput("boundary_name",$boundary_name,['class'=>'form-control input-sm input_boundary_name isRequired','readonly'=>true]);?>
 													
 													<?php echo $form->field($model,'boundary_guid')->hiddenInput(['class'=>'isRequired'])->label(false);?>
 												</div>
 											</div>
 										</div>
-
-										<div class="col-md-3">
+									</div>
+									<hr>
+									<div class="row">
+										<div class="col-md-12">
 											<div class="row">
-												<div class="col-md-12">
-													<div class="form-group">
-														<label class="form-label">Прикрепить файлы:</label>
-														<?php echo Html::fileInput("files[]",null,['multiple'=>true]);?>
-													</div>
+												<div class="col-md-6">
+													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
+													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
+													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
+												</div>
+												<div class="col-md-6">
+													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);
+													?>
+													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
+													<?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
 												</div>
 											</div>
-											<div class="row">
-												<div class="col-md-12">
-													<?php echo $form->field($model,'comment')->textarea();?>
-												</div>
+										</div>
+									</div>
+									<hr>
+									<div class="row">
+										<div class="col-md-6">
+											<?php echo $form->field($model,'comment')->textarea(['class'=>'form-control input-sm']);?>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label">Прикрепить файлы:</label>
+												<?php echo Html::fileInput("files[]",null,['multiple'=>true]);?>
 											</div>
 										</div>
 									</div>
@@ -296,9 +296,9 @@ $this->title = "Форма рапорта";
 													?>	
 													</td>
 													<td><?php echo Html::checkbox("RaportWork[$key][mechanized]",$item['mechanized']); ?></td>
-													<td><?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired','step'=>"0.01"]); ?></td>
-													<td><?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired','step'=>"0.01"]); ?></td>
-													<td><?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control','readonly'=>1]); ?></td>
+													<td><?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?></td>
+													<td><?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?></td>
+													<td><?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?></td>
 													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?></td>
 												</tr>
 												<?php } ?>
@@ -340,17 +340,17 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::textInput("RaportMaterial[$key][was]",$item['was'],['class'=>'form-control was_input','readonly'=>1]);
+														echo Html::textInput("RaportMaterial[$key][was]",$item['was'],['class'=>'form-control input-sm was_input ','readonly'=>1]);
 													?>
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'],['class'=>'form-control spent_input isRequired','min'=>0,'max'=>$item['was']]);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'],['class'=>'form-control input-sm spent_input isRequired','min'=>0,'max'=>$item['was']]);
 													?>
 													</td>
 													<td>
 														<?php 
-															echo Html::textInput("RaportMaterial[$key][rest]",$item['rest'],['class'=>'form-control rest_input','readonly'=>1]);
+															echo Html::textInput("RaportMaterial[$key][rest]",$item['rest'],['class'=>'form-control input-sm rest_input','readonly'=>1]);
 														?>
 													</td
 												</tr>

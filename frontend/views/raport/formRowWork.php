@@ -36,8 +36,8 @@ use common\widgets\autocomplete\AutoComplete;
 	?>	
 	</td>
 	<td><?php echo Html::checkbox("RaportWork[$count][mechanized]",null); ?></td>
-	<td><?php echo Html::input("number","RaportWork[$count][length]",null,['class'=>'form-control isRequired','step'=>"0.01"]); ?></td>
-	<td><?php echo Html::input("number","RaportWork[$count][count]",null,['class'=>'form-control isRequired','step'=>"0.01"]); ?></td>
-	<td><?php echo Html::textInput("RaportWork[$count][squaremeter]",null,['class'=>'form-control','readonly'=>1]); ?></td>
+	<td><?php echo Html::input("number","RaportWork[$count][length]",null,['class'=>'form-control input-sm isRequired','step'=>"0.01"]); ?></td>
+	<td><?php echo Html::input("number","RaportWork[$count][count]",null,['class'=>'form-control input-sm isRequired','step'=>"0.01"]); ?></td>
+	<td><?php echo Html::textInput("RaportWork[$count][squaremeter]",null,['class'=>'form-control input-sm','readonly'=>1]); ?></td>
 	<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?></td>
 </tr>

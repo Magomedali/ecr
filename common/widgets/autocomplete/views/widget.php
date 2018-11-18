@@ -14,7 +14,7 @@
     <input type="hidden" name="autocomplete_parameters" class='autocomplete_parameters' data-parameters='<?php echo json_encode($parameters);?>'>
     <span style="display: none;" class="autocomplete_options" data-options='<?php echo json_encode($options);?>'></span>
 
-    <input type="text" name="<?php echo $inputKeyName?>" autocomplete="off" value="<?php echo $inputKeyName_Value?>" class="form-control autocomplete_input_key <?php echo $required ? 'autocomplete_required' : '';?>" id="autocomplete_input_key-<?php echo $id ?>" data-action="<?php echo $apiUrl;?>" placeholder='<?php echo $placeholder;?>'>
+    <input type="text" name="<?php echo $inputKeyName?>" autocomplete="off" value="<?php echo $inputKeyName_Value?>" class="form-control autocomplete_input_key <?php echo $required ? 'autocomplete_required' : '';?> input-sm" id="autocomplete_input_key-<?php echo $id ?>" data-action="<?php echo $apiUrl;?>" placeholder='<?php echo $placeholder;?>'>
 
     <div class="autocomplete_data" id="autocomplete_data-<?php echo $id ?>" data-block="0">
     	<ul id="autocomplete_itemse-<?php echo $id ?>" class="autocomplete_items">
