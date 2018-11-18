@@ -18,6 +18,10 @@ use common\models\Project;
 use common\models\RaportConsist;
 use common\models\RaportMaterial;
 use common\models\RaportWork;
+use common\models\Nomenclature;
+use common\models\TypeOfWork;
+use common\models\Line;
+use common\models\Remnant;
 
 use common\base\ActiveRecordVersionable;
 use common\dictionaries\RaportStatuses;
@@ -79,7 +83,7 @@ class Raport extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','created_at'], 'required','message'=>'Обязательное поле'],
+            [['brigade_guid','object_guid','boundary_guid','project_guid','master_guid','created_at'], 'required','message'=>'Обязательное поле'],
             
             [['number','comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
@@ -102,6 +106,7 @@ class Raport extends ActiveRecordVersionable
             ],
         ];
 	}
+
 
 
     /**
@@ -184,27 +189,80 @@ class Raport extends ActiveRecordVersionable
                 }
             }
 
-            $model = self::find()->where(['guid'=>$this->guid])->one();
-            if ($model && isset($model->id)) {
-                $this->id = $model->id;
-                $this->setOldAttributes($model->attributes);           
+            if(!isset($this->id) && $this->guid){
+                $model = self::find()->where(['guid'=>$this->guid])->one();
+                if ($model && isset($model->id)) {
+                    $this->id = $model->id;
+                    $this->setOldAttributes($model->attributes);           
+                } 
             }
+            
 
             $scope = $formName === null ? $this->formName() : $formName;
             
+            if(isset($data[$scope]['materials']) && is_array($data[$scope]['materials'])){
+                $this->materials = $data[$scope]['materials'];
+            }elseif(isset($data['RaportMaterial']) && is_array($data['RaportMaterial'])){
+                $this->materials = $data['RaportMaterial'];
+            }else{
+                $this->materials = [];
+            }
 
-            $this->materials = isset($data[$scope]['materials']) && is_array($data[$scope]['materials']) ? $data[$scope]['materials'] : [];
 
-            $this->consist = isset($data[$scope]['consist']) && is_array($data[$scope]['consist']) ? $data[$scope]['consist'] : [];
+            if(isset($data[$scope]['consist']) && is_array($data[$scope]['consist'])){
+                $this->consist = $data[$scope]['consist'];
+            }elseif(isset($data['RaportConsist']) && is_array($data['RaportConsist'])){
+                $this->consist = $data['RaportConsist'];
+            }else{
+                $this->consist = [];
+            }
 
-            $this->works = isset($data[$scope]['works']) && is_array($data[$scope]['works']) ? $data[$scope]['works'] : [];
+            if(isset($data[$scope]['works']) && is_array($data[$scope]['works'])){
+                $this->works = $data[$scope]['works'];
+            }elseif(isset($data['RaportWork']) && is_array($data['RaportWork'])){
+                $this->works = $data['RaportWork'];
+            }else{
+                $this->works = [];
+            }
 
-            $this->files = isset($data[$scope]['files']) && is_array($data[$scope]['files']) ? $data[$scope]['files'] : [];
+
+            if(isset($data[$scope]['files']) && is_array($data[$scope]['files'])){
+                $this->files = $data[$scope]['files'];
+            }elseif(isset($data['RaportFile']) && is_array($data['RaportFile'])){
+                $this->files = $data['RaportFile'];
+            }else{
+                $this->files = [];
+            }
+
 
             return true;
         }
 
         return false;
+    }
+
+    public function getObject(){
+        return $this->hasOne(Objects::className(),["guid"=>'object_guid']);
+    }
+
+    public function getProject(){
+        return $this->hasOne(Project::className(),["guid"=>'project_guid']);
+    }
+
+
+    public function getMaster(){
+        return $this->hasOne(User::className(),["guid"=>'master_guid']);
+    }
+
+
+    public function getStatusTitle(){
+        $title = RaportStatuses::getLabels($this->status);
+
+        return !is_array($title) ? $title : null;
+    }
+
+    public function getIsCanUpdate(){
+        return $this->status <= RaportStatuses::IN_CONFIRMING;
     }
 
 
@@ -221,25 +279,76 @@ class Raport extends ActiveRecordVersionable
     }
 
 
+    public function getMaterials(){
+        if($this->id){
+            return (new Query)->select(['rm.*','n.name as nomenclature_name'])->from(['rm'=>RaportMaterial::tableName()])
+                                ->innerJoin(['n'=>Nomenclature::tableName()]," n.guid = rm.nomenclature_guid")
+                                ->where(['raport_id'=>$this->id])
+                                ->all();
+        }else{
+           return $this->materials; 
+        }
+    }
+
+    public function getConsist(){
+        if($this->id){
+            return (new Query)->select(['u.name as user_name','u.ktu as user_ktu','u.guid as user_guid','t.guid as technic_guid','t.name as technic_name'])->from(['rc'=>RaportConsist::tableName()])
+                                ->innerJoin(['u'=>User::tableName()]," u.guid = rc.user_guid")
+                                ->innerJoin(['t'=>Technic::tableName()]," t.guid = rc.technic_guid")
+                                ->where(['raport_id'=>$this->id])
+                                ->all();
+        }else{
+           return $this->consist; 
+        }
+    }
+
+    public function getWorks(){
+        if($this->id){
+            return (new Query)->select(['rw.line_guid','l.name as line_name','rw.work_guid','tw.name as work_name','rw.mechanized','rw.length','rw.count','rw.squaremeter'])->from(['rw'=>RaportWork::tableName()])
+                                ->innerJoin(['tw'=>TypeOfWork::tableName()]," tw.guid = rw.work_guid")
+                                ->innerJoin(['l'=>Line::tableName()]," l.guid = rw.line_guid")
+                                ->where(['raport_id'=>$this->id])
+                                ->all();
+        }else{
+           return $this->works; 
+        }
+    }
+
+
     public function afterSave($insert, $changedAttributes){
         parent::afterSave($insert, $changedAttributes);
 
         //Связываем материалы
         if($this->materials && $this->id){
+            //Начало транзакции
+            //удаляем
+            $this->deleteMaterials();
+            //обновляем
             $this->saveMaterials();
+            //Конец транзакции
         }else{
             $this->deleteMaterials();
         }
 
         if($this->consist && $this->id){
+            //Начало транзакции
+            //удаляем
+            $this->deleteConsist();
+            //обновляем
             $this->saveConsist();
+            //Конец транзакции
         }else{
             //Если оъъектов нет удаляем из базы, если они есть
             $this->deleteConsist();
         }
 
         if($this->works && $this->id){
+            //Начало транзакции
+            //удаляем
+            $this->deleteWorks();
+            //обновляем
             $this->saveWorks();
+            //Конец транзакции
         }else{
             //Если оъъектов нет удаляем из базы, если они есть
             $this->deleteWorks();

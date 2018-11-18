@@ -98,7 +98,9 @@ class Objects extends ActiveRecordVersionable
     	);
     }
 
-
+    public function getBoundary(){
+        return $this->hasOne(Boundary::className(),["guid"=>'boundary_guid']);
+    }
 
 
 }

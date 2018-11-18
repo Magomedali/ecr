@@ -10,8 +10,10 @@ use yii\filters\AccessControl;
 
 use frontend\models\LoginForm;
 use frontend\models\ResetPasswordForm;
-
+use frontend\modules\RaportFilter;
 use common\models\User;
+
+
 
 /**
  * Site controller
@@ -71,7 +73,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {   
-        return $this->render('index', []);
+        
+        $brigade_guid = Yii::$app->user->identity->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+        }
+
+        $modelFilters = new RaportFilter;
+
+        $params = array_merge(Yii::$app->request->queryParams,['RaportFilter'=>['brigade_guid'=>$brigade_guid]]);
+        $dataProvider = $modelFilters->filter($params);
+        return $this->render('index',array('dataProvider'=>$dataProvider,'modelFilters'=>$modelFilters));
+
     }
 
 

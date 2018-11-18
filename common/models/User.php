@@ -314,7 +314,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         if(!$this->brigade_guid || !$this->id) return false;
 
-        $result = (new Query())->select(['u.*','t.name as technic_name',])
+        $result = (new Query())->select(['u.guid as user_guid','u.name as user_name','u.ktu as user_ktu','u.technic_guid','t.name as technic_name'])
                     ->from(['u'=>self::tableName()])
                     ->leftJoin(['t'=>Technic::tableName()]," t.guid = u.technic_guid")
                     ->where(['brigade_guid'=>$this->brigade_guid])
@@ -327,7 +327,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function getActualBrigadeRemnants(){
         if(!$this->brigade_guid || !$this->id) return false;
 
-        $result = (new Query())->select(['r.*','n.name as nomenclature_name',])
+        $result = (new Query())->select('r.brigade_guid, r.nomenclature_guid, r.count as was, r.count as rest,(count - count)  as spent, n.name as nomenclature_name')
                     ->from(['r'=>Remnant::tableName()])
                     ->innerJoin(['n'=>Nomenclature::tableName()]," r.nomenclature_guid = n.guid")
                     ->where(['r.brigade_guid'=>$this->brigade_guid])
@@ -335,5 +335,6 @@ class User extends ActiveRecord implements IdentityInterface
 
         return $result;
     }
+
 
 }

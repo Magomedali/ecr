@@ -10,13 +10,34 @@ use common\widgets\autocomplete\AutoComplete;
 
 $user = Yii::$app->user->identity;
 $masters = User::find()->where(['is_master'=>true])->asArray()->all();
-$BrigadeConsist = $user->brigadeConsist;
-$ActualBrigadeRemnants = $user->actualBrigadeRemnants;
 
+$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
+$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
+$RaportWorks =!isset($model->id) ? [] : $model->works;
+
+
+if(isset($model->id)){
+	$object = $model->object_guid ? $model->object : null;
+	$object_name = isset($object->id) ? $object->name : "";
+
+	$boundary = isset($object->id) && $object->boundary_guid ? $object->boundary : null;
+	$boundary_name = isset($boundary->id) ? $boundary->name : "";
+
+	$project = isset($model->project_guid) ? $model->project : null;
+	$project_name = isset($project->id) ? $project->name : null;
+
+	$master = isset($model->master_guid) ? $model->master : null;
+	$master_name = isset($master->id) ? $master->name : null;
+}else{
+	$boundary = $object = $project = null;
+	$boundary_name = $project_name = $object_name = $master_name = "";
+}
 
 $this->title = "Форма рапорта";
+
 ?>
-<?php $form = ActiveForm::begin();?>
+
+<?php $form = ActiveForm::begin(['id'=>'raportForm']);?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -26,9 +47,9 @@ $this->title = "Форма рапорта";
 						'data'=>ArrayHelper::map($masters,'guid','name'),
 						'apiUrl'=>Url::to(['/autocomplete/masters']),
 						'inputValueName'=>'Raport[master_guid]',
-						'inputValueName_Value'=>"",
+						'inputValueName_Value'=>$model->master_guid,
 						'inputKeyName'=>'master_key',
-						'inputKeyName_Value'=>"",
+						'inputKeyName_Value'=>$master_name,
 						'placeholder'=>'Укажите мастера',
 						'label'=>'Мастер'
 					]);
@@ -36,7 +57,7 @@ $this->title = "Форма рапорта";
 				<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6" style="padding-top: 25px;">
 				<?php echo Html::submitButton("Сохранить",['class'=>'btn btn-primary']);?>
 			</div>
 		</div>
@@ -57,7 +78,7 @@ $this->title = "Форма рапорта";
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-2">
-											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'disabled'=>true]);?>
+											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true]);?>
 
 											<?php echo $form->field($model,'starttime')->input("time");?>
 
@@ -67,13 +88,13 @@ $this->title = "Форма рапорта";
 										<div class="col-md-3">
 											<div class="row">
 												<div class="col-md-6">
-													<?php echo $form->field($model,'temperature_start')->input("number");?>
-													<?php echo $form->field($model,'surface_temperature_end')->input("number");?>
-													<?php echo $form->field($model,'airhumidity_start')->input("number");?>
+													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01']);?>
+													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01']);?>
+													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01']);?>
 												</div>
 												<div class="col-md-6">
-													<?php echo $form->field($model,'surface_temperature_start')->input("number");?>
-													<?php echo $form->field($model,'temperature_end')->input("number");?><?php echo $form->field($model,'airhumidity_end')->input("number");?>
+													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01']);?>
+													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01']);?><?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01']);?>
 												</div>
 											</div>
 										</div>
@@ -86,9 +107,9 @@ $this->title = "Форма рапорта";
 															'data'=>[],
 															'apiUrl'=>Url::to(['/autocomplete/objects']),
 															'inputValueName'=>"Raport[object_guid]",
-															'inputValueName_Value'=>"",
+															'inputValueName_Value'=>$model->object_guid,
 															'inputKeyName'=>'object_key',
-															'inputKeyName_Value'=>"",
+															'inputKeyName_Value'=>$object_name,
 															'placeholder'=>'Укажите объект',
 															'label'=>"Объект",
 															'properties'=>[
@@ -104,9 +125,9 @@ $this->title = "Форма рапорта";
 															'data'=>[],
 															'apiUrl'=>Url::to(['/autocomplete/projects']),
 															'inputValueName'=>"Raport[project_guid]",
-															'inputValueName_Value'=>"",
+															'inputValueName_Value'=>$model->project_guid,
 															'inputKeyName'=>'project_key',
-															'inputKeyName_Value'=>"",
+															'inputKeyName_Value'=>$project_name,
 															'placeholder'=>'Укажите контракт',
 															'label'=>"Контракт",
 															'parameters'=>[
@@ -121,9 +142,9 @@ $this->title = "Форма рапорта";
 												</div>
 												<div class="col-md-12">
 													<label>Округ</label>
-													<?php echo Html::textInput("boundary_name",null,['class'=>'form-control input_boundary_name','disabled'=>true]);?>
+													<?php echo Html::textInput("boundary_name",$boundary_name,['class'=>'form-control input_boundary_name isRequired','readonly'=>true]);?>
 													
-													<?php echo $form->field($model,'boundary_guid')->hiddenInput()->label(false);?>
+													<?php echo $form->field($model,'boundary_guid')->hiddenInput(['class'=>'isRequired'])->label(false);?>
 												</div>
 											</div>
 										</div>
@@ -171,18 +192,46 @@ $this->title = "Форма рапорта";
 													<td><?php echo 1+$key;?></td>
 													<td>
 													<?php 
-														echo $item['name'];
-														echo Html::hiddenInput("RaportConsist[$key][user_guid]",$item['guid']);
+														
+														if($item['user_guid']){
+															echo $item['user_name'];
+															echo Html::hiddenInput("RaportConsist[$key][user_guid]",$item['user_guid']);
+														}else{
+															echo AutoComplete::widget([
+																'data'=>[],
+																'apiUrl'=>Url::to(['/autocomplete/technics']),
+																'inputValueName'=>"RaportConsist[$key][user_guid]",
+																'inputValueName_Value'=>"",
+																'inputKeyName'=>'user_key',
+																'inputKeyName_Value'=>"",
+																'placeholder'=>'Укажите физ.лицо',
+																'labelShow'=>false
+															]);
+														}
 													?>
 													</td>
 													<td>
 													<?php 
-														echo $item['technic_name'];
-														echo Html::hiddenInput("RaportConsist[$key][technic_guid]",$item['technic_guid']);
+														if($item['technic_guid']){
+															echo $item['technic_name'];
+															echo Html::hiddenInput("RaportConsist[$key][technic_guid]",$item['technic_guid']);
+														}else{
+															echo AutoComplete::widget([
+																'data'=>[],
+																'apiUrl'=>Url::to(['/autocomplete/technics']),
+																'inputValueName'=>"RaportConsist[$key][technic_guid]",
+																'inputValueName_Value'=>"",
+																'inputKeyName'=>'technic_key',
+																'inputKeyName_Value'=>"",
+																'placeholder'=>'Укажите технику',
+																'labelShow'=>false
+															]);
+														}
+														
 													?>
 													</td>
-													<td><?php echo $item['ktu'];?></td>
-													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger','id'=>'btnRemoveRow'])?></td>
+													<td class="person_ktu"><?php echo $item['user_ktu'];?></td>
+													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow'])?></td>
 												</tr>
 											<?php
 												}
@@ -214,7 +263,46 @@ $this->title = "Форма рапорта";
 											</tr>
 										</thead>
 										<tbody>
-											
+											<?php if(is_array($RaportWorks)){?>
+												<?php foreach ($RaportWorks as $key => $item) {?>
+												<tr>
+													<td><?php echo $key+1; ?></td>
+													<td>
+													<?php 
+														echo AutoComplete::widget([
+															'data'=>[],
+															'apiUrl'=>Url::to(['/autocomplete/works']),
+															'inputValueName'=>"RaportWork[$key][work_guid]",
+															'inputValueName_Value'=>$item['work_guid'],
+															'inputKeyName'=>'work_key',
+															'inputKeyName_Value'=>$item['work_name'],
+															'placeholder'=>'Укажите вид работы',
+															'labelShow'=>false
+														]);
+													?>
+													</td>
+													<td>
+													<?php 
+														echo AutoComplete::widget([
+															'data'=>[],
+															'apiUrl'=>Url::to(['/autocomplete/lines']),
+															'inputValueName'=>"RaportWork[$key][line_guid]",
+															'inputValueName_Value'=>$item['line_guid'],
+															'inputKeyName'=>'line_key',
+															'inputKeyName_Value'=>$item['line_name'],
+															'placeholder'=>'Укажите линию',
+															'labelShow'=>false
+														]);
+													?>	
+													</td>
+													<td><?php echo Html::checkbox("RaportWork[$key][mechanized]",$item['mechanized']); ?></td>
+													<td><?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired','step'=>"0.01"]); ?></td>
+													<td><?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired','step'=>"0.01"]); ?></td>
+													<td><?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control','readonly'=>1]); ?></td>
+													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?></td>
+												</tr>
+												<?php } ?>
+											<?php } ?>
 										</tbody>
 									</table>
 								</div>
@@ -252,17 +340,17 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::textInput("RaportMaterial[$key][was]",$item['count'],['class'=>'form-control was_input','disabled'=>1]);
+														echo Html::textInput("RaportMaterial[$key][was]",$item['was'],['class'=>'form-control was_input','readonly'=>1]);
 													?>
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",null,['class'=>'form-control spent_input','min'=>0,'max'=>$item['count']]);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'],['class'=>'form-control spent_input isRequired','min'=>0,'max'=>$item['was']]);
 													?>
 													</td>
 													<td>
 														<?php 
-															echo Html::textInput("RaportMaterial[$key][rest]",null,['class'=>'form-control rest_input','disabled'=>1]);
+															echo Html::textInput("RaportMaterial[$key][rest]",$item['rest'],['class'=>'form-control rest_input','readonly'=>1]);
 														?>
 													</td
 												</tr>
@@ -297,6 +385,66 @@ $this->title = "Форма рапорта";
 <?php 
 
 $script = <<<JS
+	
+	var requiredFields = [
+		"input.autocomplete_required",
+		'input.isRequired'
+	];
+
+	//form submit
+	$("form#raportForm").submit(function(event){
+		
+		var hasError = false;
+		var tabsErros = [];
+		$("ul.nav.nav-tabs li a").removeClass("hasError");
+
+		if(requiredFields.length){
+			$.each(requiredFields,function(i,field){
+				var fieldsForm = $(field);
+
+				if(!fieldsForm.length) return;
+
+				fieldsForm.each(function(i,item){
+					var fieldForm = $(this);
+
+					if(!fieldForm.val()){
+						hasError = true;
+
+						fieldForm.addClass("fieldHasError");
+						var tabContent = fieldForm.parents("div.tab-pane");
+						if(!tabContent.length) return;
+
+						var tabContentId = tabContent.attr("id");
+								
+						if(!tabContentId) return;
+
+						var tab = $("ul.nav.nav-tabs").find("a[href=\"#"+tabContentId+"\"]");
+						if(!tab.length) return;
+
+						tab.addClass("hasError");
+						tabsErros.push(tab);
+
+						//hide p.help-block
+						var pHelpBlock = fieldForm.siblings("p.help-block");
+						pHelpBlock.length ? pHelpBlock.remove() : null;
+					}else{
+						fieldForm.removeClass("fieldHasError");
+					}
+				})
+
+			});
+		}
+
+		if(hasError){
+			event.preventDefault();
+			if(tabsErros.length){
+				var firstTab = tabsErros[0];
+				firstTab.trigger("click");
+			}
+		}
+	})
+
+
 	//pager script
 	$("body").on("click",".pager li",function(){
 		var active_tab = $(".nav-tabs li.active");

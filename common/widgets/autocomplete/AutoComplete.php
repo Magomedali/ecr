@@ -20,6 +20,7 @@ class AutoComplete extends Widget
 
     public $inputKeyName = "autocomplete_input_key";
 
+    public $required = true;
 
     public $inputValueName_Value = "";
 
@@ -85,7 +86,8 @@ class AutoComplete extends Widget
             'labelShow'=>$this->labelShow,
             'properties'=>$this->properties,
             'parameters'=>$this->parameters,
-            'options'=>$this->options
+            'options'=>$this->options,
+            'required'=>$this->required
         ]);
     }
 

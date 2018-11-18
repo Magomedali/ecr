@@ -14,7 +14,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'apiUrl'=>Url::to(['/autocomplete/users']),
 			'inputValueName'=>"RaportConsist[$count][user_guid]",
 			'inputValueName_Value'=>"",
-			'inputKeyName'=>'master_key',
+			'inputKeyName'=>'user_key',
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите физ.лицо',
 			'labelShow'=>false,
@@ -31,7 +31,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'apiUrl'=>Url::to(['/autocomplete/technics']),
 			'inputValueName'=>"RaportConsist[$count][technic_guid]",
 			'inputValueName_Value'=>"",
-			'inputKeyName'=>'master_key',
+			'inputKeyName'=>'technic_key',
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите технику',
 			'labelShow'=>false

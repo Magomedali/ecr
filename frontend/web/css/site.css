@@ -62,3 +62,22 @@ a.asc:after {
 .pager li{
     cursor: pointer;
 }
+
+
+.nav.nav-tabs li a.hasError{
+    position: relative;
+}
+
+    .nav.nav-tabs li a.hasError:after{
+        content:"!";
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 5px;
+        color: #f00;
+        font-size: 20px;
+    }
+
+input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
+    border: 1px solid #f00;
+}

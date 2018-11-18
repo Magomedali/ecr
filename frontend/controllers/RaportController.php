@@ -39,16 +39,32 @@ class RaportController extends Controller{
         return parent::beforeAction($action);
     }
 
+
+
+
     public function actionForm($id = null){
 
         if($id){
            $model =  Raport::findOne($id);
            if(!isset($model->id))
                 throw HttpException("Документ не найден!",404); 
-       }else{
+        }else{
            $model = new Raport(); 
-       }
+        }
         
+        $post = Yii::$app->request->post();
+
+        if(isset($post['Raport'])){
+
+            if($model->load($post) && $model->save(1)){
+                Yii::$app->session->setFlash("success","Рапорт сохранен!");
+                return $this->redirect(['site/index']);
+            }else{
+                print_r($model->getErrors());
+                exit;
+                Yii::$app->session->setFlash("error","Рапорт не удалось сохранить!");
+            }
+        }
 
         return $this->render('form',['model'=>$model]);
     }

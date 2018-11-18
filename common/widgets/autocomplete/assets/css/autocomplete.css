@@ -8,7 +8,8 @@
     .autocomplete_data{
         position: absolute;
         display: none;
-        height: 300px;
+        min-height: 100px;
+        max-height: 200px;
         border: 1px solid #ccc;
         border-radius: 3px;
         z-index: 1000;
@@ -18,7 +19,7 @@
         .autocomplete_items{
             position: absolute;
             z-index: 199;
-            height: 285px;
+            height: 100%;
             width: 100%;
             overflow-y: scroll;
             overflow-x: hidden;

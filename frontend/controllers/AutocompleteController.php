@@ -49,9 +49,9 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
             if(!$key){
-                $results = User::find()->where(['is_master'=>1])->asArray()->all();
+                $results = User::find()->where(['is_master'=>1])->andWhere("`guid` is not NULL OR `guid` !=''")->asArray()->all();
             }else{
-                $results = User::find()->where(['is_master'=>1])->andWhere("`name` LIKE '%{$key}%'")->asArray()->all();//
+                $results = User::find()->where(['is_master'=>1])->andWhere("`guid` is not NULL OR `guid` !=''")->andWhere("`name` LIKE '%{$key}%'")->asArray()->all();//
             }
             
             foreach ($results as $key => $value) {
@@ -76,9 +76,9 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
             if(!$key){
-                $results = User::find()->asArray()->all();
+                $results = User::find()->andWhere("`guid` is not NULL OR `guid` !=''")->andwhere(['is_master'=>1])->asArray()->all();
             }else{
-                $results = User::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+                $results = User::find()->where("`name` LIKE '%{$key}%'")->andwhere(['is_master'=>1])->andWhere("`guid` is not NULL OR `guid` !=''")->asArray()->all();//
             }
             
             foreach ($results as $key => $value) {
