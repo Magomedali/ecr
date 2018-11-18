@@ -29,6 +29,15 @@ class Project extends ActiveRecordVersionable
     }
 
 
+    /**
+     * @inheritdoc
+     */
+    public static function tableNameRelObjects()
+    {
+        return self::$rel_table_objects;
+    }
+
+
 
     public static function versionableAttributes(){
         return [

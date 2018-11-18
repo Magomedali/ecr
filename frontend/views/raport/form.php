@@ -8,8 +8,11 @@ use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
 
 
-$masters = User::find()->where(['is_master'=>true])->asArray()->all();
 $user = Yii::$app->user->identity;
+$masters = User::find()->where(['is_master'=>true])->asArray()->all();
+$BrigadeConsist = $user->brigadeConsist;
+$ActualBrigadeRemnants = $user->actualBrigadeRemnants;
+
 
 $this->title = "Форма рапорта";
 ?>
@@ -75,17 +78,50 @@ $this->title = "Форма рапорта";
 											</div>
 										</div>
 
-										<div class="col-md-3">
+										<div class="col-md-3 object_form">
 											<div class="row">
 												<div class="col-md-12">
-													<?php echo $form->field($model,'object_guid')->dropDownList(ArrayHelper::map([],'guid','name'),['prompt'=>'Укажите объект']);?>
+													<?php 
+														echo AutoComplete::widget([
+															'data'=>[],
+															'apiUrl'=>Url::to(['/autocomplete/objects']),
+															'inputValueName'=>"Raport[object_guid]",
+															'inputValueName_Value'=>"",
+															'inputKeyName'=>'object_key',
+															'inputKeyName_Value'=>"",
+															'placeholder'=>'Укажите объект',
+															'label'=>"Объект",
+															'properties'=>[
+																['property'=>'boundary_guid','commonElement'=>'div.object_form','targetElement'=>'input#raport-boundary_guid'],
+																['property'=>'boundary_name','commonElement'=>'div.object_form','targetElement'=>'input.input_boundary_name']
+															]
+														]);
+													?>
 												</div>
 												<div class="col-md-12">
-													<?php echo $form->field($model,'project_guid')->dropDownList(ArrayHelper::map([],'guid','name'),['prompt'=>'Укажите контракт']);?>
+													<?php 
+														echo AutoComplete::widget([
+															'data'=>[],
+															'apiUrl'=>Url::to(['/autocomplete/projects']),
+															'inputValueName'=>"Raport[project_guid]",
+															'inputValueName_Value'=>"",
+															'inputKeyName'=>'project_key',
+															'inputKeyName_Value'=>"",
+															'placeholder'=>'Укажите контракт',
+															'label'=>"Контракт",
+															'parameters'=>[
+																['name'=>'object_guid','valueFromElement'=>"input[name=\"Raport[object_guid]\"]"]
+															],
+															'options'=>[
+																'minKeyLength'=>0,
+																'searchOnFocusin'=>true
+															]
+														]);
+													?>
 												</div>
 												<div class="col-md-12">
 													<label>Округ</label>
-													<?php echo Html::textInput("boundary_name",null,['class'=>'form-control','disabled'=>true]);?>
+													<?php echo Html::textInput("boundary_name",null,['class'=>'form-control input_boundary_name','disabled'=>true]);?>
 													
 													<?php echo $form->field($model,'boundary_guid')->hiddenInput()->label(false);?>
 												</div>
@@ -123,11 +159,35 @@ $this->title = "Форма рапорта";
 												<td>#</td>
 												<td>Физ.лицо</td>
 												<td>Техника</td>
+												<td>КТУ</td>
 												<td><?php echo html::a('+',['raport/get-row-consist'],['class'=>'btn btn-sm btn-primary','id'=>'btnAddConsist'])?></td>
 											</tr>
 										</thead>
 										<tbody>
-											
+											<?php if(is_array($BrigadeConsist)){
+												foreach ($BrigadeConsist as $key => $item) {
+											?>
+												<tr>
+													<td><?php echo 1+$key;?></td>
+													<td>
+													<?php 
+														echo $item['name'];
+														echo Html::hiddenInput("RaportConsist[$key][user_guid]",$item['guid']);
+													?>
+													</td>
+													<td>
+													<?php 
+														echo $item['technic_name'];
+														echo Html::hiddenInput("RaportConsist[$key][technic_guid]",$item['technic_guid']);
+													?>
+													</td>
+													<td><?php echo $item['ktu'];?></td>
+													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger','id'=>'btnRemoveRow'])?></td>
+												</tr>
+											<?php
+												}
+											}
+											?>
 										</tbody>
 									</table>
 								</div>
@@ -179,7 +239,37 @@ $this->title = "Форма рапорта";
 											</tr>
 										</thead>
 										<tbody>
-											
+											<?php if(is_array($ActualBrigadeRemnants)){
+												foreach ($ActualBrigadeRemnants as $key => $item) {
+											?>
+												<tr>
+													<td><?php echo 1+$key;?></td>
+													<td>
+													<?php 
+														echo $item['nomenclature_name'];
+														echo Html::hiddenInput("RaportMaterial[$key][nomenclature_guid]",$item['nomenclature_guid']);
+													?>
+													</td>
+													<td>
+													<?php 
+														echo Html::textInput("RaportMaterial[$key][was]",$item['count'],['class'=>'form-control was_input','disabled'=>1]);
+													?>
+													</td>
+													<td>
+													<?php 
+														echo Html::input("number","RaportMaterial[$key][spent]",null,['class'=>'form-control spent_input','min'=>0,'max'=>$item['count']]);
+													?>
+													</td>
+													<td>
+														<?php 
+															echo Html::textInput("RaportMaterial[$key][rest]",null,['class'=>'form-control rest_input','disabled'=>1]);
+														?>
+													</td
+												</tr>
+											<?php
+												}
+											}
+											?>
 										</tbody>
 									</table>
 								</div>
@@ -245,7 +335,6 @@ $script = <<<JS
 					sendGetConsistRow = 1;
 				},
 				success:function(json){
-					console.log(json);
 					if(json.hasOwnProperty("html")){
 						table.find("tbody").append(json.html);
 					}
@@ -267,7 +356,40 @@ $script = <<<JS
 		event.preventDefault();
 		var tr = $(this).parents("tr");
 		if(tr.length) tr.remove();
-	})
+	});
+
+
+
+	$("body").on("change",".spent_input",function(){
+		var rest = $(this).parents("tr").find(".rest_input");
+		var total = parseInt($(this).attr("max"));
+		var value = parseInt($(this).val());
+		rest.val(total - value);
+	});
+
+	$("body").on("keyup",".spent_input",function(){
+		var rest = $(this).parents("tr").find(".rest_input");
+		
+		var total = parseInt($(this).attr("max"));
+		var min = parseInt($(this).attr("min"));
+		var value = parseInt($(this).val());
+
+		if(min > value){
+			$(this).val(min);
+			value = min;
+		}else if(total < value){
+			$(this).val(total);
+			value = total;
+		}
+
+		if(value || value === 0){
+			var rest_value = parseInt(total - value);
+			rest.val(rest_value);
+		}else{
+			rest.val("");
+		}
+		
+	});
 
 JS;
 

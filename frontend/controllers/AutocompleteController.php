@@ -8,11 +8,13 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use yii\helpers\ArrayHelper;
+use yii\db\Query;
 use common\models\User;
 use common\models\Technic;
 use common\models\TypeOfWork;
 use common\models\Line;
 use common\models\Objects;
+use common\models\Boundary;
 use common\models\Project;
 
 class AutocompleteController extends Controller{
@@ -47,7 +49,7 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
             if(!$key){
-                $results = User::find()->asArray()->all();
+                $results = User::find()->where(['is_master'=>1])->asArray()->all();
             }else{
                 $results = User::find()->where(['is_master'=>1])->andWhere("`name` LIKE '%{$key}%'")->asArray()->all();//
             }
@@ -80,7 +82,7 @@ class AutocompleteController extends Controller{
             }
             
             foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
+                $data[] = ['value'=>$value['guid'],'title'=>$value['name'],'ktu'=>$value['ktu']]; 
             }
             
             return ['data'=>$data];
@@ -189,14 +191,17 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            if(!$key){
-                $results = Objects::find()->asArray()->all();
-            }else{
-                $results = Objects::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+
+            $query = (new Query())->select(['o.*','b.name as boundary_name'])->from(['o'=>Objects::tableName()])
+                        ->leftJoin(['b'=>Boundary::tableName()]," o.boundary_guid = b.guid ");
+            if($key){
+                $query = $query->where("o.`name` LIKE '%{$key}%'");
             }
-            
+
+            $results = $query->all();
+
             foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
+                $data[] = ['value'=>$value['guid'],'title'=>$value['name'],'boundary_guid'=>$value['boundary_guid'],'boundary_name'=>$value['boundary_name']]; 
             }
             
             return ['data'=>$data];
@@ -218,12 +223,19 @@ class AutocompleteController extends Controller{
             $data = [];
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+            $object_guid = isset($get['object_guid']) ? trim(strip_tags($get['object_guid'])) : null;
 
-            if(!$key){
-                $results = Project::find()->asArray()->all();
-            }else{
-                $results = Project::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+            $query = (new Query())->select(['p.*'])->from(['p'=>Project::tableName()]);
+
+            if($object_guid){
+                $query->innerJoin(['po'=>Project::tableNameRelObjects()]," po.project_guid = p.guid ")->andWhere(['po.object_guid'=>$object_guid]);
             }
+
+            if($key){
+                $query = $query->andWhere("p.`name` LIKE '%{$key}%'");
+            }
+
+            $results = $query->all();
             
             foreach ($results as $key => $value) {
                 $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 

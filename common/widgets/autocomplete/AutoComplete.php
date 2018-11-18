@@ -36,6 +36,27 @@ class AutoComplete extends Widget
     public $data = [];
 
     /**
+    * array[]['property'=>'','commonElement'=>'','targetElement'=>'']
+    *
+    */
+    public $properties = [];
+
+
+    /**
+    * array[]['name'=>'','valueFromElement']
+    *
+    */
+    public $parameters = [];
+
+    /**
+    */
+    public $options = [
+        'minKeyLength' => 0,
+        'searchOnFocusin'=>true
+    ];
+
+
+    /**
      * @inheritdoc
      */
     public function run()
@@ -61,7 +82,10 @@ class AutoComplete extends Widget
             'inputValueName_Value'=>$this->inputValueName_Value,
             'inputKeyName_Value'=>$this->inputKeyName_Value,
             'label'=>$this->label,
-            'labelShow'=>$this->labelShow
+            'labelShow'=>$this->labelShow,
+            'properties'=>$this->properties,
+            'parameters'=>$this->parameters,
+            'options'=>$this->options
         ]);
     }
 

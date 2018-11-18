@@ -9,7 +9,6 @@ use common\widgets\autocomplete\AutoComplete;
 	<td><?php echo $count+1; ?></td>
 	<td>
 	<?php 
-
 		echo AutoComplete::widget([
 			'data'=>[],
 			'apiUrl'=>Url::to(['/autocomplete/users']),
@@ -18,7 +17,10 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>'master_key',
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите физ.лицо',
-			'labelShow'=>false
+			'labelShow'=>false,
+			'properties'=>[
+				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu']
+			]
 		]);
 	?>
 	</td>
@@ -36,5 +38,6 @@ use common\widgets\autocomplete\AutoComplete;
 		]);
 	?>	
 	</td>
+	<td class="person_ktu"></td>
 	<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?></td>
 </tr>

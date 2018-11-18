@@ -11,6 +11,8 @@ use frontend\models\PaymentsExpenses;
 
 use common\models\Brigade;
 use common\models\Technic;
+use common\models\Remnant;
+use common\models\Nomenclature;
 
 use common\base\ActiveRecordVersionable;
 
@@ -299,6 +301,39 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         return false;
+    }
+
+
+
+
+
+
+
+
+    public function getBrigadeConsist(){
+
+        if(!$this->brigade_guid || !$this->id) return false;
+
+        $result = (new Query())->select(['u.*','t.name as technic_name',])
+                    ->from(['u'=>self::tableName()])
+                    ->leftJoin(['t'=>Technic::tableName()]," t.guid = u.technic_guid")
+                    ->where(['brigade_guid'=>$this->brigade_guid])
+                    ->all();
+
+        return $result;
+    }
+
+
+    public function getActualBrigadeRemnants(){
+        if(!$this->brigade_guid || !$this->id) return false;
+
+        $result = (new Query())->select(['r.*','n.name as nomenclature_name',])
+                    ->from(['r'=>Remnant::tableName()])
+                    ->innerJoin(['n'=>Nomenclature::tableName()]," r.nomenclature_guid = n.guid")
+                    ->where(['r.brigade_guid'=>$this->brigade_guid])
+                    ->all();
+
+        return $result;
     }
 
 }
