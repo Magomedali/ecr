@@ -77,6 +77,7 @@ class SiteController extends Controller
         $brigade_guid = Yii::$app->user->identity->brigade_guid;
         if(!$brigade_guid){
             Yii::$app->user->logout();
+            return $this->goHome();
         }
 
         $modelFilters = new RaportFilter;

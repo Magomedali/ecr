@@ -43,9 +43,8 @@ class Technic extends ActiveRecordVersionable
     public function rules(){
         return [
             // name, email, subject and body are required
-            [['guid','name','marka','number'], 'required'],
-            ['guid','unique','targetClass' => '\common\models\Technic', 'message' => 'Запись с таким guid уже существует!'],
-            [['guid'],'string','max'=>36],
+            [['guid','name','marka','number'], 'required','message'=>'is required'],
+            [['guid'],'string','max'=>36,'message'=>'max length 36'],
             [['name','marka','number'],'string','max'=>128],
             [['name','marka','number'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             

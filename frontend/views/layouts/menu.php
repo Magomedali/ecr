@@ -7,7 +7,7 @@ use yii\helpers\{Html,Url};
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
-            <?php  if(1 || !Yii::$app->user->isGuest){ ?>
+            <?php  if(!Yii::$app->user->isGuest){ ?>
                     <li>
                         <a href="<?php echo Url::to(['/site/index'])?>"><i class="fa fa-list fa-fw"></i>
                             <?php echo Yii::t('site', 'Мои рапорта')?>
