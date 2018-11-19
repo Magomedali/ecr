@@ -48,7 +48,7 @@ class RaportMaterial extends ActiveRecordVersionable
             // name, email, subject and body are required
             [['raport_id','nomenclature_guid','was','spent','rest'], 'required'],
             ['raport_id', 'number','integerOnly'=>true],
-            [['nomenclature_guid'],'string','max'=>32],
+            [['nomenclature_guid'],'string','max'=>36],
 
             [['was','spent','rest'], 'number'],
 

@@ -23,9 +23,9 @@ class m181105_120933_remnant extends Migration
 
         $this->createTable('{{%remnant}}', [
             'id' => $this->primaryKey(),
-            'brigade_guid' => $this->string(32)->notNull()->unique(),
+            'brigade_guid' => $this->string(36)->notNull()->unique(),
             'updated_at'=>$this->timestamp(),
-            'nomenclature_guid'=>$this->string(32)->notNull(),
+            'nomenclature_guid'=>$this->string(36)->notNull(),
             'count'=>$this->float()->notNull()->defaultValue(0),
 
             'version_id'=>$this->integer()->null(),
@@ -37,9 +37,9 @@ class m181105_120933_remnant extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'brigade_guid' => $this->string(32)->notNull(),
+            'brigade_guid' => $this->string(36)->notNull(),
             'updated_at'=>$this->timestamp(),
-            'nomenclature_guid'=>$this->string(32)->notNull(),
+            'nomenclature_guid'=>$this->string(36)->notNull(),
             'count'=>$this->float()->notNull()->defaultValue(0),
 
             'created_at'=>$this->timestamp(),

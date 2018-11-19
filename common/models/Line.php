@@ -44,7 +44,7 @@ class Line extends ActiveRecordVersionable
             [['guid','name'], 'required'],
             ['guid','unique','targetClass' => '\common\models\Line', 'message' => 'Запись с таким guid уже существует!'],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            [['guid'],'string','max'=>32],
+            [['guid'],'string','max'=>36],
             [['name'],'string','max'=>128]
         ];
     }

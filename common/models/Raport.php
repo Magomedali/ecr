@@ -93,7 +93,7 @@ class Raport extends ActiveRecordVersionable
 
             [['temperature_start','temperature_end','surface_temperature_start','surface_temperature_end','airhumidity_start','airhumidity_end'],'number'],
 
-            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid'],'string','max'=>32],
+            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid'],'string','max'=>36],
             
             ['number', 'string', 'max' => 255],
            

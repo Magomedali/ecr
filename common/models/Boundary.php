@@ -43,7 +43,7 @@ class Boundary extends ActiveRecordVersionable
             // name, email, subject and body are required
             [['guid','name'], 'required'],
             ['guid','unique','targetClass' => '\common\models\Boundary', 'message' => 'Запись с таким guid уже существует!'],
-            [['guid'],'string','max'=>32],
+            [['guid'],'string','max'=>36],
             [['name'],'string','max'=>128],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             

@@ -23,7 +23,7 @@ class m181105_103630_objects_boundary_project extends Migration
 
         $this->createTable('{{%boundary}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
 
             'version_id'=>$this->integer()->null(),
@@ -35,7 +35,7 @@ class m181105_103630_objects_boundary_project extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->notNull(),
+            'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
 
             'created_at'=>$this->timestamp(),
@@ -58,10 +58,10 @@ class m181105_103630_objects_boundary_project extends Migration
 
         $this->createTable('{{%object}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
             'boundary_id' => $this->integer()->null(),
-            'boundary_guid' => $this->string(32)->null(),
+            'boundary_guid' => $this->string(36)->null(),
 
             'version_id'=>$this->integer()->null(),
             'isDeleted'=>$this->smallInteger()->null()->defaultValue(0)
@@ -72,10 +72,10 @@ class m181105_103630_objects_boundary_project extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->notNull(),
+            'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
             'boundary_id' => $this->integer()->null(),
-            'boundary_guid' => $this->string(32)->null(),
+            'boundary_guid' => $this->string(36)->null(),
 
             'created_at'=>$this->timestamp(),
             'type_action'=> $this->integer()->notNull(),
@@ -98,7 +98,7 @@ class m181105_103630_objects_boundary_project extends Migration
 
         $this->createTable('{{%project}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
 
             'version_id'=>$this->integer()->null(),
@@ -110,7 +110,7 @@ class m181105_103630_objects_boundary_project extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->notNull(),
+            'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
 
             'created_at'=>$this->timestamp(),
@@ -128,8 +128,8 @@ class m181105_103630_objects_boundary_project extends Migration
 
 
         $this->createTable('{{%rel_project_object}}', [
-            'project_guid' => $this->string(32)->notNull(),
-            'object_guid' => $this->string(32)->notNull(),
+            'project_guid' => $this->string(36)->notNull(),
+            'object_guid' => $this->string(36)->notNull(),
             "UNIQUE un_project_object (project_guid,object_guid)"
         ], $tableOptions);
 

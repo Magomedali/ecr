@@ -24,8 +24,8 @@ class m181105_131644_raport_consist extends Migration
         $this->createTable('{{%raport_consist}}', [
             'id' => $this->primaryKey(),
             'raport_id' => $this->integer()->notNull(),
-            'technic_guid'=>$this->string(32)->notNull(),
-            'user_guid'=>$this->string(32)->notNull()
+            'technic_guid'=>$this->string(36)->notNull(),
+            'user_guid'=>$this->string(36)->notNull()
         ], $tableOptions);
         
         $this->addForeignKey('fk-raport_consist-raport_id',"{{%raport_consist}}",'raport_id',"{{%raport}}",'id','CASCADE','CASCADE');

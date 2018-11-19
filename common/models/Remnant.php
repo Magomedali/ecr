@@ -52,7 +52,7 @@ class Remnant extends ActiveRecordVersionable
             }],
             ['updated_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             [['count'],'number'],
-            [['brigade_guid','nomenclature_guid'],'string','max'=>32],
+            [['brigade_guid','nomenclature_guid'],'string','max'=>36],
         ];
 	}
 

@@ -44,7 +44,7 @@ class Nomenclature extends ActiveRecordVersionable
             [['guid','name'], 'required'],
             ['guid','unique','targetClass' => '\common\models\Nomenclature', 'message' => 'Запись с таким guid уже существует!'],
             [['name'],'string','max'=>128],
-            [['guid'],'string','max'=>32],
+            [['guid'],'string','max'=>36],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
         ];

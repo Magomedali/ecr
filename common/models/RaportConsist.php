@@ -32,7 +32,7 @@ class RaportConsist extends ActiveRecord
             // name, email, subject and body are required
             [['raport_id','technic_guid','user_guid'], 'required'],
             ['raport_id','number'],
-            [['technic_guid','user_guid'],'string','max'=>32]
+            [['technic_guid','user_guid'],'string','max'=>36]
         ];
     }
 

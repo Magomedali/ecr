@@ -27,7 +27,7 @@ class m181105_130411_raport_files extends Migration
             'raport_id' => $this->integer()->notNull(),
             'created_at'=>$this->timestamp(),
             'file_name'=>$this->string(255)->notNull(),
-            'file_type'=>$this->string(32)->notNull(),
+            'file_type'=>$this->string(255)->notNull(),
             'file'=>$this->string(255)->notNull(),
             'creator_id'=>$this->integer()->null()
         ], $tableOptions);

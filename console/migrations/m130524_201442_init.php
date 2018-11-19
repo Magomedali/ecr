@@ -17,10 +17,10 @@ class m130524_201442_init extends Migration
 
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
-            'brigade_guid' => $this->string(32)->null(),
-            'technic_guid' => $this->string(32)->null(),
+            'brigade_guid' => $this->string(36)->null(),
+            'technic_guid' => $this->string(36)->null(),
             'ktu' => $this->float()->notNull()->defaultValue(0),
             'is_master' => $this->boolean()->notNull()->defaultValue(0),
 
@@ -36,7 +36,7 @@ class m130524_201442_init extends Migration
 
         $this->createTable('{{%brigade}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
 
             'version_id'=>$this->integer()->null(),
@@ -48,7 +48,7 @@ class m130524_201442_init extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->notNull(),
+            'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
 
             'created_at'=>$this->timestamp(),
@@ -65,7 +65,7 @@ class m130524_201442_init extends Migration
 
         $this->createTable('{{%technic}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
             'marka' => $this->string(128)->null(),
             'number' => $this->string(128)->null(),
@@ -79,7 +79,7 @@ class m130524_201442_init extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->notNull(),
+            'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
             'marka' => $this->string(128)->null(),
             'number' => $this->string(128)->null(),

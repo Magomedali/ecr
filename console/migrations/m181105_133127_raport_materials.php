@@ -26,7 +26,7 @@ class m181105_133127_raport_materials extends Migration
 
             'raport_id' => $this->integer()->notNull(),
 
-            'nomenclature_guid' => $this->string(32)->notNull(),
+            'nomenclature_guid' => $this->string(36)->notNull(),
 
             'was'=>$this->float()->notNull()->defaultValue(0),
             'spent'=> $this->float()->notNull()->defaultValue(0),
@@ -43,7 +43,7 @@ class m181105_133127_raport_materials extends Migration
 
             'raport_id' => $this->integer()->notNull(),
             
-            'nomenclature_guid' => $this->string(32)->notNull(),
+            'nomenclature_guid' => $this->string(36)->notNull(),
 
             'was'=>$this->float()->notNull()->defaultValue(0),
             'spent'=> $this->float()->notNull()->defaultValue(0),

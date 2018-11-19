@@ -23,7 +23,7 @@ class m181105_114939_typeofwork extends Migration
 
         $this->createTable('{{%typeofwork}}', [
             'id' => $this->primaryKey(),
-            'guid' => $this->string(32)->notNull()->unique(),
+            'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
 
             'version_id'=>$this->integer()->null(),
@@ -35,7 +35,7 @@ class m181105_114939_typeofwork extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->notNull(),
+            'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
 
             'created_at'=>$this->timestamp(),

@@ -24,7 +24,7 @@ class m181105_123340_raport extends Migration
         $this->createTable('{{%raport}}', [
             'id' => $this->primaryKey(),
 
-            'guid' => $this->string(32)->null()->unique(),
+            'guid' => $this->string(36)->null()->unique(),
             'number'=>$this->string()->null(),
             'status'=>$this->integer()->null(),
             'created_at'=>$this->timestamp()->null(),
@@ -38,11 +38,11 @@ class m181105_123340_raport extends Migration
             'airhumidity_start'=>$this->float()->null(),
             'airhumidity_end'=>$this->float()->null(),
 
-            'brigade_guid' => $this->string(32)->notNull(),
-            'object_guid' => $this->string(32)->notNull(),
-            'boundary_guid' => $this->string(32)->notNull(),
-            'project_guid' => $this->string(32)->notNull(),
-            'master_guid'=>$this->string(32)->notNull(),
+            'brigade_guid' => $this->string(36)->notNull(),
+            'object_guid' => $this->string(36)->notNull(),
+            'boundary_guid' => $this->string(36)->notNull(),
+            'project_guid' => $this->string(36)->notNull(),
+            'master_guid'=>$this->string(36)->notNull(),
             'comment' => $this->text()->null(),
 
             'version_id'=>$this->integer()->null(),
@@ -54,7 +54,7 @@ class m181105_123340_raport extends Migration
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
-            'guid' => $this->string(32)->null(),
+            'guid' => $this->string(36)->null(),
             'number'=>$this->string()->null(),
             'status'=>$this->integer()->null(),
             'created_at'=>$this->timestamp(),
@@ -68,11 +68,11 @@ class m181105_123340_raport extends Migration
             'airhumidity_start'=>$this->float()->null(),
             'airhumidity_end'=>$this->float()->null(),
 
-            'brigade_guid' => $this->string(32)->notNull(),
-            'object_guid' => $this->string(32)->notNull(),
-            'boundary_guid' => $this->string(32)->notNull(),
-            'project_guid' => $this->string(32)->notNull(),
-            'master_guid'=>$this->string(32)->notNull(),
+            'brigade_guid' => $this->string(36)->notNull(),
+            'object_guid' => $this->string(36)->notNull(),
+            'boundary_guid' => $this->string(36)->notNull(),
+            'project_guid' => $this->string(36)->notNull(),
+            'master_guid'=>$this->string(36)->notNull(),
 
             'comment' => $this->text()->null(),
 

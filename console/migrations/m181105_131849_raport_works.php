@@ -25,8 +25,8 @@ class m181105_131849_raport_works extends Migration
             'id' => $this->primaryKey(),
 
             'raport_id' => $this->integer()->notNull(),
-            'work_guid' => $this->string(32)->notNull(),
-            'line_guid'=>  $this->string(32)->notNull(),
+            'work_guid' => $this->string(36)->notNull(),
+            'line_guid'=>  $this->string(36)->notNull(),
             'mechanized'=>$this->boolean()->defaultValue(0),
             'length'=> $this->float()->notNull()->defaultValue(0),
             'count'=>$this->float()->notNull()->defaultValue(0),
@@ -42,8 +42,8 @@ class m181105_131849_raport_works extends Migration
             'entity_id' => $this->integer()->notNull(),
 
             'raport_id' => $this->integer()->notNull(),
-            'work_guid' => $this->string(32)->notNull(),
-            'line_guid'=>  $this->string(32)->notNull(),
+            'work_guid' => $this->string(36)->notNull(),
+            'line_guid'=>  $this->string(36)->notNull(),
             'mechanized'=>$this->boolean()->defaultValue(0),
             'length'=> $this->float()->notNull()->defaultValue(0),
             'count'=>$this->float()->notNull()->defaultValue(0),

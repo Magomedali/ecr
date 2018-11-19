@@ -53,7 +53,7 @@ class RaportWork extends ActiveRecordVersionable
 
             [['length','count','squaremeter'], 'default','value'=>0],
             
-            [['work_guid','line_guid'],'string','max'=>32],
+            [['work_guid','line_guid'],'string','max'=>36],
             
             ['mechanized','boolean'],
             ['mechanized','default','value'=>false],

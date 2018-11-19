@@ -35,7 +35,7 @@ class RaportFile extends ActiveRecord
             ['creator_id','default','value'=>null],
             ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             [['created_at'], 'filter','filter'=>function($v){return $v ? date("Y-m-d\TH:i:s",time()) : null;}],
-            ['file_type', 'string', 'min' => 32]
+            ['file_type', 'string', 'min' => 36]
         ];
 	}
 
