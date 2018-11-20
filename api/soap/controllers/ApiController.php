@@ -16,7 +16,7 @@ use api\soap\Api;
  */
 class ApiController extends Controller
 {   
-    protected $authenticated = false;
+    protected $authenticated = true;
 
     /**
      * @inheritdoc
