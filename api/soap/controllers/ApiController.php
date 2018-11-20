@@ -8,6 +8,7 @@ use api\soap\models\Brigade;
 use api\soap\models\Responce;
 use api\soap\Exceptions\ApiException;
 use api\soap\Exceptions\ApiExceptionWrongType;
+use api\soap\Exceptions\ApiExceptionNotAuthenticated;
 use api\soap\Api;
 
 /**
@@ -15,7 +16,7 @@ use api\soap\Api;
  */
 class ApiController extends Controller
 {   
-
+    protected $authenticated = false;
 
     /**
      * @inheritdoc
@@ -34,15 +35,60 @@ class ApiController extends Controller
     
     
 
+
+    public function authenticate($header)
+    {   
+        $params = Yii::$app->params;
+        if(is_array($params) && isset($params['SoapApi']) && isset($params['SoapApi']['api_credentials']) && is_array($params['SoapApi']['api_credentials'])){
+            
+            $username = key($params['SoapApi']['api_credentials']);
+            $password = reset($params['SoapApi']['api_credentials']);
+
+            if($header->username == $username && $header->password == $password)
+                $this->authenticated = true;
+
+        }
+    }
+   
+
+
+
+
+
+
+    /**
+     * @inheritdoc
+     */
+    protected function isAuth()
+    {
+        return $this->authenticated && 1;
+    }
+
+
+
     /**
      * @inheritdoc
      */
     public function exec($method,$params){
-        $methodName = str_replace(__CLASS__."::", "", $method);
-
-        return Api::exec($methodName,$params);
+        if($this->isAuth()){
+            $methodName = str_replace(__CLASS__."::", "", $method);
+            return Api::exec($methodName,$params);
+        }else{
+            $responce = new Responce(['success'=>false,'error'=>"AuthenticateError",'errorMessage'=>'didn`t set username and password or wrong values']);
+            if(0){
+                //rpc
+                return $responce;
+            }else{
+                //document
+                $r = new \stdClass();
+                $r->returns = $responce;
+                return $r;
+            } 
+        }
     }
     
+
+
 
     /**
      * unload Brigades

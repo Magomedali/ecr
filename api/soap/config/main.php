@@ -1,6 +1,6 @@
 <?php
 
-
+$params = require(__DIR__ . '/params.php');
 return [
     'id' => 'api-soap',
     'basePath' => dirname(__DIR__),
@@ -49,6 +49,6 @@ return [
         //     ],
         // ],
     ],
-    'params' => [
-    ]
+    'params' => $params
+
 ];

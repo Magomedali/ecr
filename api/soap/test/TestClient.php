@@ -4,6 +4,7 @@ namespace api\soap\test;
 
 use Yii;
 use SoapClient;
+use SoapHeader;
 use yii\base\Component;
 use api\soap\test\requests\BaseRequest;
 
@@ -18,12 +19,14 @@ class TestClient extends Component
      */
     private $client;
  
+ 
     public function init()
     {
         $this->createSoapClient();
         parent::init();
     }
  
+
     public function send(BaseRequest $request)
     {
         $method = pathinfo(str_replace('\\', '/', get_class($request)), PATHINFO_BASENAME);
@@ -35,18 +38,26 @@ class TestClient extends Component
     	return $this->client;
     }
  
+
     protected function createSoapClient()
     {
         $wsdl = Yii::getAlias($this->wsdl);
 
+        $AuthHeader = new \stdClass();
+        $AuthHeader->username = $this->username;
+        $AuthHeader->password = $this->password;
+        
+        $Headers = new SoapHeader($wsdl, 'authenticate', $AuthHeader);
+
         $this->client = new SoapClient($wsdl, [
             //'trace' => 1,
             //'compression' => SOAP_COMPRESSION_ACCEPT,
-            // 'login' => $this->username,
-            // 'password' => $this->password,
+            'login' => $this->username,
+            'password' => $this->password,
             //'exceptions' => 1,
             //'cache_wsdl' =>  WSDL_CACHE_MEMORY,
         ]);
 
+        $this->client->__setSoapHeaders($Headers);
     }
 }

@@ -123,8 +123,7 @@ class Action extends \yii\base\Action
             $this->_service = new Service([
                 'provider' => $this->provider,
                 'serviceUrl' => $this->serviceUrl,
-                'wsdlUrl' => $this->wsdlUrl,
-                'targetNamespace'=>"http://lk.web-ali.ru/api/soap/"
+                'wsdlUrl' => $this->wsdlUrl
             ]);
             if (is_array($this->classMap)) {
                 $this->_service->classMap = $this->classMap;

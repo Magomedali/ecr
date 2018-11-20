@@ -1,5 +1,9 @@
 <?php
 
+$params = require(__DIR__ . '/params.php');
+
+$cred = $params['SoapApi']['api_credentials'];
+
 $config = [
     'components' => [
         'request' => [
@@ -8,7 +12,9 @@ $config = [
         ],
         'testclient' => [
             'class' => 'api\soap\test\TestClient',
-            'wsdl' => 'http://lk.web-ali.ru/api/soap/web/wsdl.xml',
+            'wsdl' => 'http://localhost:8082/ecr/api/soap/web/wsdl.php',
+            'username'=>key($cred),
+            'password'=>reset($cred)
         ],
     ],
 ];
