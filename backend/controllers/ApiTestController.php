@@ -1,5 +1,5 @@
 <?php
-namespace api\soap\controllers;
+namespace backend\controllers;
 
 use Yii;
 use yii\base\Controller;
@@ -10,10 +10,11 @@ use api\soap\Exceptions\ApiException;
 use api\soap\Api;
 
 use api\soap\test\requests\Test;
+
 /**
- * Client controller
+ * ApiTest controller
  */
-class ClientController extends Controller
+class ApiTestController extends Controller
 {   
 
 

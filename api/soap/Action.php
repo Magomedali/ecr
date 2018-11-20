@@ -44,7 +44,7 @@ class Action extends \yii\base\Action
      * from a Web service request. If this GET parameter exists, the request is considered
      * as a Web service request; otherwise, it is a WSDL request.  Defaults to 'ws'.
      */
-    public $serviceVar = 'ws';
+    public $wsdlVar = 'ws';
     /**
      * @var string the URL for WSDL. Defaults to null, meaning
      * the URL for this action is used to serve WSDL document.
@@ -78,7 +78,7 @@ class Action extends \yii\base\Action
         #$uniqueId = $this->getUniqueId();
         
         if ($this->serviceUrl === null) {
-            $serviceUrl = Yii::$app->getUrlManager()->createAbsoluteUrl([$uniqueId, $this->serviceVar => 1]);
+            $serviceUrl = Yii::$app->getUrlManager()->createAbsoluteUrl([$uniqueId, $this->wsdlVar => 1]);
             $serviceUrl = $uniqueId == "/" ? str_replace("r=&", "", $serviceUrl) : $serviceUrl ;
             $this->serviceUrl = $serviceUrl;
         }
@@ -96,16 +96,18 @@ class Action extends \yii\base\Action
 
     /**
      * Runs the action.
-     * If the GET parameter {@link serviceVar} exists, the action handle the remote method invocation.
+     * If the GET parameter {@link wsdlVar} exists, the action handle the remote method invocation.
      * If not, the action will serve WSDL content;
      */
     public function run()
     {
         Yii::$app->getResponse()->format = Response::FORMAT_RAW;
 
-        if (Yii::$app->request->get($this->serviceVar, false)) {
+        if (Yii::$app->request->get($this->wsdlVar, false)) {
             return $this->getService()->run();
+            
         } else {
+            
             $response = Yii::$app->getResponse();
 
             $response->getHeaders()->set('Content-Type', 'application/xml; charset=' . $response->charset);
@@ -123,7 +125,8 @@ class Action extends \yii\base\Action
             $this->_service = new Service([
                 'provider' => $this->provider,
                 'serviceUrl' => $this->serviceUrl,
-                'wsdlUrl' => $this->wsdlUrl
+                'wsdlUrl' => $this->wsdlUrl,
+                'wsdlPath'=>__DIR__
             ]);
             if (is_array($this->classMap)) {
                 $this->_service->classMap = $this->classMap;

@@ -30,10 +30,24 @@ class Service extends Component
      * @var string the URL for the Web service.
      */
     public $serviceUrl;
+
+
     /**
      * @var string the URL for WSDL.
      */
     public $wsdlUrl;
+
+
+    /**
+     * @var string the Path to WSDL.
+     */
+    public $wsdlPath;
+
+
+    /**
+     * @var string of WSDL name.
+     */
+    public $wsdlName = 'wsdl.xml';
     
     
     /**
@@ -108,6 +122,10 @@ class Service extends Component
             $this->cache = Instance::ensure($this->cache, Cache::className());
         }
 
+        if ($this->wsdlPath == null) {
+            $this->wsdlPath = __DIR__;
+        }
+
         if (YII_DEBUG) {
             ini_set('soap.wsdl_cache_enabled', 0);
         }
@@ -146,8 +164,7 @@ class Service extends Component
         $wsdlGenerator = new PHPClass2WSDL($className, $serviceUrl,$targetNamespace);
         $wsdlGenerator->generateWSDL(true);
 
-        //
-        $mixed = $wsdlGenerator->save("wsdl.xml");
+        $wsdlGenerator->save($this->wsdlPath."/".$this->wsdlName);
 
         return $wsdlGenerator->dump();
     }
@@ -162,7 +179,7 @@ class Service extends Component
         if ($this->disableWsdlMode) {
             $server = new SoapServer(null, array_merge(['uri' => $this->serviceUrl], $this->getOptions()));
         } else {
-            $server = new SoapServer($this->wsdlUrl, $this->getOptions());
+            $server = new SoapServer($this->wsdlPath."/".$this->wsdlName, $this->getOptions());
         }
         try {
             if ($this->persistence !== null) {
