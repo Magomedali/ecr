@@ -29,7 +29,7 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-
+/api/soap/wsdl.xml
 /api/soap/logs/
 /api/soap/runtime/
 /api/soap/config/main-local.php
