@@ -54,14 +54,20 @@ class RaportFilter extends Raport
 
         //если данные не фильтра не переданы или переданы не валидные данныеы
         if(!($this->load($params) && $this->validate())){
-
-            if(!$this->brigade_guid){
+            
+            
+            if($this->brigade_guid){
                 $query->where("id < 0");
+            }else{
+                 $query->where(['brigade_guid'=>$this->brigade_guid]);
             }
             
             return $dataProvider;
         }
-
+        
+        
+        $query->andWhere(['brigade_guid'=>$this->brigade_guid]);
+        
 
         
         return $dataProvider;
