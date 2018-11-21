@@ -256,7 +256,7 @@ $this->title = "Форма рапорта";
 												<td>Вид работы</td>
 												<td>Линия</td>
 												<td>Механизировання</td>
-												<td>Длина</td>
+												<td>П.М./Шт</td>
 												<td>Количество</td>
 												<td>кв. м</td>
 												<td><?php echo html::a('+',['raport/get-row-work'],['class'=>'btn btn-sm btn-primary','id'=>'btnAddWork'])?></td>

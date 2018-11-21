@@ -14,7 +14,7 @@ class RaportFilter extends Raport
      */
     public $date = 0;
 
-    public $page_size = 30;
+    public $page_size = 5;
 
     /**
      * Правила валидации модели

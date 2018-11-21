@@ -48,12 +48,13 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            if(!$key){
-                $results = User::find()->where(['is_master'=>1])->andWhere("`guid` !=''")->asArray()->all();
-            }else{
-                $results = User::find()->where(['is_master'=>1])->andWhere("`guid` !=''")->andWhere("`name` LIKE '%{$key}%'")->asArray()->all();//
+            $query = User::find()->where(['is_master'=>1])->andWhere("`guid` is not null");
+            if($key){
+                $query->andWhere("`name` LIKE '%{$key}%'");
             }
             
+            $results = $query->asArray()->all();
+
             foreach ($results as $key => $value) {
                 $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
             }
@@ -75,12 +76,13 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            if(!$key){
-                $results = User::find()->andWhere("`guid` !=''")->andwhere(['is_master'=>0])->asArray()->all();
-            }else{
-                $results = User::find()->where("`name` LIKE '%{$key}%'")->andwhere(['is_master'=>0])->andWhere("`guid` !=''")->asArray()->all();//
+            $query = User::find()->where(['is_master'=>0])->andWhere("`guid` is not null");
+            if($key){
+                $query->andWhere("`name` LIKE '%{$key}%'");
             }
-            
+
+            $results = $query->asArray()->all();
+
             foreach ($results as $key => $value) {
                 $data[] = ['value'=>$value['guid'],'title'=>$value['name'],'ktu'=>$value['ktu']]; 
             }

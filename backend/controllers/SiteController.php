@@ -15,8 +15,8 @@ use common\models\User;
 class SiteController extends Controller
 {   
 
-
     public $layout = "main";
+    
     /**
      * @inheritdoc
      */
@@ -114,14 +114,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-
-
-
-    public function actionTest(){
-
-
-        ApiTest::sendBrigades();
-    }
 
    
 }

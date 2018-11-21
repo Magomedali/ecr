@@ -1,10 +1,12 @@
 <?php
 namespace frontend\models;
 
-use common\models\User;
+use Yii;
 use yii\base\InvalidParamException;
 use yii\base\Model;
-use Yii;
+use common\models\User;
+use soapclient\methods\Useraccountload;
+use common\models\Request;
 
 /**
  * Password reset form
@@ -91,6 +93,36 @@ class ResetPasswordForm extends Model
         $user->setPassword($this->password);
         $user->removePasswordResetToken();
 
-        return $user->save();
+        if($user->save()){
+           try {
+            
+                $method = new Useraccountload(['guid'=>$user->guid,'password'=>$this->password]);
+
+                if($method->validate()){
+
+                    $request = new Request([
+                        'request'=>get_class($method),
+                        'params_in'=>json_encode($method->attributes),
+                        'user_id'=>$user->id,
+                        'actor_id'=>Yii::$app->user->id
+                    ]);
+
+                    if($request->save(1)){
+                        $responce = Yii::$app->webservice1C->send($method);
+
+                        $request->params_out = json_encode($responce);
+
+                        $request->save(1);
+                    }
+                    
+                }
+            
+            }catch(\Exception $e) {}
+
+            return true;
+        }
+        
+        
+        return false;
     }
 }

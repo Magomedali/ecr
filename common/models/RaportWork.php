@@ -105,12 +105,6 @@ class RaportWork extends ActiveRecordVersionable
             }
 
 
-            $model = self::find()->where(['line_guid'=>$this->line_guid,'work_guid'=>$this->work_guid,'raport_id'=>$this->raport_id])->one();
-            if ($model && isset($model->id)) {
-                $this->id = $model->id;
-                $this->setOldAttributes($model->attributes);           
-            }
-
             return true;
         }
 

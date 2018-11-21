@@ -31,6 +31,7 @@ class m181105_191709_requests extends Migration
             'result'=>$this->boolean()->null()->defaultValue(0),
             'completed'=>$this->boolean()->null()->defaultValue(0),
             'raport_id'=>$this->integer()->null(),
+            'user_id'=> $this->integer()->null(),
             'actor_id'=> $this->integer()->null(),
 
             'version_id'=>$this->integer()->null(),
@@ -49,7 +50,7 @@ class m181105_191709_requests extends Migration
             'params_out'=>$this->text(50)->null(),
             'result'=>$this->boolean()->null()->defaultValue(0),
             'completed'=>$this->boolean()->null()->defaultValue(0),
-            'raport_id'=>$this->integer()->null(),
+            'user_id'=>$this->integer()->null(),
             'actor_id'=> $this->integer()->null(),
 
             'created_at'=>$this->timestamp(),
@@ -65,6 +66,7 @@ class m181105_191709_requests extends Migration
 
         $this->addForeignKey('fk-requests-version_id',"{{%requests}}",'version_id',"{{%requests_history}}",'id','CASCADE','CASCADE');
         $this->addForeignKey('fk-requests-raport_id',"{{%requests}}",'raport_id',"{{%raport}}",'id','CASCADE','CASCADE');
+        $this->addForeignKey('fk-requests-user_id',"{{%requests}}",'actor_id',"{{%user}}",'id','CASCADE','CASCADE');
         $this->addForeignKey('fk-requests-actor_id',"{{%requests}}",'actor_id',"{{%user}}",'id','CASCADE','CASCADE');
 
     }
@@ -76,6 +78,7 @@ class m181105_191709_requests extends Migration
     {
        
         $this->dropForeignKey('fk-requests-actor_id',"{{%requests}}");
+        $this->dropForeignKey('fk-requests-user_id',"{{%requests}}");
         $this->dropForeignKey('fk-requests-raport_id',"{{%requests}}");
         $this->dropForeignKey('fk-requests-version_id',"{{%requests}}");
         $this->dropForeignKey('fk-requests_history-creator_id',"{{%requests_history}}");

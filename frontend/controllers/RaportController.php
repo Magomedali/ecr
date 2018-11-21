@@ -57,12 +57,12 @@ class RaportController extends Controller{
         if(isset($post['Raport'])){
 
             if($model->load($post) && $model->save(1)){
-                Yii::$app->session->setFlash("success","Рапорт сохранен!");
+                Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
                 return $this->redirect(['site/index']);
             }else{
                 print_r($model->getErrors());
                 exit;
-                Yii::$app->session->setFlash("error","Рапорт не удалось сохранить!");
+                Yii::$app->session->setFlash("error","Рапорт не сохранен!");
             }
         }
 

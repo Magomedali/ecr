@@ -26,11 +26,19 @@ class m181105_141438_init extends Migration
     public function safeUp()
     {
         $this->insert("{{%user}}",[
-            'guid'=>'admin',
+            'guid'=>null,
             'name'=>'Администратор',
             'login'=>'admin',
             'auth_key'=>\Yii::$app->security->generateRandomString(),
             'password_hash'=>\Yii::$app->security->generatePasswordHash("1Q2w3e4r")
+        ]);
+
+        $this->insert("{{%user}}",[
+            'guid'=>null,
+            'name'=>'Суперадмин',
+            'login'=>'superadmin',
+            'auth_key'=>\Yii::$app->security->generateRandomString(),
+            'password_hash'=>\Yii::$app->security->generatePasswordHash("12345qwE")
         ]);
 
         $authManager = $this->getAuthManager();
@@ -44,12 +52,25 @@ class m181105_141438_init extends Migration
                 'name'=>'administrator',
                 'type'=>1,
         ]);
-        $user_id = \Yii::$app->db->createCommand("SELECT id FROM {{%user}} WHERE login='admin' AND guid='admin' LIMIT 1")->queryScalar();
+        $admin_id = \Yii::$app->db->createCommand("SELECT id FROM {{%user}} WHERE login='admin' LIMIT 1")->queryScalar();
+
+        $superadmin_id = \Yii::$app->db->createCommand("SELECT id FROM {{%user}} WHERE login='superadmin' LIMIT 1")->queryScalar();
         
-        if($user_id){
+        if($admin_id){
             $this->insert($authManager->assignmentTable,[
                 'item_name'=>'administrator',
-                'user_id'=>$user_id,
+                'user_id'=>$admin_id,
+            ]);
+        }
+
+        if($superadmin_id){
+            $this->insert($authManager->assignmentTable,[
+                'item_name'=>'administrator',
+                'user_id'=>$superadmin_id,
+            ]);
+            $this->insert($authManager->assignmentTable,[
+                'item_name'=>'superadmin',
+                'user_id'=>$superadmin_id,
             ]);
         }
         
