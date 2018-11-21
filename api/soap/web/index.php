@@ -5,7 +5,7 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 
 
-if(!(isset($_GET['ws']) && $_GET['ws'] == 1)){
+
     $config = require_once(__DIR__ . '/../config/params.php');
      // Авторизация
      if(!is_array($config) || !isset($config['SoapApi']) || !isset($config['SoapApi']['api_credentials']) || !is_array($config['SoapApi']['api_credentials'])){
@@ -32,7 +32,7 @@ if(!(isset($_GET['ws']) && $_GET['ws'] == 1)){
      		exit;
       }
     }
-}
+
 // Конец авторизации
 
 require(__DIR__ . '/../../../vendor/autoload.php');

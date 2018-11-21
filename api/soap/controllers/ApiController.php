@@ -101,7 +101,8 @@ class ApiController extends Controller
         $brigades = json_decode(json_encode($brigades),1); 
         if(!isset($brigades[$type]))
             return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'brigades'");
-
+    
+        
         return $this->exec(__METHOD__,$brigades[$type]);
     }
 
