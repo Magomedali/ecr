@@ -231,17 +231,18 @@ class ClientController extends Controller
                 'name'=>'Проект 1',
                 'objects_guids'=>[
                     '1asdasjdhuu32413jkasdfa',
+                    '2asdasjdhuu32413jkasdfa',
                 ]
             ],
             [
                 'guid'=>'2asdasjdhuu32413jkasdfa',
                 'name'=>'Проект 2',
                 'objects_guids'=>[
+                    '1asdasjdhuu32413jkasdfa',
+                    '1asdasjdhuu32413jkasdfa',
                 ]
             ]
         ];
-
-
 
         $par['projects'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadproject($par); 
@@ -249,6 +250,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo "\n",$answer->returns->errorMessage;
     }
     
 

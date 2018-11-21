@@ -204,10 +204,11 @@ class ApiController extends Controller
      * @soap
      */
     public function unloadproject($projects){   
+        
         $type = 'projects';
         $projects = json_decode(json_encode($projects),1); 
         if(!isset($projects[$type]))
-            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'projects'");
+           return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'projects'");
 
         return $this->exec(__METHOD__,$projects[$type]);
     }

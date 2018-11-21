@@ -13,7 +13,7 @@ use yii\base\Model;
 class Project  extends ApiModel
 {
     /**
-     * @var string
+    * @var string
     */
     public $guid;
 
@@ -23,7 +23,9 @@ class Project  extends ApiModel
     public $name;
 
     /**
-    * @var string[]
+    * @var string
+    * @minOccurs 1
+    * @maxOccurs unbounded
     */
     public $objects_guids;
 

@@ -5,9 +5,9 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 
 
-
+// Авторизация
     $config = require_once(__DIR__ . '/../config/params.php');
-     // Авторизация
+     
      if(!is_array($config) || !isset($config['SoapApi']) || !isset($config['SoapApi']['api_credentials']) || !is_array($config['SoapApi']['api_credentials'])){
      	header('HTTP/1.1 403 Forbidden');
      	exit;

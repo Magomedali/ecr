@@ -45,7 +45,7 @@ class TestClient extends Component
 
         $AuthHeader = new \stdClass();
         $AuthHeader->username = $this->username;
-        $AuthHeader->password = 1;//$this->password;
+        $AuthHeader->password = $this->password;
         
         $Headers = new SoapHeader($wsdl, 'authenticate', $AuthHeader);
 

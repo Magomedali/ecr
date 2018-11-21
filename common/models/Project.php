@@ -89,7 +89,7 @@ class Project extends ActiveRecordVersionable
         //Связываем объекты с проектом
         
         if($this->objects_guids && $this->guid){
-            
+            $this->objects_guids = array_unique($this->objects_guids);
             $inserts = [];
             foreach ($this->objects_guids as $value) {
                     $inserts[]=['project_guid'=>$this->guid,'object_guid'=>$value];

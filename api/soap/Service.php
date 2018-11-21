@@ -179,7 +179,8 @@ class Service extends Component
         if ($this->disableWsdlMode) {
             $server = new SoapServer(null, array_merge(['uri' => $this->serviceUrl], $this->getOptions()));
         } else {
-            $server = new SoapServer($this->wsdlPath."/".$this->wsdlName, $this->getOptions());
+            $url = $this->wsdlPath."/".$this->wsdlName;
+            $server = new SoapServer($url, $this->getOptions());
         }
         try {
             if ($this->persistence !== null) {
