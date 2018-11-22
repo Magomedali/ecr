@@ -12,7 +12,7 @@ class Useraccountload extends BaseMethod{
 	public function rules(){
 		return [
 			[['guid','password'],'required'],
-			['guid','string','min'=>36,'max'=>36],
+			['guid','string','min'=>0,'max'=>36],
 			[['password'],'string']
 		];
 	}

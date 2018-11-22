@@ -50,6 +50,7 @@ class m181105_191709_requests extends Migration
             'params_out'=>$this->text(50)->null(),
             'result'=>$this->boolean()->null()->defaultValue(0),
             'completed'=>$this->boolean()->null()->defaultValue(0),
+            'raport_id'=>$this->integer()->null(),
             'user_id'=>$this->integer()->null(),
             'actor_id'=> $this->integer()->null(),
 

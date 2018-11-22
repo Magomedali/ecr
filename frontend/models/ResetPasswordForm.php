@@ -98,26 +98,22 @@ class ResetPasswordForm extends Model
             
                 $method = new Useraccountload(['guid'=>$user->guid,'password'=>$this->password]);
 
-                if($method->validate()){
-
-                    $request = new Request([
+                $request = new Request([
                         'request'=>get_class($method),
                         'params_in'=>json_encode($method->attributes),
                         'user_id'=>$user->id,
-                        'actor_id'=>Yii::$app->user->id
-                    ]);
+                        'actor_id'=>$user->id
+                ]);
 
-                    if($request->save(1)){
-                        $responce = Yii::$app->webservice1C->send($method);
-
-                        $request->params_out = json_encode($responce);
-
-                        $request->save(1);
-                    }
+                if($request->save(1) && $request->send($method)){
+                      
+                }else{
                     
                 }
-            
-            }catch(\Exception $e) {}
+
+            }catch(\Exception $e) {
+                throw $e;
+            }
 
             return true;
         }

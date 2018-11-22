@@ -145,9 +145,7 @@ class SiteController extends Controller
     {   
         
         $model = new ResetPasswordForm();
-        Yii::$app->webservice1C;
-
-        exit;
+        // Yii::$app->webservice1C;
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('success', 'Пароль изменен');
 

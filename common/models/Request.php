@@ -1,10 +1,11 @@
 <?php
-namespace soapclient\models;
+namespace common\models;
 
 use Yii;
 use yii\db\{Expression,Query,Command};
-
 use common\base\ActiveRecordVersionable;
+
+use soapclient\methods\BaseMethod;
 
 class Request extends ActiveRecordVersionable
 {   
@@ -166,6 +167,47 @@ class Request extends ActiveRecordVersionable
         }elseif(is_array($params_out) && array_key_exists($name, $params_out)){
             return $params_out[$name];
         }
+    }
+
+
+
+
+
+
+    public function send(BaseMethod $method){
+
+        try {
+            
+            if($method->validate()){
+                $responce = Yii::$app->webservice1C->send($method);
+            }else{
+                $responce = [
+                    'success'=>false,
+                    'error'=>'validateError',
+                    'errorMessage'=>$method->getErrors()
+                ];
+            }
+        
+
+        } catch (\SoapFault $e) {
+            
+            $responce = [
+                'success'=>false,
+                'error'=>'SoapFault',
+                'errorMessage'=>$e->getMessage()
+            ];
+        
+        } catch(\Exception $e){
+           
+            $responce = [
+                'success'=>false,
+                'error'=>'SiteError',
+                'errorMessage'=>$e->getMessage()
+            ];
+        
+        }
+        $this->params_out = json_encode($responce);
+        return $this->save(1);
     }
 
 }
