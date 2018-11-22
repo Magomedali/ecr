@@ -41,33 +41,12 @@ $this->title = "Форма рапорта";
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
-			<div class="col-md-3">
-				<?php 
-					echo AutoComplete::widget([
-						'data'=>ArrayHelper::map($masters,'guid','name'),
-						'apiUrl'=>Url::to(['/autocomplete/masters']),
-						'inputValueName'=>'Raport[master_guid]',
-						'inputValueName_Value'=>$model->master_guid,
-						'inputKeyName'=>'master_key',
-						'inputKeyName_Value'=>$master_name,
-						'placeholder'=>'Укажите мастера',
-						'label'=>'Мастер'
-					]);
-				?>
-				<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
-			</div>
-
-			<div class="col-md-6" style="padding-top: 25px;">
-				<?php echo Html::submitButton("Сохранить",['class'=>'btn btn-primary']);?>
-			</div>
-		</div>
-		<div class="row">
 				<div class="col-md-12">
 					<ul class="nav nav-tabs">	
-					  <li class="active"><a data-toggle="tab" href="#base">Основное</a></li>
+					  <li class="active"><a data-toggle="tab" href="#base" class='first'>Основное</a></li>
 					  <li><a data-toggle="tab" href="#consist">Состав бригады</a></li>
 					  <li><a data-toggle="tab" href="#works">Характеристики работ</a></li>
-					  <li><a data-toggle="tab" href="#remnants">Остатки</a></li>
+					  <li><a data-toggle="tab" href="#remnants" class='last'>Остатки</a></li>
 					</ul>
 					<div class="tab-content">
 
@@ -78,13 +57,27 @@ $this->title = "Форма рапорта";
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-6">
+											<?php 
+												echo AutoComplete::widget([
+													'data'=>ArrayHelper::map($masters,'guid','name'),
+													'apiUrl'=>Url::to(['/autocomplete/masters']),
+													'inputValueName'=>'Raport[master_guid]',
+													'inputValueName_Value'=>$model->master_guid,
+													'inputKeyName'=>'master_key',
+													'inputKeyName_Value'=>$master_name,
+													'placeholder'=>'Укажите мастера',
+													'label'=>'Мастер'
+												]);
+											?>
+											
+											<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
+
 											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true,'class'=>'form-control input-sm']);?>
 
 											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm']);?>
 
 											<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm']);?>
 										</div>
-
 										<div class="col-md-6 object_form">
 											<div class="row">
 												<div class="col-md-12">
@@ -131,6 +124,10 @@ $this->title = "Форма рапорта";
 													<?php echo Html::textInput("boundary_name",$boundary_name,['class'=>'form-control input-sm input_boundary_name isRequired','readonly'=>true]);?>
 													
 													<?php echo $form->field($model,'boundary_guid')->hiddenInput(['class'=>'isRequired'])->label(false);?>
+												</div>
+												<div class="col-md-12">
+													<label>Пароль</label>
+													<?php echo Html::input('password',"password",null,['class'=>'form-control input-sm input_password isRequired']);?>
 												</div>
 											</div>
 										</div>
@@ -363,15 +360,17 @@ $this->title = "Форма рапорта";
 								</div>
 							</div>
 						</div>
-
 					</div>
 
 					<div class="row">
 						<div class="col-md-12">
 							<nav aria-label="...">
 							  <ul class="pager">
-							    <li class="prev_tab"><a>Назад</a></li>
+							    <li class="prev_tab" style="display: none;"><a>Назад</a></li>
 							    <li class="next_tab"><a>Далее</a></li>
+							    <li class="submit" style="display: none;">
+									<?php echo Html::submitButton("Сохранить",['class'=>'btn btn-primary','id'=>'btnRaportFormSubmit']);?>
+							    </li>
 							  </ul>
 							</nav>
 						</div>
@@ -388,12 +387,11 @@ $script = <<<JS
 	
 	var requiredFields = [
 		"input.autocomplete_required",
-		'input.isRequired'
+		"input.isRequired"
 	];
 
-	//form submit
-	$("form#raportForm").submit(function(event){
-		
+	var validateForm = function(){
+
 		var hasError = false;
 		var tabsErros = [];
 		$("ul.nav.nav-tabs li a").removeClass("hasError");
@@ -435,14 +433,25 @@ $script = <<<JS
 			});
 		}
 
-		if(hasError){
-			event.preventDefault();
-			if(tabsErros.length){
-				var firstTab = tabsErros[0];
-				firstTab.trigger("click");
-			}
+		if(hasError && tabsErros.length){
+			var firstTab = tabsErros[0];
+			firstTab.trigger("click");
 		}
-	})
+
+		return !hasError;
+	}
+
+
+	
+
+	//form submit
+	$("form#raportForm").submit(function(event){
+		if(!validateForm()){
+			event.preventDefault();
+		}
+	});
+
+
 
 
 	//pager script
@@ -460,6 +469,31 @@ $script = <<<JS
 			}
 		}
 	});
+
+
+
+	$(".nav-tabs li a").click(function(){
+		validateForm();
+		console.log($(this));
+		
+		if($(this).hasClass("first")){
+			$(".pager li.prev_tab").hide();
+		}else{
+			$(".pager li.prev_tab").show();
+		}
+
+		if($(this).hasClass("last")){
+			$(".pager li.next_tab").hide();
+			$(".pager li.submit").show();
+		
+		}else{
+			$(".pager li.next_tab").show();
+			$(".pager li.submit").hide();
+		}
+
+	})
+
+	
 
 
 
