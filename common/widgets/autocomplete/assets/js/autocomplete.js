@@ -15,11 +15,26 @@ $(function(){
             if(val.length < options.minKeyLength) return;
         }
 
+
+
         var properties = thisElement.siblings("input.autocomplete_properties").data("properties");
         var parameters = thisElement.siblings("input.autocomplete_parameters").data("parameters");
         var autocomplete_items = thisElement.siblings(".autocomplete_data").find(".autocomplete_items");
         var action = thisElement.data("action");
         
+        //Удаляем ранее установленные значения параметров
+        if(val.length == 0){
+            var inputValue = thisElement.siblings("input.autocomplete_input_value");
+            inputValue.val(null);
+            if(properties.length){
+                $.each(properties,function(i,p){
+                    if(p.hasOwnProperty("targetElement") && $(p.targetElement).length){            
+                        $(p.targetElement).val(null);
+                    }
+                })
+            }
+        }
+
         var data = {};
         data['key']=val;
 

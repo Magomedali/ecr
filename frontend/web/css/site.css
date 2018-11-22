@@ -74,10 +74,10 @@ a.asc:after {
         position: absolute;
         top: 0px;
         right: 5px;
-        color: #f00;
+        color: #a94442;
         font-size: 20px;
     }
 
 input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
-    border: 1px solid #f00;
+    border: 1px solid #a94442;
 }

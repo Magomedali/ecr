@@ -95,29 +95,39 @@ a.desc:after {
 }
 
 
-.main{
-    width: 100%;
+
+
+.td_params_in,.td_params_out{
+    position: relative;
 }
 
-.left_bar{
-    width: 265px;
-    display: inline-block;
-    float: left;
+.td_params_in a,.td_params_out a{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: underline;
 }
 
-.right-content{
-    float: left;
-    width: 75%;
+.td_params_in ul,.td_params_out ul{
+    padding: 0px;
+}
+.td_params_in ul li,.td_params_out ul li{
+    list-style: none;
 }
 
-.org_btn_save{
-    margin-bottom: 20px;
-}
-
-#organisation-payment{
+.requests{
 
 }
 
-#organisation-payment > div.radio{
-    margin:0px 0px 0px 0px !important;
+.requests th{
+    font-size: 11px;
+    font-family: arial;
+    border: 1px solid #727375 !important;
+}
+
+.requests td{
+    padding: 5px 3px !important;
+    font-size: 12px;
+    font-family: arial;
+    border: 1px solid #727375 !important;
 }

@@ -33,7 +33,7 @@ if(isset($model->id)){
 	$boundary_name = $project_name = $object_name = $master_name = "";
 }
 
-$this->title = "Форма рапорта";
+//$this->title = "Форма рапорта";
 
 ?>
 
@@ -43,10 +43,10 @@ $this->title = "Форма рапорта";
 		<div class="row">
 				<div class="col-md-12">
 					<ul class="nav nav-tabs">	
-					  <li class="active"><a data-toggle="tab" href="#base" class='first'>Основное</a></li>
-					  <li><a data-toggle="tab" href="#consist">Состав бригады</a></li>
-					  <li><a data-toggle="tab" href="#works">Характеристики работ</a></li>
-					  <li><a data-toggle="tab" href="#remnants" class='last'>Остатки</a></li>
+					  <li class="first active"><a href="#base">Основное</a></li>
+					  <li><a href="#consist">Состав бригады</a></li>
+					  <li><a href="#works">Характеристики работ</a></li>
+					  <li class='last'><a href="#remnants" >Остатки</a></li>
 					</ul>
 					<div class="tab-content">
 
@@ -126,8 +126,14 @@ $this->title = "Форма рапорта";
 													<?php echo $form->field($model,'boundary_guid')->hiddenInput(['class'=>'isRequired'])->label(false);?>
 												</div>
 												<div class="col-md-12">
-													<label>Пароль</label>
-													<?php echo Html::input('password',"password",null,['class'=>'form-control input-sm input_password isRequired']);?>
+													<div class="form-group <?php echo $inValidPassword ? 'has-error' :'';?>">
+														<label>Пароль</label>
+														<?php echo Html::input('password',"password",null,['class'=>"form-control input-sm input_password isRequired <?php echo $inValidPassword ? 'fieldHasError' :'';?>"]);?>
+														<?php if($inValidPassword){?>
+															<p class="help-block help-block-error">Неправильный пароль</p>
+														<?php } ?>
+													</div>
+													
 												</div>
 											</div>
 										</div>
@@ -390,21 +396,22 @@ $script = <<<JS
 		"input.isRequired"
 	];
 
-	var validateForm = function(){
+
+	var validateRaportForm = function(){
 
 		var hasError = false;
-		var tabsErros = [];
+
 		$("ul.nav.nav-tabs li a").removeClass("hasError");
 
 		if(requiredFields.length){
 			$.each(requiredFields,function(i,field){
-				var fieldsForm = $(field);
+				var fieldsForms = $(field);
 
-				if(!fieldsForm.length) return;
+				if(!fieldsForms.length) return;
 
-				fieldsForm.each(function(i,item){
+				fieldsForms.each(function(){
 					var fieldForm = $(this);
-
+					
 					if(!fieldForm.val()){
 						hasError = true;
 
@@ -420,7 +427,6 @@ $script = <<<JS
 						if(!tab.length) return;
 
 						tab.addClass("hasError");
-						tabsErros.push(tab);
 
 						//hide p.help-block
 						var pHelpBlock = fieldForm.siblings("p.help-block");
@@ -433,11 +439,6 @@ $script = <<<JS
 			});
 		}
 
-		if(hasError && tabsErros.length){
-			var firstTab = tabsErros[0];
-			firstTab.trigger("click");
-		}
-
 		return !hasError;
 	}
 
@@ -446,7 +447,7 @@ $script = <<<JS
 
 	//form submit
 	$("form#raportForm").submit(function(event){
-		if(!validateForm()){
+		if(!validateRaportForm()){
 			event.preventDefault();
 		}
 	});
@@ -456,42 +457,52 @@ $script = <<<JS
 
 	//pager script
 	$("body").on("click",".pager li",function(){
-		var active_tab = $(".nav-tabs li.active");
-		if($(this).hasClass("prev_tab")){
-			if(active_tab.length){
-				var prev = active_tab.prev();
-				prev.length ? prev.find("a").trigger("click") : null;
-			}
-		}else if($(this).hasClass("next_tab")){
-			if(active_tab.length){
-				var next = active_tab.next();
-				next.length ? next.find("a").trigger("click") : null;
-			}
-		}
-	});
-
-
-
-	$(".nav-tabs li a").click(function(){
-		validateForm();
-		console.log($(this));
+		var tabs = $(".tab-content");
 		
-		if($(this).hasClass("first")){
-			$(".pager li.prev_tab").hide();
-		}else{
+		var active_tab = $(".nav-tabs li.active");
+		var target_tab = null;
+		if(!active_tab.length) return;
+
+		// console.log()
+
+		if($(this).hasClass("prev_tab")){
+			var target_tab = active_tab.prev();
+			if(!target_tab.length) return;
+					
+			if(target_tab.hasClass("first")){
+				$(this).hide();
+			}
+
+			$(".pager li.next_tab").show();
+			$(".pager li.submit").hide();
+			$(".pager li.submit").hide();
+
+		}else if($(this).hasClass("next_tab")){
+			
+			var target_tab = active_tab.next();
+			if(!target_tab.length) return;
+
+			if(!validateRaportForm() && active_tab.find("a").hasClass("hasError")){
+				return;
+			}
+
+			if(target_tab.hasClass("last")){
+				$(this).hide();
+				$(".pager li.submit").show();
+			}else{
+				$(".pager li.submit").hide();
+			}
+
 			$(".pager li.prev_tab").show();
 		}
 
-		if($(this).hasClass("last")){
-			$(".pager li.next_tab").hide();
-			$(".pager li.submit").show();
-		
-		}else{
-			$(".pager li.next_tab").show();
-			$(".pager li.submit").hide();
-		}
+		tabs.find("div.tab-pane").removeClass("active");
+		active_tab.removeClass("active");
+		target_tab.addClass("active");
+		tabs.find("div.tab-pane"+target_tab.find("a").attr("href")).addClass("active");
+	});
 
-	})
+
 
 	
 
@@ -499,7 +510,6 @@ $script = <<<JS
 
 
 	//handler click on buttons for add form row
-
 	var sendGetConsistRow = 0;
 	$("#btnAddConsist,#btnAddWork").click(function(event){
 		event.preventDefault();

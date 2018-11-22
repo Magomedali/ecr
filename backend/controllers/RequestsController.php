@@ -5,14 +5,15 @@ use Yii;
 use yii\base\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-
+use backend\modules\RequestSearch;
+use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
 
 /**
  * Requests controller
  */
 class RequestsController extends Controller
 {   
-
 
     /**
      * @inheritdoc
@@ -35,12 +36,31 @@ class RequestsController extends Controller
     }
     
 
-    
-
     public function actionIndex(){
        
 
-       return $this->render('index',[]);
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+
+            $RequestSearch = new RequestSearch;
+        
+            $dataProvider = $RequestSearch->search(Yii::$app->request->get());
+
+            $view = $this->renderPartial('monitoring',['dataProvider'=>$dataProvider,'RequestSearch'=>$RequestSearch]);
+
+            return ['view'=>$view,'date'=>date("d.m.Y H:i:s",time()),'post'=>Yii::$app->request->queryParams];
+        
+        }else{
+
+            $RequestSearch = new RequestSearch;
+        
+            $dataProvider = $RequestSearch->search(Yii::$app->request->get());
+
+            $view = $this->renderPartial('monitoring',['dataProvider'=>$dataProvider,'RequestSearch'=>$RequestSearch]);
+
+            return $this->render('index',['view'=>$view]);
+        }
+       
     }
 
 

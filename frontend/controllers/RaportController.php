@@ -53,20 +53,30 @@ class RaportController extends Controller{
         }
         
         $post = Yii::$app->request->post();
+        $inValidPassword = false;
+        if(isset($post['Raport']) && isset($post['password'])){
 
-        if(isset($post['Raport'])){
-
-            if($model->load($post) && $model->save(1)){
-                Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
-                return $this->redirect(['site/index']);
+            $password = trim(strip_tags($post['password']));
+            
+            if(!Yii::$app->user->identity->validatePassword($password)){
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
             }else{
-                print_r($model->getErrors());
-                exit;
-                Yii::$app->session->setFlash("error","Рапорт не сохранен!");
+                if($model->load($post) && $model->save(1)){
+                    Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+                    return $this->redirect(['site/index']);
+                }else{
+                    Yii::$app->session->setFlash("error","Рапорт не сохранен!");
+                }
             }
+
+            
         }
 
-        return $this->render('form',['model'=>$model]);
+        return $this->render('form',[
+            'model'=>$model,
+            'inValidPassword'=>$inValidPassword
+        ]);
     }
 
 
