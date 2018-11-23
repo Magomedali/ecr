@@ -151,7 +151,7 @@ class Raport extends ActiveRecordVersionable
             if($this->brigade_guid){
                 $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
                 if(!isset($br->id)){
-                    $this->addError('brigade_guid',"Бригада с таким guid отсутствует в базе");
+                    $this->addError('brigade_guid',"'".$this->brigade_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -160,7 +160,7 @@ class Raport extends ActiveRecordVersionable
             if($this->object_guid){
                 $m = Objects::findOne(['guid'=>$this->object_guid]);
                 if(!isset($m->id)){
-                    $this->addError('object_guid',"Объект с таким guid отсутствует в базе");
+                    $this->addError('object_guid',"'".$this->object_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -168,7 +168,7 @@ class Raport extends ActiveRecordVersionable
             if($this->boundary_guid){
                 $m = Boundary::findOne(['guid'=>$this->boundary_guid]);
                 if(!isset($m->id)){
-                    $this->addError('boundary_guid',"Граница с таким guid отсутствует в базе");
+                    $this->addError('boundary_guid',"'".$this->boundary_guid."' not exists on the site");
                     return false;
                 }
             }

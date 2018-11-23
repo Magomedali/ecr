@@ -65,7 +65,7 @@ class RaportMaterial extends ActiveRecordVersionable
             if($this->nomenclature_guid){
                 $m = Nomenclature::findOne(['guid'=>$this->nomenclature_guid]);
                 if(!isset($m->id)){
-                    $this->addError('nomenclature_guid',"Номенклатура с таким guid отсутствует в базе");
+                    $this->addError('nomenclature_guid',"'".$this->nomenclature_guid."' not exists on the site");
                     return false;
                 }
             }

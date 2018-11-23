@@ -91,7 +91,7 @@ class RaportWork extends ActiveRecordVersionable
             if($this->work_guid){
                 $m = TypeOfWork::findOne(['guid'=>$this->work_guid]);
                 if(!isset($m->id)){
-                    $this->addError('work_guid',"Вид работы с таким guid отсутствует в базе");
+                    $this->addError('work_guid',"'".$this->work_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -99,7 +99,7 @@ class RaportWork extends ActiveRecordVersionable
             if($this->line_guid){
                 $m = Line::findOne(['guid'=>$this->line_guid]);
                 if(!isset($m->id)){
-                    $this->addError('line_guid',"Физ.лицо с таким guid отсутствует в базе");
+                    $this->addError('line_guid',"'".$this->line_guid."' not exists on the site");
                     return false;
                 }
             }

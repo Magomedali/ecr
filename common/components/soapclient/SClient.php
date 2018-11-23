@@ -37,7 +37,7 @@ class SClient extends Component
     {
         $methodName = pathinfo(str_replace('\\', '/', get_class($method)), PATHINFO_BASENAME);
         
-        return @call_user_func_array([$this->client, $methodName], [$method]);
+        return @call_user_func_array([$this->client, $methodName], [$method->attributes]);
     }
 
 

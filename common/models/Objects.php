@@ -63,7 +63,7 @@ class Objects extends ActiveRecordVersionable
             if($this->boundary_guid){
                 $m = Boundary::findOne(['guid'=>$this->boundary_guid]);
                 if(!isset($m->id)){
-                    $this->addError('boundary_guid',"Округ с таким guid отсутствует в базе");
+                    $this->addError('boundary_guid',"'".$this->boundary_guid."' not exists on the site");
                     return false;
                 }else{
                     $this->boundary_id = $m->id;

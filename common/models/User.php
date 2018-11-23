@@ -95,7 +95,7 @@ class User extends ActiveRecord implements IdentityInterface
             if($this->brigade_guid){
                 $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
                 if(!isset($br->id)){
-                    $this->addError('brigade_guid',"Бригада с таким guid отсутствует в базе");
+                    $this->addError('brigade_guid',"'".$this->brigade_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -104,7 +104,7 @@ class User extends ActiveRecord implements IdentityInterface
             if($this->technic_guid){
                 $m = Technic::findOne(['guid'=>$this->technic_guid]);
                 if(!isset($m->id)){
-                    $this->addError('technic_guid',"Техника с таким guid отсутствует в базе");
+                    $this->addError('technic_guid',"'".$this->technic_guid."' not exists on the site");
                     return false;
                 }
             }

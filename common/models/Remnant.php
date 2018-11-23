@@ -69,7 +69,7 @@ class Remnant extends ActiveRecordVersionable
                 $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
 
                 if(!isset($br->id)){
-                    $this->addError('brigade_guid',"Бригада с таким guid отсутствует в базе");
+                    $this->addError('brigade_guid',"brigade_guid '".$this->brigade_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -78,7 +78,7 @@ class Remnant extends ActiveRecordVersionable
             if($this->nomenclature_guid){
                 $m = Nomenclature::findOne(['guid'=>$this->nomenclature_guid]);
                 if(!isset($m->id)){
-                    $this->addError('nomenclature_guid',"Номенклатура с таким guid отсутствует в базе");
+                    $this->addError('nomenclature_guid',"nomenclature_guid ".$this->nomenclature_guid." not exists on the site");
                     return false;
                 }
             }

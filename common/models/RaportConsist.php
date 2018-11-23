@@ -61,7 +61,7 @@ class RaportConsist extends ActiveRecord
             if($this->technic_guid){
                 $m = Technic::findOne(['guid'=>$this->technic_guid]);
                 if(!isset($m->id)){
-                    $this->addError('technic_guid',"Техника с таким guid отсутствует в базе");
+                    $this->addError('technic_guid',"'".$this->technic_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -69,7 +69,7 @@ class RaportConsist extends ActiveRecord
             if($this->user_guid){
                 $m = User::findOne(['guid'=>$this->user_guid]);
                 if(!isset($m->id)){
-                    $this->addError('user_guid',"Физ.лицо с таким guid отсутствует в базе");
+                    $this->addError('user_guid',"'".$this->user_guid."' not exists on the site");
                     return false;
                 }
             }
