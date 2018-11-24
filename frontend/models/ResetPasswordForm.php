@@ -94,7 +94,7 @@ class ResetPasswordForm extends Model
         $user->removePasswordResetToken();
 
         if($user->save()){
-           try {
+            try {
             
                 $method = new Useraccountload(['guid'=>$user->guid,'password'=>$this->password]);
 
@@ -112,7 +112,7 @@ class ResetPasswordForm extends Model
                 }
 
             }catch(\Exception $e) {
-                throw $e;
+                //throw $e;
             }
 
             return true;

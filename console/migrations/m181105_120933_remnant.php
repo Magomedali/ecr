@@ -21,41 +21,28 @@ class m181105_120933_remnant extends Migration
         }
 
 
-        $this->createTable('{{%remnant}}', [
+        $this->createTable('{{%remnants_package}}', [
             'id' => $this->primaryKey(),
-            'brigade_guid' => $this->string(36)->notNull()->unique(),
-            'updated_at'=>$this->timestamp(),
-            'nomenclature_guid'=>$this->string(36)->notNull(),
-            'count'=>$this->float()->notNull()->defaultValue(0),
-
-            'version_id'=>$this->integer()->null(),
-            'isDeleted'=>$this->smallInteger()->null()->defaultValue(0)
-        ], $tableOptions);
-
-
-        $this->createTable('{{%remnant_history}}', [
-            'id' => $this->primaryKey(),
-            'entity_id' => $this->integer()->notNull(),
-
             'brigade_guid' => $this->string(36)->notNull(),
             'updated_at'=>$this->timestamp(),
-            'nomenclature_guid'=>$this->string(36)->notNull(),
-            'count'=>$this->float()->notNull()->defaultValue(0),
-
-            'created_at'=>$this->timestamp(),
-            'type_action'=> $this->integer()->notNull(),
-            'version'=> $this->integer()->notNull(),
-            'creator_id'=> $this->integer()->null(),
-            'isDeleted'=> $this->smallInteger()->null()->defaultValue(0)
+            'isActual'=>$this->smallInteger()->null()->defaultValue(1)
         ], $tableOptions);
 
-        
-        $this->addForeignKey('fk-remnant_history-entity_id',"{{%remnant_history}}",'entity_id',"{{%remnant}}",'id','CASCADE','CASCADE');
-        $this->addForeignKey('fk-remnant_history-creator_id',"{{%remnant_history}}",'creator_id',"{{%user}}",'id','CASCADE','CASCADE');
 
-        $this->addForeignKey('fk-remnant-version_id',"{{%remnant}}",'version_id',"{{%remnant_history}}",'id','CASCADE','CASCADE');
-        $this->addForeignKey('fk-remnant-brigade_guid',"{{%remnant}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
-        $this->addForeignKey('fk-remnant-nomenclature_guid',"{{%remnant}}",'nomenclature_guid',"{{%nomenclature}}",'guid','CASCADE','CASCADE');
+        $this->createTable('{{%remnants_item}}', [
+            'id' => $this->primaryKey(),
+            'package_id' => $this->integer()->notNull(),
+            'nomenclature_guid'=>$this->string(36)->notNull(),
+            'count'=>$this->float()->notNull()->defaultValue(0),
+            'UNIQUE unq_key_package_nomenclature (package_id,nomenclature_guid)'
+        ], $tableOptions);
+
+
+        $this->addForeignKey('fk-remnants_package-brigade_guid',"{{%remnants_package}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
+
+        $this->addForeignKey('fk-remnants_item-package_id',"{{%remnants_item}}",'package_id',"{{%remnants_package}}",'id','CASCADE','CASCADE');
+
+        $this->addForeignKey('fk-remnants_item-nomenclature_guid',"{{%remnants_item}}",'nomenclature_guid',"{{%nomenclature}}",'guid','CASCADE','CASCADE');
 
     }
 
@@ -64,13 +51,12 @@ class m181105_120933_remnant extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-remnant-nomenclature_guid',"{{%remnant}}");
-        $this->dropForeignKey('fk-remnant-brigade_guid',"{{%remnant}}");
-        $this->dropForeignKey('fk-remnant-version_id',"{{%remnant}}");
-        $this->dropForeignKey('fk-remnant_history-creator_id',"{{%remnant_history}}");
-        $this->dropForeignKey('fk-remnant_history-entity_id',"{{%remnant_history}}");
+        $this->dropForeignKey('fk-remnants_item-package_id',"{{%remnants_item}}");
+        $this->dropForeignKey('fk-remnants_item-nomenclature_guid',"{{%remnants_item}}");
+        $this->dropForeignKey('fk-remnants_package-brigade_guid',"{{%remnants_package}}");
 
-        $this->dropTable('{{%remnant_history}}');
-        $this->dropTable('{{%remnant}}');
+        
+        $this->dropTable('{{%remnants_item}}');
+        $this->dropTable('{{%remnants_package}}');
     }
 }

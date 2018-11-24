@@ -113,6 +113,15 @@ class ClientController extends Controller
                 'password'=>'12345qwE',
                 'ktu'=>1.2,
                 'is_master'=>true
+            ],
+            [
+                'guid'=>'3sdasjdhuu32423jkasdfa',
+                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+                'name'=>'Ваня',
+                'login'=>'vany',
+                'password'=>'12345qwE',
+                'ktu'=>1.5,
+                'is_master'=>false
             ]
         ];
 
@@ -345,23 +354,41 @@ class ClientController extends Controller
         $par = [
             [
                 'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-                'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
-                'count'=>10
+                'items'=>[
+                    [
+                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'count'=>10
+                    ],
+                    [
+                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'count'=>12
+                    ]
+                ]
+                
             ],
             [
                 'brigade_guid'=>'2asdasjdhuu32423jkasdfa',
-                'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
-                'count'=>12
+                'items'=>[
+                    [
+                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'count'=>10
+                    ],
+                    [
+                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'count'=>11
+                    ]
+                ]
             ]
         ];
 
         
-
+        Yii::$app->db->createCommand()->delete('remnants_package',['>','id',0])->execute();
         $par['remnants'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadremnant($par); 
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        // echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 
 

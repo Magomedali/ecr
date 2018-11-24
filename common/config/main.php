@@ -12,6 +12,7 @@ return [
   			'class'=>'soapclient\SClient',
   			
         'wsdl'=>'https://crm.omegamail.org/usom/ws/drrload.1cws?wsdl',
+        'location'=>'https://192.168.1.13/usom/ws/drrload.1cws',
         'username'=>'obmen',
         'password'=>'651865'
   		]

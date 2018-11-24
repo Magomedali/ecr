@@ -8,6 +8,8 @@ use yii\filters\AccessControl;
 use backend\modules\RequestSearch;
 use yii\data\ActiveDataProvider;
 use yii\data\ArrayDataProvider;
+use soapclient\methods\Useraccountload;
+use common\models\Request;
 
 /**
  * Requests controller
@@ -83,6 +85,35 @@ class RequestsController extends Controller
 
 
     public function actionExecUseraccountload(){
+
+
+        try {
+            
+            $data =[
+                'guid'=>'e47d2a80-2be2-4767-953e-21f17b623987',
+                'password'=>'123456'
+            ];
+            $method = new Useraccountload($data);
+
+            $request = new Request([
+                'request'=>get_class($method),
+                'params_in'=>json_encode($method->attributes),
+                'user_id'=>null,
+                'actor_id'=>null
+            ]);
+
+            if($request->save() && $request->send($method)){
+                      
+            }else{
+                    
+            }
+
+        }catch(\Exception $e) {
+            throw $e;
+        }
+
+        print_r($request->params_out);
+        exit;
         return $this->render('result',[]);
     }
 

@@ -6,15 +6,29 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
-
+use common\models\RaportWork;
 
 $user = Yii::$app->user->identity;
 $masters = User::find()->where(['is_master'=>true])->asArray()->all();
 
-$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
-$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
-$RaportWorks =!isset($model->id) ? [] : $model->works;
-
+if(!$hasErrors){
+	$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
+	$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
+	$RaportWorks =isset($model->id) ? $model->works : [[
+		'work_guid'=>null,
+		'work_name'=>null,
+		'line_guid'=>null,
+		'line_name'=>null,
+		'mechanized'=>null,
+		'length'=>null,
+		'count'=>null,
+		'squaremeter'=>null
+	]];
+}else{
+	$BrigadeConsist = $errorsRaportConsist;
+	$ActualBrigadeRemnants = $errorsRaportMaterials;
+	$RaportWorks = $errorsRaportWorks;
+}
 
 if(isset($model->id)){
 	$object = $model->object_guid ? $model->object : null;
@@ -30,10 +44,17 @@ if(isset($model->id)){
 	$master_name = isset($master->id) ? $master->name : null;
 }else{
 	$boundary = $object = $project = null;
-	$boundary_name = $project_name = $object_name = $master_name = "";
+	if($hasErrors){
+		$boundary_name = $errorsRaport['boundary_name'];
+		$project_name = $errorsRaport['project_name'];
+		$object_name = $errorsRaport['object_name'];
+		$master_name = $errorsRaport['master_name'];;
+	}else{
+		$boundary_name = $project_name = $object_name = $master_name = "";
+	}
 }
 
-//$this->title = "Форма рапорта";
+$this->title = "Форма рапорта";
 
 ?>
 
@@ -63,13 +84,17 @@ if(isset($model->id)){
 													'apiUrl'=>Url::to(['/autocomplete/masters']),
 													'inputValueName'=>'Raport[master_guid]',
 													'inputValueName_Value'=>$model->master_guid,
-													'inputKeyName'=>'master_key',
+													'inputKeyName'=>'Raport[master_name]',
 													'inputKeyName_Value'=>$master_name,
 													'placeholder'=>'Укажите мастера',
 													'label'=>'Мастер'
 												]);
 											?>
 											
+											<?php if(isset($model->id)){
+												echo Html::hiddenInput('model_id',$model->id);
+											}?>
+
 											<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
 
 											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true,'class'=>'form-control input-sm']);?>
@@ -87,7 +112,7 @@ if(isset($model->id)){
 															'apiUrl'=>Url::to(['/autocomplete/objects']),
 															'inputValueName'=>"Raport[object_guid]",
 															'inputValueName_Value'=>$model->object_guid,
-															'inputKeyName'=>'object_key',
+															'inputKeyName'=>'Raport[object_name]',
 															'inputKeyName_Value'=>$object_name,
 															'placeholder'=>'Укажите объект',
 															'label'=>"Объект",
@@ -105,7 +130,7 @@ if(isset($model->id)){
 															'apiUrl'=>Url::to(['/autocomplete/projects']),
 															'inputValueName'=>"Raport[project_guid]",
 															'inputValueName_Value'=>$model->project_guid,
-															'inputKeyName'=>'project_key',
+															'inputKeyName'=>'Raport[project_name]',
 															'inputKeyName_Value'=>$project_name,
 															'placeholder'=>'Укажите контракт',
 															'label'=>"Контракт",
@@ -121,7 +146,8 @@ if(isset($model->id)){
 												</div>
 												<div class="col-md-12">
 													<label>Округ</label>
-													<?php echo Html::textInput("boundary_name",$boundary_name,['class'=>'form-control input-sm input_boundary_name isRequired','readonly'=>true]);?>
+													<?php echo Html::textInput("Raport[boundary_name]",$boundary_name,['class'=>'form-control input-sm input_boundary_name isRequired','readonly'=>true]);?>
+
 													
 													<?php echo $form->field($model,'boundary_guid')->hiddenInput(['class'=>'isRequired'])->label(false);?>
 												</div>
@@ -199,16 +225,22 @@ if(isset($model->id)){
 														if($item['user_guid']){
 															echo $item['user_name'];
 															echo Html::hiddenInput("RaportConsist[$key][user_guid]",$item['user_guid']);
+															echo Html::hiddenInput("RaportConsist[$key][user_name]",$item['user_name']);
 														}else{
 															echo AutoComplete::widget([
 																'data'=>[],
 																'apiUrl'=>Url::to(['/autocomplete/technics']),
 																'inputValueName'=>"RaportConsist[$key][user_guid]",
 																'inputValueName_Value'=>"",
-																'inputKeyName'=>'user_key',
+																'inputKeyName'=>"RaportConsist[$key][user_name]",
 																'inputKeyName_Value'=>"",
 																'placeholder'=>'Укажите физ.лицо',
-																'labelShow'=>false
+																'labelShow'=>false,
+																'properties'=>[
+																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
+
+																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu']
+																]
 															]);
 														}
 													?>
@@ -218,13 +250,14 @@ if(isset($model->id)){
 														if($item['technic_guid']){
 															echo $item['technic_name'];
 															echo Html::hiddenInput("RaportConsist[$key][technic_guid]",$item['technic_guid']);
+															echo Html::hiddenInput("RaportConsist[$key][technic_name]",$item['technic_name']);
 														}else{
 															echo AutoComplete::widget([
 																'data'=>[],
 																'apiUrl'=>Url::to(['/autocomplete/technics']),
 																'inputValueName'=>"RaportConsist[$key][technic_guid]",
 																'inputValueName_Value'=>"",
-																'inputKeyName'=>'technic_key',
+																'inputKeyName'=>"RaportConsist[$key][technic_name]",
 																'inputKeyName_Value'=>"",
 																'placeholder'=>'Укажите технику',
 																'labelShow'=>false
@@ -233,7 +266,10 @@ if(isset($model->id)){
 														
 													?>
 													</td>
-													<td class="person_ktu"><?php echo $item['user_ktu'];?></td>
+													<td class="person_ktu">
+														<span><?php echo $item['user_ktu'];?></span>
+														<?php echo Html::hiddenInput("RaportConsist[{$key}][user_ktu]",$item['user_ktu'],['class'=>'hidden_user_ktu'])?>
+													</td>
 													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow'])?></td>
 												</tr>
 											<?php
@@ -277,7 +313,7 @@ if(isset($model->id)){
 															'apiUrl'=>Url::to(['/autocomplete/works']),
 															'inputValueName'=>"RaportWork[$key][work_guid]",
 															'inputValueName_Value'=>$item['work_guid'],
-															'inputKeyName'=>'work_key',
+															'inputKeyName'=>"RaportWork[$key][work_name]",
 															'inputKeyName_Value'=>$item['work_name'],
 															'placeholder'=>'Укажите вид работы',
 															'labelShow'=>false
@@ -291,14 +327,14 @@ if(isset($model->id)){
 															'apiUrl'=>Url::to(['/autocomplete/lines']),
 															'inputValueName'=>"RaportWork[$key][line_guid]",
 															'inputValueName_Value'=>$item['line_guid'],
-															'inputKeyName'=>'line_key',
+															'inputKeyName'=>"RaportWork[$key][line_name]",
 															'inputKeyName_Value'=>$item['line_name'],
 															'placeholder'=>'Укажите линию',
 															'labelShow'=>false
 														]);
 													?>	
 													</td>
-													<td><?php echo Html::checkbox("RaportWork[$key][mechanized]",$item['mechanized']); ?></td>
+													<td><?php echo Html::checkbox("RaportWork[$key][mechanized]",isset($item['mechanized']) ? $item['mechanized'] : null); ?></td>
 													<td><?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?></td>
 													<td><?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?></td>
 													<td><?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?></td>
@@ -338,6 +374,7 @@ if(isset($model->id)){
 													<td>
 													<?php 
 														echo $item['nomenclature_name'];
+														echo Html::hiddenInput("RaportMaterial[$key][nomenclature_name]",$item['nomenclature_name']);
 														echo Html::hiddenInput("RaportMaterial[$key][nomenclature_guid]",$item['nomenclature_guid']);
 													?>
 													</td>
@@ -457,6 +494,8 @@ $script = <<<JS
 
 	//pager script
 	$("body").on("click",".pager li",function(){
+		if($(this).hasClass('submit')) return;
+		
 		var tabs = $(".tab-content");
 		
 		var active_tab = $(".nav-tabs li.active");
@@ -546,8 +585,13 @@ $script = <<<JS
 	//handler click on remove row buttons
 	$("body").on("click",'.btnRemoveRow',function(event){
 		event.preventDefault();
-		var tr = $(this).parents("tr");
-		if(tr.length) tr.remove();
+
+		var table = $(this).parents("table");
+		if(table.find("tbody tr").length > 1){
+			var tr = $(this).parents("tr");
+			if(tr.length) tr.remove();
+		}
+		
 	});
 
 

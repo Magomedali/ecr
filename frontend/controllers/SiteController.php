@@ -81,8 +81,8 @@ class SiteController extends Controller
         }
 
         $modelFilters = new RaportFilter;
-
-        $params = array_merge(Yii::$app->request->queryParams,['RaportFilter'=>['brigade_guid'=>$brigade_guid]]);
+        $params = Yii::$app->request->queryParams;
+        $params['RaportFilter']['brigade_guid']=$brigade_guid;
         $dataProvider = $modelFilters->filter($params);
         return $this->render('index',array('dataProvider'=>$dataProvider,'modelFilters'=>$modelFilters));
 

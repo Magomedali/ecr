@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8082/ecr/api/soap/web/index.php?ws=1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://localhost:8082/ecr/api/soap/web/index.php?ws=1">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.ecr:8081/index.php?ws=1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://api.ecr:8081/index.php?ws=1">
   <types>
-    <xsd:schema targetNamespace="http://localhost:8082/ecr/api/soap/web/index.php?ws=1">
+    <xsd:schema targetNamespace="http://api.ecr:8081/index.php?ws=1">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
       <xsd:complexType name="itemOfBrigade">
         <xsd:sequence>
@@ -357,22 +357,32 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:complexType name="itemOfRemnant">
+      <xsd:complexType name="itemOfRemnantsItem">
         <xsd:sequence>
-          <xsd:element name="brigade_guid" type="xsd:string"/>
           <xsd:element name="nomenclature_guid" type="xsd:string"/>
           <xsd:element name="count" type="xsd:float"/>
         </xsd:sequence>
       </xsd:complexType>
-      <xsd:complexType name="Remnant">
+      <xsd:complexType name="RemnantsItem">
         <xsd:sequence>
-          <xsd:element name="Remnant" type="tns:itemOfRemnant" minOccurs="1" maxOccurs="unbounded"/>
+          <xsd:element name="RemnantsItem" type="tns:itemOfRemnantsItem" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="itemOfRemnantsPackage">
+        <xsd:sequence>
+          <xsd:element name="brigade_guid" type="xsd:string"/>
+          <xsd:element name="items" type="tns:RemnantsItem"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RemnantsPackage">
+        <xsd:sequence>
+          <xsd:element name="RemnantsPackage" type="tns:itemOfRemnantsPackage" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
       </xsd:complexType>
       <xsd:element name="unloadremnant">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="remnants" type="tns:Remnant"/>
+            <xsd:element name="remnants" type="tns:RemnantsPackage"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -442,7 +452,7 @@
       <output message="tns:unloadraportOut"/>
     </operation>
     <operation name="unloadremnant">
-      <documentation>unload Remnant</documentation>
+      <documentation>unload RemnantsPackage</documentation>
       <input message="tns:unloadremnantIn"/>
       <output message="tns:unloadremnantOut"/>
     </operation>
@@ -450,7 +460,7 @@
   <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="unloadbrigade">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadbrigade"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadbrigade"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -459,7 +469,7 @@
       </output>
     </operation>
     <operation name="test">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#test"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#test"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -468,7 +478,7 @@
       </output>
     </operation>
     <operation name="unloadworker">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadworker"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadworker"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -477,7 +487,7 @@
       </output>
     </operation>
     <operation name="unloadtechnic">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadtechnic"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadtechnic"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -486,7 +496,7 @@
       </output>
     </operation>
     <operation name="unloadobject">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadobject"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadobject"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -495,7 +505,7 @@
       </output>
     </operation>
     <operation name="unloadboundary">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadboundary"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadboundary"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -504,7 +514,7 @@
       </output>
     </operation>
     <operation name="unloadproject">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadproject"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadproject"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -513,7 +523,7 @@
       </output>
     </operation>
     <operation name="unloadtypeofwork">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadtypeofwork"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadtypeofwork"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -522,7 +532,7 @@
       </output>
     </operation>
     <operation name="unloadline">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadline"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadline"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -531,7 +541,7 @@
       </output>
     </operation>
     <operation name="unloadnomenclature">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadnomenclature"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadnomenclature"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -540,7 +550,7 @@
       </output>
     </operation>
     <operation name="unloadraport">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadraport"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadraport"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -549,7 +559,7 @@
       </output>
     </operation>
     <operation name="unloadremnant">
-      <soap:operation soapAction="http://localhost:8082/ecr/api/soap/web/index.php?ws=1#unloadremnant"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadremnant"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -560,7 +570,7 @@
   </binding>
   <service name="ApiControllerService">
     <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
-      <soap:address location="http://localhost:8082/ecr/api/soap/web/index.php?ws=1"/>
+      <soap:address location="http://api.ecr:8081/index.php?ws=1"/>
     </port>
   </service>
   <message name="unloadbrigadeIn">

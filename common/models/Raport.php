@@ -40,6 +40,7 @@ class Raport extends ActiveRecordVersionable
     protected  $consistErrors = [];
 
     protected  $files = [];
+    protected  $filesErrors = [];
 
     
     /**
@@ -208,6 +209,10 @@ class Raport extends ActiveRecordVersionable
                 $this->materials = [];
             }
 
+            if(!count($this->materials)){
+                $this->addError('materials',"doesn`t have materials");
+                return false;
+            }
 
             if(isset($data[$scope]['consist']) && is_array($data[$scope]['consist'])){
                 $this->consist = $data[$scope]['consist'];
@@ -215,6 +220,10 @@ class Raport extends ActiveRecordVersionable
                 $this->consist = $data['RaportConsist'];
             }else{
                 $this->consist = [];
+            }
+            if(!count($this->consist)){
+                $this->addError('consist',"doesn`t have consist");
+                return false;
             }
 
             if(isset($data[$scope]['works']) && is_array($data[$scope]['works'])){
@@ -225,6 +234,10 @@ class Raport extends ActiveRecordVersionable
                 $this->works = [];
             }
 
+            if(!count($this->works)){
+                $this->addError('works',"doesn`t have works");
+                return false;
+            }
 
             if(isset($data[$scope]['files']) && is_array($data[$scope]['files'])){
                 $this->files = $data[$scope]['files'];
@@ -234,6 +247,7 @@ class Raport extends ActiveRecordVersionable
                 $this->files = [];
             }
 
+            
 
             return true;
         }
@@ -279,6 +293,11 @@ class Raport extends ActiveRecordVersionable
     }
 
 
+    public function getFilesErrors(){
+        return $this->filesErrors;
+    }
+
+
     public function getMaterials(){
         if($this->id){
             return (new Query)->select(['rm.*','n.name as nomenclature_name'])->from(['rm'=>RaportMaterial::tableName()])
@@ -320,40 +339,89 @@ class Raport extends ActiveRecordVersionable
 
         //Связываем материалы
         if($this->materials && $this->id){
-            //Начало транзакции
-            //удаляем
-            $this->deleteMaterials();
-            //обновляем
-            $this->saveMaterials();
-            //Конец транзакции
+            try {
+                $transaction = Yii::$app->db->beginTransaction();
+
+                $this->deleteMaterials();
+
+                if($this->saveMaterials()){
+                    $transaction->commit();
+                }else{
+                    $transaction->rollBack();
+                }
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+            }
         }else{
             $this->deleteMaterials();
         }
 
         if($this->consist && $this->id){
-            //Начало транзакции
-            //удаляем
-            $this->deleteConsist();
-            //обновляем
-            $this->saveConsist();
-            //Конец транзакции
+            try {
+                $transaction = Yii::$app->db->beginTransaction();
+
+                $this->deleteConsist();
+
+                if($this->saveConsist()){
+                    $transaction->commit();
+                }else{
+                    $transaction->rollBack();
+                }
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+            }
         }else{
             //Если оъъектов нет удаляем из базы, если они есть
             $this->deleteConsist();
         }
 
         if($this->works && $this->id){
-            //Начало транзакции
-            //удаляем
-            $this->deleteWorks();
-            //обновляем
-            $this->saveWorks();
-            //Конец транзакции
+            try {
+                $transaction = Yii::$app->db->beginTransaction();
+
+                $this->deleteWorks();
+
+                if($this->saveWorks()){
+                    $transaction->commit();
+                }else{
+                    $transaction->rollBack();
+                }
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+            }
         }else{
             //Если оъъектов нет удаляем из базы, если они есть
             $this->deleteWorks();
         }
+
+
+        if($this->files && $this->id){
+            try {
+                $transaction = Yii::$app->db->beginTransaction();
+
+                $this->deleteFiles();
+
+                if($this->saveFiles()){
+                    $transaction->commit();
+                }else{
+                    $transaction->rollBack();
+                }
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+            }
+        }else{
+            //Если оъъектов нет удаляем из базы, если они есть
+            $this->deleteFiles();
+        }
     }
+
+
+
+
+
+
+
+
 
 
     
@@ -366,7 +434,6 @@ class Raport extends ActiveRecordVersionable
             return false;
         }
         
-        Yii::error(json_encode($materials),"api");
         $Type = "RaportMaterial";
         if(!isset($materials[$Type])){
             $materials[$Type] = $materials;
@@ -378,7 +445,7 @@ class Raport extends ActiveRecordVersionable
 
         foreach ($materials[$Type] as $key => $mdata) {
             $model = new RaportMaterial();
-            Yii::error(json_encode($mdata),"api");
+
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
             $arData['raport_id'] = $this->id;
 
@@ -403,6 +470,14 @@ class Raport extends ActiveRecordVersionable
 
 
 
+
+
+
+
+
+
+
+
     public function saveConsist($data = []){
         if(!$this->id) return false;
 
@@ -411,8 +486,7 @@ class Raport extends ActiveRecordVersionable
         if(!is_array($consist)){
             return false;
         }
-        // print_r($materials);
-        Yii::error(json_encode($consist),"api");
+
         $Type = "RaportConsist";
         if(!isset($consist[$Type])){
             $consist[$Type] = $consist;
@@ -443,6 +517,14 @@ class Raport extends ActiveRecordVersionable
     }
     
     
+
+
+
+
+
+
+
+
 
 
     public function saveWorks($data = []){
@@ -481,6 +563,53 @@ class Raport extends ActiveRecordVersionable
 
         Yii::$app->db->createCommand()->delete(RaportWork::tableName(),['raport_id'=>$this->id])->execute();
     }
+
+
+
+
+
+
+
+
+
+
+
+    public function saveFiles($data = []){
+        if(!$this->id) return false;
+
+        $files = count($data) ? $data : $this->files;
+        if(!is_array($files)){
+            return false;
+        }
+        
+        $Type = "RaportFile";
+        if(!isset($files[$Type])){
+            $files[$Type] = $files;
+        }
+        
+        if(!array_key_exists(0, $files[$Type])){
+            $files[$Type] =  [$files[$Type]];
+        }
+        foreach ($files[$Type] as $key => $mdata) {
+            $model = new RaportFile();
+
+            $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
+            $arData['raport_id'] = $this->id;
+
+            if(!$model->load(['RaportWork'=>$arData]) || !$model->save()){
+                $this->filesErrors[] = json_encode($model->getErrors());
+            }
+        }
+
+        return !count($this->filesErrors);
+    }
+
+    public function deleteFiles($data = []){
+        if(!$this->id) return false;
+
+        Yii::$app->db->createCommand()->delete(RaportFile::tableName(),['raport_id'=>$this->id])->execute();
+    }
+
 
 
 }

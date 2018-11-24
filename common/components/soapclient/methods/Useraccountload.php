@@ -19,4 +19,10 @@ class Useraccountload extends BaseMethod{
 
 
 
+	public function getParameters(){
+		return [
+			'accountdata'=>$this->attributes
+		];
+	}
+
 }

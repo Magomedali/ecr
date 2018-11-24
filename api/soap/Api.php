@@ -18,7 +18,7 @@ use common\models\Nomenclature;
 use common\models\Boundary;
 use common\models\Objects;
 use common\models\Project;
-use common\models\Remnant;
+use common\models\RemnantsPackage;
 use common\models\Raport;
 
 class Api{
@@ -539,8 +539,8 @@ class Api{
 
     
     /**
-     * unload Remnant
-     * @param api\soap\models\Remnant[] $remnants
+     * unload RemnantsPackage
+     * @param api\soap\models\RemnantsPackage[] $remnants
      * @return api\soap\models\Responce
      */
     public static function unloadremnant($data){   
@@ -548,7 +548,7 @@ class Api{
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
 
-        $Type = "Remnant";
+        $Type = "RemnantsPackage";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data) || !isset($data[$Type])){
             throw new ApiExceptionWrongType();
@@ -561,11 +561,11 @@ class Api{
         $responce = new Responce();
         $erros = [];
         foreach ($data[$Type] as $key => $item) {
-            $model = new Remnant();
+            $model = new RemnantsPackage();
             
             //stdObject to array
             $arData = json_decode(json_encode($item),1);
-            $params = ['Remnant'=>$arData];
+            $params = ['RemnantsPackage'=>$arData];
 
             if(!$model->load($params) || !$model->save(1)){
                 if(isset($arData['brigade_guid'])){
@@ -573,7 +573,13 @@ class Api{
                 }
                 $responce->success = false;
             }else{
+                $tablePartsErrors = [];
+                if(count($model->getItemsErrors())){
+                    $tablePartsErrors['items'] = json_encode($model->getItemsErrors());
+                }
+
                 $responce->success = true;
+                $erros = $tablePartsErrors;
             }
         }
 

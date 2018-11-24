@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Remnant  extends ApiModel
+class RemnantsPackage  extends ApiModel
 {
     /**
      * @var string
@@ -19,13 +19,7 @@ class Remnant  extends ApiModel
 
     
     /**
-     * @var string
+     * @var api\soap\models\RemnantsItem[]
     */
-    public $nomenclature_guid;
-
-    /**
-     * @var float
-    */
-    public $count;
-
+    public $items;
 }

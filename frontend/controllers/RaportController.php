@@ -22,7 +22,7 @@ class RaportController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['form','get-row-consist','get-row-work','get-row-remnant'],
+                        'actions' => ['view','form','get-row-consist','get-row-work','get-row-remnant'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -42,40 +42,105 @@ class RaportController extends Controller{
 
 
 
+    public function actionView($id){
+
+        $brigade_guid = Yii::$app->user->identity->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+        if(!(int)$id) 
+            throw new \Exception("Документ не найден!",404);
+
+        $model = Raport::findOne(['id'=>(int)$id,'brigade_guid'=>$brigade_guid]);
+
+        if(!isset($model->id))
+            throw new \Exception("Документ не найден!",404);
+
+
+        return $this->render('view',['model'=>$model]);
+    }
+
+
+
+
+
+
+
     public function actionForm($id = null){
 
-        if($id){
-           $model =  Raport::findOne($id);
+
+        $brigade_guid = Yii::$app->user->identity->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+
+        $post = Yii::$app->request->post();
+
+        if($id || isset($post['model_id'])){
+           $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
+
+           $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
            if(!isset($model->id))
-                throw HttpException("Документ не найден!",404); 
+                throw new \Exception("Документ не найден!",404); 
         }else{
            $model = new Raport(); 
         }
         
-        $post = Yii::$app->request->post();
+        $hasErrors = false;
         $inValidPassword = false;
+        $errorsRaport = [];
+        $errorsRaportConsist = [];
+        $errorsRaportWorks = [];
+        $errorsRaportMaterials = [];
+        $errorsRaport=[];
         if(isset($post['Raport']) && isset($post['password'])){
 
-            $password = trim(strip_tags($post['password']));
             
-            if(!Yii::$app->user->identity->validatePassword($password)){
-                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
-                $inValidPassword = true;
-            }else{
-                if($model->load($post) && $model->save(1)){
-                    Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
-                    return $this->redirect(['site/index']);
+            if($model->load($post)){
+                $password = trim(strip_tags($post['password']));
+                if(!Yii::$app->user->identity->validatePassword($password)){
+                    Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                    $inValidPassword = true;
                 }else{
-                    Yii::$app->session->setFlash("error","Рапорт не сохранен!");
+
+                    if($model->save(1)){
+                        if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
+                            Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные");
+                        }else{
+                            Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+                            return $this->redirect(['site/index']);
+                        }
+                    }else{
+                        Yii::$app->session->setFlash("error","Рапорт не сохранен!");
+                    }
+
                 }
+            }else{
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
             }
+            
+            $hasErrors = true;
+            $errorsRaportConsist = isset($post['RaportConsist']) ? $post['RaportConsist'] : [];
+            $errorsRaportWorks = isset($post['RaportWork']) ? $post['RaportWork'] : [];
+            $errorsRaportMaterials = isset($post['RaportMaterial']) ? $post['RaportMaterial'] : [];
+            $errorsRaport = isset($post['Raport']) ? $post['Raport'] : [];
 
             
         }
 
+
         return $this->render('form',[
             'model'=>$model,
-            'inValidPassword'=>$inValidPassword
+            'inValidPassword'=>$inValidPassword,
+            'hasErrors'=>$hasErrors,
+            'errorsRaportConsist'=>$errorsRaportConsist,
+            'errorsRaportWorks'=>$errorsRaportWorks,
+            'errorsRaportMaterials'=>$errorsRaportMaterials,
+            'errorsRaport'=>$errorsRaport
         ]);
     }
 

@@ -286,8 +286,8 @@ class ApiController extends Controller
 
 
     /**
-     * unload Remnant
-     * @param api\soap\models\Remnant[] $remnants
+     * unload RemnantsPackage
+     * @param api\soap\models\RemnantsPackage[] $remnants
      * @return api\soap\models\Responce
      * @soap
      */

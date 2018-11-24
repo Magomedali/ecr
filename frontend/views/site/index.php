@@ -7,27 +7,18 @@ use yii\grid\GridView;
 $this->title = 'Мои рапорта';
 ?>
 
-<div class="row">
-	<div class="col-md-2">
-		<label class="form-label">Месяц</label>
-		<select class="form-control">
-			<option>Октябрь</option>
-		</select>
-	</div>
-	<div class="col-md-2 text-right">
-		<button class="btn btn-success" style="margin-top: 25px;">Фильтровать</button>
-	</div>
-</div>
+
 <div class="row" style="margin-top: 10px;">
 	<div class="col-md-12">
 		<?php 
 
-        echo \yii\grid\GridView::widget([
+            echo \yii\grid\GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $modelFilters,
                 'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
                 'tableOptions'=>['class'=>'table table-striped table-bordered table-hover'],
-                'showFooter'=>true,
+                'showFooter'=>false,
+                'summary'=> "",
                 'columns'=>[
                 	['class'=>'yii\grid\SerialColumn'],
                     [
@@ -39,6 +30,7 @@ $this->title = 'Мои рапорта';
                         'value'=>function($m){
                         	return date("d.m.Y",strtotime($m['created_at']));
                         },
+                        'filter'=>Html::dropDownList("RaportFilter[month]",$modelFilters->month,$modelFilters::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
                     ],
                     [
                         'attribute'=>"object_guid",
@@ -70,16 +62,20 @@ $this->title = 'Мои рапорта';
                     ],
                   
                     ['class' => 'yii\grid\ActionColumn',
-                        'template' => '{update}',
+                        'template' => '{view}&nbsp{update}',
                         'buttons' =>
-                         [
-                             
+                        [
+                            'view' => function ($url, $model) {
+                                return  Html::a('Посмотреть', Url::to(['/raport/view', 'id' => $model->id]), [
+                                     'title' => Yii::t('yii', 'Посмотреть')
+                                ]); 
+                            },
                             'update' => function ($url, $model) {
                                 return $model->isCanUpdate ? Html::a('Изменить', Url::to(['/raport/form', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Изменить')
                                 ]) : ""; 
                             }, 
-                         ]
+                        ]
                     ]
                 ]
             ]);

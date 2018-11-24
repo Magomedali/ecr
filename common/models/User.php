@@ -11,7 +11,8 @@ use frontend\models\PaymentsExpenses;
 
 use common\models\Brigade;
 use common\models\Technic;
-use common\models\Remnant;
+use common\models\RemnantsPackage;
+use common\models\RemnantsItem;
 use common\models\Nomenclature;
 
 use common\base\ActiveRecordVersionable;
@@ -239,7 +240,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @return boolean if password provided is valid for current user
      */
     public function validatePassword($password)
-    {
+    {   
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
@@ -327,10 +328,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function getActualBrigadeRemnants(){
         if(!$this->brigade_guid || !$this->id) return false;
 
-        $result = (new Query())->select('r.brigade_guid, r.nomenclature_guid, r.count as was, r.count as rest,(count - count)  as spent, n.name as nomenclature_name')
-                    ->from(['r'=>Remnant::tableName()])
+        $result = (new Query())->select('rp.brigade_guid, r.nomenclature_guid, r.count as was, r.count as rest, (null) as spent, n.name as nomenclature_name')
+                    ->from(['rp'=>RemnantsPackage::tableName()])
+                    ->innerJoin(['r'=>RemnantsItem::tableName()]," r.package_id = rp.id")
                     ->innerJoin(['n'=>Nomenclature::tableName()]," r.nomenclature_guid = n.guid")
-                    ->where(['r.brigade_guid'=>$this->brigade_guid])
+                    ->where(['rp.brigade_guid'=>$this->brigade_guid,'rp.isActual'=>1])
                     ->all();
 
         return $result;

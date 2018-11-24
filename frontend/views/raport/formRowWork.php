@@ -14,7 +14,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'apiUrl'=>Url::to(['/autocomplete/works']),
 			'inputValueName'=>"RaportWork[$count][work_guid]",
 			'inputValueName_Value'=>"",
-			'inputKeyName'=>'work_key',
+			'inputKeyName'=>"RaportWork[$count][work_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
 			'labelShow'=>false
@@ -28,7 +28,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'apiUrl'=>Url::to(['/autocomplete/lines']),
 			'inputValueName'=>"RaportWork[$count][line_guid]",
 			'inputValueName_Value'=>"",
-			'inputKeyName'=>'line_key',
+			'inputKeyName'=>"RaportWork[$count][line_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите линию',
 			'labelShow'=>false
