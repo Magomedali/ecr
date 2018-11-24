@@ -9,6 +9,7 @@ use yii\db\Command;
 use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
+use yii\web\UploadedFile;
 
 use common\models\User;
 use common\models\Objects;
@@ -239,14 +240,17 @@ class Raport extends ActiveRecordVersionable
                 return false;
             }
 
-            if(isset($data[$scope]['files']) && is_array($data[$scope]['files'])){
-                $this->files = $data[$scope]['files'];
-            }elseif(isset($data['RaportFile']) && is_array($data['RaportFile'])){
-                $this->files = $data['RaportFile'];
+            if(!isset($_FILES['files'])){
+                if(isset($data[$scope]['files']) && is_array($data[$scope]['files'])){
+                    $this->files = $data[$scope]['files'];
+                }elseif(isset($data['RaportFile']) && is_array($data['RaportFile'])){
+                    $this->files = $data['RaportFile'];
+                }else{
+                    $this->files = [];
+                }
             }else{
-                $this->files = [];
+                $this->files = UploadedFile::getInstancesByName('files');
             }
-
             
 
             return true;
@@ -397,21 +401,18 @@ class Raport extends ActiveRecordVersionable
 
         if($this->files && $this->id){
             try {
-                $transaction = Yii::$app->db->beginTransaction();
+                //$transaction = Yii::$app->db->beginTransaction();
 
-                $this->deleteFiles();
+                //$this->deleteFiles();
 
                 if($this->saveFiles()){
-                    $transaction->commit();
+                //    $transaction->commit();
                 }else{
-                    $transaction->rollBack();
+                 //   $transaction->rollBack();
                 }
             } catch (\Exception $e) {
-                $transaction->rollBack();
+               // $transaction->rollBack();
             }
-        }else{
-            //Если оъъектов нет удаляем из базы, если они есть
-            $this->deleteFiles();
         }
     }
 
@@ -581,7 +582,7 @@ class Raport extends ActiveRecordVersionable
         if(!is_array($files)){
             return false;
         }
-        
+
         $Type = "RaportFile";
         if(!isset($files[$Type])){
             $files[$Type] = $files;
@@ -590,13 +591,19 @@ class Raport extends ActiveRecordVersionable
         if(!array_key_exists(0, $files[$Type])){
             $files[$Type] =  [$files[$Type]];
         }
+        
         foreach ($files[$Type] as $key => $mdata) {
             $model = new RaportFile();
 
-            $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
+            if($mdata instanceof UploadedFile){
+                $arData['loadedFile'] = $mdata;
+            }else{
+                $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
+            }
+            
             $arData['raport_id'] = $this->id;
 
-            if(!$model->load(['RaportWork'=>$arData]) || !$model->save()){
+            if(!$model->load(['RaportFile'=>$arData]) || !$model->save()){
                 $this->filesErrors[] = json_encode($model->getErrors());
             }
         }

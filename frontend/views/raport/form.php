@@ -58,7 +58,7 @@ $this->title = "Форма рапорта";
 
 ?>
 
-<?php $form = ActiveForm::begin(['id'=>'raportForm']);?>
+<?php $form = ActiveForm::begin(['id'=>'raportForm','options'=>['enctype'=>'multipart/form-data']]);?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
