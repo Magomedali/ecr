@@ -180,6 +180,7 @@ class Request extends ActiveRecordVersionable
             
             if($method->validate()){
                 $responce = Yii::$app->webservice1C->send($method);
+                $responce = json_decode(json_encode($responce),1);
             }else{
                 $responce = [
                     'success'=>false,
@@ -206,8 +207,17 @@ class Request extends ActiveRecordVersionable
             ];
         
         }
+
+        if(isset($responce['success']) && (int)$responce['success']){
+            $this->result = 1;
+            $this->completed = 1;
+            $this->completed_at = date("Y-m-d\TH:i:s");
+        }
         $this->params_out = json_encode($responce);
-        return $this->save(0);
+        
+        $this->save();
+
+        return boolval($responce['success']);
     }
 
 }

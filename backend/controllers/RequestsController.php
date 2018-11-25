@@ -2,7 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\base\Controller;
+use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use backend\modules\RequestSearch;
@@ -10,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\data\ArrayDataProvider;
 use soapclient\methods\Useraccountload;
 use common\models\Request;
+use common\models\Raport;
 
 /**
  * Requests controller
@@ -119,7 +120,21 @@ class RequestsController extends Controller
 
 
     public function actionExecRaportload(){
-        return $this->render('result',[]);
+
+
+        $model = Raport::findOne(['id'=>1]);
+
+        if(!isset($model->id))
+            throw new \Exception("Документ не найден!",404);
+
+        try {
+            $model->sendToConfirmation();
+        } catch (\Exception $e) {
+            
+        }
+        
+
+        return $this->redirect(['requests/index']);
     }
 
 

@@ -7,6 +7,7 @@ use yii\bootstrap\ActiveForm;
 use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
 use common\models\RaportWork;
+use common\models\RaportFile;
 
 $user = Yii::$app->user->identity;
 
@@ -25,11 +26,19 @@ $master_name = isset($master->id) ? $master->name : null;
 $BrigadeConsist = $model->consist;
 $ActualBrigadeRemnants = $model->materials;
 $RaportWorks = $model->works;
+$RaportFiles = $model->files;
 
 $this->title = "Рапорт";
 
 ?>
 
+<div class="row">
+	<div class="col-md-12">
+		<?php if($model->isCanUpdate){
+			echo Html::a("Изменить",['raport/form','id'=>$model->id],['class'=>'btn btn-primary pull-right']);
+		}?>
+	</div>
+</div>
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -39,7 +48,7 @@ $this->title = "Рапорт";
 					  <li><a data-toggle="tab" href="#consist">Состав бригады</a></li>
 					  <li><a data-toggle="tab" href="#works">Характеристики работ</a></li>
 					  <li><a data-toggle="tab" href="#remnants" >Остатки</a></li>
-					  <li><a data-toggle="files" href="#remnants" >Файлы</a></li>
+					  <li><a data-toggle="tab" href="#files" >Файлы</a></li>
 					</ul>
 					<div class="tab-content">
 
@@ -228,9 +237,33 @@ $this->title = "Рапорт";
 						<div id="files" class="tab-pane fade in">
 							<h3>Файлы</h3>
 							<div class="row">
-								<div class="col-md-12">
-									
-								</div>
+								<?php if(is_array($RaportFiles)){
+									$images = RaportFile::getImageTypes();
+									foreach ($RaportFiles as $key => $item) {
+								?>
+									<div class="col-md-3">
+										<?php 
+											$filePath = "tmp/".$item['file'];
+											if(in_array($item['file_type'], $images)){
+												
+												if(!file_exists($filePath)){
+													$f = fopen($filePath, "w+");
+													fwrite($f, $item['file_binary']);
+													fclose($f);
+												}
+
+												echo Html::img($filePath);
+
+											}else{
+												echo Html::a($item['file_name'],['raport/read-file','id'=>$item['id']],['target'=>'_blank']);
+											}
+										?>
+									</div>		
+								<?php
+										}
+									}
+								?>
+								
 							</div>
 						</div>
 					</div>

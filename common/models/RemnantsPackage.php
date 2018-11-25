@@ -99,9 +99,9 @@ class RemnantsPackage extends ActiveRecord
         return $this->itemsErrors;
     }
 
-    public function afterSave($insert, $changedAttributes){
-        parent::afterSave($insert, $changedAttributes);
 
+
+    public function saveRelationEntities(){
         //Связываем остатки
         if($this->items && $this->id){
             try {

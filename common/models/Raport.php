@@ -27,6 +27,8 @@ use common\models\Remnant;
 use common\base\ActiveRecordVersionable;
 use common\dictionaries\RaportStatuses;
 
+use soapclient\methods\RaportLoad;
+
 
 class Raport extends ActiveRecordVersionable 
 {
@@ -338,9 +340,16 @@ class Raport extends ActiveRecordVersionable
     }
 
 
-    public function afterSave($insert, $changedAttributes){
-        parent::afterSave($insert, $changedAttributes);
+    public function getFiles(){
+        if($this->id){
+            return RaportFile::find()->where(['raport_id'=>$this->id])->asArray()->all();
+        }else{
+           return $this->files; 
+        }
+    }
 
+
+    public function saveRelationEntities(){
         //Связываем материалы
         if($this->materials && $this->id){
             try {
@@ -398,7 +407,6 @@ class Raport extends ActiveRecordVersionable
             $this->deleteWorks();
         }
 
-
         if($this->files && $this->id){
             try {
                 //$transaction = Yii::$app->db->beginTransaction();
@@ -415,8 +423,6 @@ class Raport extends ActiveRecordVersionable
             }
         }
     }
-
-
 
 
 
@@ -618,5 +624,62 @@ class Raport extends ActiveRecordVersionable
     }
 
 
+
+
+
+
+    public function sendToConfirmation(){
+        if(!$this->id) return false;
+
+        try {
+            $method = new RaportLoad();
+            $params = $this->getAttributes(null,[
+                'id',
+                'status',
+                'isDeleted',
+                'version_id',
+                'number',
+                ''
+            ]);
+
+
+            $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$this->id])->all();
+
+            $params['consist'] = (new Query)->select(['user_guid','technic_guid'])->from(RaportConsist::tableName())->where(['raport_id'=>$this->id])->all();
+            
+            $params['materials'] = (new Query)->select(['nomenclature_guid','spent'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
+            
+            
+            $user = Yii::$app->user->identity;
+
+            $request = new Request([
+                'request'=>get_class($method),
+                'params_in'=>json_encode($params),
+                'raport_id'=>$this->id,
+                'actor_id'=>$user->id
+            ]);
+
+            $params['files'] = (new Query)->select(['file','file_type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
+
+
+            $method->setParameters($params);
+            if($request->save() && $request->send($method)){
+                $responce = json_decode($request->params_out,1);
+                if($request->result && isset($responce['guid']) && $responce['guid'] && isset($responce['number']) && $responce['number']){
+                    $this->guid = $responce['guid'];
+                    $this->number = $responce['number'];
+
+                    $this->status = RaportStatuses::IN_CONFIRMING;
+                    return $this->save(1);
+                }
+                       
+            }
+        } catch (\Exception $e) {
+            
+        }
+        
+
+        return false;
+    }
 
 }

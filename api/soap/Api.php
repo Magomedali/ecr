@@ -372,6 +372,7 @@ class Api{
                 }
                 $responce->success = false;
             }else{
+                $model->saveRelationEntities();
                 $responce->success = true;
             }
         }
@@ -573,6 +574,10 @@ class Api{
                 }
                 $responce->success = false;
             }else{
+
+
+                $model->saveRelationEntities();
+                
                 $tablePartsErrors = [];
                 if(count($model->getItemsErrors())){
                     $tablePartsErrors['items'] = json_encode($model->getItemsErrors());
@@ -630,7 +635,7 @@ class Api{
                 $responce->success = false;
                 $responce->errorsExtend = $erros;
             }else{
-
+                $model->saveRelationEntities();
                 $tablePartsErrors = [];
                 if(count($model->getMaterialsErrors())){
                     $tablePartsErrors['materials'] = json_encode($model->getMaterialsErrors());

@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\Raport;
+use common\models\RaportFile;
 
 class RaportController extends Controller{
 
@@ -22,7 +23,7 @@ class RaportController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','form','get-row-consist','get-row-work','get-row-remnant'],
+                        'actions' => ['view','form','read-file','get-row-consist','get-row-work','get-row-remnant'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -58,8 +59,38 @@ class RaportController extends Controller{
         if(!isset($model->id))
             throw new \Exception("Документ не найден!",404);
 
-
         return $this->render('view',['model'=>$model]);
+    }
+
+
+
+
+
+    public function actionReadFile($id){
+
+        $brigade_guid = Yii::$app->user->identity->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+        if(!(int)$id) 
+            throw new \Exception("Документ не найден!",404);
+
+        $model = RaportFile::find()->innerJoin(['r'=>Raport::tableName()],RaportFile::tableName().".raport_id = r.id")->where([RaportFile::tableName().'.id'=>(int)$id,'r.brigade_guid'=>$brigade_guid])->one();
+
+        if(!isset($model->id))
+            throw new \Exception("Документ не найден!",404);
+
+        $filePath = "tmp/".$model['file'];
+                                    
+        if(!file_exists($filePath)){
+            $f = fopen($filePath, "w");
+            fwrite($f, $model['file_binary']);
+            fclose($f);
+        }
+
+        return Yii::$app->response->sendFile($filePath);
     }
 
 
@@ -108,10 +139,17 @@ class RaportController extends Controller{
                 }else{
 
                     if($model->save(1)){
+                        
+                        $model->saveRelationEntities();
+
                         if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
                             Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные");
                         }else{
                             Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+
+                            //Отправить заявку в 1С
+                            $model->sendToConfirmation();
+
                             return $this->redirect(['site/index']);
                         }
                     }else{

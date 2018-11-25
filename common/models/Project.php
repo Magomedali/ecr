@@ -82,10 +82,8 @@ class Project extends ActiveRecordVersionable
         return false;
     }
     
-    public function afterSave($insert, $changedAttributes)
-    {
-        parent::afterSave($insert, $changedAttributes);
 
+    public function saveRelationEntities(){
         //Связываем объекты с проектом
         
         if($this->objects_guids && $this->guid){
