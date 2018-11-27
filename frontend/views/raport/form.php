@@ -69,10 +69,10 @@ $this->title = "Форма рапорта";
 		<div class="row">
 				<div class="col-md-12">
 					<div class="row pipeline">	
-					  <div class="col-md-3 first active"><a href="#base">Основное</a></div>
-					  <div class="col-md-3 red"><a href="#consist">Состав бригады</a></div>
-					  <div class="col-md-3 red"><a href="#works">Характеристики работ</a></div>
-					  <div class='col-md-3 red last'><a href="#remnants" >Остатки</a></div>
+					  <div class="col-md-3 first active"><a href="#base"><span>Основное</span></a></div>
+					  <div class="col-md-3 red"><a href="#consist"><span>Состав бригады</span></a></div>
+					  <div class="col-md-3 red"><a href="#works"><span>Характеристики работ</span></a></div>
+					  <div class='col-md-3 red last'><a href="#remnants" ><span>Остатки</span></a></div>
 					</div>
 					<div class="tab-content">
 

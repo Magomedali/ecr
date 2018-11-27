@@ -105,13 +105,17 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
             background: #e4ea7f;
         }
 
-        .pipeline > div > a.hasError:after{
-            content:"!";
+        .pipeline > div > a.hasError span{
+            position: relative;
+        }
+
+        .pipeline > div > a.hasError span:after{
+            content: "!";
             display: block;
             position: absolute;
-            top: 0px;
-            right: 5px;
-            color: #a94442;
+            top: -7px;
+            right: -8px;
+            color: #e21814;
             font-size: 20px;
         }
 
