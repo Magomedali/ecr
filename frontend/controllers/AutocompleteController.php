@@ -16,6 +16,7 @@ use common\models\Line;
 use common\models\Objects;
 use common\models\Boundary;
 use common\models\Project;
+use soapclient\methods\Calcsquare;
 
 class AutocompleteController extends Controller{
 
@@ -30,7 +31,7 @@ class AutocompleteController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['masters','users','technics','lines','works','objects','projects'],
+                        'actions' => ['masters','users','technics','lines','works','objects','projects','calcsquare'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -246,9 +247,58 @@ class AutocompleteController extends Controller{
             return ['data'=>$data];
         }else{
             return $this->redirect(['site/index']);
-        } 
+        }
     }
 
 
+
+
+
+
+    public function actionCalcsquare(){
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            
+            $get = Yii::$app->request->get();
+            $line_guid = isset($get['line_guid']) ? trim(strip_tags($get['line_guid'])) : null;
+            $length = isset($get['length']) ? trim(strip_tags($get['length'])) : null;
+            $count = isset($get['count']) ? trim(strip_tags($get['count'])) : null;
+            $result = false;
+            $error = $errorMessage = null;
+            $responce = null;
+            if($length && $count && $line_guid){
+                try {
+                    
+                    $method = new Calcsquare([
+                        'lineguid'=>$line_guid,
+                        'length'=>$length,
+                        'count'=>$count
+                    ]);
+                    if($method->validate()){
+                        $responce = Yii::$app->webservice1C->send($method);
+                    }else{
+                        $error = "ModelValidateError";
+                        $errorMessage = $method->getErrors();
+                    }
+
+                }catch(\SoapFault $e){
+                    $error = "SoapFault";
+                    $errorMessage = $e->getMessage();
+                }catch(\Exception $e){
+                    $error = "ServerError";
+                    $errorMessage = $e->getMessage();
+                }
+            }
+            return [
+                'result'=>$result,
+                'error'=>$error,
+                'errorMessage'=>$errorMessage,
+                'responce'=>$responce
+            ];
+        }else{
+            return $this->redirect(['site/index']);
+        }
+    }
 
 }

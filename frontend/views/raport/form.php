@@ -14,6 +14,11 @@ $masters = User::find()->where(['is_master'=>true])->asArray()->all();
 if(!$hasErrors){
 	$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
 	$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
+
+	// if($model->id){
+	// 	$user->unloadRemnantsFrom1C();
+	// }
+
 	$RaportWorks =isset($model->id) ? $model->works : [[
 		'work_guid'=>null,
 		'work_name'=>null,
@@ -63,12 +68,12 @@ $this->title = "Форма рапорта";
 	<div class="col-md-12">
 		<div class="row">
 				<div class="col-md-12">
-					<ul class="nav nav-tabs">	
-					  <li class="first active"><a href="#base">Основное</a></li>
-					  <li><a href="#consist">Состав бригады</a></li>
-					  <li><a href="#works">Характеристики работ</a></li>
-					  <li class='last'><a href="#remnants" >Остатки</a></li>
-					</ul>
+					<div class="row pipeline">	
+					  <div class="col-md-3 first active"><a href="#base">Основное</a></div>
+					  <div class="col-md-3 red"><a href="#consist">Состав бригады</a></div>
+					  <div class="col-md-3 red"><a href="#works">Характеристики работ</a></div>
+					  <div class='col-md-3 red last'><a href="#remnants" >Остатки</a></div>
+					</div>
 					<div class="tab-content">
 
 						<!-- Основное -->
@@ -320,7 +325,7 @@ $this->title = "Форма рапорта";
 														]);
 													?>
 													</td>
-													<td>
+													<td class="td_line_guid">
 													<?php 
 														echo AutoComplete::widget([
 															'data'=>[],
@@ -334,11 +339,21 @@ $this->title = "Форма рапорта";
 														]);
 													?>	
 													</td>
-													<td><?php echo Html::checkbox("RaportWork[$key][mechanized]",isset($item['mechanized']) ? $item['mechanized'] : null); ?></td>
-													<td><?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?></td>
-													<td><?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?></td>
-													<td><?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?></td>
-													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?></td>
+													<td>
+														<?php echo Html::checkbox("RaportWork[$key][mechanized]",isset($item['mechanized']) ? $item['mechanized'] : null); ?>
+													</td>
+													<td class="td_length">
+														<?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?>
+													</td>
+													<td  class="td_count">
+														<?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?>
+													</td>
+													<td class="td_squaremeter">
+														<?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?>
+													</td>
+													<td>
+														<?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?>
+													</td>
 												</tr>
 												<?php } ?>
 											<?php } ?>
@@ -438,7 +453,7 @@ $script = <<<JS
 
 		var hasError = false;
 
-		$("ul.nav.nav-tabs li a").removeClass("hasError");
+		$("div.pipeline div a").removeClass("hasError");
 
 		if(requiredFields.length){
 			$.each(requiredFields,function(i,field){
@@ -460,7 +475,7 @@ $script = <<<JS
 								
 						if(!tabContentId) return;
 
-						var tab = $("ul.nav.nav-tabs").find("a[href=\"#"+tabContentId+"\"]");
+						var tab = $("div.pipeline div").find("a[href=\"#"+tabContentId+"\"]");
 						if(!tab.length) return;
 
 						tab.addClass("hasError");
@@ -497,8 +512,8 @@ $script = <<<JS
 		if($(this).hasClass('submit')) return;
 		
 		var tabs = $(".tab-content");
-		
-		var active_tab = $(".nav-tabs li.active");
+		var pipeline = $("div.pipeline div");
+		var active_tab = $("div.pipeline div.active");
 		var target_tab = null;
 		if(!active_tab.length) return;
 
@@ -536,13 +551,38 @@ $script = <<<JS
 		}
 
 		tabs.find("div.tab-pane").removeClass("active");
+		pipeline.removeClass("green");
+		pipeline.removeClass("red");
 		active_tab.removeClass("active");
 		target_tab.addClass("active");
+		
+		target_tab.nextAll().addClass("red");
+		target_tab.prevAll().addClass("green");
+
 		tabs.find("div.tab-pane"+target_tab.find("a").attr("href")).addClass("active");
 	});
 
 
+	$("div.pipeline > div").hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	});
 
+	$("div.pipeline > div").click(function(){
+		var i = $(this).index();
+		var i_a = $("div.pipeline > div.active").index();
+
+		var count = Math.abs(i-i_a);
+		for(var k = 0; k < count; k++){
+			if(i > i_a){
+				$(".pager li.next_tab").trigger("click");
+			}else if(i_a > i){
+				$(".pager li.prev_tab").trigger("click");
+			}
+		}
+
+	})
 	
 
 
@@ -626,6 +666,53 @@ $script = <<<JS
 		}
 		
 	});
+
+
+
+
+	//Function calcsquare
+	var calcsquare = function(tr){
+		if(!tr.length) return;
+
+		var line_guid = tr.find("td.td_line_guid input.autocomplete_input_value").val();
+		var count = tr.find("td.td_count input").val();
+		var length = tr.find("td.td_length input").val();
+		
+		if(!line_guid || !count || !length) return;
+
+		$.ajax({
+			url:"index.php?r=autocomplete/calcsquare",
+			data:{
+				line_guid:line_guid,
+				count:count,
+				length:length,
+			},
+			type:"GET",
+			dataType:"json",
+			beforeSend:function(){
+
+			},
+			success:function(json){
+				if(json.hasOwnProperty("length") && json.length){
+					tr.find("td.td_squaremeter input").val(json.length);
+				}
+				
+			},
+			error:function(e){
+				console.log(e);
+			},
+			complete:function(){
+
+			},
+		})
+	}
+
+
+	$("body").on("change",".td_length input,.td_count input,.td_line_guid input",function(){
+		var tr = $(this).parents("tr");
+		calcsquare(tr);
+	})
+
 
 JS;
 
