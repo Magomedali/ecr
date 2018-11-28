@@ -43,11 +43,7 @@ class TestClient extends Component
     {
         $wsdl = Yii::getAlias($this->wsdl);
 
-        $AuthHeader = new \stdClass();
-        $AuthHeader->username = $this->username;
-        $AuthHeader->password = $this->password;
         
-        $Headers = new SoapHeader($wsdl, 'authenticate', $AuthHeader);
 
         $this->client = new SoapClient($wsdl, [
             //'trace' => 1,
@@ -58,6 +54,11 @@ class TestClient extends Component
             //'cache_wsdl' =>  WSDL_CACHE_MEMORY,
         ]);
 
-        $this->client->__setSoapHeaders($Headers);
+        // $AuthHeader = new \stdClass();
+        // $AuthHeader->username = $this->username;
+        // $AuthHeader->password = $this->password;
+        
+        // $Headers = new SoapHeader($wsdl, 'authenticate', $AuthHeader);
+        // $this->client->__setSoapHeaders($Headers);
     }
 }

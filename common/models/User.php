@@ -16,7 +16,7 @@ use common\models\RemnantsItem;
 use common\models\Nomenclature;
 use common\base\ActiveRecordVersionable;
 
-use soapclient\methods\Unloadremnant;
+use soapclient\methods\unloadremnant;
 
 /**
  * User model
@@ -331,8 +331,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function unloadRemnantsFrom1C(){
         if(!$this->brigade_guid || !$this->id) return false;
 
-        $this->brigade_guid = "c6fb11c4-3476-418b-85cc-299e34ad58c4";
-        $method = new Unloadremnant(['guidmol'=>$this->brigade_guid]);
+        $method = new unloadremnant(['guidmol'=>$this->brigade_guid]);
         if($method->validate()){
             try {
                 $resp = Yii::$app->webservice1C->send($method);
@@ -343,6 +342,8 @@ class User extends ActiveRecord implements IdentityInterface
             }
         }
         
+        print_r($resp);
+        exit;
         return $resp;
     }
 

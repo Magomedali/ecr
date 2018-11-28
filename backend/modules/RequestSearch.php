@@ -65,14 +65,14 @@ class RequestSearch extends Request{
         if($this->date_to)
             $query->andFilterWhere(['<=',self::tableName().'.created_at', date("Y-m-d\TH:i:s",strtotime($this->date_to))]);
 
-        if($this->request != null)
+        if($this->request !== null)
             $query->andFilterWhere([self::tableName().'.request' => $this->request]);
 
-        if($this->result != '')
-            $query->andFilterWhere(['result'=>$this->result]);
+        if($this->result !== null)
+            $query->andFilterWhere(['result'=>(int)$this->result]);
 
-        if($this->completed != '')
-            $query->andFilterWhere(['completed'=>$this->completed]);
+        if($this->completed !== null)
+            $query->andFilterWhere(['completed'=>(int)$this->completed]);
 
         
 

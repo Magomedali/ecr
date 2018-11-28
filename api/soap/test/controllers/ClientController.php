@@ -75,7 +75,7 @@ class ClientController extends Controller
 
         $par = [
             ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
-            ['guid'=>'2asdasjdhuu32423jkasdfa','name'=>'Бригадbh2']
+            ['guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4','name'=>'BORUM 06 Ноздренков А.И.']
         ];
 
 
@@ -97,31 +97,41 @@ class ClientController extends Controller
 
         $par = [
             [
-                'guid'=>'10sdasjdhuu32423jkasdfa',
-                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-                'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Бригада1',
-                'ktu'=>1.2,
+                'guid'=>'209c80df-68f2-11e8-8117-005056b47a2e',
+                'name'=>'Абрамов Михаил Сергеевич',
                 'is_master'=>true
             ],
             [
-                'guid'=>'1sdasjdhuu32423jkasdfa',
-                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-                'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Тестер',
-                'login'=>'tester',
-                'password'=>'12345qwE',
-                'ktu'=>1.2,
+                'guid'=>'e9d9bbf7-5271-11e7-80ec-000c29a0432f',
+                'name'=>'Акопян Вираб Робертович',
                 'is_master'=>true
             ],
             [
-                'guid'=>'3sdasjdhuu32423jkasdfa',
-                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
-                'name'=>'Ваня',
-                'login'=>'vany',
+                'guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
+                'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
+                'name'=>'Мишуров Андрей Николаевич',
+                'login'=>'nozdrenkovai',
                 'password'=>'12345qwE',
-                'ktu'=>1.5,
+                'ktu'=>0.85,
                 'is_master'=>false
+            ],
+            [
+                'guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
+                'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
+                'technic_guid'=>'ac22777f-cd5c-11e8-8122-005056b47a2e',
+                'name'=>'Джалолов Сухроб Рустамович',
+                'ktu'=>0.9,
+                'is_master'=>false
+            ],
+            [
+                'guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
+                'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
+                'technic_guid'=>'ac22777f-cd5c-11e8-8122-005056b47a2e',
+                'name'=>'Ноздренков Александр Иванович',
+                'ktu'=>1,
+                'is_master'=>false,
+                'login'=>'tester',
+                'password'=>'12345qwE'
             ]
         ];
 
@@ -145,17 +155,24 @@ class ClientController extends Controller
         echo "\n---Method Unloadtechnic : ";
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Газель07',
-                'marka'=>"Газель",
-                'number'=>"soccer"
+                'guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
+                'name'=>'о004хх77 audi',
+                'marka'=>"audi",
+                'number'=>"О004ХХ77"
             ],
             [
 
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Газель09',
+                'guid'=>'ac22777f-cd5c-11e8-8122-005056b47a2e',
+                'name'=>'с999ст lada',
+                'marka'=>"lada",
+                'number'=>"С999СТ"
+            ],
+            [
+
+                'guid'=>'4300123d-c189-11e8-811d-005056b47a2e',
+                'name'=>'Р663СВ Газель',
                 'marka'=>"Газель",
-                'number'=>"soccer"
+                'number'=>"Р663СВ"
             ]
         ];
 
@@ -178,15 +195,39 @@ class ClientController extends Controller
         echo "\n---Method Unloadobject : ";
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Газель07',
-                'boundary_guid'=>"2asdasjdhuu32413jkasdfa"
+                'guid'=>'49a16abb-3f28-11e8-8114-005056b47a2e',
+                'name'=>'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...',
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
             ],
             [
 
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Газель09',
-                'boundary_guid'=>"1asdasjdhuu32413jkasdfa"
+                'guid'=>'9d5ad0dc-3f28-11e8-8114-005056b47a2e',
+                'name'=>'Реконструкция автомобильной дороги «Назрань-Грозный» км 11+000 – км 22+000',
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
+            ],
+            [
+
+                'guid'=>'ce376d9c-3f28-11e8-8114-005056b47a2e',
+                'name'=>'Реконструкция автомобильной дороги «Назрань – Малгобек – Нижний Курп - Терек» км 9+000 – км 22+000',
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
+            ],
+            [
+
+                'guid'=>'ef1449ab-3f28-11e8-8114-005056b47a2e',
+                'name'=>'Реконструкция автомобильной дороги «Назрань – Малгобек – Нижний Курп - Терек» км 32+000 – км 42+000',
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
+            ],
+            [
+
+                'guid'=>'1939b9ef-a6c1-11e8-811a-005056b47a2e',
+                'name'=>'МКАД Внутренняя сторона км 26- км 27',
+                'boundary_guid'=>"eb59ee3e-a50c-11e8-811a-005056b47a2e"
+            ],
+            [
+
+                'guid'=>'6dca691c-a6cd-11e8-811a-005056b47a2e',
+                'name'=>'Калужское шоссе',
+                'boundary_guid'=>"024d3173-16c5-11e8-8112-005056b47a2e"
             ]
         ];
 
@@ -209,14 +250,44 @@ class ClientController extends Controller
 
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Граница 1'
+                'guid'=>'be8cea0a-3352-11e8-8113-005056b47a2e',
+                'name'=>'Ингушетия'
             ],
             [
 
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Граница 2',
-            ]
+                'guid'=>'eb59ee3e-a50c-11e8-811a-005056b47a2e',
+                'name'=>'МКАД',
+            ],
+            [
+
+                'guid'=>'96214a45-324a-11e8-8113-005056b47a2e',
+                'name'=>'Базы',
+            ],
+            [
+
+                'guid'=>'8a925f04-16c4-11e8-8112-005056b47a2e',
+                'name'=>'ВАО',
+            ],
+            [
+
+                'guid'=>'914db38b-16c4-11e8-8112-005056b47a2e',
+                'name'=>'ГМС',
+            ],
+            [
+
+                'guid'=>'ba2b9a17-16c4-11e8-8112-005056b47a2e',
+                'name'=>'ЗАО',
+            ],
+            [
+
+                'guid'=>'c0c03d78-16c4-11e8-8112-005056b47a2e',
+                'name'=>'ЗелАО',
+            ],
+            [
+
+                'guid'=>'024d3173-16c5-11e8-8112-005056b47a2e',
+                'name'=>'ЮЗАО',
+            ],
         ];
 
 
@@ -236,19 +307,21 @@ class ClientController extends Controller
 
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Проект 1',
+                'guid'=>'231ca414-3f28-11e8-8114-005056b47a2e',
+                'name'=>'1-КИ от 06.04.18',
                 'objects_guids'=>[
-                    '1asdasjdhuu32413jkasdfa',
-                    '2asdasjdhuu32413jkasdfa',
+                    '49a16abb-3f28-11e8-8114-005056b47a2e',
+                    '9d5ad0dc-3f28-11e8-8114-005056b47a2e',
+                    'ce376d9c-3f28-11e8-8114-005056b47a2e',
+                    'ef1449ab-3f28-11e8-8114-005056b47a2e',
                 ]
             ],
             [
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Проект 2',
+                'guid'=>'2d835e00-a6cd-11e8-811a-005056b47a2e',
+                'name'=>'Помощь МАДИ-Практик',
                 'objects_guids'=>[
-                    '1asdasjdhuu32413jkasdfa',
-                    '1asdasjdhuu32413jkasdfa',
+                    '6dca691c-a6cd-11e8-811a-005056b47a2e',
+                    '1939b9ef-a6c1-11e8-811a-005056b47a2e'
                 ]
             ]
         ];
@@ -270,13 +343,32 @@ class ClientController extends Controller
 
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Работа2',
+                'guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                'name'=>'Закраска разметки',
             ],
             [
-
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Работа1',
+                'guid'=>'2483a64e-201f-11e8-8112-005056b47a2e',
+                'name'=>'Зачистка разметки',
+            ],
+            [
+                'guid'=>'2c8fe8b0-201f-11e8-8112-005056b47a2e',
+                'name'=>'Разметка готовыми формами',
+            ],
+            [
+                'guid'=>'34e264ea-201f-11e8-8112-005056b47a2e',
+                'name'=>'Разметка краской',
+            ],
+            [
+                'guid'=>'3c327040-201f-11e8-8112-005056b47a2e',
+                'name'=>'Разметка термопластиком',
+            ],
+            [
+                'guid'=>'4327f0f2-201f-11e8-8112-005056b47a2e',
+                'name'=>'Разметка холодным пластиком',
+            ],
+            [
+                'guid'=>'126d493f-201f-11e8-8112-005056b47a2e',
+                'name'=>'Демаркировка разметки',
             ]
         ];
 
@@ -298,8 +390,8 @@ class ClientController extends Controller
 
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'Линия 1.1.1',
+                'guid'=>'5590841e-64c6-4f45-aa81-0f3da62e0ff6',
+                'name'=>'1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый',
             ],
             [
 
@@ -327,13 +419,23 @@ class ClientController extends Controller
 
         $par = [
             [
-                'guid'=>'1asdasjdhuu32413jkasdfa',
-                'name'=>'абота2',
+                'guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
+                'name'=>'Термоклапан ЗМЗ - 405',
             ],
             [
 
-                'guid'=>'2asdasjdhuu32413jkasdfa',
-                'name'=>'Работа1',
+                'guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
+                'name'=>'Термопистолет Makita',
+            ],
+            [
+
+                'guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
+                'name'=>'Теплообменник д. 1138',
+            ],
+            [
+
+                'guid'=>'9bf987a6-b234-11e6-80e8-005056b47a2e',
+                'name'=>'Теплоизоляция 400',
             ]
         ];
 
@@ -356,25 +458,25 @@ class ClientController extends Controller
                 'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
                 'items'=>[
                     [
-                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'9bf987a6-b234-11e6-80e8-005056b47a2e',
                         'count'=>10
                     ],
                     [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
                         'count'=>12
                     ]
                 ]
                 
             ],
             [
-                'brigade_guid'=>'2asdasjdhuu32423jkasdfa',
+                'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
                 'items'=>[
                     [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
                         'count'=>10
                     ],
                     [
-                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                         'count'=>11
                     ]
                 ]
@@ -400,8 +502,8 @@ class ClientController extends Controller
         $par = [
             [
                 'guid'=>'2asdasjdhuu32423jkasdfa',
-                'number'=>'1asdasjdhuu32413jkasdfa',
-                'status'=>"ывфывлжд",
+                'number'=>'10000029',
+                'status'=>"На подтверждении",
                 'created_at'=>date("Y-m-d\TH:i:s"),
                 'starttime'=>date("H:i:s",time()-3600),
                 'endtime'=>date("H:i:s"),
@@ -411,27 +513,27 @@ class ClientController extends Controller
                 'surface_temperature_end'=>10.5,
                 'airhumidity_start'=>10.1,
                 'airhumidity_end'=>2.2,
-                'brigade_guid'=>"1asdasjdhuu32423jkasdfa",
-                'object_guid'=>"1asdasjdhuu32413jkasdfa",
-                'boundary_guid'=>"1asdasjdhuu32413jkasdfa",
-                'project_guid'=>"1asdasjdhuu32413jkasdfa",
-                'master_guid'=>"10sdasjdhuu32423jkasdfa",
+                'brigade_guid'=>"c6fb11c4-3476-418b-85cc-299e34ad58c4",
+                'object_guid'=>"49a16abb-3f28-11e8-8114-005056b47a2e",
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e",
+                'project_guid'=>"231ca414-3f28-11e8-8114-005056b47a2e",
+                'master_guid'=>"e9d9bbf7-5271-11e7-80ec-000c29a0432f",
                 'comment'=>"Тест",
                 'materials'=>[
                     [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
                         'was'=>11,
                         'spent'=>2,
                         'rest'=>8
                     ],
                     [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
                         'was'=>14,
                         'spent'=>2,
                         'rest'=>12
                     ],
                     [
-                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                         'was'=>13,
                         'spent'=>2,
                         'rest'=>11
@@ -439,16 +541,16 @@ class ClientController extends Controller
                 ],
                 'works'=>[
                     [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'line_guid'=>'5590841e-64c6-4f45-aa81-0f3da62e0ff6',
                         'mechanized'=>true,
                         'length'=>10,
                         'count'=>2.3,
                         'squaremeter'=>222.2
                     ],
                     [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'line_guid'=>'5590841e-64c6-4f45-aa81-0f3da62e0ff6',
                         'mechanized'=>false,
                         'length'=>20,
                         'count'=>2.3,
@@ -457,18 +559,18 @@ class ClientController extends Controller
                 ],
                 'consist'=>[
                     [
-                        'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
+                        'technic_guid'=>'ac22777f-cd5c-11e8-8122-005056b47a2e',
+                        'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
                     ],
                     [
-                        'technic_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
+                        'technic_guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
+                        'user_guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
                     ]
                 ],
             ],
             [
                 'guid'=>'1asdasjdhuu32423jkasdfa',
-                'number'=>'1asdasjdhuu32413jkasdfa',
+                'number'=>'10000029',
                 'status'=>"ывфывлжд",
                 'created_at'=>date("Y-m-d\TH:i:s"),
                 'starttime'=>date("H:i:s",time()-3600),
@@ -479,27 +581,27 @@ class ClientController extends Controller
                 'surface_temperature_end'=>10.5,
                 'airhumidity_start'=>10.1,
                 'airhumidity_end'=>2.2,
-                'brigade_guid'=>"1asdasjdhuu32423jkasdfa",
-                'object_guid'=>"1asdasjdhuu32413jkasdfa",
-                'boundary_guid'=>"1asdasjdhuu32413jkasdfa",
-                'project_guid'=>"1asdasjdhuu32413jkasdfa",
-                'master_guid'=>"10sdasjdhuu32423jkasdfa",
+                'brigade_guid'=>"c6fb11c4-3476-418b-85cc-299e34ad58c4",
+                'object_guid'=>"1939b9ef-a6c1-11e8-811a-005056b47a2e",
+                'boundary_guid'=>"eb59ee3e-a50c-11e8-811a-005056b47a2e",
+                'project_guid'=>"2d835e00-a6cd-11e8-811a-005056b47a2e",
+                'master_guid'=>"e9d9bbf7-5271-11e7-80ec-000c29a0432f",
                 'comment'=>"Тест",
                 'materials'=>[
                     [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
                         'was'=>11,
                         'spent'=>2,
                         'rest'=>8
                     ],
                     [
-                        'nomenclature_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
                         'was'=>14,
                         'spent'=>2,
                         'rest'=>12
                     ],
                     [
-                        'nomenclature_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                         'was'=>13,
                         'spent'=>2,
                         'rest'=>11
@@ -507,16 +609,16 @@ class ClientController extends Controller
                 ],
                 'works'=>[
                     [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'1asdasjdhuu32413jkasdfa',
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'line_guid'=>'5590841e-64c6-4f45-aa81-0f3da62e0ff6',
                         'mechanized'=>true,
                         'length'=>10,
                         'count'=>2.3,
                         'squaremeter'=>222.2
                     ],
                     [
-                        'work_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'line_guid'=>'2asdasjdhuu32413jkasdfa',
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'line_guid'=>'5590841e-64c6-4f45-aa81-0f3da62e0ff6',
                         'mechanized'=>false,
                         'length'=>30,
                         'count'=>2.3,
@@ -525,12 +627,12 @@ class ClientController extends Controller
                 ],
                 'consist'=>[
                     [
-                        'technic_guid'=>'1asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
+                        'technic_guid'=>'4300123d-c189-11e8-811d-005056b47a2e',
+                        'user_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
                     ],
                     [
-                        'technic_guid'=>'2asdasjdhuu32413jkasdfa',
-                        'user_guid'=>'10sdasjdhuu32423jkasdfa',
+                        'technic_guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
+                        'user_guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
                     ]
                 ],
             ]

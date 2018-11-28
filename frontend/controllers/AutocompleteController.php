@@ -277,6 +277,11 @@ class AutocompleteController extends Controller{
                     ]);
                     if($method->validate()){
                         $responce = Yii::$app->webservice1C->send($method);
+
+                        $responce = json_decode(json_encode($responce),1);
+                        if(isset($responce['return']) && isset($responce['return']['success']) && boolval($responce['return']['success']) && isset($responce['return']['result']) && $responce['return']['result']){
+                            $result = $responce['return']['result'];
+                        }
                     }else{
                         $error = "ModelValidateError";
                         $errorMessage = $method->getErrors();

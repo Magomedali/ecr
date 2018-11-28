@@ -3,7 +3,7 @@
 namespace soapclient\methods;
  
  
-class Unloadremnant extends BaseMethod{
+class unloadremnant extends BaseMethod{
 
 	public $guidmol;
 

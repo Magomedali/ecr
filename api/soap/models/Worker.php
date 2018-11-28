@@ -36,6 +36,7 @@ class Worker  extends ApiModel
 
     /**
      * @var float
+     * @nillable
     */
     public $ktu;
 

@@ -208,10 +208,10 @@ class Request extends ActiveRecordVersionable
         
         }
 
-        if(isset($responce['success']) && (int)$responce['success']){
+        if(isset($responce['return']) &&  isset($responce['return']['success']) && (int)$responce['return']['success']){
             $this->result = 1;
             $this->completed = 1;
-            $this->completed_at = date("Y-m-d\TH:i:s");
+            $this->completed_at = date("Y-m-d\TH:i:s",time());
         }
         $this->params_out = json_encode($responce);
         

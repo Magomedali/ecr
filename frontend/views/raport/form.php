@@ -15,9 +15,9 @@ if(!$hasErrors){
 	$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
 	$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
 
-	// if($model->id){
-	// 	$user->unloadRemnantsFrom1C();
-	// }
+	if($model->id){
+		$user->unloadRemnantsFrom1C();
+	}
 
 	$RaportWorks =isset($model->id) ? $model->works : [[
 		'work_guid'=>null,
@@ -693,8 +693,8 @@ $script = <<<JS
 
 			},
 			success:function(json){
-				if(json.hasOwnProperty("length") && json.length){
-					tr.find("td.td_squaremeter input").val(json.length);
+				if(json.hasOwnProperty("result") && json.result){
+					tr.find("td.td_squaremeter input").val(json.result);
 				}
 				
 			},
