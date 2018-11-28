@@ -703,11 +703,21 @@ $script = <<<JS
 		})
 	}
 
-
-	$("body").on("change",".td_length input,.td_count input,.td_line_guid input",function(){
+	//Расчет кв м
+	$("body").on("change",".td_length input,.td_count input",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
-	})
+	});
+	//Расчет кв м
+	$("body").on("keyup",".td_length input,.td_count input",function(){
+		var tr = $(this).parents("tr");
+		calcsquare(tr);
+	});
+	//Расчет кв м
+	$("body").on("click",".td_line_guid .autocomplete_items li",function(){
+		var tr = $(this).parents("tr");
+		calcsquare(tr);
+	});
 
 
 JS;
