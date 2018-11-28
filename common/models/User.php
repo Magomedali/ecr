@@ -387,13 +387,13 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
-        // print_r($gItems);
-        // print_r($actiuals);
-        // exit;
+        
 
         if(count($actiuals) != count($gItems)) return false;
 
         $length = count($gItems);
+
+        
 
         for ($i=0; $i < $length; $i++) { 
             
@@ -437,6 +437,8 @@ class User extends ActiveRecord implements IdentityInterface
                 $resp = json_decode(json_encode($resp),1);
                 if(isset($resp['return']) && isset($resp['return']['remnant'])){
                     $items = $resp['return']['remnant'];
+
+                    return $this->saveRemnants($items);
                 }
 
             }catch (\SoapFault $e) {
@@ -446,31 +448,27 @@ class User extends ActiveRecord implements IdentityInterface
             }
         }
         
-        if(is_array($items) && count($items)){
+        return false;        
+    }
 
-            $items = $this->groupRemnantItems($items);
 
-            $is_equal = $this->remnantItemsIsEqual($items);
 
-            if($is_equal) return true;
 
+
+    public function saveRemnants($items,$needToGroup = true){
+        if(!is_array($items) || !count($items)) return false;
+
+        $items = $needToGroup ? $this->groupRemnantItems($items) : $items;
+
+        if($this->remnantItemsIsEqual($items)) return true;
+
+        $data = [];
+        $rm = new RemnantsPackage();
+        $data['user_guid'] = $this->guid;
+        $data['items'] = $items;
             
-            $data = [];
-            $rm = new RemnantsPackage();
-            $data['user_guid'] = $this->guid;
-            $data['items'] = $items;
-            
-            if($rm->load(['RemnantsPackage'=>$data]) && $rm->save()){
-                return $rm->saveRelationEntities();
-            }
-
-            print_r($rm->getErrors());
-            print_r($rm->getItemsErrors());
-            exit;
-            
-        }else{
-            exit;
-            return false;
+        if($rm->load(['RemnantsPackage'=>$data]) && $rm->save()){
+            return $rm->saveRelationEntities();
         }
     }
 
@@ -478,13 +476,11 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
-
-
-
-
-
     public function getActualBrigadeRemnants(){
         if(!$this->guid || !$this->id) return false;
+
+        //Загрузим сначала из 1С;
+        $this->unloadRemnantsFrom1C();
 
         $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was, r.count as rest, (null) as spent, n.name as nomenclature_name')
                     ->from(['rp'=>RemnantsPackage::tableName()])

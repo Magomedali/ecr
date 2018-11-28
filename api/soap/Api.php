@@ -568,15 +568,12 @@ class Api{
             $arData = json_decode(json_encode($item),1);
             $params = ['RemnantsPackage'=>$arData];
 
-            if(!$model->load($params) || !$model->save(1)){
+            if(!$model->load($params) || !$model->savePackage()){
                 if(isset($arData['brigade_guid'])){
                    $erros[$arData['brigade_guid']] = json_encode($model->getErrors());
                 }
                 $responce->success = false;
             }else{
-
-
-                $model->saveRelationEntities();
                 
                 $tablePartsErrors = [];
                 if(count($model->getItemsErrors())){

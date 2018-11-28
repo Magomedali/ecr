@@ -16,8 +16,10 @@ use common\models\Nomenclature;
 class RemnantsPackage extends ActiveRecord 
 {
     
-    protected  $items = [];
-    protected  $itemsErrors = [];
+    protected $items = [];
+    protected $itemsErrors = [];
+
+    protected $user;
     
     /**
      * @inheritdoc
@@ -54,11 +56,13 @@ class RemnantsPackage extends ActiveRecord
             //Проверяем есть ли гуид бригады в базе
             if($this->user_guid){
 
-                $br = User::findOne(['guid'=>$this->user_guid]);
+                $user = User::findOne(['guid'=>$this->user_guid]);
 
-                if(!isset($br->id)){
+                if(!isset($user->id)){
                     $this->addError('user_guid',"user '".$this->user_guid."' not exists on the site");
                     return false;
+                }else{
+                    $this->user = $user;
                 }
             }
             $scope = $formName === null ? $this->formName() : $formName;
@@ -101,6 +105,46 @@ class RemnantsPackage extends ActiveRecord
 
 
 
+    public function getUser(){
+        if(!$this->user_guid) return null;
+
+        if($this->user instanceof User && isset($this->user->id))
+            return $this->user;
+
+        $user = User::findOne(['guid'=>$this->user_guid]);
+        if(isset($user->id)){
+            $this->user = $user;
+            return $this->user;
+        }
+    }
+
+
+    public function savePackage(){
+        $user = $this->getUser();
+        if(!isset($user->id) || $this->hasErrors()) return false;
+
+        $items = $this->items;
+        $Type = "RemnantsItem";
+        if(!isset($items[$Type])){
+            $items[$Type] = $items;
+        }
+        
+        if(!array_key_exists(0, $items[$Type])){
+            $items[$Type] =  [$items[$Type]];
+        }
+
+        // Если актуальные остатки на сайте равны этим, то просто возвращаем true
+        if($user->remnantItemsIsEqual($items[$Type])) return true;
+
+        return $this->save() && $this->saveRelationEntities();
+    }
+
+
+
+
+
+
+
     public function saveRelationEntities(){
 
 
@@ -127,10 +171,15 @@ class RemnantsPackage extends ActiveRecord
         }else{
             $this->delete();
         }
-        print_r($this->itemsErrors);
-        exit;
+        
         return false;
     }
+
+
+
+
+
+
 
 
     public function saveItems($data = []){
@@ -166,6 +215,9 @@ class RemnantsPackage extends ActiveRecord
 
         return !count($this->itemsErrors);
     }
+
+
+
 
 
     public function doUnActialPackage(){

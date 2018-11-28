@@ -436,6 +436,26 @@ class ClientController extends Controller
 
                 'guid'=>'9bf987a6-b234-11e6-80e8-005056b47a2e',
                 'name'=>'Теплоизоляция 400',
+            ],
+            [
+                'guid'=>'f8e0e0c7-1674-11e8-8112-005056b47a2e',
+                'name'=>'Остаток 1'
+            ],
+            [
+                'guid'=>'6c5af50b-1676-11e8-8112-005056b47a2e',
+                'name'=>'Остаток 2'
+            ],
+            [
+                'guid'=>'ab1d222a-1676-11e8-8112-005056b47a2e',
+                'name'=>'Остаток 3'
+            ],
+            [
+                'guid'=>'f38a408c-9ba9-11e8-811a-005056b47a2e',
+                'name'=>'Остаток 4'
+            ],
+            [
+                'guid'=>'39ca8e0b-a096-11e8-811a-005056b47a2e',
+                'name'=>'Остаток 5'
             ]
         ];
 
@@ -457,29 +477,18 @@ class ClientController extends Controller
             [
                 'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
                 'items'=>[
+
                     [
-                        'nomenclature_guid'=>'9bf987a6-b234-11e6-80e8-005056b47a2e',
-                        'count'=>10
-                    ],
-                    [
-                        'nomenclature_guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
+                        'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                         'count'=>12
-                    ]
-                ]
-                
-            ],
-            [
-                'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
-                'items'=>[
+                    ],
                     [
                         'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
                         'count'=>10
-                    ],
-                    [
-                        'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
-                        'count'=>11
                     ]
+                    
                 ]
+                
             ]
         ];
 
