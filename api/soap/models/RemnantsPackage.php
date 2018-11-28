@@ -15,7 +15,7 @@ class RemnantsPackage  extends ApiModel
     /**
      * @var string
     */
-    public $brigade_guid;
+    public $user_guid;
 
     
     /**

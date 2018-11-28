@@ -370,7 +370,7 @@
       </xsd:complexType>
       <xsd:complexType name="itemOfRemnantsPackage">
         <xsd:sequence>
-          <xsd:element name="brigade_guid" type="xsd:string"/>
+          <xsd:element name="user_guid" type="xsd:string"/>
           <xsd:element name="items" type="tns:RemnantsItem"/>
         </xsd:sequence>
       </xsd:complexType>

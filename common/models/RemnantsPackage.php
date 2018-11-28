@@ -34,7 +34,7 @@ class RemnantsPackage extends ActiveRecord
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['brigade_guid'], 'required'],
+            [['user_guid'], 'required'],
             ['updated_at','filter','filter'=>function($v){
                 $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s");
                 return $date;
@@ -52,12 +52,12 @@ class RemnantsPackage extends ActiveRecord
         if(parent::load($data, $formName)){
             
             //Проверяем есть ли гуид бригады в базе
-            if($this->brigade_guid){
+            if($this->user_guid){
 
-                $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
+                $br = User::findOne(['guid'=>$this->user_guid]);
 
                 if(!isset($br->id)){
-                    $this->addError('brigade_guid',"brigade_guid '".$this->brigade_guid."' not exists on the site");
+                    $this->addError('user_guid',"user '".$this->user_guid."' not exists on the site");
                     return false;
                 }
             }
@@ -90,7 +90,7 @@ class RemnantsPackage extends ActiveRecord
     public function attributeLabels(){
     	return array(
     		'id'=>'Package Id',
-    		'brigade_guid'=>'Бригада',
+    		'user_guid'=>'Ответственный',
             'updated_at'=>'Время обновления',
     	);
     }
@@ -102,6 +102,8 @@ class RemnantsPackage extends ActiveRecord
 
 
     public function saveRelationEntities(){
+
+
         //Связываем остатки
         if($this->items && $this->id){
             try {
@@ -111,6 +113,8 @@ class RemnantsPackage extends ActiveRecord
 
                 if($this->saveItems()){
                     $transaction->commit();
+
+                    return true;
                 }else{
                     $transaction->rollBack();
                     $this->delete();
@@ -123,6 +127,9 @@ class RemnantsPackage extends ActiveRecord
         }else{
             $this->delete();
         }
+        print_r($this->itemsErrors);
+        exit;
+        return false;
     }
 
 
@@ -135,6 +142,8 @@ class RemnantsPackage extends ActiveRecord
             return false;
         }
 
+        
+        
         $Type = "RemnantsItem";
         if(!isset($items[$Type])){
             $items[$Type] = $items;
@@ -143,7 +152,7 @@ class RemnantsPackage extends ActiveRecord
         if(!array_key_exists(0, $items[$Type])){
             $items[$Type] =  [$items[$Type]];
         }
-
+        
         foreach ($items[$Type] as $key => $mdata) {
             $model = new RemnantsItem();
 
@@ -160,8 +169,8 @@ class RemnantsPackage extends ActiveRecord
 
 
     public function doUnActialPackage(){
-        if(!$this->id || !$this->brigade_guid) return false;
-        return Yii::$app->db->createCommand()->update(self::tableName(),['isActual'=>0],"`isActual`=1 AND `brigade_guid`='{$this->brigade_guid}' AND `id` <> {$this->id}")
+        if(!$this->id || !$this->user_guid) return false;
+        return Yii::$app->db->createCommand()->update(self::tableName(),['isActual'=>0],"`isActual`=1 AND `user_guid`='{$this->user_guid}' AND `id` <> {$this->id}")
         ->execute();
     }
 

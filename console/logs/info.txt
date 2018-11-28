@@ -5533,3 +5533,1726 @@ JOIN information_schema.key_column_usage AS kcu ON
 WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
 AND rc.table_name = 'import' AND kcu.table_name = 'import'
 2018-11-28 11:41:55 [-][-][-][info][yii\db\Command::execute] INSERT INTO `import` (`version`, `apply_time`) VALUES ('m181105_141438_init', 1543401715)
+2018-11-28 15:45:38 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 15:45:38 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 15:45:38 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 15:45:38 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 15:45:39 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-actor_id`
+2018-11-28 15:45:40 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-user_id`
+2018-11-28 15:45:40 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-raport_id`
+2018-11-28 15:45:40 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-version_id`
+2018-11-28 15:45:40 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` DROP FOREIGN KEY `fk-requests_history-creator_id`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` DROP FOREIGN KEY `fk-requests_history-entity_id`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] DROP TABLE `requests_history`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] DROP TABLE `requests`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_191709_requests'
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` DROP FOREIGN KEY `fk-raport_materials-nomenclature_guid`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` DROP FOREIGN KEY `fk-raport_materials-raport_id`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` DROP FOREIGN KEY `fk-raport_materials-version_id`
+2018-11-28 15:45:41 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` DROP FOREIGN KEY `fk-raport_materials_history-creator_id`
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` DROP FOREIGN KEY `fk-raport_materials_history-entity_id`
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_materials_history`
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_materials`
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_133127_raport_materials'
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-line_guid`
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-work_guid`
+2018-11-28 15:45:42 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-raport_id`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-version_id`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` DROP FOREIGN KEY `fk-raport_works_history-creator_id`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` DROP FOREIGN KEY `fk-raport_works_history-entity_id`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_works_history`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_works`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_131849_raport_works'
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` DROP FOREIGN KEY `fk-raport_consist-raport_id`
+2018-11-28 15:45:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` DROP FOREIGN KEY `fk-raport_consist-user_guid`
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` DROP FOREIGN KEY `fk-raport_consist-technic_guid`
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_consist`
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_131644_raport_consist'
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` DROP FOREIGN KEY `fk-raport_files-raport_id`
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` DROP FOREIGN KEY `fk-raport_files-creator_id`
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_files`
+2018-11-28 15:45:44 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_130411_raport_files'
+2018-11-28 15:45:45 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-master_guid`
+2018-11-28 15:45:45 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-brigade_guid`
+2018-11-28 15:45:45 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-object_guid`
+2018-11-28 15:45:45 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-boundary_guid`
+2018-11-28 15:45:45 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-project_guid`
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-version_id`
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` DROP FOREIGN KEY `fk-raport_history-creator_id`
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` DROP FOREIGN KEY `fk-raport_history-entity_id`
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_history`
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport`
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_123340_raport'
+2018-11-28 15:45:46 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` DROP FOREIGN KEY `fk-remnants_item-package_id`
+2018-11-28 15:48:45 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 15:48:45 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 15:48:45 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 15:48:45 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 15:48:47 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` DROP FOREIGN KEY `fk-remnants_item-package_id`
+2018-11-28 16:14:56 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:14:56 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 16:14:56 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `migration` (
+	`version` varchar(180) NOT NULL PRIMARY KEY,
+	`apply_time` int(11)
+)
+2018-11-28 16:14:57 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:14:57 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:14:57 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m000000_000000_base', 1543418097)
+2018-11-28 16:14:57 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 16:15:00 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 16:15:00 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:00 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 16:15:00 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:00 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`name` varchar(128) NOT NULL,
+	`brigade_guid` varchar(36) NULL DEFAULT NULL,
+	`technic_guid` varchar(36) NULL DEFAULT NULL,
+	`ktu` float NOT NULL DEFAULT 0,
+	`is_master` tinyint(1) NOT NULL DEFAULT 0,
+	`login` varchar(255) NULL UNIQUE DEFAULT NULL,
+	`auth_key` varchar(32) NULL DEFAULT NULL,
+	`password_hash` varchar(255) NULL DEFAULT NULL,
+	`password_reset_token` varchar(255) NULL UNIQUE DEFAULT NULL,
+	`status` smallint(6) NOT NULL DEFAULT 10
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `brigade` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `brigade_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade_history` ADD CONSTRAINT `fk-brigade_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `brigade` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade_history` ADD CONSTRAINT `fk-brigade_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade` ADD CONSTRAINT `fk-brigade-version_id` FOREIGN KEY (`version_id`) REFERENCES `brigade_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `user` ADD CONSTRAINT `fk-user-brigade_guid` FOREIGN KEY (`brigade_guid`) REFERENCES `brigade` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `technic` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`marka` varchar(128) NULL DEFAULT NULL,
+	`number` varchar(128) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `technic_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`marka` varchar(128) NULL DEFAULT NULL,
+	`number` varchar(128) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic_history` ADD CONSTRAINT `fk-technic_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `technic` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic_history` ADD CONSTRAINT `fk-technic_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic` ADD CONSTRAINT `fk-technic-version_id` FOREIGN KEY (`version_id`) REFERENCES `technic_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `user` ADD CONSTRAINT `fk-user-technic_guid` FOREIGN KEY (`technic_guid`) REFERENCES `technic` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m130524_201442_init', 1543418103)
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_rule` (
+	`name` varchar(64) NOT NULL,
+	`data` blob,
+	`created_at` int(11),
+	`updated_at` int(11),
+	PRIMARY KEY (`name`)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_item` (
+	`name` varchar(64) NOT NULL,
+	`type` smallint(6) NOT NULL,
+	`description` text,
+	`rule_name` varchar(64),
+	`data` blob,
+	`created_at` int(11),
+	`updated_at` int(11),
+	PRIMARY KEY (`name`),
+	FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `auth_item` ADD INDEX `idx-auth_item-type` (`type`)
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_item_child` (
+	`parent` varchar(64) NOT NULL,
+	`child` varchar(64) NOT NULL,
+	PRIMARY KEY (`parent`, `child`),
+	FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_assignment` (
+	`item_name` varchar(64) NOT NULL,
+	`user_id` varchar(64) NOT NULL,
+	`created_at` int(11),
+	PRIMARY KEY (`item_name`, `user_id`),
+	FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:03 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `auth_assignment` ADD INDEX `auth_assignment_user_id_idx` (`user_id`)
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_100853_rbac', 1543418104)
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `boundary` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `boundary_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary_history` ADD CONSTRAINT `fk-boundary_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `boundary` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary_history` ADD CONSTRAINT `fk-boundary_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary` ADD CONSTRAINT `fk-boundary-version_id` FOREIGN KEY (`version_id`) REFERENCES `boundary_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `object` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`boundary_id` int(11) NULL DEFAULT NULL,
+	`boundary_guid` varchar(36) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `object_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`boundary_id` int(11) NULL DEFAULT NULL,
+	`boundary_guid` varchar(36) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object_history` ADD CONSTRAINT `fk-object_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `object` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object_history` ADD CONSTRAINT `fk-object_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` ADD CONSTRAINT `fk-object-version_id` FOREIGN KEY (`version_id`) REFERENCES `object_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` ADD CONSTRAINT `fk-object-boundary_id` FOREIGN KEY (`boundary_id`) REFERENCES `boundary` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` ADD CONSTRAINT `fk-object-boundary_guid` FOREIGN KEY (`boundary_guid`) REFERENCES `boundary` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `project` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `project_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:05 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project_history` ADD CONSTRAINT `fk-project_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project_history` ADD CONSTRAINT `fk-project_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project` ADD CONSTRAINT `fk-project-version_id` FOREIGN KEY (`version_id`) REFERENCES `project_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `rel_project_object` (
+	`project_guid` varchar(36) NOT NULL,
+	`object_guid` varchar(36) NOT NULL,
+	UNIQUE un_project_object (project_guid,object_guid)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `rel_project_object` ADD CONSTRAINT `fk-rel_project_object-project_guid` FOREIGN KEY (`project_guid`) REFERENCES `project` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `rel_project_object` ADD CONSTRAINT `fk-rel_project_object-object_guid` FOREIGN KEY (`object_guid`) REFERENCES `object` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_103630_objects_boundary_project', 1543418106)
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `lines` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `lines_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines_history` ADD CONSTRAINT `fk-lines_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `lines` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines_history` ADD CONSTRAINT `fk-lines_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines` ADD CONSTRAINT `fk-lines-version_id` FOREIGN KEY (`version_id`) REFERENCES `lines_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_103635_lines', 1543418107)
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `typeofwork` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `typeofwork_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:07 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork_history` ADD CONSTRAINT `fk-typeofwork_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `typeofwork` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork_history` ADD CONSTRAINT `fk-typeofwork_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork` ADD CONSTRAINT `fk-typeofwork-version_id` FOREIGN KEY (`version_id`) REFERENCES `typeofwork_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_114939_typeofwork', 1543418108)
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `nomenclature` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `nomenclature_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature_history` ADD CONSTRAINT `fk-nomenclature_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `nomenclature` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature_history` ADD CONSTRAINT `fk-nomenclature_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:08 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature` ADD CONSTRAINT `fk-nomenclature-version_id` FOREIGN KEY (`version_id`) REFERENCES `nomenclature_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_115548_nomenclature', 1543418109)
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `remnants_package` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`user_guid` varchar(36) NOT NULL,
+	`updated_at` timestamp,
+	`isActual` smallint(6) NULL DEFAULT 1
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `remnants_item` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`package_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	UNIQUE unq_key_package_nomenclature (package_id,nomenclature_guid)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_package` ADD CONSTRAINT `fk-remnants_package-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` ADD CONSTRAINT `fk-remnants_item-package_id` FOREIGN KEY (`package_id`) REFERENCES `remnants_package` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` ADD CONSTRAINT `fk-remnants_item-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_120933_remnant', 1543418109)
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`created_at` timestamp NULL DEFAULT NULL,
+	`starttime` time NULL DEFAULT NULL,
+	`endtime` time NULL DEFAULT NULL,
+	`temperature_start` float NULL DEFAULT NULL,
+	`temperature_end` float NULL DEFAULT NULL,
+	`surface_temperature_start` float NULL DEFAULT NULL,
+	`surface_temperature_end` float NULL DEFAULT NULL,
+	`airhumidity_start` float NULL DEFAULT NULL,
+	`airhumidity_end` float NULL DEFAULT NULL,
+	`brigade_guid` varchar(36) NOT NULL,
+	`object_guid` varchar(36) NOT NULL,
+	`boundary_guid` varchar(36) NOT NULL,
+	`project_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`comment` text NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NULL DEFAULT NULL,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`starttime` timestamp NULL DEFAULT NULL,
+	`endtime` timestamp NULL DEFAULT NULL,
+	`temperature_start` float NULL DEFAULT NULL,
+	`temperature_end` float NULL DEFAULT NULL,
+	`surface_temperature_start` float NULL DEFAULT NULL,
+	`surface_temperature_end` float NULL DEFAULT NULL,
+	`airhumidity_start` float NULL DEFAULT NULL,
+	`airhumidity_end` float NULL DEFAULT NULL,
+	`brigade_guid` varchar(36) NOT NULL,
+	`object_guid` varchar(36) NOT NULL,
+	`boundary_guid` varchar(36) NOT NULL,
+	`project_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`comment` text NULL DEFAULT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:10 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` ADD CONSTRAINT `fk-raport_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:10 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` ADD CONSTRAINT `fk-raport_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:10 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-version_id` FOREIGN KEY (`version_id`) REFERENCES `raport_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:10 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-brigade_guid` FOREIGN KEY (`brigade_guid`) REFERENCES `brigade` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:10 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-object_guid` FOREIGN KEY (`object_guid`) REFERENCES `object` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:10 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-boundary_guid` FOREIGN KEY (`boundary_guid`) REFERENCES `boundary` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-project_guid` FOREIGN KEY (`project_guid`) REFERENCES `project` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-master_guid` FOREIGN KEY (`master_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_123340_raport', 1543418111)
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_files` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`created_at` timestamp,
+	`file_name` varchar(255) NOT NULL,
+	`file_type` varchar(255) NOT NULL,
+	`file` varchar(255) NOT NULL,
+	`file_binary` blob NULL DEFAULT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` ADD CONSTRAINT `fk-raport_files-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` ADD CONSTRAINT `fk-raport_files-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_130411_raport_files', 1543418111)
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_consist` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`technic_guid` varchar(36) NOT NULL,
+	`user_guid` varchar(36) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:11 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` ADD CONSTRAINT `fk-raport_consist-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` ADD CONSTRAINT `fk-raport_consist-technic_guid` FOREIGN KEY (`technic_guid`) REFERENCES `technic` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` ADD CONSTRAINT `fk-raport_consist-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_131644_raport_consist', 1543418112)
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_works` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`work_guid` varchar(36) NOT NULL,
+	`line_guid` varchar(36) NOT NULL,
+	`mechanized` tinyint(1) DEFAULT 0,
+	`length` float NOT NULL DEFAULT 0,
+	`count` float NOT NULL DEFAULT 0,
+	`squaremeter` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_works_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`raport_id` int(11) NOT NULL,
+	`work_guid` varchar(36) NOT NULL,
+	`line_guid` varchar(36) NOT NULL,
+	`mechanized` tinyint(1) DEFAULT 0,
+	`length` float NOT NULL DEFAULT 0,
+	`count` float NOT NULL DEFAULT 0,
+	`squaremeter` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` ADD CONSTRAINT `fk-raport_works_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `raport_works` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:12 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` ADD CONSTRAINT `fk-raport_works_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-version_id` FOREIGN KEY (`version_id`) REFERENCES `raport_works_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-work_guid` FOREIGN KEY (`work_guid`) REFERENCES `typeofwork` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-line_guid` FOREIGN KEY (`line_guid`) REFERENCES `lines` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_131849_raport_works', 1543418113)
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_materials` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`was` float NOT NULL DEFAULT 0,
+	`spent` float NOT NULL DEFAULT 0,
+	`rest` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_materials_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`raport_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`was` float NOT NULL DEFAULT 0,
+	`spent` float NOT NULL DEFAULT 0,
+	`rest` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:13 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` ADD CONSTRAINT `fk-raport_materials_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `raport_materials` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` ADD CONSTRAINT `fk-raport_materials_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` ADD CONSTRAINT `fk-raport_materials-version_id` FOREIGN KEY (`version_id`) REFERENCES `raport_materials_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` ADD CONSTRAINT `fk-raport_materials-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` ADD CONSTRAINT `fk-raport_materials-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_133127_raport_materials', 1543418114)
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `requests` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`created_at` timestamp,
+	`completed_at` timestamp,
+	`request` varchar(50) NOT NULL,
+	`params_in` text NULL DEFAULT NULL,
+	`params_out` text NULL DEFAULT NULL,
+	`result` tinyint(1) NULL DEFAULT 0,
+	`completed` tinyint(1) NULL DEFAULT 0,
+	`raport_id` int(11) NULL DEFAULT NULL,
+	`user_id` int(11) NULL DEFAULT NULL,
+	`actor_id` int(11) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `requests_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`created_at` timestamp,
+	`completed_at` timestamp,
+	`request` varchar(50) NOT NULL,
+	`params_in` text NULL DEFAULT NULL,
+	`params_out` text NULL DEFAULT NULL,
+	`result` tinyint(1) NULL DEFAULT 0,
+	`completed` tinyint(1) NULL DEFAULT 0,
+	`raport_id` int(11) NULL DEFAULT NULL,
+	`user_id` int(11) NULL DEFAULT NULL,
+	`actor_id` int(11) NULL DEFAULT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:14 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` ADD CONSTRAINT `fk-requests_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `requests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:15 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` ADD CONSTRAINT `fk-requests_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:15 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-version_id` FOREIGN KEY (`version_id`) REFERENCES `requests_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:15 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:15 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-user_id` FOREIGN KEY (`actor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:15 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-actor_id` FOREIGN KEY (`actor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:16 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:16 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:16 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_191709_requests', 1543418116)
+2018-11-28 16:15:22 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:22 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 16:15:22 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:22 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 16:15:23 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-actor_id`
+2018-11-28 16:15:23 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-user_id`
+2018-11-28 16:15:23 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-raport_id`
+2018-11-28 16:15:23 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-version_id`
+2018-11-28 16:15:23 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` DROP FOREIGN KEY `fk-requests_history-creator_id`
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` DROP FOREIGN KEY `fk-requests_history-entity_id`
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] DROP TABLE `requests_history`
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] DROP TABLE `requests`
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_191709_requests'
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` DROP FOREIGN KEY `fk-raport_materials-nomenclature_guid`
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` DROP FOREIGN KEY `fk-raport_materials-raport_id`
+2018-11-28 16:15:24 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` DROP FOREIGN KEY `fk-raport_materials-version_id`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` DROP FOREIGN KEY `fk-raport_materials_history-creator_id`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` DROP FOREIGN KEY `fk-raport_materials_history-entity_id`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_materials_history`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_materials`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_133127_raport_materials'
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-line_guid`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-work_guid`
+2018-11-28 16:15:25 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-raport_id`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` DROP FOREIGN KEY `fk-raport_works-version_id`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` DROP FOREIGN KEY `fk-raport_works_history-creator_id`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` DROP FOREIGN KEY `fk-raport_works_history-entity_id`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_works_history`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_works`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_131849_raport_works'
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` DROP FOREIGN KEY `fk-raport_consist-raport_id`
+2018-11-28 16:15:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` DROP FOREIGN KEY `fk-raport_consist-user_guid`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` DROP FOREIGN KEY `fk-raport_consist-technic_guid`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_consist`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_131644_raport_consist'
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` DROP FOREIGN KEY `fk-raport_files-raport_id`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` DROP FOREIGN KEY `fk-raport_files-creator_id`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_files`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_130411_raport_files'
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-master_guid`
+2018-11-28 16:15:27 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-brigade_guid`
+2018-11-28 16:15:28 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-object_guid`
+2018-11-28 16:15:28 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-boundary_guid`
+2018-11-28 16:15:28 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-project_guid`
+2018-11-28 16:15:28 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` DROP FOREIGN KEY `fk-raport-version_id`
+2018-11-28 16:15:28 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` DROP FOREIGN KEY `fk-raport_history-creator_id`
+2018-11-28 16:15:28 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` DROP FOREIGN KEY `fk-raport_history-entity_id`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport_history`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] DROP TABLE `raport`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_123340_raport'
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` DROP FOREIGN KEY `fk-remnants_item-package_id`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` DROP FOREIGN KEY `fk-remnants_item-nomenclature_guid`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_package` DROP FOREIGN KEY `fk-remnants_package-user_guid`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] DROP TABLE `remnants_item`
+2018-11-28 16:15:29 [-][-][-][info][yii\db\Command::execute] DROP TABLE `remnants_package`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_120933_remnant'
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature` DROP FOREIGN KEY `fk-nomenclature-version_id`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature_history` DROP FOREIGN KEY `fk-nomenclature_history-creator_id`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature_history` DROP FOREIGN KEY `fk-nomenclature_history-entity_id`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] DROP TABLE `nomenclature_history`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] DROP TABLE `nomenclature`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_115548_nomenclature'
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork` DROP FOREIGN KEY `fk-typeofwork-version_id`
+2018-11-28 16:15:30 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork_history` DROP FOREIGN KEY `fk-typeofwork_history-creator_id`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork_history` DROP FOREIGN KEY `fk-typeofwork_history-entity_id`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] DROP TABLE `typeofwork_history`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] DROP TABLE `typeofwork`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_114939_typeofwork'
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines` DROP FOREIGN KEY `fk-lines-version_id`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines_history` DROP FOREIGN KEY `fk-lines_history-creator_id`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines_history` DROP FOREIGN KEY `fk-lines_history-entity_id`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] DROP TABLE `lines_history`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] DROP TABLE `lines`
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_103635_lines'
+2018-11-28 16:15:31 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `rel_project_object` DROP FOREIGN KEY `fk-rel_project_object-project_guid`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `rel_project_object` DROP FOREIGN KEY `fk-rel_project_object-object_guid`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] DROP TABLE `rel_project_object`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project` DROP FOREIGN KEY `fk-project-version_id`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project_history` DROP FOREIGN KEY `fk-project_history-creator_id`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project_history` DROP FOREIGN KEY `fk-project_history-entity_id`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] DROP TABLE `project_history`
+2018-11-28 16:15:32 [-][-][-][info][yii\db\Command::execute] DROP TABLE `project`
+2018-11-28 16:15:33 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` DROP FOREIGN KEY `fk-object-version_id`
+2018-11-28 16:15:33 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` DROP FOREIGN KEY `fk-object-boundary_id`
+2018-11-28 16:15:33 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` DROP FOREIGN KEY `fk-object-boundary_guid`
+2018-11-28 16:15:33 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object_history` DROP FOREIGN KEY `fk-object_history-creator_id`
+2018-11-28 16:15:33 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object_history` DROP FOREIGN KEY `fk-object_history-entity_id`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `object_history`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `object`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary` DROP FOREIGN KEY `fk-boundary-version_id`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary_history` DROP FOREIGN KEY `fk-boundary_history-creator_id`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary_history` DROP FOREIGN KEY `fk-boundary_history-entity_id`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `boundary_history`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `boundary`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_103630_objects_boundary_project'
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP INDEX `auth_assignment_user_id_idx` ON `auth_assignment`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `auth_assignment`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `auth_item_child`
+2018-11-28 16:15:34 [-][-][-][info][yii\db\Command::execute] DROP TABLE `auth_item`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] DROP TABLE `auth_rule`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_100853_rbac'
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `user` DROP FOREIGN KEY `fk-user-brigade_guid`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `user` DROP FOREIGN KEY `fk-user-technic_guid`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade` DROP FOREIGN KEY `fk-brigade-version_id`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade_history` DROP FOREIGN KEY `fk-brigade_history-creator_id`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade_history` DROP FOREIGN KEY `fk-brigade_history-entity_id`
+2018-11-28 16:15:35 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic` DROP FOREIGN KEY `fk-technic-version_id`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic_history` DROP FOREIGN KEY `fk-technic_history-creator_id`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic_history` DROP FOREIGN KEY `fk-technic_history-entity_id`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] DROP TABLE `brigade_history`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] DROP TABLE `brigade`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] DROP TABLE `technic_history`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] DROP TABLE `technic`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] DROP TABLE `user`
+2018-11-28 16:15:36 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m130524_201442_init'
+2018-11-28 16:15:41 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:41 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 16:15:41 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:41 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 16:15:41 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:41 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:43 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`name` varchar(128) NOT NULL,
+	`brigade_guid` varchar(36) NULL DEFAULT NULL,
+	`technic_guid` varchar(36) NULL DEFAULT NULL,
+	`ktu` float NOT NULL DEFAULT 0,
+	`is_master` tinyint(1) NOT NULL DEFAULT 0,
+	`login` varchar(255) NULL UNIQUE DEFAULT NULL,
+	`auth_key` varchar(32) NULL DEFAULT NULL,
+	`password_hash` varchar(255) NULL DEFAULT NULL,
+	`password_reset_token` varchar(255) NULL UNIQUE DEFAULT NULL,
+	`status` smallint(6) NOT NULL DEFAULT 10
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:43 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `brigade` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:43 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `brigade_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade_history` ADD CONSTRAINT `fk-brigade_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `brigade` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade_history` ADD CONSTRAINT `fk-brigade_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:43 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `brigade` ADD CONSTRAINT `fk-brigade-version_id` FOREIGN KEY (`version_id`) REFERENCES `brigade_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:44 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `user` ADD CONSTRAINT `fk-user-brigade_guid` FOREIGN KEY (`brigade_guid`) REFERENCES `brigade` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:44 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `technic` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`marka` varchar(128) NULL DEFAULT NULL,
+	`number` varchar(128) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:44 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `technic_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`marka` varchar(128) NULL DEFAULT NULL,
+	`number` varchar(128) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:44 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic_history` ADD CONSTRAINT `fk-technic_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `technic` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:44 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic_history` ADD CONSTRAINT `fk-technic_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:47 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `technic` ADD CONSTRAINT `fk-technic-version_id` FOREIGN KEY (`version_id`) REFERENCES `technic_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `user` ADD CONSTRAINT `fk-user-technic_guid` FOREIGN KEY (`technic_guid`) REFERENCES `technic` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m130524_201442_init', 1543418148)
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_rule` (
+	`name` varchar(64) NOT NULL,
+	`data` blob,
+	`created_at` int(11),
+	`updated_at` int(11),
+	PRIMARY KEY (`name`)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_item` (
+	`name` varchar(64) NOT NULL,
+	`type` smallint(6) NOT NULL,
+	`description` text,
+	`rule_name` varchar(64),
+	`data` blob,
+	`created_at` int(11),
+	`updated_at` int(11),
+	PRIMARY KEY (`name`),
+	FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `auth_item` ADD INDEX `idx-auth_item-type` (`type`)
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_item_child` (
+	`parent` varchar(64) NOT NULL,
+	`child` varchar(64) NOT NULL,
+	PRIMARY KEY (`parent`, `child`),
+	FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `auth_assignment` (
+	`item_name` varchar(64) NOT NULL,
+	`user_id` varchar(64) NOT NULL,
+	`created_at` int(11),
+	PRIMARY KEY (`item_name`, `user_id`),
+	FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `auth_assignment` ADD INDEX `auth_assignment_user_id_idx` (`user_id`)
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_100853_rbac', 1543418148)
+2018-11-28 16:15:48 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `boundary` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `boundary_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary_history` ADD CONSTRAINT `fk-boundary_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `boundary` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary_history` ADD CONSTRAINT `fk-boundary_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `boundary` ADD CONSTRAINT `fk-boundary-version_id` FOREIGN KEY (`version_id`) REFERENCES `boundary_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `object` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`boundary_id` int(11) NULL DEFAULT NULL,
+	`boundary_guid` varchar(36) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `object_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`boundary_id` int(11) NULL DEFAULT NULL,
+	`boundary_guid` varchar(36) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:49 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object_history` ADD CONSTRAINT `fk-object_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `object` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object_history` ADD CONSTRAINT `fk-object_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` ADD CONSTRAINT `fk-object-version_id` FOREIGN KEY (`version_id`) REFERENCES `object_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` ADD CONSTRAINT `fk-object-boundary_id` FOREIGN KEY (`boundary_id`) REFERENCES `boundary` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `object` ADD CONSTRAINT `fk-object-boundary_guid` FOREIGN KEY (`boundary_guid`) REFERENCES `boundary` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `project` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `project_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:50 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project_history` ADD CONSTRAINT `fk-project_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:51 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project_history` ADD CONSTRAINT `fk-project_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:51 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `project` ADD CONSTRAINT `fk-project-version_id` FOREIGN KEY (`version_id`) REFERENCES `project_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:51 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `rel_project_object` (
+	`project_guid` varchar(36) NOT NULL,
+	`object_guid` varchar(36) NOT NULL,
+	UNIQUE un_project_object (project_guid,object_guid)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:51 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `rel_project_object` ADD CONSTRAINT `fk-rel_project_object-project_guid` FOREIGN KEY (`project_guid`) REFERENCES `project` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:51 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `rel_project_object` ADD CONSTRAINT `fk-rel_project_object-object_guid` FOREIGN KEY (`object_guid`) REFERENCES `object` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_103630_objects_boundary_project', 1543418152)
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `lines` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `lines_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines_history` ADD CONSTRAINT `fk-lines_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `lines` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines_history` ADD CONSTRAINT `fk-lines_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `lines` ADD CONSTRAINT `fk-lines-version_id` FOREIGN KEY (`version_id`) REFERENCES `lines_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:52 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_103635_lines', 1543418152)
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `typeofwork` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `typeofwork_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork_history` ADD CONSTRAINT `fk-typeofwork_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `typeofwork` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork_history` ADD CONSTRAINT `fk-typeofwork_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `typeofwork` ADD CONSTRAINT `fk-typeofwork-version_id` FOREIGN KEY (`version_id`) REFERENCES `typeofwork_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_114939_typeofwork', 1543418153)
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `nomenclature` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(128) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `nomenclature_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(128) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature_history` ADD CONSTRAINT `fk-nomenclature_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `nomenclature` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:53 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature_history` ADD CONSTRAINT `fk-nomenclature_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `nomenclature` ADD CONSTRAINT `fk-nomenclature-version_id` FOREIGN KEY (`version_id`) REFERENCES `nomenclature_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_115548_nomenclature', 1543418154)
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `remnants_package` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`user_guid` varchar(36) NOT NULL,
+	`updated_at` timestamp,
+	`isActual` smallint(6) NULL DEFAULT 1
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `remnants_item` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`package_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	UNIQUE unq_key_package_nomenclature (package_id,nomenclature_guid)
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_package` ADD CONSTRAINT `fk-remnants_package-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` ADD CONSTRAINT `fk-remnants_item-package_id` FOREIGN KEY (`package_id`) REFERENCES `remnants_package` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:54 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `remnants_item` ADD CONSTRAINT `fk-remnants_item-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_120933_remnant', 1543418155)
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`created_at` timestamp NULL DEFAULT NULL,
+	`starttime` time NULL DEFAULT NULL,
+	`endtime` time NULL DEFAULT NULL,
+	`temperature_start` float NULL DEFAULT NULL,
+	`temperature_end` float NULL DEFAULT NULL,
+	`surface_temperature_start` float NULL DEFAULT NULL,
+	`surface_temperature_end` float NULL DEFAULT NULL,
+	`airhumidity_start` float NULL DEFAULT NULL,
+	`airhumidity_end` float NULL DEFAULT NULL,
+	`brigade_guid` varchar(36) NOT NULL,
+	`object_guid` varchar(36) NOT NULL,
+	`boundary_guid` varchar(36) NOT NULL,
+	`project_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`comment` text NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NULL DEFAULT NULL,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`starttime` timestamp NULL DEFAULT NULL,
+	`endtime` timestamp NULL DEFAULT NULL,
+	`temperature_start` float NULL DEFAULT NULL,
+	`temperature_end` float NULL DEFAULT NULL,
+	`surface_temperature_start` float NULL DEFAULT NULL,
+	`surface_temperature_end` float NULL DEFAULT NULL,
+	`airhumidity_start` float NULL DEFAULT NULL,
+	`airhumidity_end` float NULL DEFAULT NULL,
+	`brigade_guid` varchar(36) NOT NULL,
+	`object_guid` varchar(36) NOT NULL,
+	`boundary_guid` varchar(36) NOT NULL,
+	`project_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`comment` text NULL DEFAULT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` ADD CONSTRAINT `fk-raport_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_history` ADD CONSTRAINT `fk-raport_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-version_id` FOREIGN KEY (`version_id`) REFERENCES `raport_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-brigade_guid` FOREIGN KEY (`brigade_guid`) REFERENCES `brigade` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-object_guid` FOREIGN KEY (`object_guid`) REFERENCES `object` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-boundary_guid` FOREIGN KEY (`boundary_guid`) REFERENCES `boundary` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-project_guid` FOREIGN KEY (`project_guid`) REFERENCES `project` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport` ADD CONSTRAINT `fk-raport-master_guid` FOREIGN KEY (`master_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_123340_raport', 1543418156)
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_files` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`created_at` timestamp,
+	`file_name` varchar(255) NOT NULL,
+	`file_type` varchar(255) NOT NULL,
+	`file` varchar(255) NOT NULL,
+	`file_binary` blob NULL DEFAULT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` ADD CONSTRAINT `fk-raport_files-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_files` ADD CONSTRAINT `fk-raport_files-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_130411_raport_files', 1543418157)
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_consist` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`technic_guid` varchar(36) NOT NULL,
+	`user_guid` varchar(36) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` ADD CONSTRAINT `fk-raport_consist-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` ADD CONSTRAINT `fk-raport_consist-technic_guid` FOREIGN KEY (`technic_guid`) REFERENCES `technic` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_consist` ADD CONSTRAINT `fk-raport_consist-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_131644_raport_consist', 1543418157)
+2018-11-28 16:15:57 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_works` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`work_guid` varchar(36) NOT NULL,
+	`line_guid` varchar(36) NOT NULL,
+	`mechanized` tinyint(1) DEFAULT 0,
+	`length` float NOT NULL DEFAULT 0,
+	`count` float NOT NULL DEFAULT 0,
+	`squaremeter` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:58 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_works_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`raport_id` int(11) NOT NULL,
+	`work_guid` varchar(36) NOT NULL,
+	`line_guid` varchar(36) NOT NULL,
+	`mechanized` tinyint(1) DEFAULT 0,
+	`length` float NOT NULL DEFAULT 0,
+	`count` float NOT NULL DEFAULT 0,
+	`squaremeter` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:15:58 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` ADD CONSTRAINT `fk-raport_works_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `raport_works` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:58 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works_history` ADD CONSTRAINT `fk-raport_works_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:58 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-version_id` FOREIGN KEY (`version_id`) REFERENCES `raport_works_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-work_guid` FOREIGN KEY (`work_guid`) REFERENCES `typeofwork` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_works` ADD CONSTRAINT `fk-raport_works-line_guid` FOREIGN KEY (`line_guid`) REFERENCES `lines` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_131849_raport_works', 1543418159)
+2018-11-28 16:15:59 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_materials` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`raport_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`was` float NOT NULL DEFAULT 0,
+	`spent` float NOT NULL DEFAULT 0,
+	`rest` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:16:00 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `raport_materials_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`raport_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`was` float NOT NULL DEFAULT 0,
+	`spent` float NOT NULL DEFAULT 0,
+	`rest` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:16:00 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` ADD CONSTRAINT `fk-raport_materials_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `raport_materials` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:00 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials_history` ADD CONSTRAINT `fk-raport_materials_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:00 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` ADD CONSTRAINT `fk-raport_materials-version_id` FOREIGN KEY (`version_id`) REFERENCES `raport_materials_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:00 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` ADD CONSTRAINT `fk-raport_materials-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:00 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `raport_materials` ADD CONSTRAINT `fk-raport_materials-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_133127_raport_materials', 1543418161)
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `requests` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`created_at` timestamp,
+	`completed_at` timestamp,
+	`request` varchar(50) NOT NULL,
+	`params_in` text NULL DEFAULT NULL,
+	`params_out` text NULL DEFAULT NULL,
+	`result` tinyint(1) NULL DEFAULT 0,
+	`completed` tinyint(1) NULL DEFAULT 0,
+	`raport_id` int(11) NULL DEFAULT NULL,
+	`user_id` int(11) NULL DEFAULT NULL,
+	`actor_id` int(11) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `requests_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`created_at` timestamp,
+	`completed_at` timestamp,
+	`request` varchar(50) NOT NULL,
+	`params_in` text NULL DEFAULT NULL,
+	`params_out` text NULL DEFAULT NULL,
+	`result` tinyint(1) NULL DEFAULT 0,
+	`completed` tinyint(1) NULL DEFAULT 0,
+	`raport_id` int(11) NULL DEFAULT NULL,
+	`user_id` int(11) NULL DEFAULT NULL,
+	`actor_id` int(11) NULL DEFAULT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` ADD CONSTRAINT `fk-requests_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `requests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` ADD CONSTRAINT `fk-requests_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-version_id` FOREIGN KEY (`version_id`) REFERENCES `requests_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-raport_id` FOREIGN KEY (`raport_id`) REFERENCES `raport` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-user_id` FOREIGN KEY (`actor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:02 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-actor_id` FOREIGN KEY (`actor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2018-11-28 16:16:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2018-11-28 16:16:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2018-11-28 16:16:02 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_191709_requests', 1543418162)
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `import`
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `import` (
+	`version` varchar(180) NOT NULL PRIMARY KEY,
+	`apply_time` int(11)
+)
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `import`
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'import' AND kcu.table_name = 'import'
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::execute] INSERT INTO `import` (`version`, `apply_time`) VALUES ('m000000_000000_base', 1543418170)
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `import` ORDER BY `apply_time` DESC, `version` DESC
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `import`
+2018-11-28 16:16:10 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'import' AND kcu.table_name = 'import'
+2018-11-28 16:16:11 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `user`
+2018-11-28 16:16:11 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'user' AND kcu.table_name = 'user'
+2018-11-28 16:16:11 [-][-][-][info][yii\db\Command::execute] INSERT INTO `user` (`guid`, `name`, `login`, `auth_key`, `password_hash`) VALUES (NULL, 'Администратор', 'admin', 'grRlaR8B_ayPF_mtfmFmS-W9-Q4zK9-_', '$2y$13$MmlgRgRONJgM5IVSONid/.GV2ILkhz.K2zBe57yhzgDq6piz1VN3W')
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `user` (`guid`, `name`, `login`, `auth_key`, `password_hash`) VALUES (NULL, 'Суперадмин', 'superadmin', 'TSLe6IwY2odJ_KQXAVCUYdPQwPULoExx', '$2y$13$hIf3ZNFJwCPFCdkkKLgp/uO7rUYqqdQYON24ouoFjMLn55HDO3L4K')
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `auth_item`
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'auth_item' AND kcu.table_name = 'auth_item'
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `auth_item` (`name`, `type`) VALUES ('superadmin', 1)
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `auth_item` (`name`, `type`) VALUES ('administrator', 1)
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SELECT id FROM `user` WHERE login='admin' LIMIT 1
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SELECT id FROM `user` WHERE login='superadmin' LIMIT 1
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `auth_assignment`
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'auth_assignment' AND kcu.table_name = 'auth_assignment'
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `auth_assignment` (`item_name`, `user_id`) VALUES ('administrator', '1')
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `auth_assignment` (`item_name`, `user_id`) VALUES ('administrator', '2')
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `auth_assignment` (`item_name`, `user_id`) VALUES ('superadmin', '2')
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `import`
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'import' AND kcu.table_name = 'import'
+2018-11-28 16:16:12 [-][-][-][info][yii\db\Command::execute] INSERT INTO `import` (`version`, `apply_time`) VALUES ('m181105_141438_init', 1543418172)

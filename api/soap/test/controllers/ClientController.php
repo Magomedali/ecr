@@ -455,7 +455,7 @@ class ClientController extends Controller
 
         $par = [
             [
-                'brigade_guid'=>'1asdasjdhuu32423jkasdfa',
+                'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
                 'items'=>[
                     [
                         'nomenclature_guid'=>'9bf987a6-b234-11e6-80e8-005056b47a2e',
@@ -469,7 +469,7 @@ class ClientController extends Controller
                 
             ],
             [
-                'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
+                'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
                 'items'=>[
                     [
                         'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',

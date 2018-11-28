@@ -13,7 +13,7 @@ return [
   			
         'wsdl'=>'https://crm.omegamail.org/usom/ws/drrload.1cws?wsdl',
         'location'=>'https://crm.omegamail.org/usom/ws/drrload.1cws',
-        'username'=>'obmen',
+        'username'=>'obmendrr',
         'password'=>'651865'
   		]
     ],

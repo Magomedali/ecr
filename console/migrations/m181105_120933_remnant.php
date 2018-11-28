@@ -23,7 +23,7 @@ class m181105_120933_remnant extends Migration
 
         $this->createTable('{{%remnants_package}}', [
             'id' => $this->primaryKey(),
-            'brigade_guid' => $this->string(36)->notNull(),
+            'user_guid' => $this->string(36)->notNull(),
             'updated_at'=>$this->timestamp(),
             'isActual'=>$this->smallInteger()->null()->defaultValue(1)
         ], $tableOptions);
@@ -38,7 +38,7 @@ class m181105_120933_remnant extends Migration
         ], $tableOptions);
 
 
-        $this->addForeignKey('fk-remnants_package-brigade_guid',"{{%remnants_package}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
+        $this->addForeignKey('fk-remnants_package-user_guid',"{{%remnants_package}}",'user_guid',"{{%user}}",'guid','CASCADE','CASCADE');
 
         $this->addForeignKey('fk-remnants_item-package_id',"{{%remnants_item}}",'package_id',"{{%remnants_package}}",'id','CASCADE','CASCADE');
 
@@ -53,7 +53,7 @@ class m181105_120933_remnant extends Migration
     {
         $this->dropForeignKey('fk-remnants_item-package_id',"{{%remnants_item}}");
         $this->dropForeignKey('fk-remnants_item-nomenclature_guid',"{{%remnants_item}}");
-        $this->dropForeignKey('fk-remnants_package-brigade_guid',"{{%remnants_package}}");
+        $this->dropForeignKey('fk-remnants_package-user_guid',"{{%remnants_package}}");
 
         
         $this->dropTable('{{%remnants_item}}');

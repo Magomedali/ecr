@@ -327,34 +327,170 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
-    
-    public function unloadRemnantsFrom1C(){
-        if(!$this->brigade_guid || !$this->id) return false;
 
-        $method = new unloadremnant(['guidmol'=>$this->brigade_guid]);
+
+    public function groupRemnantItems($items){
+        if(!is_array($items) || !count($items)) return false;
+
+        //Группируем по номенклатуре
+        $gItems = [];
+        foreach ($items as $key => $item) {
+
+            if(!isset($item['nomenclature']) || !isset($item['count']))
+                continue;
+
+            if(!isset($gItems[$item['nomenclature']])){
+                $gItems[$item['nomenclature']] = [];
+            }
+
+            $gItems[$item['nomenclature']]['nomenclature_guid'] = $item['nomenclature'];
+            //задаем изначальное значение 0, если его не было
+            $gItems[$item['nomenclature']]['count'] = isset($gItems[$item['nomenclature']]['count']) ? $gItems[$item['nomenclature']]['count'] : 0;
+
+            $gItems[$item['nomenclature']]['count'] += $item['count'];
+        }
+
+        $remnants = [];
+        foreach ($gItems as $key => $item) {
+            $i = [];
+            $i['nomenclature_guid'] = $item['nomenclature_guid'];
+            $i['count'] = $item['count'];
+            array_push($remnants, $i);
+        }
+        return $remnants;
+    }
+
+
+
+    public function remnantItemsIsEqual($gItems){
+        if(!is_array($gItems) || !count($gItems)) return false;
+
+        $isEqual = true;
+
+        //Сортируем по возрастанию количества
+        usort($gItems,function($a,$b){
+            if($a['count'] > $b['count'])
+                return 1;
+            else if($a['count'] < $b['count']){
+                return -1;
+            }else{
+                return 0;
+            }
+        });
+
+        $actiuals =  (new Query())->select(['r.nomenclature_guid','r.count'])
+                    ->from(['r'=>RemnantsItem::tableName()])
+                    ->innerJoin(['rp'=>RemnantsPackage::tableName()]," r.package_id = rp.id")
+                    ->where(['rp.user_guid'=>$this->guid,'rp.isActual'=>1])
+                    ->orderBy(['count'=>SORT_ASC])
+                    ->all();
+
+
+
+        // print_r($gItems);
+        // print_r($actiuals);
+        // exit;
+
+        if(count($actiuals) != count($gItems)) return false;
+
+        $length = count($gItems);
+
+        for ($i=0; $i < $length; $i++) { 
+            
+            if(isset($actiuals[$i]['nomenclature_guid']) && isset($actiuals[$i]['count']) && isset($gItems[$i]['nomenclature_guid']) && isset($gItems[$i]['count'])){
+
+                if($actiuals[$i]['nomenclature_guid'] != $gItems[$i]['nomenclature_guid'] || $actiuals[$i]['count'] != $gItems[$i]['count']){
+                    
+                    $isEqual = false;
+                    break;
+                }
+
+            }else{
+                $isEqual = false;
+                break;
+            }
+            
+        }
+
+        return $isEqual;
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+    public function unloadRemnantsFrom1C(){
+        if(!$this->guid || !$this->id) return false;
+
+        $method = new unloadremnant(['guidmol'=>$this->guid]);
+        $items = [];
         if($method->validate()){
             try {
                 $resp = Yii::$app->webservice1C->send($method);
-            } catch (\SoapFault $e) {
+                $resp = json_decode(json_encode($resp),1);
+                if(isset($resp['return']) && isset($resp['return']['remnant'])){
+                    $items = $resp['return']['remnant'];
+                }
+
+            }catch (\SoapFault $e) {
                 
             }catch (\Exception $e) {
                 
             }
         }
         
-        print_r($resp);
-        exit;
-        return $resp;
+        if(is_array($items) && count($items)){
+
+            $items = $this->groupRemnantItems($items);
+
+            $is_equal = $this->remnantItemsIsEqual($items);
+
+            if($is_equal) return true;
+
+            
+            $data = [];
+            $rm = new RemnantsPackage();
+            $data['user_guid'] = $this->guid;
+            $data['items'] = $items;
+            
+            if($rm->load(['RemnantsPackage'=>$data]) && $rm->save()){
+                return $rm->saveRelationEntities();
+            }
+
+            print_r($rm->getErrors());
+            print_r($rm->getItemsErrors());
+            exit;
+            
+        }else{
+            exit;
+            return false;
+        }
     }
 
-    public function getActualBrigadeRemnants(){
-        if(!$this->brigade_guid || !$this->id) return false;
 
-        $result = (new Query())->select('rp.brigade_guid, r.nomenclature_guid, r.count as was, r.count as rest, (null) as spent, n.name as nomenclature_name')
+
+
+
+
+
+
+
+
+    public function getActualBrigadeRemnants(){
+        if(!$this->guid || !$this->id) return false;
+
+        $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was, r.count as rest, (null) as spent, n.name as nomenclature_name')
                     ->from(['rp'=>RemnantsPackage::tableName()])
                     ->innerJoin(['r'=>RemnantsItem::tableName()]," r.package_id = rp.id")
                     ->innerJoin(['n'=>Nomenclature::tableName()]," r.nomenclature_guid = n.guid")
-                    ->where(['rp.brigade_guid'=>$this->brigade_guid,'rp.isActual'=>1])
+                    ->where(['rp.user_guid'=>$this->guid,'rp.isActual'=>1])
                     ->all();
 
         return $result;
