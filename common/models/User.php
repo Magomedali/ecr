@@ -16,7 +16,7 @@ use common\models\RemnantsItem;
 use common\models\Nomenclature;
 use common\base\ActiveRecordVersionable;
 
-use soapclient\methods\unloadremnant;
+use soapclient\methods\Unloadremnant;
 
 /**
  * User model
@@ -336,18 +336,18 @@ class User extends ActiveRecord implements IdentityInterface
         $gItems = [];
         foreach ($items as $key => $item) {
 
-            if(!isset($item['nomenclature']) || !isset($item['count']))
+            if(!isset($item['nomenclature_guid']) || !isset($item['count']))
                 continue;
 
-            if(!isset($gItems[$item['nomenclature']])){
-                $gItems[$item['nomenclature']] = [];
+            if(!isset($gItems[$item['nomenclature_guid']])){
+                $gItems[$item['nomenclature_guid']] = [];
             }
 
-            $gItems[$item['nomenclature']]['nomenclature_guid'] = $item['nomenclature'];
+            $gItems[$item['nomenclature_guid']]['nomenclature_guid'] = $item['nomenclature_guid'];
             //задаем изначальное значение 0, если его не было
-            $gItems[$item['nomenclature']]['count'] = isset($gItems[$item['nomenclature']]['count']) ? $gItems[$item['nomenclature']]['count'] : 0;
+            $gItems[$item['nomenclature_guid']]['count'] = isset($gItems[$item['nomenclature_guid']]['count']) ? $gItems[$item['nomenclature_guid']]['count'] : 0;
 
-            $gItems[$item['nomenclature']]['count'] += $item['count'];
+            $gItems[$item['nomenclature_guid']]['count'] += $item['count'];
         }
 
         $remnants = [];
@@ -429,7 +429,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function unloadRemnantsFrom1C(){
         if(!$this->guid || !$this->id) return false;
 
-        $method = new unloadremnant(['guidmol'=>$this->guid]);
+        $method = new Unloadremnant(['guidmol'=>$this->guid]);
         $items = [];
         if($method->validate()){
             try {

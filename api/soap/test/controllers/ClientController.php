@@ -477,7 +477,6 @@ class ClientController extends Controller
             [
                 'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
                 'items'=>[
-
                     [
                         'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                         'count'=>12
@@ -486,20 +485,16 @@ class ClientController extends Controller
                         'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
                         'count'=>10
                     ]
-                    
                 ]
-                
             ]
         ];
 
-        
-        Yii::$app->db->createCommand()->delete('remnants_package',['>','id',0])->execute();
         $par['remnants'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadremnant($par); 
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
-        // echo "\n\n\n", json_encode($answer),"\n\n\n";
+        echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 
 

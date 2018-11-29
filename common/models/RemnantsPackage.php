@@ -66,7 +66,8 @@ class RemnantsPackage extends ActiveRecord
                 }
             }
             $scope = $formName === null ? $this->formName() : $formName;
-
+            
+            
             if(isset($data[$scope]['items']) && is_array($data[$scope]['items'])){
                 $this->items = $data[$scope]['items'];
             }elseif(isset($data[$scope]['RemnantsItem']) && is_array($data[$scope]['RemnantsItem'])){

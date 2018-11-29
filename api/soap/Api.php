@@ -569,8 +569,8 @@ class Api{
             $params = ['RemnantsPackage'=>$arData];
 
             if(!$model->load($params) || !$model->savePackage()){
-                if(isset($arData['brigade_guid'])){
-                   $erros[$arData['brigade_guid']] = json_encode($model->getErrors());
+                if(isset($arData['user_guid'])){
+                   $erros[$arData['user_guid']] = json_encode($model->getErrors());
                 }
                 $responce->success = false;
             }else{
