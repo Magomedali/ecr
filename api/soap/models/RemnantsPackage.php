@@ -19,7 +19,9 @@ class RemnantsPackage  extends ApiModel
 
     
     /**
-     * @var api\soap\models\RemnantsItem[]
+     * @var api\soap\models\RemnantsItem
+     * @minOccurs 1
+     * @maxOccurs unbounded
     */
     public $items;
 }

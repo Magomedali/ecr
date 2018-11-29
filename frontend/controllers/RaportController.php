@@ -213,6 +213,9 @@ class RaportController extends Controller{
 
         if($model->saveFiles($files)){
             Yii::$app->session->setFlash("success","Файлы прикреплены к рапорту");
+
+            //Отправить в 1С
+
         }else{
             Yii::$app->session->setFlash("error","Файлы не удалось прикрепить к рапорту");
         }

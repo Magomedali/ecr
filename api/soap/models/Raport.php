@@ -115,26 +115,31 @@ class Raport  extends ApiModel
     public $comment;
     
     /**
-    * @var api\soap\models\RaportFile[]
+    * @var api\soap\models\RaportFile
     * @nillable
+    * @minOccurs 1
+    * @maxOccurs unbounded
     */
     public $files;
 
     /**
-    * @var api\soap\models\RaportMaterial[]
+    * @var api\soap\models\RaportMaterial
     * @minOccurs 1
+    * @maxOccurs unbounded
     */
     public $materials;
 
     /**
-    * @var api\soap\models\RaportWork[]
+    * @var api\soap\models\RaportWork
     * @minOccurs 1
+    * @maxOccurs unbounded
     */
     public $works;
 
     /**
-    * @var api\soap\models\RaportConsist[]
+    * @var api\soap\models\RaportConsist
     * @minOccurs 1
+    * @maxOccurs unbounded
     */
     public $consist;
 }
