@@ -162,20 +162,18 @@ class Raport extends ActiveRecordVersionable
 
             // //Проверяем есть ли гуид объекта в базе
             if($this->object_guid){
-                $m = Objects::findOne(['guid'=>$this->object_guid]);
-                if(!isset($m->id)){
+                $object = Objects::findOne(['guid'=>$this->object_guid]);
+                if(!isset($object->id)){
                     $this->addError('object_guid',"'".$this->object_guid."' not exists on the site");
                     return false;
                 }
-            }
 
-            if($this->boundary_guid){
-                $m = Boundary::findOne(['guid'=>$this->boundary_guid]);
-                if(!isset($m->id)){
-                    $this->addError('boundary_guid',"'".$this->boundary_guid."' not exists on the site");
-                    return false;
+                if($object->boundary_guid){
+                    $this->boundary_guid = $object->boundary_guid;
                 }
             }
+
+            
 
             if($this->project_guid){
                 $m = Project::findOne(['guid'=>$this->project_guid]);

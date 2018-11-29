@@ -630,10 +630,15 @@ class Api{
                    $erros[$arData['guid']] = json_encode($model->getErrors());
                 }
                 $responce->success = false;
+                $responce->error = "ValidationError";
+                $responce->errorMessage = "Wrong data in the header";
+                $responce->errorUserMessage = "Ошибка, при валидации даных основной части!";
                 $responce->errorsExtend = $erros;
             }else{
                 $model->saveRelationEntities();
+                
                 $tablePartsErrors = [];
+
                 if(count($model->getMaterialsErrors())){
                     $tablePartsErrors['materials'] = json_encode($model->getMaterialsErrors());
                 }
@@ -646,7 +651,12 @@ class Api{
                     $tablePartsErrors['works'] = json_encode($model->getWorksErrors());
                 }
 
-                $responce->success = true;
+                $responce->success = false;
+                if(count($tablePartsErrors)){
+                    $responce->error = "ErrorInRelationData";
+                    $responce->errorMessage = "Wrong data in the table data";
+                    $responce->errorUserMessage = "Ошибка, при валидации даных в табличной части!";
+                }
                 $responce->errorsExtend = $tablePartsErrors;
             }
         }

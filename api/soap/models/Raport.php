@@ -95,6 +95,7 @@ class Raport  extends ApiModel
 
     /**
     * @var string
+    * @nillable
     */
     public $boundary_guid;
 
