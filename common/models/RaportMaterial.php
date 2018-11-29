@@ -46,7 +46,7 @@ class RaportMaterial extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['raport_id','nomenclature_guid','rest'], 'required'],
+            [['raport_id','nomenclature_guid','spent'], 'required'],
             ['raport_id', 'number','integerOnly'=>true],
             [['nomenclature_guid'],'string','max'=>36],
 

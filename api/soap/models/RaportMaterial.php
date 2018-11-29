@@ -27,12 +27,12 @@ class RaportMaterial  extends ApiModel
 
     /**
     * @var float
-    * @nillable
     */
     public $spent;
 
     /**
     * @var float
+    * @nillable
     */
     public $rest;
 

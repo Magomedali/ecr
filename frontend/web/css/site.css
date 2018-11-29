@@ -141,7 +141,10 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
             display: none;
         }
 
-
-.file_item img{
-    width: 100%;
+.file_item{
+    margin: 5px 0px !important;
 }
+
+    .file_item img{
+        width: 100%;
+    }

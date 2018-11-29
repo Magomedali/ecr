@@ -636,19 +636,34 @@ class Raport extends ActiveRecordVersionable
                 'status',
                 'isDeleted',
                 'version_id',
-                'number',
-                ''
+                'starttime',
+                'endtime',
+                'number'
             ]);
 
+            $params['starttime'] = date("Y-m-d",time()) . " " .$this->starttime;
+            $params['endtime'] = date("Y-m-d",time()) . " " .$this->endtime;
 
             $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$this->id])->all();
 
             $params['consist'] = (new Query)->select(['user_guid','technic_guid'])->from(RaportConsist::tableName())->where(['raport_id'=>$this->id])->all();
             
-            $params['materials'] = (new Query)->select(['nomenclature_guid','spent'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
+            $params['materials'] = (new Query)->select(['nomenclature_guid','spent as count'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
             
             
             $user = Yii::$app->user->identity;
+            
+            $params['user_guid'] = $user->guid;
+
+            $files = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
+
+            $minFiles = [];
+            foreach ($files as $key => $f) {
+                 $minFiles[$key]['type'] = $f['type'];
+                 $minFiles[$key]['file_name'] = $f['file_name'];
+             } 
+
+            //$params['files'] = $minFiles;
 
             $request = new Request([
                 'request'=>get_class($method),
@@ -657,7 +672,7 @@ class Raport extends ActiveRecordVersionable
                 'actor_id'=>$user->id
             ]);
 
-            $params['files'] = (new Query)->select(['file','file_type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
+            //$params['files'] = $files;
 
 
             $method->setParameters($params);
@@ -667,7 +682,10 @@ class Raport extends ActiveRecordVersionable
                     $this->guid = $responce['guid'];
                     $this->number = $responce['number'];
 
-                    $this->status = RaportStatuses::IN_CONFIRMING;
+                    if($this->status == RaportStatuses::CREATED){
+                        $this->status = RaportStatuses::IN_CONFIRMING;
+                    }
+                    
                     return $this->save(1);
                 }
                        

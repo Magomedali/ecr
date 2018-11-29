@@ -51,24 +51,76 @@ $this->title = "Рапорт";
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-6">
-											<p><?php echo $master_name?></p>
-											<p><?php echo $model['created_at'];?></p>
-											<p><?php echo $model['starttime'];?></p>
-											<p><?php echo $model['endtime'];?></p>
+											<table class="table table-collapsed">
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("master_guid")?>
+														</strong>
+													</td>
+													<td><?php echo $master_name?></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("created_at")?>
+														</strong>
+													</td>
+													<td><?php echo $model['created_at'];?></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("starttime")?>
+														</strong>
+													</td>
+													<td><?php echo $model['starttime']?></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("endtime")?>
+														</strong>
+													</td>
+													<td><?php echo $model['endtime']?></td>
+												</tr>
+											</table>
 										</div>
 										<div class="col-md-6 object_form">
-											<div class="row">
-												<div class="col-md-12">
-													<p><?php echo $object_name?></p>
-												</div>
-												<div class="col-md-12">
-													<p><?php echo $project_name?></p>
-												</div>
-												<div class="col-md-12">
-													<label>Округ</label>
-													<p><?php echo $boundary_name?></p>
-												</div>
-											</div>
+											<table class="table table-collapsed">
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("object_guid")?>
+														</strong>
+													</td>
+													<td><?php echo $object_name?></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("project_guid")?>
+														</strong>
+													</td>
+													<td><?php echo $project_name;?></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("boundary_guid")?>
+														</strong>
+													</td>
+													<td><?php echo $boundary_name?></td>
+												</tr>
+												<tr>
+													<td>
+														<strong>
+															<?php echo $model->getAttributeLabel("comment")?>
+														</strong>
+													</td>
+													<td><?php echo $model['comment']?></td>
+												</tr>
+											</table>
 										</div>
 									</div>
 									<hr>
@@ -76,22 +128,62 @@ $this->title = "Рапорт";
 										<div class="col-md-12">
 											<div class="row">
 												<div class="col-md-6">
-													<p><?php echo $model['temperature_start'];?></p>
-													<p><?php echo $model['surface_temperature_start'];?></p>
-													<p><?php echo $model['airhumidity_start'];?></p>
+													<table class="table table-collapsed">
+														<tr>
+															<td>
+																<strong>
+																	<?php echo $model->getAttributeLabel("temperature_start")?>
+																</strong>
+															</td>
+															<td><?php echo $model['temperature_start']?></td>
+														</tr>
+														<tr>
+															<td>
+																<strong>
+																	<?php echo $model->getAttributeLabel("surface_temperature_start")?>
+																</strong>
+															</td>
+															<td><?php echo $model['surface_temperature_start'];?></td>
+														</tr>
+														<tr>
+															<td>
+																<strong>
+																	<?php echo $model->getAttributeLabel("airhumidity_start")?>
+																</strong>
+															</td>
+															<td><?php echo $model['airhumidity_start']?></td>
+														</tr>
+													</table>
 												</div>
 												<div class="col-md-6">
-													<p><?php echo $model['temperature_end'];?></p>
-													<p><?php echo $model['surface_temperature_end'];?></p>
-													<p><?php echo $model['airhumidity_end'];?></p>
+													<table class="table table-collapsed">
+														<tr>
+															<td>
+																<strong>
+																	<?php echo $model->getAttributeLabel("temperature_end")?>
+																</strong>
+															</td>
+															<td><?php echo $model['temperature_end']?></td>
+														</tr>
+														<tr>
+															<td>
+																<strong>
+																	<?php echo $model->getAttributeLabel("surface_temperature_end")?>
+																</strong>
+															</td>
+															<td><?php echo $model['surface_temperature_end'];?></td>
+														</tr>
+														<tr>
+															<td>
+																<strong>
+																	<?php echo $model->getAttributeLabel("airhumidity_end")?>
+																</strong>
+															</td>
+															<td><?php echo $model['airhumidity_end']?></td>
+														</tr>
+													</table>
 												</div>
 											</div>
-										</div>
-									</div>
-									<hr>
-									<div class="row">
-										<div class="col-md-6">
-											<p><?php echo $model['comment'];?></p>
 										</div>
 									</div>
 								</div>
@@ -196,9 +288,7 @@ $this->title = "Рапорт";
 											<tr>
 												<td>#</td>
 												<td>Номенклатура</td>
-												<td>Начальный остаток</td>
 												<td>Израсходовано</td>
-												<td>Конечный остаток</td>
 											</tr>
 										</thead>
 										<tbody>
@@ -209,9 +299,7 @@ $this->title = "Рапорт";
 													<td><?php echo 1+$key;?></td>
 
 													<td><?php echo $item['nomenclature_name'];?></td>
-													<td><?php echo $item['was'];?></td>
 													<td><?php echo $item['spent'];?></td>
-													<td><?php echo $item['rest'];?></td>
 												</tr>
 											<?php
 												}

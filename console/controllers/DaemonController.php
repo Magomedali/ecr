@@ -63,7 +63,8 @@ class DaemonController extends Controller {
 
               $params = json_decode($r['params_in'],1);
 
-              $params['files'] = (new Query)->select(['file','file_type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$model->id])->all();
+              $params['files'] = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$model->id])->all();
+
               $method->setParameters($params);
               if($r->send($method)){
                   Yii::info('Method executed success','cron');
@@ -76,9 +77,12 @@ class DaemonController extends Controller {
                       $model->guid = $responce['guid'];
                       $model->number = $responce['number'];
 
-                      $model->status = RaportStatuses::IN_CONFIRMING;
+                      if($model->status == RaportStatuses::CREATED){
+                        $model->status = RaportStatuses::IN_CONFIRMING;
+                      }
+
                       $model->save(1);
-                      echo "Raport on cinfirmation\n";
+                      echo "Raport on confirmation\n";
                   }else{
                       echo "Responce doesn`t have guid or number\n";
                   } 
