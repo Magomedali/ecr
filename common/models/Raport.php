@@ -698,4 +698,13 @@ class Raport extends ActiveRecordVersionable
         return false;
     }
 
+
+
+
+    public static function getUnconfirmedStatuses(){
+        return [
+            RaportStatuses::CREATED,
+            RaportStatuses::IN_CONFIRMING
+        ];
+    }
 }

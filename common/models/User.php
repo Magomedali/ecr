@@ -9,6 +9,9 @@ use yii\web\IdentityInterface;
 use frontend\models\ExpensesManager;
 use frontend\models\PaymentsExpenses;
 
+
+use common\models\Raport;
+use common\models\RaportMaterial;
 use common\models\Brigade;
 use common\models\Technic;
 use common\models\RemnantsPackage;
@@ -477,19 +480,66 @@ class User extends ActiveRecord implements IdentityInterface
 
 
     public function getActualBrigadeRemnants(){
-        if(!$this->guid || !$this->id) return false;
+        if(!$this->guid || !$this->id || !$this->brigade_guid) return false;
 
         //Загрузим сначала из 1С;
         $this->unloadRemnantsFrom1C();
 
-        $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was, r.count as rest, (null) as spent, n.name as nomenclature_name')
+        $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was,  (null) as spent, r.count as rest, n.name as nomenclature_name')
                     ->from(['rp'=>RemnantsPackage::tableName()])
                     ->innerJoin(['r'=>RemnantsItem::tableName()]," r.package_id = rp.id")
                     ->innerJoin(['n'=>Nomenclature::tableName()]," r.nomenclature_guid = n.guid")
                     ->where(['rp.user_guid'=>$this->guid,'rp.isActual'=>1])
                     ->all();
 
-        return $result;
+
+        $remnants = [];
+        foreach ($result as $key => $item) {
+            $remnants[$item['nomenclature_guid']]['nomenclature_guid'] = $item['nomenclature_guid'];
+            $remnants[$item['nomenclature_guid']]['nomenclature_name'] = $item['nomenclature_name'];
+            $remnants[$item['nomenclature_guid']]['user_guid'] = $item['user_guid'];
+            $remnants[$item['nomenclature_guid']]['was'] = $item['was'];
+            $remnants[$item['nomenclature_guid']]['spent'] = $item['spent'];
+            $remnants[$item['nomenclature_guid']]['rest'] = $item['rest'];
+        }
+
+        $prev = (new Query())->select(['r.id as raport_id','status','rm.nomenclature_guid','rm.spent'])->from(['r'=>Raport::tableName()])
+                ->innerJoin(['rm'=>RaportMaterial::tableName()], "rm.raport_id = r.id")
+                ->where(['brigade_guid'=>$this->brigade_guid])
+                ->andFilterWhere(["in",'status',Raport::getUnconfirmedStatuses()])
+                ->all();
+
+        
+
+        $prevMaterial = [];
+        foreach ($prev as $key => $item) {
+            $prevMaterial[$item['raport_id']][$key]['nomenclature_guid'] = $item['nomenclature_guid'];
+            $prevMaterial[$item['raport_id']][$key]['spent'] = $item['spent'];
+        }
+
+        //Списание материалов из неподтвержденных рапортов
+        foreach ($prevMaterial as $key => $materials) {
+            foreach ($materials as $key2 => $item) {
+                if(array_key_exists($item['nomenclature_guid'], $remnants)){
+                    $was = $remnants[$item['nomenclature_guid']]['was'];
+                    $was -=$item['spent'];
+                    $remnants[$item['nomenclature_guid']]['was'] = $was;
+                    $remnants[$item['nomenclature_guid']]['rest'] = $was;
+                }
+            }
+        }
+
+        $actuals = [];
+        foreach ($remnants as $key => $item) {
+            $actuals[]=$item;
+        }
+
+        // print_r($remnants);
+
+        // print_r($prevMaterial);
+        // exit;
+
+        return $actuals;
     }
 
 
