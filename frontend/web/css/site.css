@@ -140,3 +140,8 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
         .pipeline > div:last-child:after{
             display: none;
         }
+
+
+.file_item img{
+    width: 100%;
+}

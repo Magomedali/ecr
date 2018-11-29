@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\Raport;
 use common\models\RaportFile;
+use yii\web\UploadedFile;
 
 class RaportController extends Controller{
 
@@ -23,7 +24,7 @@ class RaportController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','form','read-file','get-row-consist','get-row-work','get-row-remnant'],
+                        'actions' => ['view','form','read-file','add-files','get-row-consist','get-row-work','get-row-remnant'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -112,11 +113,15 @@ class RaportController extends Controller{
         $post = Yii::$app->request->post();
 
         if($id || isset($post['model_id'])){
-           $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
+            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
 
-           $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
-           if(!isset($model->id))
-                throw new \Exception("Документ не найден!",404); 
+            $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
+            if(!isset($model->id))
+                throw new \Exception("Документ не найден!",404);
+
+            if(!$model->isCanUpdate)
+                throw new \Exception("Нет доступа к редактированию документа!",404);
+
         }else{
            $model = new Raport(); 
         }
@@ -184,6 +189,36 @@ class RaportController extends Controller{
 
 
 
+
+    public function actionAddFiles($id = null){
+        $brigade_guid = Yii::$app->user->identity->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+        $post = Yii::$app->request->post();
+
+        if(!$id && !isset($post['model_id']))
+            throw new \Exception("Документ не найден!",404);
+
+        $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
+        
+        $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
+        
+        if(!isset($model->id))
+            throw new \Exception("Документ не найден!",404);
+
+        $files = UploadedFile::getInstancesByName('files');
+
+        if($model->saveFiles($files)){
+            Yii::$app->session->setFlash("success","Файлы прикреплены к рапорту");
+        }else{
+            Yii::$app->session->setFlash("error","Файлы не удалось прикрепить к рапорту");
+        }
+
+        return $this->redirect(['raport/view','id'=>$model->id]);
+    }
 
 
 

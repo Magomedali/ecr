@@ -31,14 +31,6 @@ $RaportFiles = $model->files;
 $this->title = "Рапорт";
 
 ?>
-
-<div class="row">
-	<div class="col-md-12">
-		<?php if($model->isCanUpdate){
-			echo Html::a("Изменить",['raport/form','id'=>$model->id],['class'=>'btn btn-primary pull-right']);
-		}?>
-	</div>
-</div>
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -237,23 +229,35 @@ $this->title = "Рапорт";
 						<div id="files" class="tab-pane fade in">
 							<h3>Файлы</h3>
 							<div class="row">
+								<?php $form = ActiveForm::begin(['action'=>['raport/add-files'],'options'=>['enctype'=>'multipart/form-data']])?>
+								<div class="col-md-3">
+									<?php 
+										echo Html::fileInput("files[]",null,['multiple'=>true]);
+										echo Html::hiddenInput('model_id',$model->id);
+									?>
+								</div>
+								<div class="col-md-5">
+									<?php 
+										echo Html::submitButton("Добавить",['class'=>"btn btn-primary"]);
+									?>
+								</div>
+								<?php ActiveForm::end();?>
+							</div>
+							<div class="row">
 								<?php if(is_array($RaportFiles)){
 									$images = RaportFile::getImageTypes();
 									foreach ($RaportFiles as $key => $item) {
 								?>
-									<div class="col-md-3">
+									<div class="col-md-3 file_item" >
 										<?php 
 											$filePath = "tmp/".$item['file'];
 											if(in_array($item['file_type'], $images)){
-												
-												if(!file_exists($filePath)){
-													$f = fopen($filePath, "w+");
+												if(!file_exists($filePath) || 1){
+													$f = fopen($filePath, "a");
 													fwrite($f, $item['file_binary']);
 													fclose($f);
 												}
-
 												echo Html::img($filePath);
-
 											}else{
 												echo Html::a($item['file_name'],['raport/read-file','id'=>$item['id']],['target'=>'_blank']);
 											}

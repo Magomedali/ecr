@@ -110,7 +110,7 @@ class ClientController extends Controller
                 'guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
                 'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
                 'name'=>'Мишуров Андрей Николаевич',
-                'login'=>'nozdrenkovai',
+                'login'=>'tester',
                 'password'=>'12345qwE',
                 'ktu'=>0.85,
                 'is_master'=>false
@@ -130,7 +130,7 @@ class ClientController extends Controller
                 'name'=>'Ноздренков Александр Иванович',
                 'ktu'=>1,
                 'is_master'=>false,
-                'login'=>'tester',
+                'login'=>'nozdrenkovai',
                 'password'=>'12345qwE'
             ]
         ];
