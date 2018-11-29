@@ -477,14 +477,8 @@ class ClientController extends Controller
             [
                 'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
                 'items'=>[
-                    [
                         'nomenclature_guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                         'count'=>12
-                    ],
-                    [
-                        'nomenclature_guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
-                        'count'=>10
-                    ]
                 ]
             ]
         ];

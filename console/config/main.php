@@ -21,6 +21,7 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['info'],
+                    'enableRotation'=>false,
                     'logFile'=>'@console/logs/info.txt',
                     'logVars'=>['cron']
                 ],

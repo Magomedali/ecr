@@ -429,7 +429,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function unloadRemnantsFrom1C(){
         if(!$this->guid || !$this->id) return false;
 
-        $method = new Unloadremnant(['guidmol'=>$this->guid]);
+        $method = new Unloadremnant(['mol_guid'=>$this->guid]);
         $items = [];
         if($method->validate()){
             try {

@@ -5,13 +5,13 @@ namespace soapclient\methods;
  
 class Unloadremnant extends BaseMethod{
 
-	public $guidmol;
+	public $mol_guid;
 
 
 	public function rules(){
 		return [
-			[['guidmol'],'required'],
-			['guidmol','string','min'=>0,'max'=>36],
+			[['mol_guid'],'required'],
+			['mol_guid','string','min'=>0,'max'=>36],
 		];
 	}
 
