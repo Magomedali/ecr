@@ -39,11 +39,14 @@ phpunit.phar
 /frontend/web/assets
 /frontend/web/assets/
 /frontend/web/tmp/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0ee85740d9ea5eaf982194ecab442e38ec293348
 /backend/web/assets
 /backend/web/assets/
 
-/console/data
-/common/tmp
+/console/data/
+/common/tmp/
 
 .htaccess
