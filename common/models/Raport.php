@@ -330,6 +330,17 @@ class Raport extends ActiveRecordVersionable
 
             $user = $this->brigadier;
 
+
+            /**
+            *   1) Получить расходы с предыдущих неподтвержденных рапортов
+            *   2) Вычесть расход из актуальных остатков
+            *   3) Заменить текущий начальный остаток и вычесть расход
+            **/
+            print_r($result);
+
+            print_r($user->getRemnants());
+            exit;
+
             if(!isset($user->id)){
                 return $result;
             }
@@ -666,7 +677,6 @@ class Raport extends ActiveRecordVersionable
             $params = $this->getAttributes(null,[
                 'id',
                 'status',
-                'guid',
                 'isDeleted',
                 'version_id',
                 'number'
@@ -687,7 +697,7 @@ class Raport extends ActiveRecordVersionable
             foreach ($files as $key => $f) {
                  $minFiles[$key]['type'] = $f['type'];
                  $minFiles[$key]['file_name'] = $f['file_name'];
-             } 
+            } 
 
             $params['files'] = $minFiles;
 
@@ -703,23 +713,24 @@ class Raport extends ActiveRecordVersionable
             $method->setParameters($params);
             if($request->save() && $request->send($method)){
                 $responce = json_decode($request->params_out,1);
-                if($request->result && isset($responce['guid']) && $responce['guid'] && isset($responce['number']) && $responce['number']){
-                    $this->guid = $responce['guid'];
-                    $this->number = $responce['number'];
+                
+            
+
+                if($request->result && isset($responce['return']) && isset($responce['return']['guid']) && $responce['return']['guid'] && isset($responce['return']['number']) && $responce['return']['number']){
+                    $this->guid = $responce['return']['guid'];
+                    $this->number = $responce['return']['number'];
 
                     if($this->status == RaportStatuses::CREATED){
                         $this->status = RaportStatuses::IN_CONFIRMING;
                     }
                     
                     return $this->save(1);
-                }
-                       
+                }  
             }
         } catch (\Exception $e) {
-            
+            Yii::warning($e->getMessage(),'api');
         }
         
-
         return false;
     }
 

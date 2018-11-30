@@ -341,7 +341,7 @@ $this->title = "Рапорт";
 											$filePath = "tmp/".$item['file'];
 											if(in_array($item['file_type'], $images)){
 												if(!file_exists($filePath) || 1){
-													$f = fopen($filePath, "a");
+													$f = fopen($filePath, "w");
 													fwrite($f, $item['file_binary']);
 													fclose($f);
 												}

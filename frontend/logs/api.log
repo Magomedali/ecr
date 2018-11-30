@@ -1,37 +1,2019 @@
-2018-11-30 13:45:28 [::1][7][-][warning][api] POST /usom/ws/drrload.1cws HTTP/1.1
-Host: crm.omegamail.org
-Connection: Keep-Alive
-User-Agent: PHP-SOAP/7.2.8
-Content-Type: text/xml; charset=utf-8
-SOAPAction: "http://www.radorm-razmetka.org#drrRazmetkaLoad:RaportLoad"
-Content-Length: 2720
-Authorization: Basic b2JtZW5kcnI6NjUxODY1
+2018-11-30 15:59:51 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009098","guid":"999bc4aa-f4b0-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 15:59:45 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
 
+$_POST = [
+    '_csrf' => 'A7Xdp8DcfkH7N2FGIKFNZ_Zs-8tSZhfekKkJUxQ5Aktv8-7CkpgQKZJeU3VP4ic3pyTM5mA_R6_H700qJg94PQ=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '08:30:00'
+        'endtime' => '11:11:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '12'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
 
-    in G:\usr\www\ecr\common\models\Request.php:198
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:45:28 [::1][7][-][warning][api] <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.radorm.org" xmlns:ns2="http://www.radorm-razmetka.org"><SOAP-ENV:Body><ns2:RaportLoad><ns2:document><ns1:guid xsi:nil="true"/><ns1:created_at>2018-11-30 00:00:00</ns1:created_at><ns1:starttime>11:11:00</ns1:starttime><ns1:endtime>12:22:00</ns1:endtime><ns1:temperature_start>2</ns1:temperature_start><ns1:temperature_end>1</ns1:temperature_end><ns1:surface_temperature_start>2</ns1:surface_temperature_start><ns1:surface_temperature_end>2</ns1:surface_temperature_end><ns1:airhumidity_start>2</ns1:airhumidity_start><ns1:airhumidity_end>3</ns1:airhumidity_end><ns1:brigade_guid>c6fb11c4-3476-418b-85cc-299e34ad58c4</ns1:brigade_guid><ns1:object_guid>49a16abb-3f28-11e8-8114-005056b47a2e</ns1:object_guid><ns1:project_guid>231ca414-3f28-11e8-8114-005056b47a2e</ns1:project_guid><ns1:master_guid>209c80df-68f2-11e8-8117-005056b47a2e</ns1:master_guid><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:comment>Из сайта</ns1:comment><ns1:files xsi:nil="true"/><ns1:materials><ns1:nomenclature_guid>f8e0e0c7-1674-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>6c5af50b-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>ab1d222a-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>f38a408c-9ba9-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>39ca8e0b-a096-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:works><ns1:work_guid>1cd95cf7-201f-11e8-8112-005056b47a2e</ns1:work_guid><ns1:line_guid>5590841e-64c6-4f45-aa81-0f3da62e0ff6</ns1:line_guid><ns1:mechanized>false</ns1:mechanized><ns1:length>1</ns1:length><ns1:count>2</ns1:count><ns1:squaremeter>0.1</ns1:squaremeter></ns1:works><ns1:consist><ns1:user_guid>f086d155-20ec-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>4eed6dd1-28b6-11e7-80e9-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist></ns2:document></ns2:RaportLoad></SOAP-ENV:Body></SOAP-ENV:Envelope>
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => 'Lighthouse.jpg'
+        ]
+        'type' => [
+            0 => 'image/jpeg'
+        ]
+        'tmp_name' => [
+            0 => 'G:\\xampp\\tmp\\php9F81.tmp'
+        ]
+        'error' => [
+            0 => 0
+        ]
+        'size' => [
+            0 => 561276
+        ]
+    ]
+]
 
-    in G:\usr\www\ecr\common\models\Request.php:199
-    in G:\usr\www\ecr\common\models\Raport.php:676
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '240528050393d757c0d2b28932f03c16be0f54124305dcf0f424d81c6433bdfda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"lF3eRDnhii23oCjPQH7-2YPqWFDy26zv\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '571873'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryACD9GBiZfuAfFjBj'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=240528050393d757c0d2b28932f03c16be0f54124305dcf0f424d81c6433bdfda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22lF3eRDnhii23oCjPQH7-2YPqWFDy26zv%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '9442'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543589985.248
+    'REQUEST_TIME' => 1543589985
+]
+2018-11-30 16:42:39 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009099","guid":"9472e989-f4b6-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:42:36 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'hmBjDQ83Dl14W3BMgeM7OZGlbARh8P-hoZUYv2wdupzkGg5hRABfFTsVPynuuWtB1v8tQVixt5jj_0_NWFWCww=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '12'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '86161f1fff0bb3fe27c4446b0de4da9b1ed5873b891ed30b66cf96a4c1ac02aba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bzmlK7QHCNOeoZPxGZAE9AH9BjWr4H8_\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10594'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryXFY5JUTMnUCc64PL'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=86161f1fff0bb3fe27c4446b0de4da9b1ed5873b891ed30b66cf96a4c1ac02aba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bzmlK7QHCNOeoZPxGZAE9AH9BjWr4H8_%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '13525'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543592556.488
+    'REQUEST_TIME' => 1543592556
+]
+2018-11-30 16:45:20 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009100","guid":"f4525a8d-f4b6-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:45:17 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'yf0uyEEyzHwJHQDSU9qCEMTzCfWoS-p_LRWiQgJl_6L8m2CsBGKNDWN2Vas-ksgpg71shOV62Ct3IuQQSEilxw=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => 'b735a8ccc67a689905666c84c1654c38da9fa300271165286e71da80a3f8bb4aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"5fNdEPAqjkUymHJ9GNeqM12TZ7FRJ-Ze\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10598'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary9dev6IU8yHvynfl3'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=b735a8ccc67a689905666c84c1654c38da9fa300271165286e71da80a3f8bb4aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%225fNdEPAqjkUymHJ9GNeqM12TZ7FRJ-Ze%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '13772'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543592717.401
+    'REQUEST_TIME' => 1543592717
+]
+2018-11-30 16:46:21 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009101","guid":"19055aac-f4b7-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:46:18 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'B1hZriQYUU-EX6pJm79ZYFRhyaIZVgnCFaNaBGY2vqJJBx_fXWoUBqkn53rshjJVPhWilFggQJt71RRUFgOG7Q=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10598'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryUAHW82hv80fIKxAr'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '13889'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543592778.865
+    'REQUEST_TIME' => 1543592778
+]
+2018-11-30 16:46:52 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009102","guid":"2b6f468e-f4b7-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:46:49 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'B1hZriQYUU-EX6pJm79ZYFRhyaIZVgnCFaNaBGY2vqJJBx_fXWoUBqkn53rshjJVPhWilFggQJt71RRUFgOG7Q=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10598'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryUAHW82hv80fIKxAr'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '13937'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543592809.859
+    'REQUEST_TIME' => 1543592809
+]
+2018-11-30 16:49:39 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009103","guid":"8ee0bd9a-f4b7-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:49:36 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'B1hZriQYUU-EX6pJm79ZYFRhyaIZVgnCFaNaBGY2vqJJBx_fXWoUBqkn53rshjJVPhWilFggQJt71RRUFgOG7Q=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10598'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryUAHW82hv80fIKxAr'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '14180'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543592976.583
+    'REQUEST_TIME' => 1543592976
+]
+2018-11-30 16:52:13 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009104","guid":"eacff1ff-f4b7-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:52:10 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'B1hZriQYUU-EX6pJm79ZYFRhyaIZVgnCFaNaBGY2vqJJBx_fXWoUBqkn53rshjJVPhWilFggQJt71RRUFgOG7Q=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10598'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryUAHW82hv80fIKxAr'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '14400'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543593130.976
+    'REQUEST_TIME' => 1543593130
+]
+2018-11-30 16:53:11 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009105","guid":"0d1767c3-f4b8-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:704
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:53:08 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'B1hZriQYUU-EX6pJm79ZYFRhyaIZVgnCFaNaBGY2vqJJBx_fXWoUBqkn53rshjJVPhWilFggQJt71RRUFgOG7Q=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10598'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryUAHW82hv80fIKxAr'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '14486'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543593188.649
+    'REQUEST_TIME' => 1543593188
+]
+2018-11-30 16:57:23 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009105","guid":"0d1767c3-f4b8-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:703
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:57:20 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'cPtTNZcei8tVUZLTt80803g-_yi3BGR7838sesjkxCw-pBVE7mzOgngp3-DA9FfmEkqUHvZyLSKdCWIquNH8Yw=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => 'Lighthouse.jpg'
+        ]
+        'type' => [
+            0 => 'image/jpeg'
+        ]
+        'tmp_name' => [
+            0 => 'G:\\xampp\\tmp\\php5830.tmp'
+        ]
+        'error' => [
+            0 => 0
+        ]
+        'size' => [
+            0 => 561276
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '571874'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryp3ZtBCTB1TEkl1hT'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=6df2c3a94bb176d6a92da6892013739bcb1c459c689a772a63b38af431c9cfe5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N_FqyrEI-xM3w9k5jtk6AvIYnvNPp58O%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '14893'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543593440.623
+    'REQUEST_TIME' => 1543593440
+]
+2018-11-30 16:57:56 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009105","guid":"0d1767c3-f4b8-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:703
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-11-30 16:57:52 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '3'
+]
+
+$_POST = [
+    '_csrf' => 'ykhttpBINWbhnj7COGacR475I_Lyz5aArxxRh0aDllyeKgzfpiFSDaWmSIx5Ke4OxpBLhrmj0bKacRrlKbviGQ=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30'
+        'starttime' => '09:30:00'
+        'endtime' => '21:01:00'
+        'object_guid' => '49a16abb-3f28-11e8-8114-005056b47a2e'
+        'object_name' => 'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...'
+        'project_guid' => '231ca414-3f28-11e8-8114-005056b47a2e'
+        'project_name' => '1-КИ от 06.04.18'
+        'boundary_name' => 'Ингушетия'
+        'boundary_guid' => 'be8cea0a-3352-11e8-8113-005056b47a2e'
+        'temperature_start' => '122'
+        'surface_temperature_start' => '21'
+        'airhumidity_start' => '122'
+        'temperature_end' => '12'
+        'surface_temperature_end' => '21'
+        'airhumidity_end' => '21'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '3'
+    'password' => '12345qwE'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => 'f086d155-20ec-11e7-80e5-000c29a0432f'
+            'user_name' => 'Мишуров Андрей Николаевич'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.85'
+        ]
+        1 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '0.9'
+        ]
+        2 => [
+            'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+            'user_name' => 'Ноздренков Александр Иванович'
+            'technic_guid' => 'ac22777f-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'с999ст lada'
+            'user_ktu' => '1'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '2'
+            'count' => '3'
+            'squaremeter' => '0.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '12'
+            'rest' => '577'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '109'
+            'spent' => '32'
+            'rest' => '77'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1009'
+            'spent' => '45'
+            'rest' => '964'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13700'
+            'spent' => '64'
+            'rest' => '13636'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '31'
+            'spent' => '2'
+            'rest' => '29'
+        ]
+    ]
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => 'Chrysanthemum.jpg'
+            1 => 'Desert.jpg'
+            2 => 'Hydrangeas.jpg'
+            3 => 'Jellyfish.jpg'
+            4 => 'Koala.jpg'
+            5 => 'Lighthouse.jpg'
+            6 => 'Penguins.jpg'
+            7 => 'Tulips.jpg'
+        ]
+        'type' => [
+            0 => 'image/jpeg'
+            1 => 'image/jpeg'
+            2 => 'image/jpeg'
+            3 => 'image/jpeg'
+            4 => 'image/jpeg'
+            5 => 'image/jpeg'
+            6 => 'image/jpeg'
+            7 => 'image/jpeg'
+        ]
+        'tmp_name' => [
+            0 => 'G:\\xampp\\tmp\\phpD5F8.tmp'
+            1 => 'G:\\xampp\\tmp\\phpD608.tmp'
+            2 => 'G:\\xampp\\tmp\\phpD619.tmp'
+            3 => 'G:\\xampp\\tmp\\phpD629.tmp'
+            4 => 'G:\\xampp\\tmp\\phpD63A.tmp'
+            5 => 'G:\\xampp\\tmp\\phpD63B.tmp'
+            6 => 'G:\\xampp\\tmp\\phpD64C.tmp'
+            7 => 'G:\\xampp\\tmp\\phpD65C.tmp'
+        ]
+        'error' => [
+            0 => 0
+            1 => 0
+            2 => 0
+            3 => 0
+            4 => 0
+            5 => 0
+            6 => 0
+            7 => 0
+        ]
+        'size' => [
+            0 => 879394
+            1 => 845941
+            2 => 595284
+            3 => 775702
+            4 => 780831
+            5 => 561276
+            6 => 777835
+            7 => 620888
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => 'b0c2f5c0b7513ed2dd9edc0abb7d84f0d79ff8f5874ff0a4121db2db7057d8f5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Tbai6igkD8vNAOrIHihtKlG25mKbo8tE\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '5848765'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryVPz0ECNBtouXzcN3'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=b0c2f5c0b7513ed2dd9edc0abb7d84f0d79ff8f5874ff0a4121db2db7057d8f5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Tbai6igkD8vNAOrIHihtKlG25mKbo8tE%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '14958'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=3'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fform&id=3'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543593472.822
+    'REQUEST_TIME' => 1543593472
+]
+2018-11-30 16:59:06 [::1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009105","guid":"0d1767c3-f4b8-11e8-8137-005056b47a2e"}}
+    in G:\usr\www\ecr\common\models\Request.php:186
+    in G:\usr\www\ecr\common\models\Raport.php:703
     in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:45:28 [::1][7][-][warning][api] null
-    in G:\usr\www\ecr\common\models\Request.php:201
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:45:28 [::1][7][-][warning][api] null
-    in G:\usr\www\ecr\common\models\Request.php:202
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:44:27 [::1][7][-][info][application] $_GET = [
+2018-11-30 16:59:04 [::1][7][-][info][application] $_GET = [
     'r' => 'raport/add-files'
 ]
 
 $_POST = [
-    '_csrf' => 'kiO4LAJ5OXgpVg4O9XtIecwBX6KBNVvrB78U-d3g4SnkQNtbczBICHshZFvNQzgTp3dsy_JRbMZvyV22moiqSA=='
-    'model_id' => '5'
+    '_csrf' => 'EctoofYQgAg12mL0g99FgcEkUgTjJDHgzGPg-DSvHetZmyvkg1XIOBi4GrnUig3bhmA7MZISQ6_0AI2JVuZrog=='
+    'model_id' => '3'
 ]
 
 $_FILES = [
@@ -43,7 +2025,7 @@ $_FILES = [
             0 => 'image/jpeg'
         ]
         'tmp_name' => [
-            0 => 'G:\\xampp\\tmp\\phpC0ED.tmp'
+            0 => 'G:\\xampp\\tmp\\phpEE50.tmp'
         ]
         'error' => [
             0 => 0
@@ -60,7 +2042,7 @@ $_COOKIE = [
     'ecr-backend' => 'pqglch6joaedan3q01v36untla'
     'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
     '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
-    '_csrf' => '52251bf62b099afc1f110a216fbbf9d2e57ad1f51fe7d058c3fe9487758cb22aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vccwqIqpRwjU88pjkv3isd7-hvIOGhKa\";}'
+    '_csrf' => 'ace8cb1d1cdcb375c753cb821f70d6fc0a5a8bcce0e8f0c66b85421fc8cbf594a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"HPCEuEH0-bxMWUHZGDi5q6rO8cmqbIvI\";}'
 ]
 
 $_SESSION = [
@@ -85,13 +2067,13 @@ $_SERVER = [
     'HTTP_CACHE_CONTROL' => 'max-age=0'
     'HTTP_ORIGIN' => 'http://localhost:8082'
     'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
-    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary12sJmlkYcVozqREl'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryxBqSKBb23EUbWeFQ'
     'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
     'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fview&id=5'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fview&id=3'
     'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
     'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
-    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=52251bf62b099afc1f110a216fbbf9d2e57ad1f51fe7d058c3fe9487758cb22aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vccwqIqpRwjU88pjkv3isd7-hvIOGhKa%22%3B%7D'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=ace8cb1d1cdcb375c753cb821f70d6fc0a5a8bcce0e8f0c66b85421fc8cbf594a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22HPCEuEH0-bxMWUHZGDi5q6rO8cmqbIvI%22%3B%7D'
     'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
     'SystemRoot' => 'C:\\Windows'
     'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
@@ -110,7 +2092,7 @@ $_SERVER = [
     'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
     'SERVER_ADMIN' => 'ali@admin.com'
     'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
-    'REMOTE_PORT' => '61713'
+    'REMOTE_PORT' => '15086'
     'GATEWAY_INTERFACE' => 'CGI/1.1'
     'SERVER_PROTOCOL' => 'HTTP/1.1'
     'REQUEST_METHOD' => 'POST'
@@ -118,135 +2100,6 @@ $_SERVER = [
     'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fadd-files'
     'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
     'PHP_SELF' => '/ecr/frontend/web/index.php'
-    'REQUEST_TIME_FLOAT' => 1543581867.008
-    'REQUEST_TIME' => 1543581867
-]
-2018-11-30 13:47:41 [::1][7][-][warning][api] POST /usom/ws/drrload.1cws HTTP/1.1
-Host: crm.omegamail.org
-Connection: Keep-Alive
-User-Agent: PHP-SOAP/7.2.8
-Content-Type: text/xml; charset=utf-8
-SOAPAction: "http://www.radorm-razmetka.org#drrRazmetkaLoad:RaportLoad"
-Content-Length: 2720
-Authorization: Basic b2JtZW5kcnI6NjUxODY1
-
-
-    in G:\usr\www\ecr\common\models\Request.php:199
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:47:41 [::1][7][-][warning][api] <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.radorm.org" xmlns:ns2="http://www.radorm-razmetka.org"><SOAP-ENV:Body><ns2:RaportLoad><ns2:document><ns1:guid xsi:nil="true"/><ns1:created_at>2018-11-30 00:00:00</ns1:created_at><ns1:starttime>11:11:00</ns1:starttime><ns1:endtime>12:22:00</ns1:endtime><ns1:temperature_start>2</ns1:temperature_start><ns1:temperature_end>1</ns1:temperature_end><ns1:surface_temperature_start>2</ns1:surface_temperature_start><ns1:surface_temperature_end>2</ns1:surface_temperature_end><ns1:airhumidity_start>2</ns1:airhumidity_start><ns1:airhumidity_end>3</ns1:airhumidity_end><ns1:brigade_guid>c6fb11c4-3476-418b-85cc-299e34ad58c4</ns1:brigade_guid><ns1:object_guid>49a16abb-3f28-11e8-8114-005056b47a2e</ns1:object_guid><ns1:project_guid>231ca414-3f28-11e8-8114-005056b47a2e</ns1:project_guid><ns1:master_guid>209c80df-68f2-11e8-8117-005056b47a2e</ns1:master_guid><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:comment>Из сайта</ns1:comment><ns1:files xsi:nil="true"/><ns1:materials><ns1:nomenclature_guid>f8e0e0c7-1674-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>6c5af50b-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>ab1d222a-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>f38a408c-9ba9-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>39ca8e0b-a096-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:works><ns1:work_guid>1cd95cf7-201f-11e8-8112-005056b47a2e</ns1:work_guid><ns1:line_guid>5590841e-64c6-4f45-aa81-0f3da62e0ff6</ns1:line_guid><ns1:mechanized>false</ns1:mechanized><ns1:length>1</ns1:length><ns1:count>2</ns1:count><ns1:squaremeter>0.1</ns1:squaremeter></ns1:works><ns1:consist><ns1:user_guid>f086d155-20ec-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>4eed6dd1-28b6-11e7-80e9-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist></ns2:document></ns2:RaportLoad></SOAP-ENV:Body></SOAP-ENV:Envelope>
-
-    in G:\usr\www\ecr\common\models\Request.php:200
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:47:41 [::1][7][-][warning][api] HTTP/1.1 504 Gateway Time-out
-Server: nginx/1.12.2
-Date: Fri, 30 Nov 2018 12:47:40 GMT
-Content-Type: text/html
-Content-Length: 183
-Connection: keep-alive
-
-    in G:\usr\www\ecr\common\models\Request.php:202
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:47:41 [::1][7][-][warning][api] null
-    in G:\usr\www\ecr\common\models\Request.php:203
-    in G:\usr\www\ecr\common\models\Raport.php:676
-    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
-2018-11-30 13:46:40 [::1][7][-][info][application] $_GET = [
-    'r' => 'raport/add-files'
-]
-
-$_POST = [
-    '_csrf' => '2_Tmb1w1VyiOA2gtv-JU7M9I6DAze2DFxp7RQXZRmZOZlqMeJXgwZNtPLHzPrnne-CeCZVsNBPGWzqUwGSjt5g=='
-    'model_id' => '5'
-]
-
-$_FILES = [
-    'files' => [
-        'name' => [
-            0 => 'Hydrangeas.jpg'
-        ]
-        'type' => [
-            0 => 'image/jpeg'
-        ]
-        'tmp_name' => [
-            0 => 'G:\\xampp\\tmp\\phpC8E9.tmp'
-        ]
-        'error' => [
-            0 => 0
-        ]
-        'size' => [
-            0 => 595284
-        ]
-    ]
-]
-
-$_COOKIE = [
-    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
-    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
-    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
-    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
-    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
-    '_csrf' => '74335e4ca7bff2867ff27ee3cf7494c32705388f5285c123e6c4600b5ebf5f09a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"BbEqyMgLULDQpL-27ojUhvd4PPtqoytu\";}'
-]
-
-$_SESSION = [
-    '__flash' => [
-        'success' => -1
-    ]
-    '__returnUrl' => '/ecr/frontend/web/index.php'
-    '__id' => 7
-    'success' => 'Файлы прикреплены к рапорту'
-]
-
-$_SERVER = [
-    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
-    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
-    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
-    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
-    'PHPRC' => '\\xampp\\php'
-    'TMP' => '\\xampp\\tmp'
-    'HTTP_HOST' => 'localhost:8082'
-    'HTTP_CONNECTION' => 'keep-alive'
-    'CONTENT_LENGTH' => '595751'
-    'HTTP_CACHE_CONTROL' => 'max-age=0'
-    'HTTP_ORIGIN' => 'http://localhost:8082'
-    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
-    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarykxA84SC8ounpdwH7'
-    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
-    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fview&id=5'
-    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
-    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
-    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=74335e4ca7bff2867ff27ee3cf7494c32705388f5285c123e6c4600b5ebf5f09a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22BbEqyMgLULDQpL-27ojUhvd4PPtqoytu%22%3B%7D'
-    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
-    'SystemRoot' => 'C:\\Windows'
-    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
-    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
-    'WINDIR' => 'C:\\Windows'
-    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
-'
-    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
-    'SERVER_NAME' => 'localhost'
-    'SERVER_ADDR' => '::1'
-    'SERVER_PORT' => '8082'
-    'REMOTE_ADDR' => '::1'
-    'DOCUMENT_ROOT' => 'G:/usr/www'
-    'REQUEST_SCHEME' => 'http'
-    'CONTEXT_PREFIX' => ''
-    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
-    'SERVER_ADMIN' => 'ali@admin.com'
-    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
-    'REMOTE_PORT' => '61932'
-    'GATEWAY_INTERFACE' => 'CGI/1.1'
-    'SERVER_PROTOCOL' => 'HTTP/1.1'
-    'REQUEST_METHOD' => 'POST'
-    'QUERY_STRING' => 'r=raport%2Fadd-files'
-    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fadd-files'
-    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
-    'PHP_SELF' => '/ecr/frontend/web/index.php'
-    'REQUEST_TIME_FLOAT' => 1543582000.119
-    'REQUEST_TIME' => 1543582000
+    'REQUEST_TIME_FLOAT' => 1543593544.594
+    'REQUEST_TIME' => 1543593544
 ]

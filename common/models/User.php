@@ -481,13 +481,8 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
-
-
-    public function getActualBrigadeRemnants(){
-        if(!$this->guid || !$this->id || !$this->brigade_guid) return false;
-
-        //Загрузим сначала из 1С;
-        $this->unloadRemnantsFrom1C();
+    public function getRemnants($indexGuid = true){
+        if(!$this->guid || !$this->id || !$this->brigade_guid) return [];
 
         $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was,  (null) as spent, r.count as rest, n.name as nomenclature_name')
                     ->from(['rp'=>RemnantsPackage::tableName()])
@@ -496,6 +491,8 @@ class User extends ActiveRecord implements IdentityInterface
                     ->where(['rp.user_guid'=>$this->guid,'rp.isActual'=>1])
                     ->all();
 
+
+        if(!$indexGuid) return $result;
 
         $remnants = [];
         foreach ($result as $key => $item) {
@@ -506,6 +503,20 @@ class User extends ActiveRecord implements IdentityInterface
             $remnants[$item['nomenclature_guid']]['spent'] = $item['spent'];
             $remnants[$item['nomenclature_guid']]['rest'] = $item['rest'];
         }
+
+        return $remnants;
+    }
+
+
+
+    public function getActualBrigadeRemnants(){
+        if(!$this->guid || !$this->id || !$this->brigade_guid) return false;
+
+        //Загрузим сначала из 1С;
+        $this->unloadRemnantsFrom1C();
+        
+        $remnants = $this->getRemnants();
+
 
         $prev = (new Query())->select(['r.id as raport_id','status','rm.nomenclature_guid','rm.spent'])->from(['r'=>Raport::tableName()])
                 ->innerJoin(['rm'=>RaportMaterial::tableName()], "rm.raport_id = r.id")
