@@ -24,6 +24,12 @@ return [
                     'levels' => ['error', 'warning'],
                     'enableRotation'=>false,
                 ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'logFile'=>'@frontend/logs/api.log',
+                    'levels' => ['warning'],
+                    'enableRotation'=>false
+                ],
             ],
         ],
         'errorHandler' => [

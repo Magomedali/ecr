@@ -11836,3 +11836,95 @@ JOIN information_schema.key_column_usage AS kcu ON
 WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
 AND rc.table_name = 'import' AND kcu.table_name = 'import'
 2018-11-29 13:41:06 [-][-][-][info][yii\db\Command::execute] INSERT INTO `import` (`version`, `apply_time`) VALUES ('m181105_141438_init', 1543488066)
+2018-11-30 13:41:14 [-][-][-][info][cron] Process start
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-11-30 13:41:14 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #18
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=5
+2018-11-30 13:41:14 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=5
+2018-11-30 13:41:15 [-][-][-][info][api] POST /usom/ws/drrload.1cws HTTP/1.1
+Host: crm.omegamail.org
+Connection: Keep-Alive
+User-Agent: PHP-SOAP/7.2.8
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://www.radorm-razmetka.org#drrRazmetkaLoad:RaportLoad"
+Content-Length: 2693
+Authorization: Basic b2JtZW5kcnI6NjUxODY1
+
+
+2018-11-30 13:41:15 [-][-][-][info][api] <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.radorm.org" xmlns:ns2="http://www.radorm-razmetka.org"><SOAP-ENV:Body><ns2:RaportLoad><ns2:document><ns1:guid xsi:nil="true"/><ns1:created_at>2018-11-30T00:00:00</ns1:created_at><ns1:starttime>11:11:00</ns1:starttime><ns1:endtime>12:22:00</ns1:endtime><ns1:temperature_start>2</ns1:temperature_start><ns1:temperature_end>1</ns1:temperature_end><ns1:surface_temperature_start>2</ns1:surface_temperature_start><ns1:surface_temperature_end>2</ns1:surface_temperature_end><ns1:airhumidity_start>2</ns1:airhumidity_start><ns1:airhumidity_end>3</ns1:airhumidity_end><ns1:brigade_guid>c6fb11c4-3476-418b-85cc-299e34ad58c4</ns1:brigade_guid><ns1:object_guid>49a16abb-3f28-11e8-8114-005056b47a2e</ns1:object_guid><ns1:project_guid>231ca414-3f28-11e8-8114-005056b47a2e</ns1:project_guid><ns1:master_guid>209c80df-68f2-11e8-8117-005056b47a2e</ns1:master_guid><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:comment>Из сайта</ns1:comment><ns1:materials><ns1:nomenclature_guid>f8e0e0c7-1674-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>6c5af50b-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>ab1d222a-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>f38a408c-9ba9-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>39ca8e0b-a096-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:works><ns1:work_guid>1cd95cf7-201f-11e8-8112-005056b47a2e</ns1:work_guid><ns1:line_guid>5590841e-64c6-4f45-aa81-0f3da62e0ff6</ns1:line_guid><ns1:mechanized>false</ns1:mechanized><ns1:length>1</ns1:length><ns1:count>2</ns1:count><ns1:squaremeter>0.1</ns1:squaremeter></ns1:works><ns1:consist><ns1:user_guid>f086d155-20ec-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>4eed6dd1-28b6-11e7-80e9-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist></ns2:document></ns2:RaportLoad></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2018-11-30 13:41:15 [-][-][-][info][api] HTTP/1.1 500 Internal server error
+Server: nginx/1.12.2
+Date: Fri, 30 Nov 2018 12:41:14 GMT
+Content-Type: text/xml;charset=utf-8
+Content-Length: 1344
+Connection: keep-alive
+X-Powered-By: ASP.NET
+
+2018-11-30 13:41:15 [-][-][-][info][api] <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Body>
+		<soap:Fault>
+			<faultcode>soap:Client</faultcode>
+			<faultstring>Неизвестная ошибка. Ошибка преобразования данных XDTO:
+Чтение объекта типа: {http://www.radorm.org}Raport - [2,1124]
+Проверка свойства 'materials':
+	форма: Элемент
+	имя: {http://www.radorm.org}materials
+	тип: {http://www.radorm.org}RaportMaterial
+по причине:
+Ошибка преобразования данных XDTO:
+Чтение объекта типа: {http://www.radorm.org}Raport - [2,1124]
+Проверка свойства 'materials':
+	форма: Элемент
+	имя: {http://www.radorm.org}materials
+	тип: {http://www.radorm.org}RaportMaterial
+по причине:
+Ошибка проверки данных XDTO:
+Структура объекта не соответствует типу: {http://www.radorm.org}Raport
+Проверка свойства 'materials':
+	форма: Элемент
+	имя: {http://www.radorm.org}materials
+	тип: {http://www.radorm.org}RaportMaterial
+Не установлено значение одного из следующих свойств: files</faultstring>
+			<detail/>
+		</soap:Fault>
+	</soap:Body>
+</soap:Envelope>
+2018-11-30 13:41:15 [-][-][-][info][yii\db\Command::execute] UPDATE `requests` SET `params_out`='{\"success\":false,\"error\":\"SoapFault\",\"errorMessage\":\"\\u041d\\u0435\\u0438\\u0437\\u0432\\u0435\\u0441\\u0442\\u043d\\u0430\\u044f \\u043e\\u0448\\u0438\\u0431\\u043a\\u0430. \\u041e\\u0448\\u0438\\u0431\\u043a\\u0430 \\u043f\\u0440\\u0435\\u043e\\u0431\\u0440\\u0430\\u0437\\u043e\\u0432\\u0430\\u043d\\u0438\\u044f \\u0434\\u0430\\u043d\\u043d\\u044b\\u0445 XDTO:\\n\\u0427\\u0442\\u0435\\u043d\\u0438\\u0435 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430 \\u0442\\u0438\\u043f\\u0430: {http:\\/\\/www.radorm.org}Raport - [2,1124]\\n\\u041f\\u0440\\u043e\\u0432\\u0435\\u0440\\u043a\\u0430 \\u0441\\u0432\\u043e\\u0439\\u0441\\u0442\\u0432\\u0430 \'materials\':\\n\\t\\u0444\\u043e\\u0440\\u043c\\u0430: \\u042d\\u043b\\u0435\\u043c\\u0435\\u043d\\u0442\\n\\t\\u0438\\u043c\\u044f: {http:\\/\\/www.radorm.org}materials\\n\\t\\u0442\\u0438\\u043f: {http:\\/\\/www.radorm.org}RaportMaterial\\n\\u043f\\u043e \\u043f\\u0440\\u0438\\u0447\\u0438\\u043d\\u0435:\\n\\u041e\\u0448\\u0438\\u0431\\u043a\\u0430 \\u043f\\u0440\\u0435\\u043e\\u0431\\u0440\\u0430\\u0437\\u043e\\u0432\\u0430\\u043d\\u0438\\u044f \\u0434\\u0430\\u043d\\u043d\\u044b\\u0445 XDTO:\\n\\u0427\\u0442\\u0435\\u043d\\u0438\\u0435 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430 \\u0442\\u0438\\u043f\\u0430: {http:\\/\\/www.radorm.org}Raport - [2,1124]\\n\\u041f\\u0440\\u043e\\u0432\\u0435\\u0440\\u043a\\u0430 \\u0441\\u0432\\u043e\\u0439\\u0441\\u0442\\u0432\\u0430 \'materials\':\\n\\t\\u0444\\u043e\\u0440\\u043c\\u0430: \\u042d\\u043b\\u0435\\u043c\\u0435\\u043d\\u0442\\n\\t\\u0438\\u043c\\u044f: {http:\\/\\/www.radorm.org}materials\\n\\t\\u0442\\u0438\\u043f: {http:\\/\\/www.radorm.org}RaportMaterial\\n\\u043f\\u043e \\u043f\\u0440\\u0438\\u0447\\u0438\\u043d\\u0435:\\n\\u041e\\u0448\\u0438\\u0431\\u043a\\u0430 \\u043f\\u0440\\u043e\\u0432\\u0435\\u0440\\u043a\\u0438 \\u0434\\u0430\\u043d\\u043d\\u044b\\u0445 XDTO:\\n\\u0421\\u0442\\u0440\\u0443\\u043a\\u0442\\u0443\\u0440\\u0430 \\u043e\\u0431\\u044a\\u0435\\u043a\\u0442\\u0430 \\u043d\\u0435 \\u0441\\u043e\\u043e\\u0442\\u0432\\u0435\\u0442\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442 \\u0442\\u0438\\u043f\\u0443: {http:\\/\\/www.radorm.org}Raport\\n\\u041f\\u0440\\u043e\\u0432\\u0435\\u0440\\u043a\\u0430 \\u0441\\u0432\\u043e\\u0439\\u0441\\u0442\\u0432\\u0430 \'materials\':\\n\\t\\u0444\\u043e\\u0440\\u043c\\u0430: \\u042d\\u043b\\u0435\\u043c\\u0435\\u043d\\u0442\\n\\t\\u0438\\u043c\\u044f: {http:\\/\\/www.radorm.org}materials\\n\\t\\u0442\\u0438\\u043f: {http:\\/\\/www.radorm.org}RaportMaterial\\n\\u041d\\u0435 \\u0443\\u0441\\u0442\\u0430\\u043d\\u043e\\u0432\\u043b\\u0435\\u043d\\u043e \\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u0438\\u0435 \\u043e\\u0434\\u043d\\u043e\\u0433\\u043e \\u0438\\u0437 \\u0441\\u043b\\u0435\\u0434\\u0443\\u044e\\u0449\\u0438\\u0445 \\u0441\\u0432\\u043e\\u0439\\u0441\\u0442\\u0432: files\"}' WHERE `id`=18
+2018-11-30 13:41:15 [-][-][-][info][cron] Method not executed
+2018-11-30 13:41:15 [-][-][-][info][cron] {"success":false,"error":"SoapFault","errorMessage":"\u041d\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043d\u0430\u044f \u043e\u0448\u0438\u0431\u043a\u0430. \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0435\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0434\u0430\u043d\u043d\u044b\u0445 XDTO:\n\u0427\u0442\u0435\u043d\u0438\u0435 \u043e\u0431\u044a\u0435\u043a\u0442\u0430 \u0442\u0438\u043f\u0430: {http:\/\/www.radorm.org}Raport - [2,1124]\n\u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430 'materials':\n\t\u0444\u043e\u0440\u043c\u0430: \u042d\u043b\u0435\u043c\u0435\u043d\u0442\n\t\u0438\u043c\u044f: {http:\/\/www.radorm.org}materials\n\t\u0442\u0438\u043f: {http:\/\/www.radorm.org}RaportMaterial\n\u043f\u043e \u043f\u0440\u0438\u0447\u0438\u043d\u0435:\n\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0435\u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u0434\u0430\u043d\u043d\u044b\u0445 XDTO:\n\u0427\u0442\u0435\u043d\u0438\u0435 \u043e\u0431\u044a\u0435\u043a\u0442\u0430 \u0442\u0438\u043f\u0430: {http:\/\/www.radorm.org}Raport - [2,1124]\n\u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430 'materials':\n\t\u0444\u043e\u0440\u043c\u0430: \u042d\u043b\u0435\u043c\u0435\u043d\u0442\n\t\u0438\u043c\u044f: {http:\/\/www.radorm.org}materials\n\t\u0442\u0438\u043f: {http:\/\/www.radorm.org}RaportMaterial\n\u043f\u043e \u043f\u0440\u0438\u0447\u0438\u043d\u0435:\n\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0438 \u0434\u0430\u043d\u043d\u044b\u0445 XDTO:\n\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u043e\u0431\u044a\u0435\u043a\u0442\u0430 \u043d\u0435 \u0441\u043e\u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0442\u0438\u043f\u0443: {http:\/\/www.radorm.org}Raport\n\u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u0441\u0432\u043e\u0439\u0441\u0442\u0432\u0430 'materials':\n\t\u0444\u043e\u0440\u043c\u0430: \u042d\u043b\u0435\u043c\u0435\u043d\u0442\n\t\u0438\u043c\u044f: {http:\/\/www.radorm.org}materials\n\t\u0442\u0438\u043f: {http:\/\/www.radorm.org}RaportMaterial\n\u041d\u0435 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u043e \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043e\u0434\u043d\u043e\u0433\u043e \u0438\u0437 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0445 \u0441\u0432\u043e\u0439\u0441\u0442\u0432: files"}
+2018-11-30 13:41:15 [-][-][-][info][cron] Processing for 1.2071199417114 seconds

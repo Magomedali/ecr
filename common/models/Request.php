@@ -177,9 +177,11 @@ class Request extends ActiveRecordVersionable
     public function send(BaseMethod $method){
 
         try {
-            
+            ini_set('default_socket_timeout', 600);
+            set_time_limit(0);
             if($method->validate()){
                 $responce = Yii::$app->webservice1C->send($method);
+                Yii::warning(json_encode($responce),"api");
                 $responce = json_decode(json_encode($responce),1);
             }else{
                 $responce = [
@@ -192,6 +194,14 @@ class Request extends ActiveRecordVersionable
 
         } catch (\SoapFault $e) {
             
+            $client = Yii::$app->webservice1C->getClient();
+
+            Yii::warning($client->__getLastRequestHeaders(),"api");
+            Yii::warning($client->__getLastRequest(),"api");
+
+            Yii::warning($client->__getLastResponseHeaders(),"api");
+            Yii::warning($client->__getLastResponse(),"api");
+
             $responce = [
                 'success'=>false,
                 'error'=>'SoapFault',

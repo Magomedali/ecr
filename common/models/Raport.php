@@ -87,7 +87,7 @@ class Raport extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['brigade_guid','object_guid','boundary_guid','project_guid','master_guid','created_at'], 'required','message'=>'Обязательное поле'],
+            [['brigade_guid','object_guid','project_guid','master_guid','created_at'], 'required','message'=>'Обязательное поле'],
             
             [['number','comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
@@ -634,16 +634,13 @@ class Raport extends ActiveRecordVersionable
             $params = $this->getAttributes(null,[
                 'id',
                 'status',
+                'guid',
                 'isDeleted',
                 'version_id',
-                'starttime',
-                'endtime',
                 'number'
             ]);
 
-            $params['starttime'] = date("Y-m-d",time()) . " " .$this->starttime;
-            $params['endtime'] = date("Y-m-d",time()) . " " .$this->endtime;
-
+            
             $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$this->id])->all();
 
             $params['consist'] = (new Query)->select(['user_guid','technic_guid'])->from(RaportConsist::tableName())->where(['raport_id'=>$this->id])->all();
@@ -655,13 +652,13 @@ class Raport extends ActiveRecordVersionable
             
             $params['user_guid'] = $user->guid;
 
-            $files = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
+            //$files = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
 
-            $minFiles = [];
-            foreach ($files as $key => $f) {
-                 $minFiles[$key]['type'] = $f['type'];
-                 $minFiles[$key]['file_name'] = $f['file_name'];
-             } 
+            // $minFiles = [];
+            // foreach ($files as $key => $f) {
+            //      $minFiles[$key]['type'] = $f['type'];
+            //      $minFiles[$key]['file_name'] = $f['file_name'];
+            //  } 
 
             //$params['files'] = $minFiles;
 
@@ -673,7 +670,6 @@ class Raport extends ActiveRecordVersionable
             ]);
 
             //$params['files'] = $files;
-
 
             $method->setParameters($params);
             if($request->save() && $request->send($method)){

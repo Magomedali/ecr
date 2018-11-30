@@ -1,0 +1,252 @@
+2018-11-30 13:45:28 [::1][7][-][warning][api] POST /usom/ws/drrload.1cws HTTP/1.1
+Host: crm.omegamail.org
+Connection: Keep-Alive
+User-Agent: PHP-SOAP/7.2.8
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://www.radorm-razmetka.org#drrRazmetkaLoad:RaportLoad"
+Content-Length: 2720
+Authorization: Basic b2JtZW5kcnI6NjUxODY1
+
+
+    in G:\usr\www\ecr\common\models\Request.php:198
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:45:28 [::1][7][-][warning][api] <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.radorm.org" xmlns:ns2="http://www.radorm-razmetka.org"><SOAP-ENV:Body><ns2:RaportLoad><ns2:document><ns1:guid xsi:nil="true"/><ns1:created_at>2018-11-30 00:00:00</ns1:created_at><ns1:starttime>11:11:00</ns1:starttime><ns1:endtime>12:22:00</ns1:endtime><ns1:temperature_start>2</ns1:temperature_start><ns1:temperature_end>1</ns1:temperature_end><ns1:surface_temperature_start>2</ns1:surface_temperature_start><ns1:surface_temperature_end>2</ns1:surface_temperature_end><ns1:airhumidity_start>2</ns1:airhumidity_start><ns1:airhumidity_end>3</ns1:airhumidity_end><ns1:brigade_guid>c6fb11c4-3476-418b-85cc-299e34ad58c4</ns1:brigade_guid><ns1:object_guid>49a16abb-3f28-11e8-8114-005056b47a2e</ns1:object_guid><ns1:project_guid>231ca414-3f28-11e8-8114-005056b47a2e</ns1:project_guid><ns1:master_guid>209c80df-68f2-11e8-8117-005056b47a2e</ns1:master_guid><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:comment>Из сайта</ns1:comment><ns1:files xsi:nil="true"/><ns1:materials><ns1:nomenclature_guid>f8e0e0c7-1674-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>6c5af50b-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>ab1d222a-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>f38a408c-9ba9-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>39ca8e0b-a096-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:works><ns1:work_guid>1cd95cf7-201f-11e8-8112-005056b47a2e</ns1:work_guid><ns1:line_guid>5590841e-64c6-4f45-aa81-0f3da62e0ff6</ns1:line_guid><ns1:mechanized>false</ns1:mechanized><ns1:length>1</ns1:length><ns1:count>2</ns1:count><ns1:squaremeter>0.1</ns1:squaremeter></ns1:works><ns1:consist><ns1:user_guid>f086d155-20ec-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>4eed6dd1-28b6-11e7-80e9-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist></ns2:document></ns2:RaportLoad></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+    in G:\usr\www\ecr\common\models\Request.php:199
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:45:28 [::1][7][-][warning][api] null
+    in G:\usr\www\ecr\common\models\Request.php:201
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:45:28 [::1][7][-][warning][api] null
+    in G:\usr\www\ecr\common\models\Request.php:202
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:44:27 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/add-files'
+]
+
+$_POST = [
+    '_csrf' => 'kiO4LAJ5OXgpVg4O9XtIecwBX6KBNVvrB78U-d3g4SnkQNtbczBICHshZFvNQzgTp3dsy_JRbMZvyV22moiqSA=='
+    'model_id' => '5'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => 'Chrysanthemum.jpg'
+        ]
+        'type' => [
+            0 => 'image/jpeg'
+        ]
+        'tmp_name' => [
+            0 => 'G:\\xampp\\tmp\\phpC0ED.tmp'
+        ]
+        'error' => [
+            0 => 0
+        ]
+        'size' => [
+            0 => 879394
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '52251bf62b099afc1f110a216fbbf9d2e57ad1f51fe7d058c3fe9487758cb22aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vccwqIqpRwjU88pjkv3isd7-hvIOGhKa\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Файлы прикреплены к рапорту'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '879864'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary12sJmlkYcVozqREl'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fview&id=5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=52251bf62b099afc1f110a216fbbf9d2e57ad1f51fe7d058c3fe9487758cb22aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vccwqIqpRwjU88pjkv3isd7-hvIOGhKa%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '61713'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fadd-files'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fadd-files'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543581867.008
+    'REQUEST_TIME' => 1543581867
+]
+2018-11-30 13:47:41 [::1][7][-][warning][api] POST /usom/ws/drrload.1cws HTTP/1.1
+Host: crm.omegamail.org
+Connection: Keep-Alive
+User-Agent: PHP-SOAP/7.2.8
+Content-Type: text/xml; charset=utf-8
+SOAPAction: "http://www.radorm-razmetka.org#drrRazmetkaLoad:RaportLoad"
+Content-Length: 2720
+Authorization: Basic b2JtZW5kcnI6NjUxODY1
+
+
+    in G:\usr\www\ecr\common\models\Request.php:199
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:47:41 [::1][7][-][warning][api] <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://www.radorm.org" xmlns:ns2="http://www.radorm-razmetka.org"><SOAP-ENV:Body><ns2:RaportLoad><ns2:document><ns1:guid xsi:nil="true"/><ns1:created_at>2018-11-30 00:00:00</ns1:created_at><ns1:starttime>11:11:00</ns1:starttime><ns1:endtime>12:22:00</ns1:endtime><ns1:temperature_start>2</ns1:temperature_start><ns1:temperature_end>1</ns1:temperature_end><ns1:surface_temperature_start>2</ns1:surface_temperature_start><ns1:surface_temperature_end>2</ns1:surface_temperature_end><ns1:airhumidity_start>2</ns1:airhumidity_start><ns1:airhumidity_end>3</ns1:airhumidity_end><ns1:brigade_guid>c6fb11c4-3476-418b-85cc-299e34ad58c4</ns1:brigade_guid><ns1:object_guid>49a16abb-3f28-11e8-8114-005056b47a2e</ns1:object_guid><ns1:project_guid>231ca414-3f28-11e8-8114-005056b47a2e</ns1:project_guid><ns1:master_guid>209c80df-68f2-11e8-8117-005056b47a2e</ns1:master_guid><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:comment>Из сайта</ns1:comment><ns1:files xsi:nil="true"/><ns1:materials><ns1:nomenclature_guid>f8e0e0c7-1674-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>6c5af50b-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>2</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>ab1d222a-1676-11e8-8112-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>f38a408c-9ba9-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:materials><ns1:nomenclature_guid>39ca8e0b-a096-11e8-811a-005056b47a2e</ns1:nomenclature_guid><ns1:count>0</ns1:count></ns1:materials><ns1:works><ns1:work_guid>1cd95cf7-201f-11e8-8112-005056b47a2e</ns1:work_guid><ns1:line_guid>5590841e-64c6-4f45-aa81-0f3da62e0ff6</ns1:line_guid><ns1:mechanized>false</ns1:mechanized><ns1:length>1</ns1:length><ns1:count>2</ns1:count><ns1:squaremeter>0.1</ns1:squaremeter></ns1:works><ns1:consist><ns1:user_guid>f086d155-20ec-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>4eed6dd1-28b6-11e7-80e9-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist><ns1:consist><ns1:user_guid>be2e6d76-2128-11e7-80e5-000c29a0432f</ns1:user_guid><ns1:technic_guid>ac22777f-cd5c-11e8-8122-005056b47a2e</ns1:technic_guid></ns1:consist></ns2:document></ns2:RaportLoad></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+    in G:\usr\www\ecr\common\models\Request.php:200
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:47:41 [::1][7][-][warning][api] HTTP/1.1 504 Gateway Time-out
+Server: nginx/1.12.2
+Date: Fri, 30 Nov 2018 12:47:40 GMT
+Content-Type: text/html
+Content-Length: 183
+Connection: keep-alive
+
+    in G:\usr\www\ecr\common\models\Request.php:202
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:47:41 [::1][7][-][warning][api] null
+    in G:\usr\www\ecr\common\models\Request.php:203
+    in G:\usr\www\ecr\common\models\Raport.php:676
+    in G:\usr\www\ecr\frontend\controllers\RaportController.php:218
+2018-11-30 13:46:40 [::1][7][-][info][application] $_GET = [
+    'r' => 'raport/add-files'
+]
+
+$_POST = [
+    '_csrf' => '2_Tmb1w1VyiOA2gtv-JU7M9I6DAze2DFxp7RQXZRmZOZlqMeJXgwZNtPLHzPrnne-CeCZVsNBPGWzqUwGSjt5g=='
+    'model_id' => '5'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => 'Hydrangeas.jpg'
+        ]
+        'type' => [
+            0 => 'image/jpeg'
+        ]
+        'tmp_name' => [
+            0 => 'G:\\xampp\\tmp\\phpC8E9.tmp'
+        ]
+        'error' => [
+            0 => 0
+        ]
+        'size' => [
+            0 => 595284
+        ]
+    ]
+]
+
+$_COOKIE = [
+    'culture' => 'dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-'
+    '_identity-censyst-backend' => '3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a:2:{i:0;s:25:\"_identity-censyst-backend\";i:1;s:46:\"[2,\"PT95yokvwa--dVKm-xv7qKKW6wpDR8tV\",2592000]\";}'
+    'ecr-backend' => 'pqglch6joaedan3q01v36untla'
+    'PHPSESSID' => '7j41i1s0ms7scitribfsjbljft'
+    '_identity' => 'cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"7395DdZzHH8Dybr4msK1DYiMRd1IIIX_\",2592000]\";}'
+    '_csrf' => '74335e4ca7bff2867ff27ee3cf7494c32705388f5285c123e6c4600b5ebf5f09a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"BbEqyMgLULDQpL-27ojUhvd4PPtqoytu\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/ecr/frontend/web/index.php'
+    '__id' => 7
+    'success' => 'Файлы прикреплены к рапорту'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'G:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'G:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost:8082'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '595751'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost:8082'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundarykxA84SC8ounpdwH7'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost:8082/ecr/frontend/web/index.php?r=raport%2Fview&id=5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => 'culture=dat=1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-253-113-172-50-113-159-15-67-144-73-182-83-110-147-32-6-4-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-31-130-40-236-243-32-130-153-255-166-164-237-43-243-129-109-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-63-216-51-204-134-37-68-199-112-23-96-186-213-134-155-145-16-0-0-0-126-47-251-209-182-244-19-158-135-12-241-171-242-177-229-29-20-0-0-0-32-2-144-115-238-246-137-212-95-190-157-122-183-35-108-88-223-234-220-118-; _identity-censyst-backend=3f7680eed031741e79dc7288914e3c7ff8e063b815a7054e669bc6e91c71ba00a%3A2%3A%7Bi%3A0%3Bs%3A25%3A%22_identity-censyst-backend%22%3Bi%3A1%3Bs%3A46%3A%22%5B2%2C%22PT95yokvwa--dVKm-xv7qKKW6wpDR8tV%22%2C2592000%5D%22%3B%7D; ecr-backend=pqglch6joaedan3q01v36untla; PHPSESSID=7j41i1s0ms7scitribfsjbljft; _identity=cc7ef13252ebee075565b8b686c44a9d505be66a49da229b702108f3f8e3f328a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%227395DdZzHH8Dybr4msK1DYiMRd1IIIX_%22%2C2592000%5D%22%3B%7D; _csrf=74335e4ca7bff2867ff27ee3cf7494c32705388f5285c123e6c4600b5ebf5f09a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22BbEqyMgLULDQpL-27ojUhvd4PPtqoytu%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Common Files\\Acronis\\SnapAPI\\;G:\\usr\\php\\;C:\\Program Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\110\\DTS\\Binn\\;C:\\Microsoft SQL Server Migration Assistant for MySQL\\bin\\;C:\\Users\\magomed\\AppData\\Roaming\\Composer\\vendor\\bin\\;G:\\usr\\mysql\\MySQL\\MySQL Server 5.5\\bin;G:\\usr\\apache;G:\\usr\\apache\\bin;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Skype\\Phone\\;G:\\usr\\phpunit;G:\\usr\\py35\\Scripts\\;G:\\usr\\py35\\;C:\\Program Files\\Git\\cmd;GG:\\usr\\php72xampp;\\usr\\php72xampp\\ext;G:\\usr\\www;G:\\ProgramFiles\\rabbitmq\\rabbitmq_server-3.7.5\\sbin;G:\\usr\\php;G:\\VSCOM\\VC\\Tools\\MSVC\\14.10.25017\\bin\\HostX64\\x64;C:\\Users\\magomed\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8 Server at localhost Port 8082</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.34 (Win32) OpenSSL/1.1.0h PHP/7.2.8'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '8082'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'G:/usr/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'G:/usr/www'
+    'SERVER_ADMIN' => 'ali@admin.com'
+    'SCRIPT_FILENAME' => 'G:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '61932'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fadd-files'
+    'REQUEST_URI' => '/ecr/frontend/web/index.php?r=raport%2Fadd-files'
+    'SCRIPT_NAME' => '/ecr/frontend/web/index.php'
+    'PHP_SELF' => '/ecr/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1543582000.119
+    'REQUEST_TIME' => 1543582000
+]

@@ -44,7 +44,7 @@ class Objects extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['name','guid','boundary_id','boundary_guid'], 'required'],
+            [['name','guid'], 'required'],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             ['boundary_id','integer'],
             [['guid','boundary_guid'],'string','max'=>36],

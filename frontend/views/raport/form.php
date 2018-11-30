@@ -31,6 +31,8 @@ if(!$hasErrors){
 	$RaportWorks = $errorsRaportWorks;
 }
 
+
+
 if(isset($model->id)){
 	$object = $model->object_guid ? $model->object : null;
 	$object_name = isset($object->id) ? $object->name : "";

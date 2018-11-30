@@ -581,7 +581,7 @@ class Api{
                 }
 
                 $responce->success = true;
-                $erros = $tablePartsErrors;
+                $erros = json_encode($tablePartsErrors);
             }
         }
 
@@ -635,6 +635,7 @@ class Api{
                 $responce->errorUserMessage = "Ошибка, при валидации даных основной части!";
                 $responce->errorsExtend = $erros;
             }else{
+                $responce->success = true;
                 $model->saveRelationEntities();
                 
                 $tablePartsErrors = [];
@@ -651,13 +652,15 @@ class Api{
                     $tablePartsErrors['works'] = json_encode($model->getWorksErrors());
                 }
 
-                $responce->success = false;
+                
                 if(count($tablePartsErrors)){
+                    $responce->success = false;
                     $responce->error = "ErrorInRelationData";
                     $responce->errorMessage = "Wrong data in the table data";
                     $responce->errorUserMessage = "Ошибка, при валидации даных в табличной части!";
+                    $responce->errorsExtend = json_encode($tablePartsErrors);
                 }
-                $responce->errorsExtend = $tablePartsErrors;
+                
             }
         }
 

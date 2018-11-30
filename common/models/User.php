@@ -432,12 +432,15 @@ class User extends ActiveRecord implements IdentityInterface
     public function unloadRemnantsFrom1C(){
         if(!$this->guid || !$this->id) return false;
 
-        $method = new Unloadremnant(['mol_guid'=>$this->guid]);
+        $method = new Unloadremnant(['guidmol'=>$this->guid]);
+        
         $items = [];
+        
         if($method->validate()){
             try {
                 $resp = Yii::$app->webservice1C->send($method);
                 $resp = json_decode(json_encode($resp),1);
+                
                 if(isset($resp['return']) && isset($resp['return']['remnant'])){
                     $items = $resp['return']['remnant'];
 
@@ -462,6 +465,7 @@ class User extends ActiveRecord implements IdentityInterface
         if(!is_array($items) || !count($items)) return false;
 
         $items = $needToGroup ? $this->groupRemnantItems($items) : $items;
+
 
         if($this->remnantItemsIsEqual($items)) return true;
 
@@ -530,14 +534,10 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         $actuals = [];
-        foreach ($remnants as $key => $item) {
+        foreach($remnants as $key => $item){
             $actuals[]=$item;
         }
 
-        // print_r($remnants);
-
-        // print_r($prevMaterial);
-        // exit;
 
         return $actuals;
     }
