@@ -73,6 +73,7 @@ class Raport extends ActiveRecordVersionable
             'brigade_guid',
             'object_guid',
             'boundary_guid',
+            'user_guid',
             'project_guid',
             'master_guid',
             'comment',
@@ -87,7 +88,7 @@ class Raport extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['brigade_guid','object_guid','project_guid','master_guid','created_at'], 'required','message'=>'Обязательное поле'],
+            [['brigade_guid','object_guid','project_guid','master_guid','user_guid','created_at'], 'required','message'=>'Обязательное поле'],
             
             [['number','comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
@@ -97,8 +98,10 @@ class Raport extends ActiveRecordVersionable
 
             [['temperature_start','temperature_end','surface_temperature_start','surface_temperature_end','airhumidity_start','airhumidity_end'],'number'],
 
-            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid'],'string','max'=>36],
+            [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','user_guid'],'string','max'=>36],
             
+            ['user_guid','default','value'=>null],
+
             ['number', 'string', 'max' => 255],
            
             ['status', 'default', 'value' => RaportStatuses::CREATED],
@@ -132,6 +135,7 @@ class Raport extends ActiveRecordVersionable
             'airhumidity_start'=>"Влажность воздх. до",
             'airhumidity_end'=>"Влажность воздх. после",
             'brigade_guid'=>"Бригада",
+            'user_guid'=>'Бригадир',
             'object_guid'=>"Объект",
             'boundary_guid'=>"Округ",
             'project_guid'=>"Контракт",
@@ -178,7 +182,7 @@ class Raport extends ActiveRecordVersionable
             if($this->project_guid){
                 $m = Project::findOne(['guid'=>$this->project_guid]);
                 if(!isset($m->id)){
-                    $this->addError('project_guid',"Проект с таким guid отсутствует в базе");
+                    $this->addError('project_guid',"Project ".$this->project_guid." not exists on the site");
                     return false;
                 }
             }
@@ -186,7 +190,15 @@ class Raport extends ActiveRecordVersionable
             if($this->master_guid){
                 $m = User::findOne(['guid'=>$this->master_guid,'is_master'=>1]);
                 if(!isset($m->id)){
-                    $this->addError('master_guid',"Мастер с таким guid отсутствует в базе");
+                    $this->addError('master_guid',"Master ".$this->master_guid." not exists on the site");
+                    return false;
+                }
+            }
+
+            if($this->user_guid){
+                $u = User::findOne(['guid'=>$this->user_guid,'is_master'=>0]);
+                if(!isset($u->id)){
+                    $this->addError('user_guid',"User ".$this->user_guid." not exists on the site");
                     return false;
                 }
             }
@@ -272,6 +284,10 @@ class Raport extends ActiveRecordVersionable
         return $this->hasOne(User::className(),["guid"=>'master_guid']);
     }
 
+    public function getBrigadier(){
+        return $this->hasOne(User::className(),["guid"=>'user_guid']);
+    }
+
 
     public function getStatusTitle(){
         $title = RaportStatuses::getLabels($this->status);
@@ -302,14 +318,30 @@ class Raport extends ActiveRecordVersionable
     }
 
 
+
+
     public function getMaterials(){
         if($this->id){
-            return (new Query)->select(['rm.*','n.name as nomenclature_name'])->from(['rm'=>RaportMaterial::tableName()])
+
+            $result = (new Query)->select(['rm.*','n.name as nomenclature_name'])->from(['rm'=>RaportMaterial::tableName()])
                                 ->innerJoin(['n'=>Nomenclature::tableName()]," n.guid = rm.nomenclature_guid")
                                 ->where(['raport_id'=>$this->id])
                                 ->all();
+
+            $user = $this->brigadier;
+
+            if(!isset($user->id)){
+                return $result;
+            }
+            
+            // $user->unloadRemnantsFrom1C();
+            return $result;
         }else{
+        
+
            return $this->materials; 
+        
+
         }
     }
 
@@ -647,20 +679,17 @@ class Raport extends ActiveRecordVersionable
             
             $params['materials'] = (new Query)->select(['nomenclature_guid','spent as count'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
             
-            
             $user = Yii::$app->user->identity;
-            
-            $params['user_guid'] = $user->guid;
 
-            //$files = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
+            $files = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
 
-            // $minFiles = [];
-            // foreach ($files as $key => $f) {
-            //      $minFiles[$key]['type'] = $f['type'];
-            //      $minFiles[$key]['file_name'] = $f['file_name'];
-            //  } 
+            $minFiles = [];
+            foreach ($files as $key => $f) {
+                 $minFiles[$key]['type'] = $f['type'];
+                 $minFiles[$key]['file_name'] = $f['file_name'];
+             } 
 
-            //$params['files'] = $minFiles;
+            $params['files'] = $minFiles;
 
             $request = new Request([
                 'request'=>get_class($method),
@@ -669,7 +698,7 @@ class Raport extends ActiveRecordVersionable
                 'actor_id'=>$user->id
             ]);
 
-            //$params['files'] = $files;
+            $params['files'] = $files;
 
             $method->setParameters($params);
             if($request->save() && $request->send($method)){

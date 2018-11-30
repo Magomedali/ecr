@@ -40,9 +40,10 @@ class m181105_123340_raport extends Migration
 
             'brigade_guid' => $this->string(36)->notNull(),
             'object_guid' => $this->string(36)->notNull(),
-            'boundary_guid' => $this->string(36)->notNull(),
+            'boundary_guid' => $this->string(36)->null(),
             'project_guid' => $this->string(36)->notNull(),
             'master_guid'=>$this->string(36)->notNull(),
+            'user_guid'=>$this->string(36)->notNull(),
             'comment' => $this->text()->null(),
 
             'version_id'=>$this->integer()->null(),
@@ -70,9 +71,10 @@ class m181105_123340_raport extends Migration
 
             'brigade_guid' => $this->string(36)->notNull(),
             'object_guid' => $this->string(36)->notNull(),
-            'boundary_guid' => $this->string(36)->notNull(),
+            'boundary_guid' => $this->string(36)->null(),
             'project_guid' => $this->string(36)->notNull(),
             'master_guid'=>$this->string(36)->notNull(),
+            'user_guid'=>$this->string(36)->notNull(),
 
             'comment' => $this->text()->null(),
 
@@ -94,7 +96,7 @@ class m181105_123340_raport extends Migration
         $this->addForeignKey('fk-raport-boundary_guid',"{{%raport}}",'boundary_guid',"{{%boundary}}",'guid','CASCADE','CASCADE');
         $this->addForeignKey('fk-raport-project_guid',"{{%raport}}",'project_guid',"{{%project}}",'guid','CASCADE','CASCADE');
         $this->addForeignKey('fk-raport-master_guid',"{{%raport}}",'master_guid',"{{%user}}",'guid','CASCADE','CASCADE');
-
+        $this->addForeignKey('fk-raport-user_guid',"{{%raport}}",'user_guid',"{{%user}}",'guid','CASCADE','CASCADE');
     }
 
     /**
@@ -102,6 +104,7 @@ class m181105_123340_raport extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('fk-raport-user_guid',"{{%raport}}");
         $this->dropForeignKey('fk-raport-master_guid',"{{%raport}}");
         $this->dropForeignKey('fk-raport-brigade_guid',"{{%raport}}");
         $this->dropForeignKey('fk-raport-object_guid',"{{%raport}}");

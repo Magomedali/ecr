@@ -271,9 +271,9 @@
       <xsd:complexType name="RaportMaterial">
         <xsd:sequence>
           <xsd:element name="nomenclature_guid" type="xsd:string"/>
-          <xsd:element name="was" type="xsd:float"/>
+          <xsd:element name="was" type="xsd:float" nillable="true"/>
           <xsd:element name="spent" type="xsd:float"/>
-          <xsd:element name="rest" type="xsd:float"/>
+          <xsd:element name="rest" type="xsd:float" nillable="true"/>
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="RaportWork">
@@ -308,9 +308,10 @@
           <xsd:element name="airhumidity_end" type="xsd:float" nillable="true"/>
           <xsd:element name="brigade_guid" type="xsd:string"/>
           <xsd:element name="object_guid" type="xsd:string"/>
-          <xsd:element name="boundary_guid" type="xsd:string"/>
+          <xsd:element name="boundary_guid" type="xsd:string" nillable="true"/>
           <xsd:element name="project_guid" type="xsd:string"/>
           <xsd:element name="master_guid" type="xsd:string"/>
+          <xsd:element name="user_guid" type="xsd:string"/>
           <xsd:element name="comment" type="xsd:string" nillable="true"/>
           <xsd:element name="files" type="tns:RaportFile" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
           <xsd:element name="materials" type="tns:RaportMaterial" minOccurs="1" maxOccurs="unbounded"/>

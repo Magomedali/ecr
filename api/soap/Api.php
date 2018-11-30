@@ -581,7 +581,7 @@ class Api{
                 }
 
                 $responce->success = true;
-                $erros = json_encode($tablePartsErrors);
+                $erros = $tablePartsErrors;
             }
         }
 
@@ -658,7 +658,7 @@ class Api{
                     $responce->error = "ErrorInRelationData";
                     $responce->errorMessage = "Wrong data in the table data";
                     $responce->errorUserMessage = "Ошибка, при валидации даных в табличной части!";
-                    $responce->errorsExtend = json_encode($tablePartsErrors);
+                    $responce->errorsExtend = $tablePartsErrors;
                 }
                 
             }

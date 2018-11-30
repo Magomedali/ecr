@@ -99,6 +99,8 @@ $this->title = "Форма рапорта";
 											}?>
 
 											<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
+											
+											<?php echo $form->field($model,'user_guid')->hiddenInput(['value'=>$user->guid])->label(false);?>
 
 											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true,'class'=>'form-control input-sm']);?>
 

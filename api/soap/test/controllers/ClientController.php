@@ -516,6 +516,7 @@ class ClientController extends Controller
                 'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e",
                 'project_guid'=>"231ca414-3f28-11e8-8114-005056b47a2e",
                 'master_guid'=>"e9d9bbf7-5271-11e7-80ec-000c29a0432f",
+                'user_guid'=>"be2e6d76-2128-11e7-80e5-000c29a0432f",
                 'comment'=>"Тест",
                 'materials'=>[
                     [
@@ -584,6 +585,7 @@ class ClientController extends Controller
                 'boundary_guid'=>"eb59ee3e-a50c-11e8-811a-005056b47a2e",
                 'project_guid'=>"2d835e00-a6cd-11e8-811a-005056b47a2e",
                 'master_guid'=>"e9d9bbf7-5271-11e7-80ec-000c29a0432f",
+                'user_guid'=>"be2e6d76-2128-11e7-80e5-000c29a0432f",
                 'comment'=>"Тест",
                 'materials'=>[
                     [
@@ -626,7 +628,7 @@ class ClientController extends Controller
                 'consist'=>[
                     [
                         'technic_guid'=>'4300123d-c189-11e8-811d-005056b47a2e',
-                        'user_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
+                        'user_guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
                     ],
                     [
                         'technic_guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
@@ -641,5 +643,6 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 }

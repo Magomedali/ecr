@@ -109,6 +109,11 @@ class Raport  extends ApiModel
     */
     public $master_guid;
 
+    /**
+    * @var string
+    */
+    public $user_guid;
+
 	/**
     * @var string
     * @nillable

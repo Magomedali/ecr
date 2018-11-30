@@ -12,9 +12,9 @@ class RaportStatuses extends Dictionary{
 	const DELETED = 4;
 
 	protected static $labels = array(
-		self::CREATED=>"Создана",
+		self::CREATED=>"Создан",
 		self::IN_CONFIRMING=>"На подтверждении",
-		self::CONFIRMED=>"Подтвержден",
-		self::DELETED=>"На удалении",
+		self::CONFIRMED=>"Принят",
+		self::DELETED=>"Отклонен",
 	); 
 }
