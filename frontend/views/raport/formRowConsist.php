@@ -6,7 +6,6 @@ use common\widgets\autocomplete\AutoComplete;
 ?>
 
 <tr>
-	<td><?php echo $count+1; ?></td>
 	<td>
 	<?php 
 		echo AutoComplete::widget([

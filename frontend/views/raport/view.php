@@ -28,7 +28,11 @@ $ActualBrigadeRemnants = $model->materials;
 $RaportWorks = $model->works;
 $RaportFiles = $model->files;
 
-$this->title = "Рапорт";
+if($model->isWrongMaterials($ActualBrigadeRemnants)){
+	Yii::$app->session->setFlash("warning","В остатках недостаточное количество материалов!");
+}
+
+$this->title = "Рапорт " . $model->number;
 
 ?>
 <div class="row">
@@ -198,7 +202,6 @@ $this->title = "Рапорт";
 									<table id="tableConsist" class="table table-bordered table-hovered table-collapsed">
 										<thead>
 											<tr>
-												<td>#</td>
 												<td>Физ.лицо</td>
 												<td>Техника</td>
 												<td>КТУ</td>
@@ -209,7 +212,6 @@ $this->title = "Рапорт";
 												foreach ($BrigadeConsist as $key => $item) {
 											?>
 												<tr>
-													<td><?php echo 1+$key;?></td>
 													<td>
 														<p><?php echo $item['user_name'];?></p>
 													</td>
@@ -239,7 +241,6 @@ $this->title = "Рапорт";
 									<table id="tableWorks" class="table table-bordered table-hovered table-collapsed">
 										<thead>
 											<tr>
-												<td>#</td>
 												<td>Вид работы</td>
 												<td>Линия</td>
 												<td>Механизировання</td>
@@ -252,7 +253,6 @@ $this->title = "Рапорт";
 											<?php if(is_array($RaportWorks)){?>
 												<?php foreach ($RaportWorks as $key => $item) {?>
 												<tr>
-													<td><?php echo $key+1; ?></td>
 													<td>
 														<?php echo $item['work_name'];?>
 													</td>
@@ -286,7 +286,6 @@ $this->title = "Рапорт";
 									<table id="tableRemnants" class="table table-bordered table-hovered table-collapsed">
 										<thead>
 											<tr>
-												<td>#</td>
 												<td>Номенклатура</td>
 												<td>Израсходовано</td>
 											</tr>
@@ -296,8 +295,6 @@ $this->title = "Рапорт";
 												foreach ($ActualBrigadeRemnants as $key => $item) {
 											?>
 												<tr>
-													<td><?php echo 1+$key;?></td>
-
 													<td><?php echo $item['nomenclature_name'];?></td>
 													<td><?php echo $item['spent'];?></td>
 												</tr>

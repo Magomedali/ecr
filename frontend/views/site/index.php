@@ -10,8 +10,7 @@ $this->title = 'Мои рапорта';
 
 <div class="row" style="margin-top: 10px;">
 	<div class="col-md-12">
-		<?php 
-
+		<?php
             echo \yii\grid\GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $modelFilters,
@@ -19,8 +18,18 @@ $this->title = 'Мои рапорта';
                 'tableOptions'=>['class'=>'table table-striped table-bordered table-hover'],
                 'showFooter'=>false,
                 'summary'=> "",
+                'rowOptions'=>function($model){
+                    $ops = [];
+
+                    if($model->isWrongMaterials()){
+                        Yii::$app->session->setFlash("warning","В остатках недостаточное количество материалов!");
+                        $ops['class']='warning';
+                    }
+
+                    return $ops;
+                },
                 'columns'=>[
-                	['class'=>'yii\grid\SerialColumn'],
+                	// ['class'=>'yii\grid\SerialColumn'],
                     [
                         'attribute'=>"number",
                         "value"=>"number",
@@ -66,12 +75,12 @@ $this->title = 'Мои рапорта';
                         'buttons' =>
                         [
                             'view' => function ($url, $model) {
-                                return  Html::a('Посмотреть', Url::to(['/raport/view', 'id' => $model->id]), [
+                                return  Html::a('<i class="glyphicon glyphicon-eye-open"></i>', Url::to(['/raport/view', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Посмотреть')
                                 ]); 
                             },
                             'update' => function ($url, $model) {
-                                return $model->isCanUpdate ? Html::a('Изменить', Url::to(['/raport/form', 'id' => $model->id]), [
+                                return $model->isCanUpdate ? Html::a('<i class="glyphicon glyphicon-pencil"></i>', Url::to(['/raport/form', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Изменить')
                                 ]) : ""; 
                             }, 

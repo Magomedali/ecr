@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use yii\web\UploadedFile;
-
+use yii\helpers\ArrayHelper;
 use common\models\User;
 use common\models\Objects;
 use common\models\Brigade;
@@ -300,35 +300,75 @@ class Raport extends ActiveRecordVersionable
     }
 
 
+    
     public function getMaterialsErrors(){
         return $this->materialsErrors;
     }
 
+    
     public function getConsistErrors(){
         return $this->consistErrors;
     }
 
+    
     public function getWorksErrors(){
         return $this->worksErrors;
     }
 
 
+    
     public function getFilesErrors(){
         return $this->filesErrors;
     }
 
+
+    
+    public function isWrongMaterials($materials = null){
+        if(!$materials || !is_array($materials))
+            $materials = $this->getMaterials();
+
+
+        $hasError = false;
+
+        foreach ($materials as $item) {
+            if($item['was'] < $item['spent']){
+                $hasError = true;
+                break;
+            }
+        }
+
+        return $hasError;
+    }
 
 
 
     public function getMaterials(){
         if($this->id){
 
-            $result = (new Query)->select(['rm.*','n.name as nomenclature_name'])->from(['rm'=>RaportMaterial::tableName()])
+            $thisMs = (new Query)->select(['rm.*','n.name as nomenclature_name'])->from(['rm'=>RaportMaterial::tableName()])
                                 ->innerJoin(['n'=>Nomenclature::tableName()]," n.guid = rm.nomenclature_guid")
                                 ->where(['raport_id'=>$this->id])
-                                ->all();
-
+                                ->all(); 
+            
             $user = $this->brigadier;
+            if(!$this->isCanUpdate || !isset($user->id)){
+                return $thisMs;
+            }
+
+
+            //Выгрузка из 1С актуальных остатков и сохранение в бд
+            $user->unloadRemnantsFrom1C();
+            //Получаем из базы последние актуальные остатки
+            $remnants = $user->getRemnants();
+
+            $prevRaportMs = (new Query)->select(['r.id as raport_id','r.created_at','r.status','rm.nomenclature_guid','rm.spent'])->from(['r'=>self::tableName()])
+                            ->innerJoin(['rm'=>RaportMaterial::tableName()], "rm.raport_id = r.id")
+                            ->andFilterWhere(['<=','r.created_at',$this->created_at])
+                            ->andFilterWhere(['in','r.status',self::getUnconfirmedStatuses()])
+                            ->andFilterWhere(['<>','r.id',$this->id])
+                            ->all();
+
+            $prevRaportMs = ArrayHelper::index($prevRaportMs,null,['raport_id']);
 
 
             /**
@@ -336,25 +376,47 @@ class Raport extends ActiveRecordVersionable
             *   2) Вычесть расход из актуальных остатков
             *   3) Заменить текущий начальный остаток и вычесть расход
             **/
-            print_r($result);
-
-            print_r($user->getRemnants());
-            exit;
-
-            if(!isset($user->id)){
-                return $result;
-            }
+            $thisMs = ArrayHelper::index($thisMs,'nomenclature_guid');
             
-            // $user->unloadRemnantsFrom1C();
-            return $result;
+
+            //Обход материалов предыдущих рапортов
+            //Списываем из актуальных остатков расходы предыдущих рапортов
+            foreach ($prevRaportMs as $raport_id => $materials) {
+                foreach ($materials as $key => $material) {
+                    if(array_key_exists($material['nomenclature_guid'], $remnants)){
+                        $was = $remnants[$material['nomenclature_guid']]['was'];
+                        $was -=$material['spent'];
+                        $remnants[$material['nomenclature_guid']]['was'] = $was;
+                        $remnants[$material['nomenclature_guid']]['rest'] = $was;
+                    }
+                }
+            }
+
+
+            //Списываем из остатков материалы 
+            foreach ($thisMs as $nomenclature_guid => $item) {
+                if(array_key_exists($nomenclature_guid, $remnants)){
+                    $was = $remnants[$item['nomenclature_guid']]['was'];
+                    $rest = $was - $thisMs[$nomenclature_guid]['spent'];
+                    $remnants[$item['nomenclature_guid']]['spent'] = $thisMs[$nomenclature_guid]['spent'];
+                    $remnants[$item['nomenclature_guid']]['rest'] = $rest;
+                    $remnants[$item['nomenclature_guid']]['raport_id'] = $this->id;
+                }
+            }
+
+            return $remnants;
         }else{
-        
-
-           return $this->materials; 
-        
-
+           return $this->materials;
         }
     }
+
+
+
+
+
+
+
+
 
     public function getConsist(){
         if($this->id){
@@ -367,6 +429,11 @@ class Raport extends ActiveRecordVersionable
            return $this->consist; 
         }
     }
+
+
+
+
+
 
     public function getWorks(){
         if($this->id){
@@ -381,6 +448,8 @@ class Raport extends ActiveRecordVersionable
     }
 
 
+
+
     public function getFiles(){
         if($this->id){
             return RaportFile::find()->where(['raport_id'=>$this->id])->asArray()->all();
@@ -388,6 +457,9 @@ class Raport extends ActiveRecordVersionable
            return $this->files; 
         }
     }
+
+
+
 
 
     public function saveRelationEntities(){

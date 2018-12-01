@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Europe/Moscow');
+
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
@@ -14,6 +16,12 @@ $masters = User::find()->where(['is_master'=>true])->asArray()->all();
 if(!$hasErrors){
 	$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
 	$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
+
+	if(isset($model->id)){
+		if($model->isWrongMaterials($ActualBrigadeRemnants)){
+			Yii::$app->session->setFlash("warning","В остатках недостаточное количество материалов!");
+		}
+	}
 
 	$RaportWorks =isset($model->id) ? $model->works : [[
 		'work_guid'=>null,
@@ -102,7 +110,7 @@ $this->title = "Форма рапорта";
 											
 											<?php echo $form->field($model,'user_guid')->hiddenInput(['value'=>$user->guid])->label(false);?>
 
-											<?php echo $form->field($model,'created_at')->input("date",['value'=>date("Y-m-d"),'readonly'=>true,'class'=>'form-control input-sm']);?>
+											<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']);?>
 
 											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm']);?>
 
@@ -211,7 +219,6 @@ $this->title = "Форма рапорта";
 									<table id="tableConsist" class="table table-bordered table-hovered table-collapsed">
 										<thead>
 											<tr>
-												<td>#</td>
 												<td>Физ.лицо</td>
 												<td>Техника</td>
 												<td>КТУ</td>
@@ -223,7 +230,6 @@ $this->title = "Форма рапорта";
 												foreach ($BrigadeConsist as $key => $item) {
 											?>
 												<tr>
-													<td><?php echo 1+$key;?></td>
 													<td>
 													<?php 
 														
@@ -296,7 +302,6 @@ $this->title = "Форма рапорта";
 									<table id="tableWorks" class="table table-bordered table-hovered table-collapsed">
 										<thead>
 											<tr>
-												<td>#</td>
 												<td>Вид работы</td>
 												<td>Линия</td>
 												<td>Механизировання</td>
@@ -310,7 +315,6 @@ $this->title = "Форма рапорта";
 											<?php if(is_array($RaportWorks)){?>
 												<?php foreach ($RaportWorks as $key => $item) {?>
 												<tr>
-													<td><?php echo $key+1; ?></td>
 													<td>
 													<?php 
 														echo AutoComplete::widget([
@@ -373,7 +377,6 @@ $this->title = "Форма рапорта";
 									<table id="tableRemnants" class="table table-bordered table-hovered table-collapsed">
 										<thead>
 											<tr>
-												<td>#</td>
 												<td>Номенклатура</td>
 												<td>Начальный остаток</td>
 												<td>Израсходовано</td>
@@ -382,10 +385,11 @@ $this->title = "Форма рапорта";
 										</thead>
 										<tbody>
 											<?php if(is_array($ActualBrigadeRemnants)){
-												foreach ($ActualBrigadeRemnants as $key => $item) {
+												$key = 0;
+												foreach ($ActualBrigadeRemnants as $index => $item) {
+
 											?>
 												<tr>
-													<td><?php echo 1+$key;?></td>
 													<td>
 													<?php 
 														echo $item['nomenclature_name'];
@@ -410,6 +414,7 @@ $this->title = "Форма рапорта";
 													</td
 												</tr>
 											<?php
+												$key++;
 												}
 											}
 											?>
