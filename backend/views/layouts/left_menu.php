@@ -14,7 +14,7 @@ use yii\helpers\{Html,Url};
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Url::to(['/site/index'])?>"><i class="fa fa-gear fa-fw"></i>
+                    <a href="<?php echo Url::to(['/site/reset-password'])?>"><i class="fa fa-gear fa-fw"></i>
                         <?php echo \Yii::t('site', 'Сменить пароль')?>
                     </a>
                 </li>

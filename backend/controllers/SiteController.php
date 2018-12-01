@@ -2,11 +2,14 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use backend\models\LoginForm;
 use backend\models\ApiTest;
-use yii\filters\VerbFilter;
+use backend\modules\UserSearch;
+use backend\models\ResetPasswordForm;
+
 use common\models\User;
 
 /**
@@ -14,8 +17,6 @@ use common\models\User;
  */
 class SiteController extends Controller
 {   
-
-    public $layout = "main";
     
     /**
      * @inheritdoc
@@ -31,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','', 'index','view','test'],
+                        'actions' => ['index','reset-password'],
                         'allow' => true,
                         'roles' => ['superadmin','administrator'],
                     ],
@@ -69,8 +70,10 @@ class SiteController extends Controller
     public function actionIndex()
     {   
 
-        //$this->layout = "/sidebars/no_sidebar.php";
-        return $this->render('index');
+        $UserSearch = new UserSearch;
+        
+        $dataProvider = $UserSearch->search(Yii::$app->request->get());
+        return $this->render('index',['dataProvider'=>$dataProvider,'UserSearch'=>$UserSearch]);
     }
 
 
@@ -78,8 +81,6 @@ class SiteController extends Controller
 
     public function actionView()
     {   
-
-        //$this->layout = "/sidebars/no_sidebar.php";
         return $this->render('view');
     }
 
@@ -115,5 +116,28 @@ class SiteController extends Controller
     }
 
 
+
+
+    /**
+     * Resets password.
+     *
+     * @param string $token
+     * @return mixed
+     * @throws BadRequestHttpException
+     */
+    public function actionResetPassword()
+    {   
+        
+        $model = new ResetPasswordForm();
+        // Yii::$app->webservice1C;
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->session->setFlash('success', 'Пароль изменен');
+            return $this->goHome();
+        }
+
+        return $this->render('resetPassword', [
+            'model' => $model,
+        ]);
+    }
    
 }

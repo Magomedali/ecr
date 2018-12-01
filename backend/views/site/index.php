@@ -1,66 +1,51 @@
 <?php
 
-/* @var $this yii\web\View */
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\grid\GridView;
 
 $this->title = 'Бригадиры';
 ?>
+<?php
 
-<div class="row">
-	<div class="col-md-12">
-		<table class="table table-bordered table-collapsed table-hover">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Логин</th>
-					<th>Ф.И.О</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td><a href="/index.php?r=site/view">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="/index.php?r=site/view">Подробнее</a></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="/index.php?r=site/view">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="/index.php?r=site/view">Подробнее</a></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="#">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="#">Подробнее</a></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="#">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="#">Подробнее</a></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="#">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="#">Подробнее</a></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="#">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="#">Подробнее</a></td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td><a href="#">IvanovIvan</a></td>
-					<td>Иванов Иван</td>
-					<td><a href="#">Подробнее</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
+	echo GridView::widget([
+			'dataProvider'=>$dataProvider,
+			'filterModel'=>$UserSearch,
+			'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
+			'tableOptions' => [
+            	'id'=>'brigadiers','class'=>'table table-striped table-bordered'
+        	],
+        	'summary'=>'',
+			'columns'=>[
+				['class'=>'yii\grid\SerialColumn'],
+				[
+					'attribute'=>'login',
+					'value'=>function ($m) {
+                        return $m['login'];
+                    }
+				],
+				[
+					'attribute'=>'name',
+					'value'=>function ($m) {
+                        return $m['name'];
+                    }
+				],
+				[
+					'attribute'=>'ktu',
+					'value'=>function ($m) {
+                        return $m['ktu'];
+                    }
+				],
+				['class' => 'yii\grid\ActionColumn',
+                    'template' => '{view}',
+                    'buttons' =>[
+	                        'view' => function ($url, $model) {
+	                            return  Html::a('<i class="glyphicon glyphicon-eye-open"></i>', Url::to(['/user/view', 'id' => $model['id']]),['title' => Yii::t('yii', 'Подробнее')]); 
+	                        } 
+	                    ]
+                ]
+			],
+	]);
+?>
+
 

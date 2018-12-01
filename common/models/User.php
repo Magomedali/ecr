@@ -72,7 +72,18 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
-
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels(){
+        return array(
+            'id'=>'Id',
+            'guid'=>'Идентификатор в 1С',
+            'name'=>'Ф.И.О',
+            'login'=>'Логин',
+            'ktu'=>'КТУ'
+        );
+    }
 
     public function load($data, $formName = null){
         
@@ -310,11 +321,6 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
-
-
-
-
-
     public function getBrigadeConsist(){
 
         if(!$this->brigade_guid || !$this->id) return false;
@@ -508,8 +514,10 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
-
-    public function getActualBrigadeRemnants(){
+    /**
+    * @param $calcPrev - параметр указывающий нужно ли списывать материалы не принятых рапортов 
+    **/
+    public function getActualBrigadeRemnants($calcPrev = true){
         if(!$this->guid || !$this->id || !$this->brigade_guid) return false;
 
         //Загрузим сначала из 1С;
@@ -517,6 +525,7 @@ class User extends ActiveRecord implements IdentityInterface
         
         $remnants = $this->getRemnants();
 
+        if(!$calcPrev) return $remnants;
 
         $prev = (new Query())->select(['r.id as raport_id','status','rm.nomenclature_guid','rm.spent'])->from(['r'=>Raport::tableName()])
                 ->innerJoin(['rm'=>RaportMaterial::tableName()], "rm.raport_id = r.id")
@@ -544,13 +553,9 @@ class User extends ActiveRecord implements IdentityInterface
             }
         }
 
-        $actuals = [];
-        foreach($remnants as $key => $item){
-            $actuals[]=$item;
-        }
 
 
-        return $actuals;
+        return $remnants;
     }
 
 

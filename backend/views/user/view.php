@@ -1,21 +1,116 @@
 <?php
+
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\GridView;
 use common\dictionaries\RaportStatuses;
+use yii\bootstrap\ActiveForm;
 
-/* @var $this yii\web\View */
 
-$this->title = 'Мои рапорта';
+
+$this->title = 'Бригадир: '.$model->name;
+
+
+$brigadeConsist = $model->brigadeConsist;
+$actualBrigadeRemnants = $model->getActualBrigadeRemnants(false);
+
 ?>
 
+<div class="row">
+	<div class="col-md-4">
+		<h3>Данные:</h3>
+		<?php $form = ActiveForm::begin(['action'=>['user/change-user-password']])?>
+		<table class="table table-bordered table-collapsed table-hover">
+			<tbody>
+				<tr>
+					<td><strong><?php echo $model->getAttributeLabel('login');?></strong></td>
+					<td><?php echo $model['login'];?></td>
+				</tr>
+				<tr>
+					<td><strong><?php echo $model->getAttributeLabel('name');?></strong></td>
+					<td><?php echo $model['name'];?></td>
+				</tr>
+				<tr>
+					<td><strong><?php echo $model->getAttributeLabel('ktu');?></strong></td>
+					<td><?php echo $model['ktu'];?></td>
+				</tr>
+				<tr>
+					<td>
+						<?php echo $form->field($changePassModel,'password')->passwordInput()->label(false);?>
+						<?php echo $form->field($changePassModel,'user_id')->hiddenInput(['value'=>$model['id']])->label(false);?>
+					</td>
+					<td>
+						<?php echo Html::submitButton("Сменить пароль бригадира",['class'=>'btn btn-primary','data-confirm'=>"Подтвердите ваши действия!"]);?>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<?php ActiveForm::end();?>
+	</div>
+	<div class="col-md-4">
+		<h3>Состав бригады:</h3>
+		<table class="table table-bordered table-collapsed table-hover">
+			<thead>
+				<tr>
+					<th>Ф.И.О</th>
+					<th>Техника</th>
+					<th>КТУ</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+					if(is_array($brigadeConsist)){
+						foreach ($brigadeConsist as $key => $item) {
+				?>
+					<tr>
+						<td><?php echo $item['user_name'];?></td>
+						<td><?php echo $item['technic_name'];?></td>
+						<td><?php echo $item['user_ktu'];?></td>
+					</tr>
+				<?php
+						}
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-md-4">
+		<h3>Остатки:</h3>
+		<table class="table table-bordered table-collapsed table-hover">
+			<thead>
+				<tr>
+					<th>Номенклатура</th>
+					<th>Количество</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+					if(is_array($actualBrigadeRemnants)){
+						foreach ($actualBrigadeRemnants as $key => $item) {
+				?>
+					<tr>
+						<td><?php echo $item['nomenclature_name'];?></td>
+						<td><?php echo $item['was'];?></td>
+					</tr>
+				<?php
+						}
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-md-5">
+		<h3>Рапорты бригадира:</h3>
+	</div>
+</div>
 <div class="row" style="margin-top: 10px;">
 	<div class="col-md-12">
 		<?php
             echo \yii\grid\GridView::widget([
                 'dataProvider' => $dataProvider,
-                'filterModel' => $modelFilters,
+                'filterModel' => $RaportFilter,
                 'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
                 'tableOptions'=>['class'=>'table table-striped table-bordered table-hover'],
                 'showFooter'=>false,
@@ -24,13 +119,6 @@ $this->title = 'Мои рапорта';
                     $ops = [];
 
                     $ops['class']=array_key_exists($model->status, RaportStatuses::$notification) ? RaportStatuses::$notification[$model->status] : "";
-
-                    if($model->isWrongMaterials()){
-                        Yii::$app->session->setFlash("warning","В остатках недостаточное количество материалов!");
-                        $ops['class']='warning';
-                    }
-
-
 
                     return $ops;
                 },
@@ -45,7 +133,7 @@ $this->title = 'Мои рапорта';
                         'value'=>function($m){
                         	return date("d.m.Y",strtotime($m['created_at']));
                         },
-                        'filter'=>Html::dropDownList("RaportFilter[month]",$modelFilters->month,$modelFilters::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
+                        'filter'=>Html::dropDownList("RaportFilter[month]",$RaportFilter->month,$RaportFilter::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
                     ],
                     [
                         'attribute'=>"object_guid",
@@ -74,6 +162,7 @@ $this->title = 'Мои рапорта';
                         'value'=>function($m){
                         	return $m->statusTitle;
                         },
+                        'format'=>'raw'
                     ],
                   
                     ['class' => 'yii\grid\ActionColumn',
@@ -97,3 +186,4 @@ $this->title = 'Мои рапорта';
         ?>
 	</div>
 </div>
+

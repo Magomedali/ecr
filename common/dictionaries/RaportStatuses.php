@@ -17,4 +17,13 @@ class RaportStatuses extends Dictionary{
 		self::CONFIRMED=>"Принят",
 		self::DELETED=>"Отклонен",
 	); 
+
+
+
+	public static $notification = array(
+		self::CREATED=>"default",
+		self::IN_CONFIRMING=>"info",
+		self::CONFIRMED=>"success",
+		self::DELETED=>"error",
+	); 
 }

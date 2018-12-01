@@ -73,16 +73,16 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {   
-        
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
+        $user = Yii::$app->user->identity;
+        if(!$user->brigade_guid){
             Yii::$app->user->logout();
             return $this->goHome();
         }
 
         $modelFilters = new RaportFilter;
         $params = Yii::$app->request->queryParams;
-        $params['RaportFilter']['brigade_guid']=$brigade_guid;
+        $params['RaportFilter']['brigade_guid']=$user->brigade_guid;
+        $params['RaportFilter']['user_guid']=$user->guid;
         $dataProvider = $modelFilters->filter($params);
         return $this->render('index',array('dataProvider'=>$dataProvider,'modelFilters'=>$modelFilters));
 

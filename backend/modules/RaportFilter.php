@@ -1,11 +1,13 @@
 <?php
 
-namespace frontend\modules;
+namespace backend\modules;
 
 use yii\data\Pagination;
 use yii\db\Query;
-use common\models\Raport;
 use yii\data\ActiveDataProvider;
+
+
+use common\models\Raport;
 
 class RaportFilter extends Raport
 {
@@ -14,7 +16,7 @@ class RaportFilter extends Raport
      */
     public $month;
 
-    public $page_size = 5;
+    public $page_size = 10;
 
     /**
      * Правила валидации модели
@@ -73,7 +75,7 @@ class RaportFilter extends Raport
      */
     public function filter($params)
     {   
-        $query = RaportFilter::find();
+        $query = self::find();
 
 
         /**
