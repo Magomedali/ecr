@@ -42,15 +42,15 @@
 		.pipeline > div{
 			float: left;
 			width: 25%;
-    		height: 55px;
+			font-size: 10px;
 		}
 
 			.pipeline > div:after {
 			    border: none;
-			    height: 22px;
-			    width: 22px;
+			    height: 34px;
+			    width: 34px;
 			    top: 0px;
-			    right: -15px;
+			    right: -10px;
 			    transform: rotate(0.125turn);
 			    z-index: 20;
 			    background: blue;
@@ -71,6 +71,6 @@
 		}
 
 			ul.nav.nav-tabs.vertical-tablet li a{
-				padding: 9px 14px;
+				padding: 7px 10px;
 			}
 }
