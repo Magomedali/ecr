@@ -136,7 +136,7 @@ class RaportController extends Controller{
         if(isset($post['Raport']) && isset($post['password'])){
 
             
-            if($model->load($post)){
+            if($post['password'] && $model->load($post)){
                 $password = trim(strip_tags($post['password']));
                 if(!Yii::$app->user->identity->validatePassword($password)){
                     Yii::$app->session->setFlash("error","Введен неправильный пароль!");

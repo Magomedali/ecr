@@ -1,11 +1,10 @@
 <?php
 
-date_default_timezone_set('Europe/Moscow');
-
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Modal;
 use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
 use common\models\RaportWork;
@@ -15,7 +14,8 @@ $masters = User::find()->where(['is_master'=>true])->asArray()->all();
 
 if(!$hasErrors){
 	$BrigadeConsist = !isset($model->id) ? $user->brigadeConsist : $model->consist;
-	$ActualBrigadeRemnants =!isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
+	$ActualBrigadeRemnants = !isset($model->id) ? $user->actualBrigadeRemnants : $model->materials;
+	
 
 	if(isset($model->id)){
 		if($model->isWrongMaterials($ActualBrigadeRemnants)){
@@ -102,23 +102,21 @@ $this->title = "Форма рапорта";
 												]);
 											?>
 											
-											<?php if(isset($model->id)){
-												echo Html::hiddenInput('model_id',$model->id);
-											}?>
+											<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
 
-											<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false);?>
+											<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false); ?>
 											
-											<?php echo $form->field($model,'user_guid')->hiddenInput(['value'=>$user->guid])->label(false);?>
+											<?php echo $form->field($model,'user_guid')->hiddenInput(['value'=>$user->guid])->label(false); ?>
 
-											<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']);?>
+											<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
 
-											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm']);?>
+											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm']); ?>
 
 											<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm']);?>
 										</div>
 										<div class="col-md-6 object_form">
 											<div class="row">
-												<div class="col-md-12">
+												<div class="col-md-12 object_autocomplete">
 													<?php 
 														echo AutoComplete::widget([
 															'data'=>[],
@@ -159,20 +157,10 @@ $this->title = "Форма рапорта";
 												</div>
 												<div class="col-md-12">
 													<label>Округ</label>
-													<?php echo Html::textInput("Raport[boundary_name]",$boundary_name,['class'=>'form-control input-sm input_boundary_name isRequired','readonly'=>true]);?>
+													<?php echo Html::textInput("Raport[boundary_name]",$boundary_name,['class'=>'form-control input-sm input_boundary_name','readonly'=>true]);?>
 
 													
-													<?php echo $form->field($model,'boundary_guid')->hiddenInput(['class'=>'isRequired'])->label(false);?>
-												</div>
-												<div class="col-md-12">
-													<div class="form-group <?php echo $inValidPassword ? 'has-error' :'';?>">
-														<label>Пароль</label>
-														<?php echo Html::input('password',"password",null,['class'=>"form-control input-sm input_password isRequired <?php echo $inValidPassword ? 'fieldHasError' :'';?>"]);?>
-														<?php if($inValidPassword){?>
-															<p class="help-block help-block-error">Неправильный пароль</p>
-														<?php } ?>
-													</div>
-													
+													<?php echo $form->field($model,'boundary_guid')->hiddenInput()->label(false);?>
 												</div>
 											</div>
 										</div>
@@ -404,7 +392,7 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'],['class'=>'form-control input-sm spent_input isRequired','min'=>0,'max'=>$item['was']]);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'],['class'=>'form-control input-sm spent_input','min'=>0,'max'=>$item['was']]);
 													?>
 													</td>
 													<td>
@@ -432,7 +420,7 @@ $this->title = "Форма рапорта";
 							    <li class="prev_tab" style="display: none;"><a>Назад</a></li>
 							    <li class="next_tab"><a>Далее</a></li>
 							    <li class="submit" style="display: none;">
-									<?php echo Html::submitButton("Сохранить",['class'=>'btn btn-primary','id'=>'btnRaportFormSubmit']);?>
+									<?php echo Html::a("Сохранить",null,['id'=>'btnRaportFormSubmit']);?>
 							    </li>
 							  </ul>
 							</nav>
@@ -442,17 +430,53 @@ $this->title = "Форма рапорта";
 		</div>
 	</div>
 </div>
+<?php
+	Modal::begin([
+			'header'=>"<h4>Введите пароль от учетной записи</h4>",
+			'id'=>'modalPassword'
+		]);
+	?>
+	<div id="modalContent">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group <?php echo $inValidPassword ? 'has-error' :'';?>">
+					<label>Пароль</label>
+					<?php echo Html::input('password',"password",null,['class'=>"form-control input-sm input_password <?php echo $inValidPassword ? 'fieldHasError' :'';?>",'required'=>true,'id'=>'input_password','autocomplete'=>'off']);?>
+					<?php if($inValidPassword){?>
+						<p class="help-block help-block-error">Неправильный пароль</p>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<?php echo Html::submitButton("Сохранить",['class'=>'btn btn-primary','id'=>'btnRaportFormSubmitPassword']);?>
+			</div>
+		</div>
+	</div>
+<?php	Modal::end(); ?>
+
+
 <?php ActiveForm::end();?>
 
 <?php 
 
 $script = <<<JS
-	
+
 	var requiredFields = [
 		"input.autocomplete_required",
 		"input.isRequired"
 	];
 
+	var validatePassword = function(){
+
+		var i = $("#input_password");
+		if(!i.length) return false;
+
+		if(i.val().length < 6) return false;
+
+		return true;
+	}
 
 	var validateRaportForm = function(){
 
@@ -500,11 +524,20 @@ $script = <<<JS
 	}
 
 
-	
+
+
+	$("#btnRaportFormSubmit").click(function(event){
+		event.preventDefault();
+		if(validateRaportForm()){
+			$("#modalPassword").modal('show');
+		}
+		
+	});
+
 
 	//form submit
 	$("form#raportForm").submit(function(event){
-		if(!validateRaportForm()){
+		if(!validateRaportForm() || !validatePassword()){
 			event.preventDefault();
 		}
 	});
@@ -568,11 +601,14 @@ $script = <<<JS
 	});
 
 
+
 	$("div.pipeline > div").hover(function(){
 		$(this).addClass("hover");
 	},function(){
 		$(this).removeClass("hover");
 	});
+
+
 
 	$("div.pipeline > div").click(function(){
 		var i = $(this).index();
@@ -683,7 +719,7 @@ $script = <<<JS
 		var count = tr.find("td.td_count input").val();
 		var length = tr.find("td.td_length input").val();
 		
-		if(!line_guid || !count || !length) return;
+		if(!line_guid || !length) return;
 
 		$.ajax({
 			url:"index.php?r=autocomplete/calcsquare",
@@ -717,17 +753,27 @@ $script = <<<JS
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
+	
 	//Расчет кв м
 	$("body").on("keyup",".td_length input,.td_count input",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
+
 	//Расчет кв м
 	$("body").on("click",".td_line_guid .autocomplete_items li",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
 
+
+
+	//Открываем список проектов при выборе объекта
+	$("body").on("click",".object_autocomplete ul.autocomplete_items li",function(){
+		var project_at = $(".autocomplete__widget_block input[name='Raport[project_name]']");
+		if(project_at.length)
+			project_at.focus();
+	})
 
 JS;
 

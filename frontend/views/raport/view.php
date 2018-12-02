@@ -39,7 +39,7 @@ $this->title = "Рапорт " . $model->number;
 	<div class="col-md-12">
 		<div class="row">
 				<div class="col-md-12">
-					<ul class="nav nav-tabs">	
+					<ul class="nav nav-tabs vertical-tablet">	
 					  <li class="active"><a data-toggle="tab" href="#base">Основное</a></li>
 					  <li><a data-toggle="tab" href="#consist">Состав бригады</a></li>
 					  <li><a data-toggle="tab" href="#works">Характеристики работ</a></li>
@@ -238,7 +238,7 @@ $this->title = "Рапорт " . $model->number;
 							<h3>Характеристики работ</h3>
 							<div class="row">
 								<div class="col-md-12">
-									<table id="tableWorks" class="table table-bordered table-hovered table-collapsed">
+									<table id="tableWorks" class="table table-bordered table-hovered table-collapsed vertical-table">
 										<thead>
 											<tr>
 												<td>Вид работы</td>
@@ -313,9 +313,9 @@ $this->title = "Рапорт " . $model->number;
 						<!-- Файлы -->
 						<div id="files" class="tab-pane fade in">
 							<h3>Файлы</h3>
-							<div class="row">
+							<div class="row formAddFiles">
 								<?php $form = ActiveForm::begin(['action'=>['raport/add-files'],'options'=>['enctype'=>'multipart/form-data']])?>
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<?php 
 										echo Html::fileInput("files[]",null,['multiple'=>true]);
 										echo Html::hiddenInput('model_id',$model->id);

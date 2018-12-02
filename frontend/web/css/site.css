@@ -87,6 +87,7 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
             font-weight: bold;
             padding: 10px 0px;
             font-family: arial;
+            z-index: 25;
         }
 
         .pipeline > div > a.hasError{
@@ -117,6 +118,7 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
             right: -8px;
             color: #e21814;
             font-size: 20px;
+            z-index: 200;
         }
 
         .pipeline > div:after{

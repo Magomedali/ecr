@@ -18,8 +18,12 @@ class DaemonController extends Controller {
  
     public function actionIndex() {
         echo "Yes, cron service is running.";
+        Yii::info("Yes, cron service is running.",'cron');
     }
- 
+  
+
+
+    
     public function actionResend() {
       // called every two minutes
       // */2 * * * * ~/sites/www/yii2/yii test

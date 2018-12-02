@@ -4971,3 +4971,635 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1543655971.722
     'REQUEST_TIME' => 1543655971
 ]
+2018-12-01 12:54:16 [127.0.0.1][7][-][warning][api] {"return":{"success":true,"error":null}}
+    in D:\usr\www\ecr\common\models\Request.php:186
+    in D:\usr\www\ecr\frontend\models\ResetPasswordForm.php:108
+    in D:\usr\www\ecr\frontend\controllers\SiteController.php:149
+2018-12-01 12:54:14 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'site/reset-password'
+]
+
+$_POST = [
+    '_csrf' => '8lLG2RqXbt5qXtXpx4473j786y_PM3w-fWYNCrSw3ZzEJZXrdvwjqigKvo-P70mVB6rcf_x3Glk-J3ty7f7s-g=='
+    'ResetPasswordForm' => [
+        'old_password' => '123456789'
+        'password' => '123456'
+        'confirm_password' => '123456'
+    ]
+    'password-reset-button' => ''
+]
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'PHPSESSID' => 'sph0cg4dblkuu6i7jj0npcmhas'
+    'ecr-frontend' => 'fbr50jira04l5krni7mkmcjnrj'
+    '_identity-ecr-frontend' => 'fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    '_csrf' => '26cef4650fbea8e63b7aa7a8248de58cbfbce69a21358c8ccc6c06140e737d4aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6wS2lkMtBTkfHarK9V7P3DfgCAvxYN1f\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/index.php'
+    '__id' => 7
+    'success' => 'Пароль изменен'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '253'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://ecr:8081'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Freset-password'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; PHPSESSID=sph0cg4dblkuu6i7jj0npcmhas; ecr-frontend=fbr50jira04l5krni7mkmcjnrj; _identity-ecr-frontend=fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; _csrf=26cef4650fbea8e63b7aa7a8248de58cbfbce69a21358c8ccc6c06140e737d4aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226wS2lkMtBTkfHarK9V7P3DfgCAvxYN1f%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '35259'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Freset-password'
+    'REQUEST_URI' => '/index.php?r=site%2Freset-password'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543668854.543
+    'REQUEST_TIME' => 1543668854
+]
+2018-12-02 13:26:14 [127.0.0.1][7][-][warning][api] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u042d\u043c\u0430\u043b\u044c, \u0446\u0432\u0435\u0442 \u0431\u0435\u043b\u044b\u0439 (\u0410\u041a-511)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+    in D:\usr\www\ecr\common\models\Request.php:186
+    in D:\usr\www\ecr\common\models\Raport.php:786
+    in D:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-12-02 13:26:10 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = [
+    '_csrf' => 'geoP9MKPEreI0OFmrVIQY_3C22_H9upLwQhE4at3_TTjoVyS9_9h3MaChVGbJWIbmpS5XPCQhx-ybAOF-SHJBA=='
+    'Raport' => [
+        'master_guid' => 'e9d9bbf7-5271-11e7-80ec-000c29a0432f'
+        'master_name' => 'Акопян Вираб Робертович'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30T18:40:19'
+        'starttime' => '17:40:19'
+        'endtime' => '18:40:19'
+        'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+        'object_name' => 'МКАД Внутренняя сторона км 26- км 27'
+        'project_guid' => '2d835e00-a6cd-11e8-811a-005056b47a2e'
+        'project_name' => 'Помощь МАДИ-Практик'
+        'boundary_name' => 'МКАД'
+        'boundary_guid' => 'eb59ee3e-a50c-11e8-811a-005056b47a2e'
+        'temperature_start' => '10.1'
+        'surface_temperature_start' => '10.2'
+        'airhumidity_start' => '10.1'
+        'temperature_end' => '10.3'
+        'surface_temperature_end' => '10.5'
+        'airhumidity_end' => '2.2'
+        'comment' => 'Тест'
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '2'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.9'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'mechanized' => '1'
+            'length' => '10'
+            'count' => '2.3'
+            'squaremeter' => '222.2'
+        ]
+        1 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '30'
+            'count' => '2.3'
+            'squaremeter' => '222.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '29'
+            'spent' => '30'
+            'rest' => '-1'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '106'
+            'spent' => '2'
+            'rest' => '104'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1008'
+            'spent' => '3'
+            'rest' => '1005'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13698'
+            'spent' => '4'
+            'rest' => '13694'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '1'
+            'rest' => '588'
+        ]
+    ]
+    'password' => '123456'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    '_identity-ecr-frontend' => 'fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'tslhmnp9ij82thh32r9rbrsame'
+    '_csrf' => '66ee107ea31562f6bba36e94149c3d580f2a8d7f988b43882f41aede562d20b0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bKSf5pskNRd76wrxgVb37fmTsdGdRV40\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10728'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://ecr:8081'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryf1wAzyuHGgtC3FjU'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; _identity-ecr-frontend=fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=tslhmnp9ij82thh32r9rbrsame; _csrf=66ee107ea31562f6bba36e94149c3d580f2a8d7f988b43882f41aede562d20b0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bKSf5pskNRd76wrxgVb37fmTsdGdRV40%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '16283'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543757170.708
+    'REQUEST_TIME' => 1543757170
+]
+2018-12-02 13:26:57 [127.0.0.1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009109","guid":"6bd56edd-f543-11e8-8138-005056b47a2e"}}
+    in D:\usr\www\ecr\common\models\Request.php:186
+    in D:\usr\www\ecr\common\models\Raport.php:786
+    in D:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-12-02 13:26:44 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = [
+    '_csrf' => 'UR2nlmZ9ZPqcmmBFw2zmaAo_ne2hhpEktem7PXaoVsYzVvTwUw0XkdLIBHL1G5QQbWn_3pbg_HDGjfxZJP5i9g=='
+    'Raport' => [
+        'master_guid' => 'e9d9bbf7-5271-11e7-80ec-000c29a0432f'
+        'master_name' => 'Акопян Вираб Робертович'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30T18:40:19'
+        'starttime' => '17:40:19'
+        'endtime' => '18:40:19'
+        'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+        'object_name' => 'МКАД Внутренняя сторона км 26- км 27'
+        'project_guid' => '2d835e00-a6cd-11e8-811a-005056b47a2e'
+        'project_name' => 'Помощь МАДИ-Практик'
+        'boundary_name' => 'МКАД'
+        'boundary_guid' => 'eb59ee3e-a50c-11e8-811a-005056b47a2e'
+        'temperature_start' => '10.1'
+        'surface_temperature_start' => '10.2'
+        'airhumidity_start' => '10.1'
+        'temperature_end' => '10.3'
+        'surface_temperature_end' => '10.5'
+        'airhumidity_end' => '2.2'
+        'comment' => 'Тест'
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '2'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.9'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'mechanized' => '1'
+            'length' => '10'
+            'count' => '2.3'
+            'squaremeter' => '222.2'
+        ]
+        1 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '30'
+            'count' => '2.3'
+            'squaremeter' => '222.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '29'
+            'spent' => '21'
+            'rest' => '8'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '106'
+            'spent' => '2'
+            'rest' => '104'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1008'
+            'spent' => '3'
+            'rest' => '1005'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13698'
+            'spent' => '4'
+            'rest' => '13694'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '1'
+            'rest' => '588'
+        ]
+    ]
+    'password' => '123456'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    '_identity-ecr-frontend' => 'fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'tslhmnp9ij82thh32r9rbrsame'
+    '_csrf' => '66ee107ea31562f6bba36e94149c3d580f2a8d7f988b43882f41aede562d20b0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bKSf5pskNRd76wrxgVb37fmTsdGdRV40\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10727'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://ecr:8081'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundaryA5EO7GoiX64yhocs'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; _identity-ecr-frontend=fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=tslhmnp9ij82thh32r9rbrsame; _csrf=66ee107ea31562f6bba36e94149c3d580f2a8d7f988b43882f41aede562d20b0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bKSf5pskNRd76wrxgVb37fmTsdGdRV40%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '16348'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543757204.075
+    'REQUEST_TIME' => 1543757204
+]
+2018-12-02 13:27:09 [127.0.0.1][7][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009109","guid":"6bd56edd-f543-11e8-8138-005056b47a2e"}}
+    in D:\usr\www\ecr\common\models\Request.php:186
+    in D:\usr\www\ecr\common\models\Raport.php:786
+    in D:\usr\www\ecr\frontend\controllers\RaportController.php:156
+2018-12-02 13:26:44 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = [
+    '_csrf' => 'UR2nlmZ9ZPqcmmBFw2zmaAo_ne2hhpEktem7PXaoVsYzVvTwUw0XkdLIBHL1G5QQbWn_3pbg_HDGjfxZJP5i9g=='
+    'Raport' => [
+        'master_guid' => 'e9d9bbf7-5271-11e7-80ec-000c29a0432f'
+        'master_name' => 'Акопян Вираб Робертович'
+        'brigade_guid' => 'c6fb11c4-3476-418b-85cc-299e34ad58c4'
+        'user_guid' => 'be2e6d76-2128-11e7-80e5-000c29a0432f'
+        'created_at' => '2018-11-30T18:40:19'
+        'starttime' => '17:40:19'
+        'endtime' => '18:40:19'
+        'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+        'object_name' => 'МКАД Внутренняя сторона км 26- км 27'
+        'project_guid' => '2d835e00-a6cd-11e8-811a-005056b47a2e'
+        'project_name' => 'Помощь МАДИ-Практик'
+        'boundary_name' => 'МКАД'
+        'boundary_guid' => 'eb59ee3e-a50c-11e8-811a-005056b47a2e'
+        'temperature_start' => '10.1'
+        'surface_temperature_start' => '10.2'
+        'airhumidity_start' => '10.1'
+        'temperature_end' => '10.3'
+        'surface_temperature_end' => '10.5'
+        'airhumidity_end' => '2.2'
+        'comment' => 'Тест'
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'model_id' => '2'
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => '4eed6dd1-28b6-11e7-80e9-000c29a0432f'
+            'user_name' => 'Джалолов Сухроб Рустамович'
+            'technic_guid' => 'baf1abf2-cd5c-11e8-8122-005056b47a2e'
+            'technic_name' => 'о004хх77 audi'
+            'user_ktu' => '0.9'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'mechanized' => '1'
+            'length' => '10'
+            'count' => '2.3'
+            'squaremeter' => '222.2'
+        ]
+        1 => [
+            'work_guid' => '1cd95cf7-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Закраска разметки'
+            'line_guid' => '5590841e-64c6-4f45-aa81-0f3da62e0ff6'
+            'line_name' => '1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый'
+            'length' => '30'
+            'count' => '2.3'
+            'squaremeter' => '222.2'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Остаток 1'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '29'
+            'spent' => '21'
+            'rest' => '8'
+        ]
+        1 => [
+            'nomenclature_name' => 'Остаток 2'
+            'nomenclature_guid' => '6c5af50b-1676-11e8-8112-005056b47a2e'
+            'was' => '106'
+            'spent' => '2'
+            'rest' => '104'
+        ]
+        2 => [
+            'nomenclature_name' => 'Остаток 3'
+            'nomenclature_guid' => 'ab1d222a-1676-11e8-8112-005056b47a2e'
+            'was' => '1008'
+            'spent' => '3'
+            'rest' => '1005'
+        ]
+        3 => [
+            'nomenclature_name' => 'Остаток 4'
+            'nomenclature_guid' => 'f38a408c-9ba9-11e8-811a-005056b47a2e'
+            'was' => '13698'
+            'spent' => '4'
+            'rest' => '13694'
+        ]
+        4 => [
+            'nomenclature_name' => 'Остаток 5'
+            'nomenclature_guid' => '39ca8e0b-a096-11e8-811a-005056b47a2e'
+            'was' => '589'
+            'spent' => '1'
+            'rest' => '588'
+        ]
+    ]
+    'password' => '123456'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    '_identity-ecr-frontend' => 'fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'tslhmnp9ij82thh32r9rbrsame'
+    '_csrf' => '66ee107ea31562f6bba36e94149c3d580f2a8d7f988b43882f41aede562d20b0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bKSf5pskNRd76wrxgVb37fmTsdGdRV40\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__id' => 7
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '10727'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://ecr:8081'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary5AWBdfIkDRA2xSqN'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; _identity-ecr-frontend=fb64f254bc448605ec33ac780d780895161a094e821d7fa859da462b0c20dbc6a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=tslhmnp9ij82thh32r9rbrsame; _csrf=66ee107ea31562f6bba36e94149c3d580f2a8d7f988b43882f41aede562d20b0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bKSf5pskNRd76wrxgVb37fmTsdGdRV40%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php72;D:\\usr\\php72\\ext;D:\\usr\\php71;D:\\usr\\php71\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '16349'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543757204.084
+    'REQUEST_TIME' => 1543757204
+]

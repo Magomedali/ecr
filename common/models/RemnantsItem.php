@@ -30,7 +30,6 @@ class RemnantsItem extends ActiveRecord
 
 	public function rules(){
 		return [
-            
             [['package_id','nomenclature_guid','count'], 'required'],
             ['package_id','integer'],
             [['count'],'number'],

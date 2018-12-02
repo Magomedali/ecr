@@ -222,11 +222,6 @@ class Raport extends ActiveRecordVersionable
                 $this->materials = [];
             }
 
-            if(!count($this->materials)){
-                $this->addError('materials',"doesn`t have materials");
-                return false;
-            }
-
             if(isset($data[$scope]['consist']) && is_array($data[$scope]['consist'])){
                 $this->consist = $data[$scope]['consist'];
             }elseif(isset($data['RaportConsist']) && is_array($data['RaportConsist'])){
@@ -759,7 +754,12 @@ class Raport extends ActiveRecordVersionable
 
             $params['consist'] = (new Query)->select(['user_guid','technic_guid'])->from(RaportConsist::tableName())->where(['raport_id'=>$this->id])->all();
             
-            $params['materials'] = (new Query)->select(['nomenclature_guid','spent as count'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
+            $materials = (new Query)->select(['nomenclature_guid','spent as count'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
+            
+            if(is_array($materials) && count($materials)){
+                $params['materials'] = $materials;
+            }
+            
             
             $user = Yii::$app->user->identity;
 

@@ -10,14 +10,14 @@ $this->title = 'Мои рапорта';
 ?>
 
 
-<div class="row" style="margin-top: 10px;">
+<div class="row raports_list">
 	<div class="col-md-12">
 		<?php
             echo \yii\grid\GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $modelFilters,
                 'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
-                'tableOptions'=>['class'=>'table table-striped table-bordered table-hover'],
+                'tableOptions'=>['class'=>'table table-striped table-bordered table-sm table-hover vertical-table'],
                 'showFooter'=>false,
                 'summary'=> "",
                 'rowOptions'=>function($model){

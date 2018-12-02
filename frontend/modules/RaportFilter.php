@@ -73,7 +73,7 @@ class RaportFilter extends Raport
      */
     public function filter($params)
     {   
-        $query = RaportFilter::find();
+        $query = RaportFilter::find()->orderby(['created_at'=>SORT_DESC]);
 
 
         /**

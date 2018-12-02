@@ -267,7 +267,7 @@ class AutocompleteController extends Controller{
             $result = false;
             $error = $errorMessage = null;
             $responce = null;
-            if($length && $count && $line_guid){
+            if($length && $line_guid){
                 try {
                     
                     $method = new Calcsquare([
