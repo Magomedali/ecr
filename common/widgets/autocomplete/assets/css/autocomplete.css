@@ -13,6 +13,7 @@
         border-radius: 3px;
         z-index: 1000;
         width: 100%;
+        min-width: 250px;
     }
 
         .autocomplete_items{
