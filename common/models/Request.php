@@ -205,10 +205,10 @@ class Request extends ActiveRecordVersionable
         } catch (\SoapFault $e) {
 
             //Yii::warning($client->__getLastRequestHeaders(),"api");
-            //Yii::warning($client->__getLastRequest(),"api");
+            Yii::warning($client->__getLastRequest(),"api");
 
             //Yii::warning($client->__getLastResponseHeaders(),"api");
-            //Yii::warning($client->__getLastResponse(),"api");
+            Yii::warning($client->__getLastResponse(),"api");
 
             $responce = [
                 'success'=>false,

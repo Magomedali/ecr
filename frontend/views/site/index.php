@@ -20,6 +20,8 @@ $this->title = 'Мои рапорта';
                 'tableOptions'=>['class'=>'table table-striped table-bordered table-sm table-hover vertical-table'],
                 'showFooter'=>false,
                 'summary'=> "",
+                'layout'=>"{items}",
+                'emptyText'=>"Список пуст",
                 'rowOptions'=>function($model){
                     $ops = [];
 
@@ -35,7 +37,6 @@ $this->title = 'Мои рапорта';
                     return $ops;
                 },
                 'columns'=>[
-                	// ['class'=>'yii\grid\SerialColumn'],
                     [
                         'attribute'=>"number",
                         "value"=>"number",

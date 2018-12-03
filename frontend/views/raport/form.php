@@ -435,13 +435,15 @@ $this->title = "Форма рапорта";
 			'header'=>"<h4>Введите пароль от учетной записи</h4>",
 			'id'=>'modalPassword'
 		]);
+
+		$invalidClass =  $inValidPassword ? 'fieldHasError' :'';
 	?>
 	<div id="modalContent">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group <?php echo $inValidPassword ? 'has-error' :'';?>">
 					<label>Пароль</label>
-					<?php echo Html::input('password',"password",null,['class'=>"form-control input-sm input_password <?php echo $inValidPassword ? 'fieldHasError' :'';?>",'required'=>true,'id'=>'input_password','autocomplete'=>'off']);?>
+					<?php echo Html::input('password',"password",null,['class'=>"form-control input-sm input_password {$invalidClass}",'required'=>true,'id'=>'input_password','autocomplete'=>'off']);?>
 					<?php if($inValidPassword){?>
 						<p class="help-block help-block-error">Неправильный пароль</p>
 					<?php } ?>

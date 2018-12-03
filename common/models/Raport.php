@@ -100,7 +100,7 @@ class Raport extends ActiveRecordVersionable
 
             [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','user_guid'],'string','max'=>36],
             
-            ['user_guid','default','value'=>null],
+            ['boundary_guid','default','value'=>null],
 
             ['number', 'string', 'max' => 255],
            

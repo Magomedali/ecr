@@ -73,7 +73,8 @@ class RaportFilter extends Raport
      */
     public function filter($params)
     {   
-        $query = RaportFilter::find()->orderby(['created_at'=>SORT_DESC]);
+        $query = RaportFilter::find()
+                ->orderby(['created_at'=>SORT_DESC]);
 
 
         /**
@@ -81,18 +82,15 @@ class RaportFilter extends Raport
         */
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => new Pagination([
-                'pageSize' => $this->page_size
-            ])
+            'pagination'=>[
+                'pageSize'=>$this->page_size
+            ]
         ]);
-
 
 
         //если данные не фильтра не переданы или переданы не валидные данныеы
         if(!($this->load($params) && $this->validate())){
             
-            
-
             if($this->brigade_guid && $this->user_guid){
                 $query->andWhere(['brigade_guid'=>$this->brigade_guid]);
                 $query->andWhere(['user_guid'=>$this->user_guid]);
@@ -128,6 +126,8 @@ class RaportFilter extends Raport
 
             $query->andFilterWhere(['>=', 'created_at', date("Y.m.d",strtotime($start))]);
             $query->andFilterWhere(['<=', 'created_at', date("Y.m.d",strtotime($end))]);
+            
+            $dataProvider->getPagination()->setPageSize(null);
         }
 
         
