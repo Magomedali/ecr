@@ -135,7 +135,6 @@ class RaportController extends Controller{
         $errorsRaport=[];
         if(isset($post['Raport']) && isset($post['password'])){
 
-            
             if($post['password'] && $model->load($post)){
                 $password = trim(strip_tags($post['password']));
                 if(!Yii::$app->user->identity->validatePassword($password)){
@@ -149,6 +148,7 @@ class RaportController extends Controller{
 
                         if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
                             Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные");
+                        
                         }else{
                             Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
 
@@ -167,11 +167,11 @@ class RaportController extends Controller{
             }
             
             $hasErrors = true;
+            $errorsRaport = isset($post['Raport']) ? $post['Raport'] : [];
             $errorsRaportConsist = isset($post['RaportConsist']) ? $post['RaportConsist'] : [];
             $errorsRaportWorks = isset($post['RaportWork']) ? $post['RaportWork'] : [];
             $errorsRaportMaterials = isset($post['RaportMaterial']) ? $post['RaportMaterial'] : [];
-            $errorsRaport = isset($post['Raport']) ? $post['Raport'] : [];
-
+            
             
         }
 

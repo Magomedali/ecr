@@ -46,7 +46,7 @@ if(isset($model->id)){
 	$object_name = isset($object->id) ? $object->name : "";
 
 	$boundary = isset($object->id) && $object->boundary_guid ? $object->boundary : null;
-	$boundary_name = isset($boundary->id) ? $boundary->name : "";
+	$boundary_name = isset($boundary->id) ? $boundary->name : null;
 
 	$project = isset($model->project_guid) ? $model->project : null;
 	$project_name = isset($project->id) ? $project->name : null;
@@ -65,11 +65,15 @@ if(isset($model->id)){
 	}
 }
 
+
 $this->title = "Форма рапорта";
 
 ?>
 
 <?php $form = ActiveForm::begin(['id'=>'raportForm','options'=>['enctype'=>'multipart/form-data']]);?>
+
+
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -117,8 +121,8 @@ $this->title = "Форма рапорта";
 										<div class="col-md-6 object_form">
 											<div class="row">
 												<div class="col-md-12 object_autocomplete">
-													<?php 
-														echo AutoComplete::widget([
+													<?php
+                                                        echo AutoComplete::widget([
 															'data'=>[],
 															'apiUrl'=>Url::to(['/autocomplete/objects']),
 															'inputValueName'=>"Raport[object_guid]",
@@ -132,7 +136,7 @@ $this->title = "Форма рапорта";
 																['property'=>'boundary_name','commonElement'=>'div.object_form','targetElement'=>'input.input_boundary_name']
 															]
 														]);
-													?>
+                                                    ?>
 												</div>
 												<div class="col-md-12">
 													<?php 
@@ -392,7 +396,7 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'],['class'=>'form-control input-sm spent_input','min'=>0,'max'=>$item['was']]);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'max'=>$item['was']]);
 													?>
 													</td>
 													<td>
