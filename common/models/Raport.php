@@ -784,22 +784,28 @@ class Raport extends ActiveRecordVersionable
             $params['files'] = $files;
 
             $method->setParameters($params);
-            if($request->save() && $request->send($method)){
+
+            if(!$request->save()) return false;
+
+            Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`raport_id`={$this->id} AND `request`='{$request->request}' AND `id` <> {$request->id}")
+                ->execute();
+
+            if($request->send($method)){
                 $responce = json_decode($request->params_out,1);
-                
-            
 
                 if($request->result && isset($responce['return']) && isset($responce['return']['guid']) && $responce['return']['guid'] && isset($responce['return']['number']) && $responce['return']['number']){
-                    $this->guid = $responce['return']['guid'];
-                    $this->number = $responce['return']['number'];
+                        $this->guid = $responce['return']['guid'];
+                        $this->number = $responce['return']['number'];
 
-                    if($this->status == RaportStatuses::CREATED){
-                        $this->status = RaportStatuses::IN_CONFIRMING;
-                    }
-                    
-                    return $this->save(1);
-                }  
+                        if($this->status == RaportStatuses::CREATED){
+                            $this->status = RaportStatuses::IN_CONFIRMING;
+                        }
+                        
+                        return $this->save(1);
+                }
             }
+                 
+            
         } catch (\Exception $e) {
             Yii::warning($e->getMessage(),'api');
         }
