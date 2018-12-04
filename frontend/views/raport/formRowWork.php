@@ -38,10 +38,10 @@ use common\widgets\autocomplete\AutoComplete;
 		<?php echo Html::checkbox("RaportWork[$count][mechanized]",null); ?>
 	</td>
 	<td class="td_length">
-		<?php echo Html::input("number","RaportWork[$count][length]",null,['class'=>'form-control input-sm isRequired','step'=>"0.01"]); ?>
+		<?php echo Html::input("number","RaportWork[$count][length]",null,['class'=>'form-control input-sm isRequired','step'=>"0.01",'autocomplete'=>'off']); ?>
 	</td>
 	<td class="td_count">
-		<?php echo Html::input("number","RaportWork[$count][count]",null,['class'=>'form-control input-sm isRequired','step'=>"0.01"]); ?>
+		<?php echo Html::input("number","RaportWork[$count][count]",null,['class'=>'form-control input-sm isRequired','step'=>"0.01",'autocomplete'=>'off']); ?>
 	</td>
 	<td class="td_squaremeter">
 		<?php echo Html::textInput("RaportWork[$count][squaremeter]",null,['class'=>'form-control input-sm','readonly'=>1]); ?>

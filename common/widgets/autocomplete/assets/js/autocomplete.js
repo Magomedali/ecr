@@ -28,8 +28,9 @@ $(function(){
             inputValue.val(null);
             if(properties.length){
                 $.each(properties,function(i,p){
-                    if(p.hasOwnProperty("targetElement") && $(p.targetElement).length){            
-                        $(p.targetElement).val(null);
+                    if(p.hasOwnProperty("targetElement") && p.hasOwnProperty("commonElement")){            
+                        var pr =  thisElement.parents(p.commonElement).find(p.targetElement);
+                        pr.length ? pr.val(null) : null;
                     }
                 })
             }

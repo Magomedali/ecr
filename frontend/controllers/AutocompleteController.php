@@ -77,15 +77,25 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            $query = User::find()->where(['is_master'=>0])->andWhere("`guid` is not null");
+            $query = (new Query())->select(['u.guid','u.name','u.ktu','u.technic_guid','t.name as technic_name'])
+                                ->from(['u'=>User::tableName()])
+                                ->leftJoin(['t'=>Technic::tableName()], "u.technic_guid = t.guid")
+                                ->where(['u.is_master'=>0])
+                                ->andWhere("u.`guid` is not null");
             if($key){
-                $query->andWhere("`name` LIKE '%{$key}%'");
+                $query->andWhere("u.`name` LIKE '%{$key}%'");
             }
 
-            $results = $query->asArray()->all();
+            $results = $query->all();
 
             foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name'],'ktu'=>$value['ktu']]; 
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name'],
+                    'ktu'=>$value['ktu'],
+                    'technic_guid'=>$value['technic_guid'],
+                    'technic_name'=>$value['technic_name']
+                ]; 
             }
             
             return ['data'=>$data];
@@ -280,7 +290,7 @@ class AutocompleteController extends Controller{
 
                         $responce = json_decode(json_encode($responce),1);
                         if(isset($responce['return']) && isset($responce['return']['success']) && boolval($responce['return']['success']) && isset($responce['return']['result']) && $responce['return']['result']){
-                            $result = $responce['return']['result'];
+                            $result = sprintf("%.3f",$responce['return']['result']);
                         }
                     }else{
                         $error = "ModelValidateError";

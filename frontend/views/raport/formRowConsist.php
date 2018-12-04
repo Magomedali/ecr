@@ -20,12 +20,14 @@ use common\widgets\autocomplete\AutoComplete;
 			'properties'=>[
 				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
 
-				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu']
+				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
+				['property'=>'technic_guid','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_value'],
+				['property'=>'technic_name','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_key']
 			]
 		]);
 	?>
 	</td>
-	<td>
+	<td class="td_technic">
 	<?php 
 		echo AutoComplete::widget([
 			'data'=>[],

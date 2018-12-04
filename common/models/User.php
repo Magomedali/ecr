@@ -329,6 +329,7 @@ class User extends ActiveRecord implements IdentityInterface
                     ->from(['u'=>self::tableName()])
                     ->leftJoin(['t'=>Technic::tableName()]," t.guid = u.technic_guid")
                     ->where(['brigade_guid'=>$this->brigade_guid])
+                    ->orderBy(['u.ktu'=>SORT_DESC])
                     ->all();
 
         return $result;
@@ -448,8 +449,10 @@ class User extends ActiveRecord implements IdentityInterface
                 $resp = json_decode(json_encode($resp),1);
                 
                 if(isset($resp['return']) && isset($resp['return']['remnant'])){
-                    $items = $resp['return']['remnant'];
-
+                    $remnants = $resp['return']['remnant'];
+                    
+                    \yii\helpers\ArrayHelper::isAssociative($remnants) ? $items[] = $remnants : $items = $remnants;
+                    
                     return $this->saveRemnants($items);
                 }
 

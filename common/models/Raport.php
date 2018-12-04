@@ -419,6 +419,7 @@ class Raport extends ActiveRecordVersionable
                                 ->innerJoin(['u'=>User::tableName()]," u.guid = rc.user_guid")
                                 ->innerJoin(['t'=>Technic::tableName()]," t.guid = rc.technic_guid")
                                 ->where(['raport_id'=>$this->id])
+                                ->orderBy(['u.ktu'=>SORT_DESC])
                                 ->all();
         }else{
            return $this->consist; 

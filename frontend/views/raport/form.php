@@ -70,7 +70,7 @@ $this->title = "Форма рапорта";
 
 ?>
 
-<?php $form = ActiveForm::begin(['id'=>'raportForm','options'=>['enctype'=>'multipart/form-data']]);?>
+<?php $form = ActiveForm::begin(['id'=>'raportForm','options'=>['enctype'=>'multipart/form-data','autocomplete'=>'off']]);?>
 
 
 
@@ -174,15 +174,15 @@ $this->title = "Форма рапорта";
 										<div class="col-md-12">
 											<div class="row">
 												<div class="col-md-6">
-													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
-													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
-													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
+													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
 												</div>
 												<div class="col-md-6">
-													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);
+													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);
 													?>
-													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
-													<?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm']);?>
+													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
 												</div>
 											</div>
 										</div>
@@ -190,7 +190,7 @@ $this->title = "Форма рапорта";
 									<hr>
 									<div class="row">
 										<div class="col-md-6">
-											<?php echo $form->field($model,'comment')->textarea(['class'=>'form-control input-sm']);?>
+											<?php echo $form->field($model,'comment')->textarea(['class'=>'form-control input-sm','autocomplete'=>'off']);?>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
@@ -241,19 +241,31 @@ $this->title = "Форма рапорта";
 																'labelShow'=>false,
 																'properties'=>[
 																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
+																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
 
-																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu']
+																	['property'=>'technic_guid','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_value'],
+																	['property'=>'technic_name','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_key']
 																]
 															]);
 														}
 													?>
 													</td>
-													<td>
+													<td class="td_technic">
 													<?php 
 														if($item['technic_guid']){
-															echo $item['technic_name'];
-															echo Html::hiddenInput("RaportConsist[$key][technic_guid]",$item['technic_guid']);
-															echo Html::hiddenInput("RaportConsist[$key][technic_name]",$item['technic_name']);
+															//echo $item['technic_name'];
+															//echo Html::hiddenInput("RaportConsist[$key][technic_guid]",$item['technic_guid']);
+															//echo Html::hiddenInput("RaportConsist[$key][technic_name]",$item['technic_name']);
+															echo AutoComplete::widget([
+																'data'=>[],
+																'apiUrl'=>Url::to(['/autocomplete/technics']),
+																'inputValueName'=>"RaportConsist[$key][technic_guid]",
+																'inputValueName_Value'=>$item['technic_guid'],
+																'inputKeyName'=>"RaportConsist[$key][technic_name]",
+																'inputKeyName_Value'=>$item['technic_name'],
+																'placeholder'=>'Укажите технику',
+																'labelShow'=>false
+															]);
 														}else{
 															echo AutoComplete::widget([
 																'data'=>[],
@@ -339,10 +351,10 @@ $this->title = "Форма рапорта";
 														<?php echo Html::checkbox("RaportWork[$key][mechanized]",isset($item['mechanized']) ? $item['mechanized'] : null); ?>
 													</td>
 													<td class="td_length">
-														<?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?>
+														<?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01",'autocomplete'=>'off']); ?>
 													</td>
 													<td  class="td_count">
-														<?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01"]); ?>
+														<?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01",'autocomplete'=>'off']); ?>
 													</td>
 													<td class="td_squaremeter">
 														<?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?>
@@ -396,7 +408,7 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'max'=>$item['was']]);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'max'=>$item['was'],'autocomplete'=>'off']);
 													?>
 													</td>
 													<td>
@@ -772,13 +784,15 @@ $script = <<<JS
 		calcsquare(tr);
 	});
 
-
-
 	//Открываем список проектов при выборе объекта
 	$("body").on("click",".object_autocomplete ul.autocomplete_items li",function(){
 		var project_at = $(".autocomplete__widget_block input[name='Raport[project_name]']");
-		if(project_at.length)
+		if(project_at.length){
+			//очищаем ранее выбранное значение
+			$("input[name='Raport[project_name]']").val(null);
+			$("input[name='Raport[project_guid]']").val(null);
 			project_at.focus();
+		}
 	})
 
 JS;
