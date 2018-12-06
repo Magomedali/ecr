@@ -98,6 +98,8 @@ class Raport extends ActiveRecordVersionable
 
             [['temperature_start','temperature_end','surface_temperature_start','surface_temperature_end','airhumidity_start','airhumidity_end'],'number'],
 
+            [['temperature_start','temperature_end','surface_temperature_start','surface_temperature_end','airhumidity_start','airhumidity_end','starttime','endtime'],'required','message'=>''],
+
             [['guid','brigade_guid','object_guid','boundary_guid','project_guid','master_guid','user_guid'],'string','max'=>36],
             
             ['boundary_guid','default','value'=>null],
@@ -361,6 +363,8 @@ class Raport extends ActiveRecordVersionable
                             ->andFilterWhere(['<=','r.created_at',$this->created_at])
                             ->andFilterWhere(['in','r.status',self::getUnconfirmedStatuses()])
                             ->andFilterWhere(['<>','r.id',$this->id])
+                            ->andWhere(['brigade_guid'=>$this->brigade_guid])
+                            ->andWhere(['user_guid'=>$this->user_guid])
                             ->all();
 
             $prevRaportMs = ArrayHelper::index($prevRaportMs,null,['raport_id']);

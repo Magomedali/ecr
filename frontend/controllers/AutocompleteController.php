@@ -77,9 +77,9 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            $query = (new Query())->select(['u.guid','u.name','u.ktu','u.technic_guid','t.name as technic_name'])
+            $query = (new Query())->select(['u.guid','u.name','u.ktu'])
                                 ->from(['u'=>User::tableName()])
-                                ->leftJoin(['t'=>Technic::tableName()], "u.technic_guid = t.guid")
+                                //->leftJoin(['t'=>Technic::tableName()], "u.technic_guid = t.guid")
                                 ->where(['u.is_master'=>0])
                                 ->andWhere("u.`guid` is not null");
             if($key){
@@ -92,9 +92,7 @@ class AutocompleteController extends Controller{
                 $data[] = [
                     'value'=>$value['guid'],
                     'title'=>$value['name'],
-                    'ktu'=>$value['ktu'],
-                    'technic_guid'=>$value['technic_guid'],
-                    'technic_name'=>$value['technic_name']
+                    'ktu'=>$value['ktu']
                 ]; 
             }
             

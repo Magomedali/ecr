@@ -114,9 +114,9 @@ $this->title = "Форма рапорта";
 
 											<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
 
-											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm']); ?>
+											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm isRequired']); ?>
 
-											<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm']);?>
+											<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm isRequired']);?>
 										</div>
 										<div class="col-md-6 object_form">
 											<div class="row">
@@ -174,15 +174,15 @@ $this->title = "Форма рапорта";
 										<div class="col-md-12">
 											<div class="row">
 												<div class="col-md-6">
-													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
-													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
-													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm isRequired','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'surface_temperature_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm isRequired','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'airhumidity_start')->input("number",['step'=>'0.01','class'=>'form-control input-sm isRequired','autocomplete'=>'off']);?>
 												</div>
 												<div class="col-md-6">
-													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);
+													<?php echo $form->field($model,'temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm isRequired','autocomplete'=>'off']);
 													?>
-													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
-													<?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'surface_temperature_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm isRequired','autocomplete'=>'off']);?>
+													<?php echo $form->field($model,'airhumidity_end')->input("number",['step'=>'0.01','class'=>'form-control input-sm isRequired','autocomplete'=>'off']);?>
 												</div>
 											</div>
 										</div>
@@ -232,7 +232,7 @@ $this->title = "Форма рапорта";
 														}else{
 															echo AutoComplete::widget([
 																'data'=>[],
-																'apiUrl'=>Url::to(['/autocomplete/technics']),
+																'apiUrl'=>Url::to(['/autocomplete/users']),
 																'inputValueName'=>"RaportConsist[$key][user_guid]",
 																'inputValueName_Value'=>"",
 																'inputKeyName'=>"RaportConsist[$key][user_name]",
@@ -243,8 +243,8 @@ $this->title = "Форма рапорта";
 																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
 																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
 
-																	['property'=>'technic_guid','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_value'],
-																	['property'=>'technic_name','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_key']
+																	//['property'=>'technic_guid','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_value'],
+																	//['property'=>'technic_name','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_key']
 																]
 															]);
 														}

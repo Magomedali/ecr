@@ -31,8 +31,8 @@ class ResetPasswordForm extends Model
     public function rules()
     {
         return [
-            [['password','confirm_password','old_password'], 'required'],
-            [['password','confirm_password','old_password'], 'string', 'min' => 6],
+            [['password','confirm_password','old_password'], 'required','message'=>'Обязательное поле'],
+            [['password','confirm_password','old_password'], 'string', 'min' => 6,'message'=>'Пароль должен иметь минимум 6 символов'],
             ['confirm_password', 'compare', 'compareAttribute'=>'password', 'message'=>"Пароли не совпадают!"],
             ['old_password','validateOldPassword']
         ];

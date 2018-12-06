@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://lk.web-ali.ru/api/soap/web/index.php?ws=1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://lk.web-ali.ru/api/soap/web/index.php?ws=1">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.ecr:8081/index.php?ws=1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://api.ecr:8081/index.php?ws=1">
   <types>
-    <xsd:schema targetNamespace="http://lk.web-ali.ru/api/soap/web/index.php?ws=1">
+    <xsd:schema targetNamespace="http://api.ecr:8081/index.php?ws=1">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
       <xsd:complexType name="itemOfBrigade">
         <xsd:sequence>
@@ -300,12 +300,12 @@
           <xsd:element name="created_at" type="xsd:dateTime"/>
           <xsd:element name="starttime" type="xsd:time"/>
           <xsd:element name="endtime" type="xsd:time"/>
-          <xsd:element name="temperature_start" type="xsd:float" nillable="true"/>
-          <xsd:element name="temperature_end" type="xsd:float" nillable="true"/>
-          <xsd:element name="surface_temperature_start" type="xsd:float" nillable="true"/>
-          <xsd:element name="surface_temperature_end" type="xsd:float" nillable="true"/>
-          <xsd:element name="airhumidity_start" type="xsd:float" nillable="true"/>
-          <xsd:element name="airhumidity_end" type="xsd:float" nillable="true"/>
+          <xsd:element name="temperature_start" type="xsd:float"/>
+          <xsd:element name="temperature_end" type="xsd:float"/>
+          <xsd:element name="surface_temperature_start" type="xsd:float"/>
+          <xsd:element name="surface_temperature_end" type="xsd:float"/>
+          <xsd:element name="airhumidity_start" type="xsd:float"/>
+          <xsd:element name="airhumidity_end" type="xsd:float"/>
           <xsd:element name="brigade_guid" type="xsd:string"/>
           <xsd:element name="object_guid" type="xsd:string"/>
           <xsd:element name="boundary_guid" type="xsd:string" nillable="true"/>
@@ -436,7 +436,7 @@
   <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="unloadbrigade">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadbrigade"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadbrigade"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -445,7 +445,7 @@
       </output>
     </operation>
     <operation name="test">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#test"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#test"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -454,7 +454,7 @@
       </output>
     </operation>
     <operation name="unloadworker">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadworker"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadworker"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -463,7 +463,7 @@
       </output>
     </operation>
     <operation name="unloadtechnic">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadtechnic"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadtechnic"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -472,7 +472,7 @@
       </output>
     </operation>
     <operation name="unloadobject">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadobject"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadobject"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -481,7 +481,7 @@
       </output>
     </operation>
     <operation name="unloadboundary">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadboundary"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadboundary"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -490,7 +490,7 @@
       </output>
     </operation>
     <operation name="unloadproject">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadproject"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadproject"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -499,7 +499,7 @@
       </output>
     </operation>
     <operation name="unloadtypeofwork">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadtypeofwork"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadtypeofwork"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -508,7 +508,7 @@
       </output>
     </operation>
     <operation name="unloadline">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadline"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadline"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -517,7 +517,7 @@
       </output>
     </operation>
     <operation name="unloadnomenclature">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadnomenclature"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadnomenclature"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -526,7 +526,7 @@
       </output>
     </operation>
     <operation name="unloadraport">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadraport"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadraport"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -535,7 +535,7 @@
       </output>
     </operation>
     <operation name="unloadremnant">
-      <soap:operation soapAction="http://lk.web-ali.ru/api/soap/web/index.php?ws=1#unloadremnant"/>
+      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadremnant"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -546,7 +546,7 @@
   </binding>
   <service name="ApiControllerService">
     <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
-      <soap:address location="http://lk.web-ali.ru/api/soap/web/index.php?ws=1"/>
+      <soap:address location="http://api.ecr:8081/index.php?ws=1"/>
     </port>
   </service>
   <message name="unloadbrigadeIn">

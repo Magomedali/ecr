@@ -64,6 +64,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['ktu'],'number'],
             [['ktu'],'default','value'=>0],
             [['login','password'],'default','value'=>null],
+            ['password','string','min'=>6],
             ['is_master','boolean'],
             [['is_master'],'default','value'=>false],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
@@ -533,6 +534,7 @@ class User extends ActiveRecord implements IdentityInterface
         $prev = (new Query())->select(['r.id as raport_id','status','rm.nomenclature_guid','rm.spent'])->from(['r'=>Raport::tableName()])
                 ->innerJoin(['rm'=>RaportMaterial::tableName()], "rm.raport_id = r.id")
                 ->where(['brigade_guid'=>$this->brigade_guid])
+                ->andWhere(['user_guid'=>$this->guid])
                 ->andFilterWhere(["in",'status',Raport::getUnconfirmedStatuses()])
                 ->all();
 

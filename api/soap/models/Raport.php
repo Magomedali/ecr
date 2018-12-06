@@ -49,37 +49,31 @@ class Raport  extends ApiModel
 
     /**
     * @var float
-    * @nillable
     */
     public $temperature_start;
 
     /**
     * @var float
-    * @nillable
     */
     public $temperature_end;
 
     /**
     * @var float
-    * @nillable
     */
     public $surface_temperature_start;
 
     /**
     * @var float
-    * @nillable
     */
     public $surface_temperature_end;
 
     /**
     * @var float
-    * @nillable
     */
     public $airhumidity_start;
 
     /**
     * @var float
-    * @nillable
     */
     public $airhumidity_end;
 
