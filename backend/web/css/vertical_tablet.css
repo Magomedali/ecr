@@ -1,0 +1,76 @@
+/* iPads (вертикальная) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+/* стили */
+	
+	.formAddFiles{
+
+	}
+
+	.formAddFiles:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+		.formAddFiles div{
+			float: left;
+		}
+
+
+	.vertical-table{
+		font-size: 12px;
+	}
+
+		.vertical-table tr{
+
+		}
+
+			.vertical-table tr th,.vertical-table tr td{
+				padding: 5px !important;
+			}
+
+
+	.pipeline{
+
+	}
+		.pipeline:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		.pipeline > div{
+			float: left;
+			width: 25%;
+			font-size: 10px;
+		}
+
+			.pipeline > div:after {
+			    border: none;
+			    height: 34px;
+			    width: 34px;
+			    top: 0px;
+			    right: -10px;
+			    transform: rotate(0.125turn);
+			    z-index: 20;
+			    background: blue;
+			}
+
+	.paddingLess{
+		padding-left: -15px;
+		padding-right: -15px;
+	}
+
+
+	ul.nav.nav-tabs.vertical-tablet{
+
+	}
+
+		ul.nav.nav-tabs.vertical-tablet li{
+
+		}
+
+			ul.nav.nav-tabs.vertical-tablet li a{
+				padding: 7px 10px;
+			}
+}

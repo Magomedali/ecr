@@ -30,7 +30,7 @@ class RaportConsist extends ActiveRecord
 	public function rules(){
         return [
             // name, email, subject and body are required
-            [['raport_id','technic_guid','user_guid'], 'required'],
+            [['raport_id','technic_guid','user_guid'], 'required','message'=>' is required'],
             ['raport_id','number'],
             [['technic_guid','user_guid'],'string','max'=>36]
         ];

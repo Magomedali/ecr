@@ -1,0 +1,16 @@
+/* iPads (горизонтальная) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+/* стили */
+	.navbar-top-links {
+	    margin-right: 6px;
+	}
+
+	.raports_list {
+	    margin-right: 13px;
+	    margin-left: -15px;
+	}
+
+	.pipeline > div:after {
+	    right: -18px;
+	}
+}

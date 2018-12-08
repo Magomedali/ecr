@@ -4,6 +4,7 @@ namespace api\soap;
 
 use Yii;
 use Exception;
+use yii\helpers\ArrayHelper;
 use api\soap\models\Responce;
 use api\soap\Exceptions\ApiException;
 use api\soap\Exceptions\ApiExceptionMethodNotExists;
@@ -94,10 +95,10 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
-
+        
         $responce = new Responce();
         $erros = [];
         foreach ($data[$Type] as $key => $item) {
@@ -146,7 +147,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -198,7 +199,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -249,7 +250,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -300,7 +301,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -352,7 +353,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -404,7 +405,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -455,7 +456,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -505,7 +506,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -555,7 +556,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 
@@ -612,7 +613,7 @@ class Api{
             throw new ApiExceptionWrongType();
         }
 
-        if(!array_key_exists(0, $data[$Type])){
+        if(ArrayHelper::isAssociative($data[$Type])){
             $data[$Type] =  [$data[$Type]];
         }
 

@@ -9,6 +9,7 @@ use yii\db\Command;
 use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 use common\models\User;
 use common\models\Brigade;
 use common\models\Nomenclature;
@@ -120,6 +121,7 @@ class RemnantsPackage extends ActiveRecord
     }
 
 
+
     public function savePackage(){
         $user = $this->getUser();
         if(!isset($user->id) || $this->hasErrors()) return false;
@@ -127,15 +129,17 @@ class RemnantsPackage extends ActiveRecord
         $items = $this->items;
         $Type = "RemnantsItem";
         if(!isset($items[$Type])){
-            $items[$Type] = $items;
+            $models[$Type] = $items;
+        }else{
+            $models = $items;
         }
         
-        if(!array_key_exists(0, $items[$Type])){
-            $items[$Type] =  [$items[$Type]];
+        if(ArrayHelper::isAssociative($models[$Type])){
+            $models[$Type] =  [$models[$Type]];
         }
 
         // Если актуальные остатки на сайте равны этим, то просто возвращаем true
-        if($user->remnantItemsIsEqual($items[$Type])) return true;
+        if($user->remnantItemsIsEqual($models[$Type])) return true;
 
         return $this->save() && $this->saveRelationEntities();
     }

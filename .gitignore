@@ -44,6 +44,9 @@ phpunit.phar
 
 /backend/web/assets
 /backend/web/assets/
+/backend/web/tmp/
+/backend/logs/
+/backend/logs
 
 /console/data/
 /console/logs/

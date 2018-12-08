@@ -105,7 +105,8 @@ class Raport extends ActiveRecordVersionable
             ['boundary_guid','default','value'=>null],
 
             ['number', 'string', 'max' => 255],
-           
+            
+            ['status','integer'],
             ['status', 'default', 'value' => RaportStatuses::CREATED],
             ['status', 'in', 'range' => [
                 RaportStatuses::CREATED, 
@@ -154,8 +155,13 @@ class Raport extends ActiveRecordVersionable
         
         if(parent::load($data, $formName)){
 
-            $code = RaportStatuses::getCode($this->status);
-            $this->status = $code ? $code : null;
+            if(is_numeric($this->status)){
+                $labels = RaportStatuses::getLabels();
+                $this->status = array_key_exists($this->status, $labels) ? $this->status : RaportStatuses::CREATED;
+            }else{
+                $code = RaportStatuses::getCode($this->status);
+                $this->status = $code ? $code : RaportStatuses::CREATED;
+            }
             
             //Проверяем есть ли гуид бригады в базе
             if($this->brigade_guid){
@@ -556,14 +562,16 @@ class Raport extends ActiveRecordVersionable
         
         $Type = "RaportMaterial";
         if(!isset($materials[$Type])){
-            $materials[$Type] = $materials;
+            $models[$Type] = $materials;
+        }else{
+            $models = $materials;
         }
         
-        if(!array_key_exists(0, $materials[$Type])){
-            $materials[$Type] =  [$materials[$Type]];
+        if(ArrayHelper::isAssociative($models[$Type])){
+            $models[$Type] =  [$models[$Type]];
         }
 
-        foreach ($materials[$Type] as $key => $mdata) {
+        foreach ($models[$Type] as $key => $mdata) {
             $model = new RaportMaterial();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
@@ -609,13 +617,16 @@ class Raport extends ActiveRecordVersionable
 
         $Type = "RaportConsist";
         if(!isset($consist[$Type])){
-            $consist[$Type] = $consist;
+            $models[$Type] = $consist;
+        }else{
+            $models = $consist;
         }
         
-        if(!array_key_exists(0, $consist[$Type])){
-            $consist[$Type] =  [$consist[$Type]];
+        if(ArrayHelper::isAssociative($models[$Type])){
+            $models[$Type] =  [$models[$Type]];
         }
-        foreach ($consist[$Type] as $key => $mdata) {
+
+        foreach ($models[$Type] as $key => $mdata) {
             $model = new RaportConsist();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
@@ -657,13 +668,15 @@ class Raport extends ActiveRecordVersionable
         
         $Type = "RaportWork";
         if(!isset($works[$Type])){
-            $works[$Type] = $works;
+            $models[$Type] = $works;
+        }else{
+            $models = $works;
         }
         
-        if(!array_key_exists(0, $works[$Type])){
-            $works[$Type] =  [$works[$Type]];
+        if(ArrayHelper::isAssociative($models[$Type])){
+            $models[$Type] =  [$models[$Type]];
         }
-        foreach ($works[$Type] as $key => $mdata) {
+        foreach ($models[$Type] as $key => $mdata) {
             $model = new RaportWork();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
@@ -704,14 +717,16 @@ class Raport extends ActiveRecordVersionable
 
         $Type = "RaportFile";
         if(!isset($files[$Type])){
-            $files[$Type] = $files;
+            $models[$Type] = $files;
+        }else{
+            $models = $files;
         }
         
-        if(!array_key_exists(0, $files[$Type])){
-            $files[$Type] =  [$files[$Type]];
+        if(ArrayHelper::isAssociative($models[$Type])){
+            $models[$Type] =  [$models[$Type]];
         }
         
-        foreach ($files[$Type] as $key => $mdata) {
+        foreach ($models[$Type] as $key => $mdata) {
             $model = new RaportFile();
 
             if($mdata instanceof UploadedFile){

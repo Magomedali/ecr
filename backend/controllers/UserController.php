@@ -56,13 +56,16 @@ class UserController extends Controller
 
 
 
-    public function actionView($id)
+    public function actionView($id = null)
     {   
-
-        if(!(int)$id) 
+        $get = Yii::$app->request->get();
+        if(!(int)$id && !isset($get['guid'])) 
             throw new \Exception("Бригадир не найден!",404);
-
-        $model = User::findOne($id);
+        
+        if((int)$id)
+            $model = User::findOne(['id'=>(int)$id]);
+        else
+            $model = User::findOne(['guid'=>$get['guid']]);
 
         if(!isset($model->id) || !$model->brigade_guid)
             throw new \Exception("Бригадир не найден!",404);

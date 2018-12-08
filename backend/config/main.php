@@ -28,6 +28,13 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'enableRotation'=>false,
+                ],
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'logFile'=>'@backend/logs/api.log',
+                    'levels' => ['warning'],
+                    'enableRotation'=>false
                 ],
             ],
         ],
