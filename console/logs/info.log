@@ -275,3 +275,15 @@ AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
 2018-12-06 06:53:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
 2018-12-06 06:53:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
 2018-12-06 06:53:00 [-][-][-][info][cron] Processing for 0.019208908081055 seconds
+2018-12-08 08:17:00 [-][-][-][info][cron] Process start
+2018-12-08 08:17:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-08 08:17:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-08 08:17:00 [-][-][-][info][cron] Processing for 0.019979000091553 seconds
+2018-12-08 08:18:00 [-][-][-][info][cron] Process start
+2018-12-08 08:18:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-08 08:18:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-08 08:18:00 [-][-][-][info][cron] Processing for 0.020838022232056 seconds
+2018-12-08 08:19:00 [-][-][-][info][cron] Process start
+2018-12-08 08:19:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-08 08:19:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-08 08:19:00 [-][-][-][info][cron] Processing for 0.018671989440918 seconds

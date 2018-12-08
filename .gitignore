@@ -40,11 +40,15 @@ phpunit.phar
 /frontend/web/assets/
 /frontend/web/tmp/
 /frontend/logs/
+/frontend/logs
 
 /backend/web/assets
 /backend/web/assets/
 
 /console/data/
+/console/logs/
+/console/logs
+
 /common/tmp/
 
 .htaccess
