@@ -24,6 +24,6 @@ class RaportStatuses extends Dictionary{
 		self::CREATED=>"default",
 		self::IN_CONFIRMING=>"info",
 		self::CONFIRMED=>"success",
-		self::DELETED=>"error",
+		self::DELETED=>"danger",
 	); 
 }
