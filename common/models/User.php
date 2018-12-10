@@ -432,7 +432,11 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
-
+    public function disableActualRemnantsPackage(){
+        if(!$this->id || !$this->guid) return false;
+        return Yii::$app->db->createCommand()->update(RemnantsPackage::tableName(),['isActual'=>0],"`isActual`=1 AND `user_guid`='{$this->guid}'")
+        ->execute();
+    }
 
 
 
@@ -455,6 +459,8 @@ class User extends ActiveRecord implements IdentityInterface
                     \yii\helpers\ArrayHelper::isAssociative($remnants) ? $items[] = $remnants : $items = $remnants;
                     
                     return $this->saveRemnants($items);
+                }elseif(isset($resp['return'])  && isset($resp['return']['success']) && (int)$resp['return']['success']){
+                    $this->disableActualRemnantsPackage();
                 }
 
             }catch (\SoapFault $e) {
@@ -562,6 +568,12 @@ class User extends ActiveRecord implements IdentityInterface
 
         return $remnants;
     }
+
+
+
+
+
+    
 
 
 }

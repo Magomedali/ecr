@@ -158,7 +158,7 @@ class RemnantsPackage extends ActiveRecord
             try {
                 $transaction = Yii::$app->db->beginTransaction();
 
-                $this->doUnActialPackage();
+                $this->doUnActualPackage();
 
                 if($this->saveItems()){
                     $transaction->commit();
@@ -225,7 +225,7 @@ class RemnantsPackage extends ActiveRecord
 
 
 
-    public function doUnActialPackage(){
+    public function doUnActualPackage(){
         if(!$this->id || !$this->user_guid) return false;
         return Yii::$app->db->createCommand()->update(self::tableName(),['isActual'=>0],"`isActual`=1 AND `user_guid`='{$this->user_guid}' AND `id` <> {$this->id}")
         ->execute();
