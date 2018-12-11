@@ -408,7 +408,7 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'max'=>$item['was'],'autocomplete'=>'off']);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.01",'max'=>$item['was'],'autocomplete'=>'off']);
 													?>
 													</td>
 													<td>
@@ -555,8 +555,10 @@ $script = <<<JS
 
 	//form submit
 	$("form#raportForm").submit(function(event){
+	    $("#btnRaportFormSubmitPassword").prop("disabled",true);
 		if(!validateRaportForm() || !validatePassword()){
 			event.preventDefault();
+	        $("#btnRaportFormSubmitPassword").prop("disabled",false);
 		}
 	});
 
@@ -572,8 +574,6 @@ $script = <<<JS
 		var active_tab = $("div.pipeline div.active");
 		var target_tab = null;
 		if(!active_tab.length) return;
-
-		// console.log()
 
 		if($(this).hasClass("prev_tab")){
 			var target_tab = active_tab.prev();
@@ -697,28 +697,31 @@ $script = <<<JS
 
 	$("body").on("change",".spent_input",function(){
 		var rest = $(this).parents("tr").find(".rest_input");
-		var total = parseInt($(this).attr("max"));
-		var value = parseInt($(this).val());
-		rest.val(total - value);
+		var total = parseFloat($(this).attr("max"));
+		var value = parseFloat($(this).val());
+    	rest.val(total - value);
 	});
 
 	$("body").on("keyup",".spent_input",function(){
 		var rest = $(this).parents("tr").find(".rest_input");
 		
-		var total = parseInt($(this).attr("max"));
-		var min = parseInt($(this).attr("min"));
-		var value = parseInt($(this).val());
-
+		var total = parseFloat($(this).attr("max"));
+		var min = parseFloat($(this).attr("min"));
+		var value = parseFloat($(this).val());
+        
 		if(min > value){
+		    console.log("min > value");
 			$(this).val(min);
 			value = min;
 		}else if(total < value){
+		    console.log("total < value");
+		    console.log(total+" < "+value);
 			$(this).val(total);
 			value = total;
 		}
 
 		if(value || value === 0){
-			var rest_value = parseInt(total - value);
+			var rest_value = total - value;
 			rest.val(rest_value);
 		}else{
 			rest.val("");
