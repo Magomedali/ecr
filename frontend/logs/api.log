@@ -32814,3 +32814,3379 @@ $_SERVER = [
     ]
     'argc' => 1
 ]
+2018-12-11 16:56:17 [10.1.5.176][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.1.5.176
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 16:56:17 [10.1.5.176][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.1.5.176
+2018-12-11 16:56:15 [10.1.5.176][232][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'XA-B-wVlnMcAAEGn@7QAAAAE'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XA-B-wVlnMcAAEGn@7QAAAAE'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '18952'
+    'REDIRECT_URL' => '/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536575.675
+    'REQUEST_TIME' => 1544536575
+    'argv' => []
+    'argc' => 0
+]
+2018-12-11 16:56:22 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 16:56:22 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:21 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CBQVlnMcAAEI4wWAAAAAF'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '20714'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536581.981
+    'REQUEST_TIME' => 1544536581
+    'argv' => [
+        0 => 'r=raport%2Fform'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:23 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:23 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/objects'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CBwVlnMcAAELzvZcAAAAC'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '21238'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fobjects&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fobjects&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536583.839
+    'REQUEST_TIME' => 1544536583
+    'argv' => [
+        0 => 'r=autocomplete%2Fobjects&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:27 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:27 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/projects'
+    'key' => ''
+    'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CCwVlnMcAAEA-wUcAAAAp'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '22110'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fprojects&key=&object_guid=1939b9ef-a6c1-11e8-811a-005056b47a2e'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fprojects&key=&object_guid=1939b9ef-a6c1-11e8-811a-005056b47a2e'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536587.175
+    'REQUEST_TIME' => 1544536587
+    'argv' => [
+        0 => 'r=autocomplete%2Fprojects&key=&object_guid=1939b9ef-a6c1-11e8-811a-005056b47a2e'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:27 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:27 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/masters'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CCwVlnMcAAEJscnQAAAAP'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '22354'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fmasters&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fmasters&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536587.959
+    'REQUEST_TIME' => 1544536587
+    'argv' => [
+        0 => 'r=autocomplete%2Fmasters&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:29 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:29 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/projects'
+    'key' => ''
+    'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CDQVlnMcAAEA-wUcAAAAp'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '22862'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fprojects&key=&object_guid=1939b9ef-a6c1-11e8-811a-005056b47a2e'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fprojects&key=&object_guid=1939b9ef-a6c1-11e8-811a-005056b47a2e'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536589.948
+    'REQUEST_TIME' => 1544536589
+    'argv' => [
+        0 => 'r=autocomplete%2Fprojects&key=&object_guid=1939b9ef-a6c1-11e8-811a-005056b47a2e'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:45 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:45 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/technics'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CHQVlnMcAAEEz07sAAAAB'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '26654'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Ftechnics&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Ftechnics&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536605.005
+    'REQUEST_TIME' => 1544536605
+    'argv' => [
+        0 => 'r=autocomplete%2Ftechnics&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:47 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:47 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/works'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CHwVlnMcAAEM83mUAAAAC'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '27226'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fworks&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fworks&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536607.386
+    'REQUEST_TIME' => 1544536607
+    'argv' => [
+        0 => 'r=autocomplete%2Fworks&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:48 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:48 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/lines'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CIAVlnMcAAEJDEXcAAAAG'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '27512'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Flines&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Flines&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536608.258
+    'REQUEST_TIME' => 1544536608
+    'argv' => [
+        0 => 'r=autocomplete%2Flines&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:50 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:50 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/calcsquare'
+    'line_guid' => '24ed105a-f92c-4307-ad28-83ef4f3a0d16'
+    'count' => ''
+    'length' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CIgVlnMcAAEO6cJAAAAAE'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '28094'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=&length=2'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=&length=2'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536610.488
+    'REQUEST_TIME' => 1544536610
+    'argv' => [
+        0 => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=&length=2'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:51 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:51 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/calcsquare'
+    'line_guid' => '24ed105a-f92c-4307-ad28-83ef4f3a0d16'
+    'count' => ''
+    'length' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CIwVlnMcAAD-7DBkAAAAR'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '28296'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=&length=2'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=&length=2'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536611.006
+    'REQUEST_TIME' => 1544536611
+    'argv' => [
+        0 => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=&length=2'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:51 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:51 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/calcsquare'
+    'line_guid' => '24ed105a-f92c-4307-ad28-83ef4f3a0d16'
+    'count' => '5'
+    'length' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CIwVlnMcAAEEz07sAAAAB'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '28392'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=5&length=2'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=5&length=2'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536611.431
+    'REQUEST_TIME' => 1544536611
+    'argv' => [
+        0 => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=5&length=2'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:56:52 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:56:52 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/calcsquare'
+    'line_guid' => '24ed105a-f92c-4307-ad28-83ef4f3a0d16'
+    'count' => '5'
+    'length' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CJAVlnMcAAD8JLEQAAAAK'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '28604'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=5&length=2'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=5&length=2'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536612.475
+    'REQUEST_TIME' => 1544536612
+    'argv' => [
+        0 => 'r=autocomplete/calcsquare&line_guid=24ed105a-f92c-4307-ad28-83ef4f3a0d16&count=5&length=2'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:57:26 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 16:57:26 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:57:25 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = [
+    '_csrf' => '43mXtUIGjV4GoxqxfVJ2Kebzs54a9Flf4lR5_GjOwCfRCLrkE27OMGXBSOYWY0RCgKDi2FmCETWrEiqZGKO2Xg=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => '059423d0-2a8a-4a07-b799-d193cc7827f0'
+        'user_guid' => '8606fa01-bee2-11e3-be7b-f80f418b5b95'
+        'created_at' => '2018-12-11T16:56:22'
+        'starttime' => '11:11'
+        'endtime' => '22:22'
+        'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+        'object_name' => 'МКАД Внутренняя сторона км 26- км 27'
+        'project_guid' => '2d835e00-a6cd-11e8-811a-005056b47a2e'
+        'project_name' => 'Помощь МАДИ-Практик'
+        'boundary_name' => 'МКАД'
+        'boundary_guid' => 'eb59ee3e-a50c-11e8-811a-005056b47a2e'
+        'temperature_start' => '1'
+        'surface_temperature_start' => '2'
+        'airhumidity_start' => '3'
+        'temperature_end' => '6'
+        'surface_temperature_end' => '5'
+        'airhumidity_end' => '4'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => '8606fa01-bee2-11e3-be7b-f80f418b5b95'
+            'user_name' => 'Фомин Александр Николаевич'
+            'technic_guid' => '2aeaf64a-d295-11e8-8124-005056b47a2e'
+            'technic_name' => 'А 740 ВТ 777 DPM Шмель-11 АН'
+            'user_ktu' => '1'
+        ]
+        1 => [
+            'user_guid' => '5946721b-bee7-11e3-be7b-f80f418b5b95'
+            'user_name' => 'Гранкин Андрей Вячеславович'
+            'technic_guid' => '3c65f88d-d1fc-11e8-8124-005056b47a2e'
+            'technic_name' => 'НВ 4349 77 Borum BM T-5000'
+            'user_ktu' => '0.95'
+        ]
+        2 => [
+            'user_guid' => '8606fa09-bee2-11e3-be7b-f80f418b5b95'
+            'user_name' => 'Троян Владимир Павлович'
+            'technic_guid' => '4638be01-d295-11e8-8124-005056b47a2e'
+            'technic_name' => 'Т 947 АМ 777 Hyundai HD-78 37978S'
+            'user_ktu' => '0.9'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '2483a64e-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Зачистка разметки'
+            'line_guid' => '24ed105a-f92c-4307-ad28-83ef4f3a0d16'
+            'line_name' => '1.1 (10) Край'
+            'length' => '2'
+            'count' => '5'
+            'squaremeter' => '0.200'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Эмаль, цвет жёлтый (АК-511)'
+            'nomenclature_guid' => '0b8b5fbc-30de-11e8-8113-005056b47a2e'
+            'was' => '348.66'
+            'spent' => '2.12'
+            'rest' => '346.54'
+        ]
+        1 => [
+            'nomenclature_name' => 'МСШ 106-600 (Вайскер)'
+            'nomenclature_guid' => '1da3fcec-4489-11e8-8114-005056b47a2e'
+            'was' => '671.75'
+            'spent' => '33.2'
+            'rest' => '638.55'
+        ]
+        2 => [
+            'nomenclature_name' => 'МСШ 150-600 (Сферастек)'
+            'nomenclature_guid' => 'da5bdf49-3caa-11e8-8113-005056b47a2e'
+            'was' => '197.7'
+            'spent' => ''
+            'rest' => '197.7'
+        ]
+        3 => [
+            'nomenclature_name' => 'Эмаль, цвет белый (АК-511)'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '810'
+            'spent' => ''
+            'rest' => '810'
+        ]
+    ]
+    'password' => 'fomin655'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CRQVlnMcAAEPRmlEAAAAF'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'CONTENT_LENGTH' => '10542'
+    'HTTP_ORIGIN' => 'http://lk.web-ali.ru'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary8YbfDDlq5DiHJBP8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '37622'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536645.377
+    'REQUEST_TIME' => 1544536645
+    'argv' => [
+        0 => 'r=raport%2Fform'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:57:55 [46.28.89.34][232][-][warning][api] {"return":{"success":true,"error":null,"number":"00000009237","guid":"c8d1fa0e-fd4c-11e8-813c-005056b47a2e"}}
+    in /home/w/webali/lk.web-ali.ru/public_html/common/models/Request.php:186
+    in /home/w/webali/lk.web-ali.ru/public_html/common/models/Raport.php:815
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:156
+2018-12-11 16:57:55 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:57:54 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = [
+    '_csrf' => '8EJMN8xUuNb3M-QX0wvZFN2exMHmaYkQh8AxxtupR7nCM2FmnTz7uJRRtkC4Out_u82Vh6UfwXrOhmKjq8QxwA=='
+    'Raport' => [
+        'master_guid' => '209c80df-68f2-11e8-8117-005056b47a2e'
+        'master_name' => 'Абрамов Михаил Сергеевич'
+        'brigade_guid' => '059423d0-2a8a-4a07-b799-d193cc7827f0'
+        'user_guid' => '8606fa01-bee2-11e3-be7b-f80f418b5b95'
+        'created_at' => '2018-12-11T16:57:26'
+        'starttime' => '11:11'
+        'endtime' => '22:22'
+        'object_guid' => '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+        'object_name' => 'МКАД Внутренняя сторона км 26- км 27'
+        'project_guid' => '2d835e00-a6cd-11e8-811a-005056b47a2e'
+        'project_name' => 'Помощь МАДИ-Практик'
+        'boundary_name' => 'МКАД'
+        'boundary_guid' => 'eb59ee3e-a50c-11e8-811a-005056b47a2e'
+        'temperature_start' => '1'
+        'surface_temperature_start' => '2'
+        'airhumidity_start' => '3'
+        'temperature_end' => '6'
+        'surface_temperature_end' => '5'
+        'airhumidity_end' => '4'
+        'comment' => ''
+    ]
+    'autocomplete_properties' => ''
+    'autocomplete_parameters' => ''
+    'RaportConsist' => [
+        0 => [
+            'user_guid' => '8606fa01-bee2-11e3-be7b-f80f418b5b95'
+            'user_name' => 'Фомин Александр Николаевич'
+            'technic_guid' => '2aeaf64a-d295-11e8-8124-005056b47a2e'
+            'technic_name' => 'А 740 ВТ 777 DPM Шмель-11 АН'
+            'user_ktu' => '1'
+        ]
+        1 => [
+            'user_guid' => '5946721b-bee7-11e3-be7b-f80f418b5b95'
+            'user_name' => 'Гранкин Андрей Вячеславович'
+            'technic_guid' => '3c65f88d-d1fc-11e8-8124-005056b47a2e'
+            'technic_name' => 'НВ 4349 77 Borum BM T-5000'
+            'user_ktu' => '0.95'
+        ]
+        2 => [
+            'user_guid' => '8606fa09-bee2-11e3-be7b-f80f418b5b95'
+            'user_name' => 'Троян Владимир Павлович'
+            'technic_guid' => '4638be01-d295-11e8-8124-005056b47a2e'
+            'technic_name' => 'Т 947 АМ 777 Hyundai HD-78 37978S'
+            'user_ktu' => '0.9'
+        ]
+    ]
+    'RaportWork' => [
+        0 => [
+            'work_guid' => '2483a64e-201f-11e8-8112-005056b47a2e'
+            'work_name' => 'Зачистка разметки'
+            'line_guid' => '24ed105a-f92c-4307-ad28-83ef4f3a0d16'
+            'line_name' => '1.1 (10) Край'
+            'length' => '2'
+            'count' => '5'
+            'squaremeter' => '0.200'
+        ]
+    ]
+    'RaportMaterial' => [
+        0 => [
+            'nomenclature_name' => 'Эмаль, цвет жёлтый (АК-511)'
+            'nomenclature_guid' => '0b8b5fbc-30de-11e8-8113-005056b47a2e'
+            'was' => '348.66'
+            'spent' => '2.12'
+            'rest' => '346.54'
+        ]
+        1 => [
+            'nomenclature_name' => 'МСШ 106-600 (Вайскер)'
+            'nomenclature_guid' => '1da3fcec-4489-11e8-8114-005056b47a2e'
+            'was' => '671.75'
+            'spent' => '33.2'
+            'rest' => '638.55'
+        ]
+        2 => [
+            'nomenclature_name' => 'МСШ 150-600 (Сферастек)'
+            'nomenclature_guid' => 'da5bdf49-3caa-11e8-8113-005056b47a2e'
+            'was' => '197.7'
+            'spent' => ''
+            'rest' => '197.7'
+        ]
+        3 => [
+            'nomenclature_name' => 'Эмаль, цвет белый (АК-511)'
+            'nomenclature_guid' => 'f8e0e0c7-1674-11e8-8112-005056b47a2e'
+            'was' => '810'
+            'spent' => ''
+            'rest' => '810'
+        ]
+    ]
+    'password' => 'fominan655'
+]
+
+$_FILES = [
+    'files' => [
+        'name' => [
+            0 => ''
+        ]
+        'type' => [
+            0 => ''
+        ]
+        'tmp_name' => [
+            0 => ''
+        ]
+        'error' => [
+            0 => 4
+        ]
+        'size' => [
+            0 => 0
+        ]
+    ]
+]
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'success' => -1
+    ]
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+    'success' => 'Рапорт отправлен на проверку'
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CYgVlnMcAAES6i6YAAAAB'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'CONTENT_LENGTH' => '10544'
+    'HTTP_ORIGIN' => 'http://lk.web-ali.ru'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=----WebKitFormBoundary9lT2EJG0FmAtn5CM'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '44946'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536674.137
+    'REQUEST_TIME' => 1544536674
+    'argv' => [
+        0 => 'r=raport%2Fform'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:57:57 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 16:57:57 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:57:55 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CYwVlnMcAAEJTDAAAAAAL'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '45422'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/frontend/web/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536675.924
+    'REQUEST_TIME' => 1544536675
+    'argv' => [
+        0 => 'r=site%2Findex'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:58:05 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 16:58:05 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:58:03 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CawVlnMcAAEROvNYAAAAP'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '47618'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/frontend/web/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536683.789
+    'REQUEST_TIME' => 1544536683
+    'argv' => [
+        0 => 'r=site%2Findex'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:58:10 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:63
+2018-12-11 16:58:10 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:58:09 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/view'
+    'id' => '129'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CcQVlnMcAAEYr7OIAAAAR'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '49270'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fview&id=129'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fview&id=129'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536689.8
+    'REQUEST_TIME' => 1544536689
+    'argv' => [
+        0 => 'r=raport%2Fview&id=129'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:58:13 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 16:58:13 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:58:12 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CdAVlnMcAAEYamxwAAAAD'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '50038'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/frontend/web/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536692.352
+    'REQUEST_TIME' => 1544536692
+    'argv' => [
+        0 => 'r=site%2Findex'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:58:15 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 16:58:15 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:58:15 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '129'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CdwVlnMcAAEP381oAAAAA'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '50710'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=129'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform&id=129'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536695.118
+    'REQUEST_TIME' => 1544536695
+    'argv' => [
+        0 => 'r=raport%2Fform&id=129'
+    ]
+    'argc' => 1
+]
+2018-12-11 16:58:19 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 16:58:19 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/technics'
+    'key' => 'А 740 ВТ 777 DPM Шмель-11 АН'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-CewVlnMcAAEYbO-sAAAAG'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'm7fHfoyxyVqBH_7y_gclWsag-4x8vK3Q53lbdDJbOkipxuov3dmKNOJ9rKWVNhcxoPOqyj_K5bquPwgRQjZMMQ=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform&id=129'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '51938'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Ftechnics&key=%D0%90%20740%20%D0%92%D0%A2%20777%20DPM%20%D0%A8%D0%BC%D0%B5%D0%BB%D1%8C-11%20%D0%90%D0%9D'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Ftechnics&key=%D0%90%20740%20%D0%92%D0%A2%20777%20DPM%20%D0%A8%D0%BC%D0%B5%D0%BB%D1%8C-11%20%D0%90%D0%9D'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544536699.404
+    'REQUEST_TIME' => 1544536699
+    'argv' => [
+        0 => 'r=autocomplete%2Ftechnics&key=%D0%90%20740%20%D0%92%D0%A2%20777%20DPM%20%D0%A8%D0%BC%D0%B5%D0%BB%D1%8C-11%20%D0%90%D0%9D'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:16:12 [10.1.5.176][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.1.5.176
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 17:16:12 [10.1.5.176][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.1.5.176
+2018-12-11 17:16:11 [10.1.5.176][232][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'REDIRECT_UNIQUE_ID' => 'XA-GqwVlnMcAAGDsdioAAAAL'
+    'REDIRECT_GEOIP_ADDR' => '46.28.89.34'
+    'REDIRECT_GEOIP_CONTINENT_CODE' => 'EU'
+    'REDIRECT_GEOIP_COUNTRY_CODE' => 'RU'
+    'REDIRECT_GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'REDIRECT_GEOIP_REGION' => '48'
+    'REDIRECT_GEOIP_REGION_NAME' => 'Moscow City'
+    'REDIRECT_GEOIP_CITY' => 'Moscow'
+    'REDIRECT_GEOIP_DMA_CODE' => '0'
+    'REDIRECT_GEOIP_METRO_CODE' => '0'
+    'REDIRECT_GEOIP_AREA_CODE' => '0'
+    'REDIRECT_GEOIP_LATITUDE' => '55.752201'
+    'REDIRECT_GEOIP_LONGITUDE' => '37.615601'
+    'REDIRECT_GEOIP_POSTAL_CODE' => '101752'
+    'REDIRECT_STATUS' => '200'
+    'UNIQUE_ID' => 'XA-GqwVlnMcAAGDsdioAAAAL'
+    'GEOIP_ADDR' => '10.1.5.176'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=259200'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '10.1.5.176'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '58932'
+    'REDIRECT_URL' => '/'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544537771.602
+    'REQUEST_TIME' => 1544537771
+    'argv' => []
+    'argc' => 0
+]
+2018-12-11 17:16:16 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:16:16 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:16:15 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '129'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-GrwVlnMcAAGPfnRsAAAAH'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '61732'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=129'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform&id=129'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544537775.735
+    'REQUEST_TIME' => 1544537775
+    'argv' => [
+        0 => 'r=raport%2Fform&id=129'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:18:02 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:18:02 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:18:01 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '129'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-HGQVlnMcAAGYt5kYAAAAU'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '48576'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=129'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform&id=129'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544537881.846
+    'REQUEST_TIME' => 1544537881
+    'argv' => [
+        0 => 'r=raport%2Fform&id=129'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:19:05 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:19:05 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:19:05 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '129'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-HWQVlnMcAAGiqf6EAAAAA'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '64766'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=129'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform&id=129'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544537945.524
+    'REQUEST_TIME' => 1544537945
+    'argv' => [
+        0 => 'r=raport%2Fform&id=129'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:21:28 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 17:21:28 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:21:27 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-H5wVlnMcAAG2uTjoAAAAO'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform&id=129'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '51000'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/frontend/web/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538087.378
+    'REQUEST_TIME' => 1544538087
+    'argv' => [
+        0 => 'r=site%2Findex'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:21:36 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:21:36 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:21:36 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-H8AVlnMcAAG47reYAAAAW'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '54686'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538096.151
+    'REQUEST_TIME' => 1544538096
+    'argv' => [
+        0 => 'r=raport%2Fform'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:05 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:25:05 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:05 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-IwQVlnMcAAHTF7o8AAAAH'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '62360'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538305.405
+    'REQUEST_TIME' => 1544538305
+    'argv' => [
+        0 => 'r=raport%2Fform'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:07 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:07 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/masters'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-IwwVlnMcAAHVwf54AAAAO'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'nGMonUYQceWI31EZImu0Y30QThvbgF0sRK3R7AFZONCuEgXMF3gyi-u9A05JWoYIG0MfXZj2FUYN64KJcTROqQ=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '62966'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fmasters&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fmasters&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538307.501
+    'REQUEST_TIME' => 1544538307
+    'argv' => [
+        0 => 'r=autocomplete%2Fmasters&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:09 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:25:09 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:09 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-IxQVlnMcAAHBbsWgAAAAA'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '63452'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538309.178
+    'REQUEST_TIME' => 1544538309
+    'argv' => [
+        0 => 'r=raport%2Fform'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:09 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:09 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/masters'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-IxQVlnMcAAHW4WmoAAAAg'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'nGMonUYQceWI31EZImu0Y30QThvbgF0sRK3R7AFZONCuEgXMF3gyi-u9A05JWoYIG0MfXZj2FUYN64KJcTROqQ=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '63534'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fmasters&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fmasters&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538309.354
+    'REQUEST_TIME' => 1544538309
+    'argv' => [
+        0 => 'r=autocomplete%2Fmasters&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:10 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:10 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/masters'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-IxgVlnMcAAHW9RyQAAAAk'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '36V6WhwH1exmczfk63FgrFnuEw0b4HoSWJHAvPXb-qPt1FcLTW-WggURZbOAQFLHP71CS1iWMngR15PZhbaM2g=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '63996'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fmasters&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fmasters&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538310.839
+    'REQUEST_TIME' => 1544538310
+    'argv' => [
+        0 => 'r=autocomplete%2Fmasters&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:17 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:17 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/objects'
+    'key' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-IzQVlnMcAAHW4WmoAAAAg'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '36V6WhwH1exmczfk63FgrFnuEw0b4HoSWJHAvPXb-qPt1FcLTW-WggURZbOAQFLHP71CS1iWMngR15PZhbaM2g=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '6238'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fobjects&key='
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fobjects&key='
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538317.647
+    'REQUEST_TIME' => 1544538317
+    'argv' => [
+        0 => 'r=autocomplete%2Fobjects&key='
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:32 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/SiteController.php:87
+2018-12-11 17:25:32 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:30 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-I2gVlnMcAAHWHWtIAAAAQ'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '9698'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/frontend/web/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538330.827
+    'REQUEST_TIME' => 1544538330
+    'argv' => [
+        0 => 'r=site%2Findex'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:37 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/views/layouts/main.php:99
+    in /home/w/webali/lk.web-ali.ru/public_html/frontend/controllers/RaportController.php:186
+2018-12-11 17:25:37 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:36 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '129'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-I4AVlnMcAAHOIUBwAAAAU'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '11516'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=129'
+    'REQUEST_URI' => '/frontend/web/index.php?r=raport%2Fform&id=129'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538336.668
+    'REQUEST_TIME' => 1544538336
+    'argv' => [
+        0 => 'r=raport%2Fform&id=129'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:40 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:40 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/technics'
+    'key' => 'А 740 ВТ 777 DPM Шмель-11 АН'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-I5AVlnMcAAHVjSjUAAAAJ'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'IOBLqPKEPhHH27I-1lY4rq9Go92_CJ3g1CsIY7aA358SkWb5o-x9f6S54Gm9ZwrFyRXym_x-1YqdbVsGxu2p5g=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform&id=129'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '12380'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Ftechnics&key=%D0%90%20740%20%D0%92%D0%A2%20777%20DPM%20%D0%A8%D0%BC%D0%B5%D0%BB%D1%8C-11%20%D0%90%D0%9D'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Ftechnics&key=%D0%90%20740%20%D0%92%D0%A2%20777%20DPM%20%D0%A8%D0%BC%D0%B5%D0%BB%D1%8C-11%20%D0%90%D0%9D'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538340.109
+    'REQUEST_TIME' => 1544538340
+    'argv' => [
+        0 => 'r=autocomplete%2Ftechnics&key=%D0%90%20740%20%D0%92%D0%A2%20777%20DPM%20%D0%A8%D0%BC%D0%B5%D0%BB%D1%8C-11%20%D0%90%D0%9D'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:43 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:43 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/works'
+    'key' => 'Зачистка разметки'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-I5wVlnMcAAHOIUBwAAAAU'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'IOBLqPKEPhHH27I-1lY4rq9Go92_CJ3g1CsIY7aA358SkWb5o-x9f6S54Gm9ZwrFyRXym_x-1YqdbVsGxu2p5g=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform&id=129'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '13332'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Fworks&key=%D0%97%D0%B0%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Fworks&key=%D0%97%D0%B0%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538343.448
+    'REQUEST_TIME' => 1544538343
+    'argv' => [
+        0 => 'r=autocomplete%2Fworks&key=%D0%97%D0%B0%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B8'
+    ]
+    'argc' => 1
+]
+2018-12-11 17:25:45 [46.28.89.34][232][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 46.28.89.34
+2018-12-11 17:25:45 [46.28.89.34][232][-][info][application] $_GET = [
+    'r' => 'autocomplete/lines'
+    'key' => '1.1 (10) Край'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => 'd6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO\",2592000]\";}'
+    'ecr-frontend' => '9fd9d3f365def5c5ee6ead3ede2e5871'
+    '_identity-ecr-frontend' => '16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:48:\"[232,\"ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM\",2592000]\";}'
+    '_csrf' => '35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2q-QQhCncbRWk12kfSQFCvHjIFSepmvy\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/frontend/web/index.php'
+    '__id' => 232
+]
+
+$_SERVER = [
+    'UNIQUE_ID' => 'XA-I6QVlnMcAAHOIUBwAAAAU'
+    'GEOIP_ADDR' => '46.28.89.34'
+    'GEOIP_CONTINENT_CODE' => 'EU'
+    'GEOIP_COUNTRY_CODE' => 'RU'
+    'GEOIP_COUNTRY_NAME' => 'Russian Federation'
+    'GEOIP_REGION' => '48'
+    'GEOIP_REGION_NAME' => 'Moscow City'
+    'GEOIP_CITY' => 'Moscow'
+    'GEOIP_DMA_CODE' => '0'
+    'GEOIP_METRO_CODE' => '0'
+    'GEOIP_AREA_CODE' => '0'
+    'GEOIP_LATITUDE' => '55.752201'
+    'GEOIP_LONGITUDE' => '37.615601'
+    'GEOIP_POSTAL_CODE' => '101752'
+    'HTTP_HOST' => 'lk.web-ali.ru'
+    'HTTP_X_FORWARDED_FOR' => '10.1.5.176'
+    'HTTP_X_SERVER_ADDR' => '5.101.152.199'
+    'HTTP_X_FORWARDED_PROTO' => 'http'
+    'HTTP_X_REAL_IP' => '46.28.89.34'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'IOBLqPKEPhHH27I-1lY4rq9Go92_CJ3g1CsIY7aA358SkWb5o-x9f6S54Gm9ZwrFyRXym_x-1YqdbVsGxu2p5g=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_REFERER' => 'http://lk.web-ali.ru/frontend/web/index.php?r=raport%2Fform&id=129'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,ca;q=0.6'
+    'HTTP_COOKIE' => '_identity=d6116847d4205d90cf391c8793ae0d0c3a6e9f82c58ad6c955c79e75633a06a0a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22M3hwL9dh8QNP3x2VRZV8gJlk3TnsJrrO%22%2C2592000%5D%22%3B%7D; ecr-frontend=9fd9d3f365def5c5ee6ead3ede2e5871; _identity-ecr-frontend=16c0893a59e8a96089f6599edd14e1bfa8b5564511c2dce31969517c5163839da%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A48%3A%22%5B232%2C%22ZvAspO9I4g1WWr8tP0XqjpSPBe1xsuEM%22%2C2592000%5D%22%3B%7D; _csrf=35d9b3beded2523a6029e14e8af42e8a4266bd6a187973580f4d062fc15466daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222q-QQhCncbRWk12kfSQFCvHjIFSepmvy%22%3B%7D'
+    'HTTP_VIA' => '1.1 gate.shtrih-m.ru (squid/3.5.9)'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Unix) Server at lk.web-ali.ru Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Unix)'
+    'SERVER_NAME' => 'lk.web-ali.ru'
+    'SERVER_ADDR' => '5.101.152.199'
+    'SERVER_PORT' => '80'
+    'REQUEST_SCHEME' => 'http'
+    'REMOTE_ADDR' => '46.28.89.34'
+    'DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/w/webali/lk.web-ali.ru/public_html'
+    'SERVER_ADMIN' => 'webmaster@lk.web-ali.ru'
+    'SCRIPT_FILENAME' => '/home/w/webali/lk.web-ali.ru/public_html/frontend/web/index.php'
+    'REMOTE_PORT' => '13960'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=autocomplete%2Flines&key=1.1%20(10)%20%D0%9A%D1%80%D0%B0%D0%B9'
+    'REQUEST_URI' => '/frontend/web/index.php?r=autocomplete%2Flines&key=1.1%20(10)%20%D0%9A%D1%80%D0%B0%D0%B9'
+    'SCRIPT_NAME' => '/frontend/web/index.php'
+    'PHP_SELF' => '/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1544538345.638
+    'REQUEST_TIME' => 1544538345
+    'argv' => [
+        0 => 'r=autocomplete%2Flines&key=1.1%20(10)%20%D0%9A%D1%80%D0%B0%D0%B9'
+    ]
+    'argc' => 1
+]

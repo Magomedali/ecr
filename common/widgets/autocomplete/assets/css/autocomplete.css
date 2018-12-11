@@ -27,14 +27,23 @@
             margin: 0px;
             padding: 0px;
             background: #fff;
+            border: 1px solid #a4b9ca;
             z-index: 1001;
         }
 
             .autocomplete_items li{
                 list-style: none;
                 cursor: pointer;
+                padding: 2px 5px;
+			    border-bottom: 1px solid #a4b9ca;
             }
-
+            
+            .autocomplete_items li:last-child{
+    			border-bottom: none;
+    		}
+            
+		
             .autocomplete_items li:hover{
-                background-color: #ccc;
+                background:#3b98de;
+    			color: #fff;
             }

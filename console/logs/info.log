@@ -6570,3 +6570,1788 @@ AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
 2018-12-11 16:51:02 [-][-][-][info][cron] Method not executed
 2018-12-11 16:51:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
 2018-12-11 16:51:02 [-][-][-][info][cron] Processing for 0.90922713279724 seconds
+2018-12-11 16:52:01 [-][-][-][info][cron] Process start
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:52:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:52:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:52:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:52:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:52:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:52:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:52:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:52:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:52:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:52:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:52:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:52:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:52:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:52:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:52:02 [-][-][-][info][cron] Processing for 0.92030906677246 seconds
+2018-12-11 16:53:01 [-][-][-][info][cron] Process start
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:53:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:53:01 [-][-][-][info][cron] Method not executed
+2018-12-11 16:53:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:53:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:53:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:53:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:53:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:53:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:53:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:53:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:53:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:53:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:53:02 [-][-][-][info][cron] Processing for 0.90498304367065 seconds
+2018-12-11 16:54:01 [-][-][-][info][cron] Process start
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:54:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:54:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:54:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:54:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:54:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:54:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:54:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:54:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:54:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:54:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:54:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:54:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:54:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:54:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:54:02 [-][-][-][info][cron] Processing for 0.95226311683655 seconds
+2018-12-11 16:55:01 [-][-][-][info][cron] Process start
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:55:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:55:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:55:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:55:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:55:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:55:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:55:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:55:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:55:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:55:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:55:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:55:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:55:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:55:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:55:02 [-][-][-][info][cron] Processing for 0.94009685516357 seconds
+2018-12-11 16:56:01 [-][-][-][info][cron] Process start
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:56:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:56:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:56:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:56:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:56:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:56:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:56:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:56:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:56:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:56:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:56:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:56:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:56:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:56:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:56:02 [-][-][-][info][cron] Processing for 0.8967010974884 seconds
+2018-12-11 16:57:01 [-][-][-][info][cron] Process start
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:57:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:57:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:57:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:57:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:57:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:57:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:57:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:57:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:57:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:57:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:57:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:57:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:57:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:57:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:57:02 [-][-][-][info][cron] Processing for 0.9326479434967 seconds
+2018-12-11 16:58:01 [-][-][-][info][cron] Process start
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:58:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:58:01 [-][-][-][info][cron] Method not executed
+2018-12-11 16:58:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:58:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:58:01 [-][-][-][info][cron] Method not executed
+2018-12-11 16:58:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:58:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:58:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:58:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:58:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:58:02 [-][-][-][info][cron] Processing for 0.86149406433105 seconds
+2018-12-11 16:59:02 [-][-][-][info][cron] Process start
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 16:59:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 16:59:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:59:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:59:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 16:59:02 [-][-][-][info][cron] Method not executed
+2018-12-11 16:59:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 16:59:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 16:59:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 16:59:03 [-][-][-][info][cron] Method not executed
+2018-12-11 16:59:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 16:59:03 [-][-][-][info][cron] Processing for 0.9125599861145 seconds
+2018-12-11 17:00:01 [-][-][-][info][cron] Process start
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:00:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:00:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:00:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:00:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:00:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:00:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:00:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:00:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:00:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:00:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:00:03 [-][-][-][info][cron] Processing for 1.1096830368042 seconds
+2018-12-11 17:01:01 [-][-][-][info][cron] Process start
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:01:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:01:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:01:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:01:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:01:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:01:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:01:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:01:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:01:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:01:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:01:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:01:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:01:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:01:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:01:02 [-][-][-][info][cron] Processing for 0.88596200942993 seconds
+2018-12-11 17:02:02 [-][-][-][info][cron] Process start
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:02:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:02:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:02:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:02:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:02:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:02:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:02:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:02:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:02:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:02:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:02:03 [-][-][-][info][cron] Processing for 1.0094249248505 seconds
+2018-12-11 17:03:02 [-][-][-][info][cron] Process start
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:03:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:03:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:03:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:03:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:03:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:03:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:03:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:03:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:03:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:03:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:03:03 [-][-][-][info][cron] Processing for 0.89737105369568 seconds
+2018-12-11 17:04:01 [-][-][-][info][cron] Process start
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:04:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:04:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:04:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:04:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:04:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:04:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:04:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:04:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:04:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:04:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:04:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:04:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:04:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:04:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:04:02 [-][-][-][info][cron] Processing for 0.83921504020691 seconds
+2018-12-11 17:05:01 [-][-][-][info][cron] Process start
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:05:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:05:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:05:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:05:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:05:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:05:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:05:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:05:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:05:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:05:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:05:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:05:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:05:02 [-][-][-][info][cron] Processing for 0.9074490070343 seconds
+2018-12-11 17:06:01 [-][-][-][info][cron] Process start
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:06:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:06:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:06:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:06:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:06:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:06:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:06:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:06:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:06:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:06:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:06:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:06:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:06:02 [-][-][-][info][cron] Processing for 0.85168290138245 seconds
+2018-12-11 17:07:01 [-][-][-][info][cron] Process start
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:07:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:07:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:07:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:07:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:07:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:07:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:07:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:07:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:07:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:07:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:07:02 [-][-][-][info][cron] Processing for 0.85129284858704 seconds
+2018-12-11 17:08:01 [-][-][-][info][cron] Process start
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:08:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:08:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:08:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:08:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:08:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:08:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:08:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:08:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:08:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:08:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:08:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:08:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:08:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:08:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:08:03 [-][-][-][info][cron] Processing for 1.1435480117798 seconds
+2018-12-11 17:09:01 [-][-][-][info][cron] Process start
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:09:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:09:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:09:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:09:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:09:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:09:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:09:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:09:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:09:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:09:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:09:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:09:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:09:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:09:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:09:02 [-][-][-][info][cron] Processing for 0.84177088737488 seconds
+2018-12-11 17:10:01 [-][-][-][info][cron] Process start
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:10:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:10:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:10:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:10:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:10:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:10:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:10:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:10:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:10:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:10:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:10:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:10:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:10:02 [-][-][-][info][cron] Processing for 0.85531806945801 seconds
+2018-12-11 17:11:01 [-][-][-][info][cron] Process start
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:11:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:11:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:11:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:11:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:11:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:11:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:11:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:11:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:11:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:11:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:11:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:11:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:11:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:11:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:11:02 [-][-][-][info][cron] Processing for 0.83258318901062 seconds
+2018-12-11 17:12:01 [-][-][-][info][cron] Process start
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:12:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:12:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:12:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:12:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:12:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:12:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:12:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:12:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:12:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:12:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:12:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:12:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:12:02 [-][-][-][info][cron] Processing for 0.85814213752747 seconds
+2018-12-11 17:13:02 [-][-][-][info][cron] Process start
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:13:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:13:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:13:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:13:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:13:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:13:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:13:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:13:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:13:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:13:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:13:03 [-][-][-][info][cron] Processing for 0.80601215362549 seconds
+2018-12-11 17:14:02 [-][-][-][info][cron] Process start
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:14:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:14:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:14:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:14:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:14:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:14:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:14:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:14:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:14:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:14:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:14:02 [-][-][-][info][cron] Processing for 0.85966801643372 seconds
+2018-12-11 17:15:02 [-][-][-][info][cron] Process start
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:15:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:15:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:15:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:15:03 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:15:03 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:15:03 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:15:03 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:15:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:15:03 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:15:03 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:15:03 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:15:03 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:15:03 [-][-][-][info][cron] Method not executed
+2018-12-11 17:15:03 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:15:03 [-][-][-][info][cron] Processing for 1.493821144104 seconds
+2018-12-11 17:16:02 [-][-][-][info][cron] Process start
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:16:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:16:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:16:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:16:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:16:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:16:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:16:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:16:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:16:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:16:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:16:02 [-][-][-][info][cron] Processing for 0.81631302833557 seconds
+2018-12-11 17:17:01 [-][-][-][info][cron] Process start
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:17:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:17:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:17:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:17:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:17:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:17:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:17:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:17:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:17:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:17:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:17:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:17:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:17:02 [-][-][-][info][cron] Processing for 0.8432309627533 seconds
+2018-12-11 17:18:01 [-][-][-][info][cron] Process start
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:18:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:18:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:18:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:18:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:18:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:18:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:18:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:18:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:18:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:18:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:18:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:18:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:18:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:18:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:18:02 [-][-][-][info][cron] Processing for 0.85252094268799 seconds
+2018-12-11 17:19:01 [-][-][-][info][cron] Process start
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:19:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:19:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:19:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:19:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:19:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:19:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:19:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:19:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:19:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:19:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:19:02 [-][-][-][info][cron] Processing for 0.85371112823486 seconds
+2018-12-11 17:20:01 [-][-][-][info][cron] Process start
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:20:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:20:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:20:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:20:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:20:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:20:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:20:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:20:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:20:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:20:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:20:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:20:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:20:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:20:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:20:02 [-][-][-][info][cron] Processing for 1.0560250282288 seconds
+2018-12-11 17:21:01 [-][-][-][info][cron] Process start
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:21:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:21:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:21:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:21:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:21:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:21:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:21:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:21:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:21:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:21:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:21:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:21:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:21:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:21:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:21:02 [-][-][-][info][cron] Processing for 0.82786989212036 seconds
+2018-12-11 17:22:01 [-][-][-][info][cron] Process start
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:22:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:22:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:22:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:22:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:22:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:22:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:22:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:22:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:22:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:22:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:22:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:22:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:22:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:22:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:22:02 [-][-][-][info][cron] Processing for 0.85579609870911 seconds
+2018-12-11 17:23:01 [-][-][-][info][cron] Process start
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:23:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:23:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:23:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:23:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:23:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:23:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:23:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:23:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:23:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:23:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:23:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:23:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:23:02 [-][-][-][info][cron] Processing for 1.0919458866119 seconds
+2018-12-11 17:24:01 [-][-][-][info][cron] Process start
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:24:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:24:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:24:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:24:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:24:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:24:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:24:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:24:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:24:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:24:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:24:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:24:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:24:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:24:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:24:02 [-][-][-][info][cron] Processing for 1.0342781543732 seconds
+2018-12-11 17:25:01 [-][-][-][info][cron] Process start
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:25:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:25:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:25:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:25:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:25:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:25:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:25:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:25:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:25:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:25:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:25:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:25:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:25:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:25:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:25:02 [-][-][-][info][cron] Processing for 0.86250400543213 seconds
+2018-12-11 17:26:01 [-][-][-][info][cron] Process start
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-11 17:26:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #142
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=35
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=35
+2018-12-11 17:26:01 [-][-][-][info][cron] Method not executed
+2018-12-11 17:26:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:26:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #143
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=36
+2018-12-11 17:26:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=36
+2018-12-11 17:26:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:26:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2057)}: \u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u043c \u043e\u0431\u044a\u0435\u043a\u0442\u043d\u043e\u0433\u043e \u0442\u0438\u043f\u0430 (\u041f\u0440\u043e\u0432\u0435\u0434\u0435\u043d)","number":null,"guid":null}}
+2018-12-11 17:26:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #146
+2018-12-11 17:26:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=93
+2018-12-11 17:26:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=93
+2018-12-11 17:26:02 [-][-][-][info][cron] Method not executed
+2018-12-11 17:26:02 [-][-][-][info][cron] {"return":{"success":false,"error":"\u041d\u0435 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043d\u043e\u043c\u0435\u043d\u043a\u043b\u0430\u0442\u0443\u0440\u044b \u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a)  \u043d\u0430 \u043e\u0441\u0442\u0430\u0442\u043a\u0430\u0445 \u0443 \u041c\u041e\u041b","number":null,"guid":null}}
+2018-12-11 17:26:02 [-][-][-][info][cron] Processing for 0.81436204910278 seconds

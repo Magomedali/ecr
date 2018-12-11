@@ -413,7 +413,7 @@ $this->title = "Форма рапорта";
 													</td>
 													<td>
 													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.01",'max'=>$item['was'],'autocomplete'=>'off']);
+														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.001",'max'=>$item['was'],'autocomplete'=>'off']);
 													?>
 													</td>
 													<td>
@@ -660,7 +660,8 @@ $script = <<<JS
 		var rest = $(this).parents("tr").find(".rest_input");
 		var total = parseFloat($(this).attr("max"));
 		var value = parseFloat($(this).val());
-		rest.val(total - value);
+		var r = parseFloat(total - value);
+    	rest.val(r.toFixed(3));
 	});
 
 	$("body").on("keyup",".spent_input",function(){
@@ -680,7 +681,7 @@ $script = <<<JS
 
 		if(value || value === 0){
 			var rest_value = parseFloat(total - value);
-			rest.val(rest_value);
+			rest.val(rest_value.toFixed(3));
 		}else{
 			rest.val("");
 		}
