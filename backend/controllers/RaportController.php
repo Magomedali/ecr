@@ -120,7 +120,11 @@ class RaportController extends Controller{
                 $model->saveRelationEntities();
 
                 if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
-                    Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части");
+                    Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта");
+                    Yii::warning("Error when save raport tables data","raportform");
+                    Yii::warning(json_encode($model->getConsistErrors()),"unloadremnant");
+                    Yii::warning(json_encode($model->getWorksErrors()),"unloadremnant");
+                    Yii::warning(json_encode($model->getMaterialsErrors()),"unloadremnant");
                 }else{
                     Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
 
@@ -132,6 +136,8 @@ class RaportController extends Controller{
 
             }else{
                 Yii::$app->session->setFlash("error","Рапорт не сохранен. Обнаружены ошибки при проверке данных!");
+                Yii::warning("Error when save raport","raportform");
+                Yii::warning(json_encode($model->getErrors()),"unloadremnant");
             }
             
             $hasErrors = true;

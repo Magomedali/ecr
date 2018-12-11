@@ -218,6 +218,13 @@ class RemnantsPackage extends ActiveRecord
             }
         }
 
+        if(count($this->itemsErrors)){
+            Yii::warning("Error when save items","unloadremnant");
+            Yii::warning(json_encode($this->itemsErrors),"unloadremnant");
+            //Yii::$app->session->setFlash("warning","Произошла ошибка при сохранении остатков");
+        }
+
+
         return !count($this->itemsErrors);
     }
 

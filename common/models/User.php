@@ -450,9 +450,16 @@ class User extends ActiveRecord implements IdentityInterface
         
         if($method->validate()){
             try {
+
+                Yii::warning("Call unload remnant","unloadremnant");
+                Yii::warning("Parameters","unloadremnant");
+                Yii::warning(json_encode($method->parameters),"unloadremnant");
                 $resp = Yii::$app->webservice1C->send($method);
                 $resp = json_decode(json_encode($resp),1);
-                
+
+                Yii::warning("Response","unloadremnant");
+                Yii::warning(json_encode($resp),"unloadremnant");
+
                 if(isset($resp['return']) && isset($resp['return']['remnant'])){
                     $remnants = $resp['return']['remnant'];
                     
