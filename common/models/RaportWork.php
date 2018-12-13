@@ -74,7 +74,7 @@ class RaportWork extends ActiveRecordVersionable
     		'raport_id'=>'Рапорт',
             'work_guid'=>'Вид работы',
             'line_guid'=>'Линия',
-            'length'=>'Длина',
+            'length'=>'П.М./Шт',
             'count'=>'Количество',
             'mechanized'=>'Механизированная работа',
             'squaremeter'=>'Квадратура'

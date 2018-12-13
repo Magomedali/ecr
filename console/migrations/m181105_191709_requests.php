@@ -67,7 +67,7 @@ class m181105_191709_requests extends Migration
 
         $this->addForeignKey('fk-requests-version_id',"{{%requests}}",'version_id',"{{%requests_history}}",'id','CASCADE','CASCADE');
         $this->addForeignKey('fk-requests-raport_id',"{{%requests}}",'raport_id',"{{%raport}}",'id','CASCADE','CASCADE');
-        $this->addForeignKey('fk-requests-user_id',"{{%requests}}",'actor_id',"{{%user}}",'id','CASCADE','CASCADE');
+        $this->addForeignKey('fk-requests-user_id',"{{%requests}}",'user_id',"{{%user}}",'id','CASCADE','CASCADE');
         $this->addForeignKey('fk-requests-actor_id',"{{%requests}}",'actor_id',"{{%user}}",'id','CASCADE','CASCADE');
 
     }

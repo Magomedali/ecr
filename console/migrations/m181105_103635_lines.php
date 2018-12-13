@@ -25,7 +25,9 @@ class m181105_103635_lines extends Migration
             'id' => $this->primaryKey(),
             'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(128)->notNull(),
-
+            'is_countable' => $this->smallInteger()->null()->defaultValue(0),
+            'hint_count' => $this->string()->null(),
+            'hint_length' => $this->string()->null(),
             'version_id'=>$this->integer()->null(),
             'isDeleted'=>$this->smallInteger()->null()->defaultValue(0)
         ], $tableOptions);
@@ -37,7 +39,10 @@ class m181105_103635_lines extends Migration
 
             'guid' => $this->string(36)->notNull(),
             'name' => $this->string(128)->notNull(),
-
+            'is_countable' => $this->smallInteger()->null()->defaultValue(0),
+            'hint_count' => $this->string()->null(),
+            'hint_length' => $this->string()->null(),
+            
             'created_at'=>$this->timestamp(),
             'type_action'=> $this->integer()->notNull(),
             'version'=> $this->integer()->notNull(),

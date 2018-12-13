@@ -400,3 +400,1682 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1544558095.202
     'REQUEST_TIME' => 1544558095
 ]
+2018-12-13 20:14:36 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:36 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:36 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:37 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:51","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:36 [127.0.0.1][7][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '2861'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732076.541
+    'REQUEST_TIME' => 1544732076
+]
+2018-12-13 20:14:40 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:40 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:40 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:41 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:41 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:54","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:54","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:54","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:54","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:14:54","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:40 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '2861'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732080.179
+    'REQUEST_TIME' => 1544732080
+]
+2018-12-13 20:14:47 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:47 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:47 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:47 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:47 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:01","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:01","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:01","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:01","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:01","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:46 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '2873'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732086.96
+    'REQUEST_TIME' => 1544732086
+]
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:48 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:02","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:14:47 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '2861'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732087.486
+    'REQUEST_TIME' => 1544732087
+]
+2018-12-13 20:14:50 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:50 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:50 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:51 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:51 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:05","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:05","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:05","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:05","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:15:05","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:14:50 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '2879'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732090.821
+    'REQUEST_TIME' => 1544732090
+]
+2018-12-13 20:25:59 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:25:59 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:25:59 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:26:00 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:26:00 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:26:14","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:26:14","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:26:14","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:26:14","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:26:14","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:25:59 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '3925'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732759.701
+    'REQUEST_TIME' => 1544732759
+]
+2018-12-13 20:28:12 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:28:12 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:28:12 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:28:13 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:28:13 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:28:27","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:28:27","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:28:27","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:28:27","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:28:27","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:28:12 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '4859'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544732892.804
+    'REQUEST_TIME' => 1544732892
+]
+2018-12-13 20:37:32 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:37:32 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:37:32 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:37:33 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:37:33 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:37:46","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:37:46","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:37:46","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:37:46","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:37:46","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:37:32 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '6528'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733452.318
+    'REQUEST_TIME' => 1544733452
+]
+2018-12-13 20:40:39 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:39 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:39 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:40 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:40 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:40:53","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:40:53","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:40:53","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:40:53","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:40:53","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:39 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '2'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '6953'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=2'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733639.333
+    'REQUEST_TIME' => 1544733639
+]
+2018-12-13 20:40:49 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:49 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:49 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:49 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:49 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:03","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:03","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:03","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:03","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:03","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:49 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7020'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733649.207
+    'REQUEST_TIME' => 1544733649
+]
+2018-12-13 20:40:56 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:56 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:56 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:56 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:56 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:10","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:10","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:10","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:10","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:10","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:40:56 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7026'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733656.004
+    'REQUEST_TIME' => 1544733656
+]
+2018-12-13 20:41:10 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:10 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:10 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:11 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:11 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:25","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:25","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:25","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:25","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:25","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:10 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7086'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733670.849
+    'REQUEST_TIME' => 1544733670
+]
+2018-12-13 20:41:36 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:36 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:36 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:37 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:37 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:51","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:51","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:51","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:51","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:51","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:36 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7150'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733696.526
+    'REQUEST_TIME' => 1544733696
+]
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:39 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:40 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:40 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:53","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\common\models\Raport.php:331
+2018-12-13 20:41:38 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'site/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7150'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Findex'
+    'REQUEST_URI' => '/index.php?r=site%2Findex'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733698.712
+    'REQUEST_TIME' => 1544733698
+]
+2018-12-13 20:41:42 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:42 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:42 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:43 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:43 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:57","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:57","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:57","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:57","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:41:57","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:42 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7155'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=1'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733702.684
+    'REQUEST_TIME' => 1544733702
+]
+2018-12-13 20:41:49 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:49 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:49 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:50 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:50 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:42:04","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:42:04","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:42:04","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:42:04","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:42:04","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:41:49 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7174'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733709.878
+    'REQUEST_TIME' => 1544733709
+]
+2018-12-13 20:44:30 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:30 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:30 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:31 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:31 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:45","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:45","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:45","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:45","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:45","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:30 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7552'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733870.677
+    'REQUEST_TIME' => 1544733870
+]
+2018-12-13 20:44:44 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:44 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:44 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:45 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:45 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:58","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:58","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:58","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:58","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:44:58","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:44 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7579'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=1'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733884.373
+    'REQUEST_TIME' => 1544733884
+]
+2018-12-13 20:44:48 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:48 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:48 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:49 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:49 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:03","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:03","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:03","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:03","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:03","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\User.php:541
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:48 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=raport%2Fform&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7590'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733888.862
+    'REQUEST_TIME' => 1544733888
+]
+2018-12-13 20:44:53 [127.0.0.1][7][-][warning][unloadremnant] Call unload remnant
+    in D:\usr\www\ecr\common\models\User.php:454
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:53 [127.0.0.1][7][-][warning][unloadremnant] Parameters
+    in D:\usr\www\ecr\common\models\User.php:455
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:53 [127.0.0.1][7][-][warning][unloadremnant] {"guidmol":"be2e6d76-2128-11e7-80e5-000c29a0432f"}
+    in D:\usr\www\ecr\common\models\User.php:456
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:54 [127.0.0.1][7][-][warning][unloadremnant] Response
+    in D:\usr\www\ecr\common\models\User.php:460
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:54 [127.0.0.1][7][-][warning][unloadremnant] {"return":{"remnant":[{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:07","nomenclature_guid":"f8e0e0c7-1674-11e8-8112-005056b47a2e","count":8},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:07","nomenclature_guid":"ab1d222a-1676-11e8-8112-005056b47a2e","count":1005},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:07","nomenclature_guid":"6c5af50b-1676-11e8-8112-005056b47a2e","count":104},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:07","nomenclature_guid":"39ca8e0b-a096-11e8-811a-005056b47a2e","count":588},{"mol_guid":"be2e6d76-2128-11e7-80e5-000c29a0432f","datetime":"2018-12-13T23:45:07","nomenclature_guid":"f38a408c-9ba9-11e8-811a-005056b47a2e","count":13694}],"success":true}}
+    in D:\usr\www\ecr\common\models\User.php:461
+    in D:\usr\www\ecr\common\models\Raport.php:363
+    in D:\usr\www\ecr\frontend\views\raport\form.php:17
+2018-12-13 20:44:53 [127.0.0.1][7][-][info][application] $_GET = [
+    'r' => 'raport/form'
+    'id' => '1'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity' => '565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[7,\"Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB\",2592000]\";}'
+    'ecr-frontend' => 'gi1nto34siiqci6ct662qu3k52'
+    '_identity-ecr-frontend' => 'b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[7,\"FX6h2HSgGN9h--zOUx94Jw15Zed5epOl\",2592000]\";}'
+    '_csrf' => '2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wqLShJm3StqSBc17t6j1S5ilVfvEf_5h\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/'
+    '__id' => 7
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=site%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity=565a1dd17e1b8775107aac1ab4d837c7b0f2f33560d127664bc8226497faa556a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22Sxpgih_s1cIyPN_VbuZC42hAR3j4PHDB%22%2C2592000%5D%22%3B%7D; ecr-frontend=gi1nto34siiqci6ct662qu3k52; _identity-ecr-frontend=b04a5aafa8221f1efde76a8e7a39abbd3b80b76abff6faceb7c9ddd33b6a3473a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B7%2C%22FX6h2HSgGN9h--zOUx94Jw15Zed5epOl%22%2C2592000%5D%22%3B%7D; _csrf=2d5c7559c68d26eabd47b4f8753df2229ae09d38ccf7e0c30ca5c477fa9c717aa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wqLShJm3StqSBc17t6j1S5ilVfvEf_5h%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\php73;D:\\usr\\php73\\ext;D:\\usr\\php70;D:\\usr\\php70\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.2.12'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '7580'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Fform&id=1'
+    'REQUEST_URI' => '/index.php?r=raport%2Fform&id=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1544733893.496
+    'REQUEST_TIME' => 1544733893
+]

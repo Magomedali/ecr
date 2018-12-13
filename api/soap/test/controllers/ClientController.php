@@ -392,11 +392,17 @@ class ClientController extends Controller
             [
                 'guid'=>'5590841e-64c6-4f45-aa81-0f3da62e0ff6',
                 'name'=>'1.1 Контуры островков безопасности. Сплошная, ширина 10 см, цвет Белый',
+                'is_countable'=>0,
+                'hint_count'=>'Подсказка кол',
+                'hint_length'=>'Подсказка ленг'
             ],
             [
 
                 'guid'=>'2asdasjdhuu32413jkasdfa',
                 'name'=>'Линия 1.1.2',
+                'is_countable'=>true,
+                'hint_length'=>'Подсказка коунт',
+                'hint_count'=>'Подсказка длина2'
             ]
         ];
 

@@ -195,7 +195,10 @@ $this->title = "Форма рапорта";
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="form-label">Прикрепить файлы:</label>
-												<?php echo Html::fileInput("files[]",null,['multiple'=>true]);?>
+
+												<?php 
+													$fileIsRequired = !isset($model->id) ? "isRequired" : "" ;
+												echo Html::fileInput("files[]",null,['multiple'=>true,'class'=>$fileIsRequired]);?>
 											</div>
 										</div>
 									</div>

@@ -22,4 +22,22 @@ class Line  extends ApiModel
     */
     public $name;
 
+    /**
+    * @var boolean
+    * @nillable
+    */
+    public $is_countable;
+
+    /**
+    * @var string
+    * @nillable
+    */
+    public $hint_count;
+
+    /**
+    * @var string
+    * @nillable
+    */
+    public $hint_length;
+
 }
