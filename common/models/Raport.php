@@ -804,7 +804,11 @@ class Raport extends ActiveRecordVersionable
 
             $method->setParameters($params);
 
-            if(!$request->save()) return false;
+            if(!$request->validate()){
+                Yii::error("Request validate error","api");
+                Yii::error($request->getErrors(),"api");
+                return false; 
+            }
 
             Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`raport_id`=:raport_id AND `request`=:request AND `id` < :rg_id AND completed=0")
                 ->bindValue(":request",$request->request)

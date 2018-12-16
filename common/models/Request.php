@@ -234,7 +234,10 @@ class Request extends ActiveRecordVersionable
         }
         $this->params_out = json_encode($responce);
         
-        $this->save();
+        if(!$this->save()){
+            Yii::error("Request validate error","api");
+            Yii::error($this->getErrors(),"api");
+        }
 
         return boolval($success);
     }
