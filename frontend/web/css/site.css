@@ -150,3 +150,9 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
     .file_item img{
         width: 100%;
     }
+
+
+span.hint_length,span.hint_count{
+    position: absolute;
+    display: none;
+}

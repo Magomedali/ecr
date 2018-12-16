@@ -10,6 +10,7 @@ use common\widgets\autocomplete\AutoComplete;
 	<?php 
 		echo AutoComplete::widget([
 			'data'=>[],
+			'userId'=>"wUserId_rcu_$count",
 			'apiUrl'=>Url::to(['/autocomplete/users']),
 			'inputValueName'=>"RaportConsist[$count][user_guid]",
 			'inputValueName_Value'=>"",
@@ -31,6 +32,7 @@ use common\widgets\autocomplete\AutoComplete;
 	<?php 
 		echo AutoComplete::widget([
 			'data'=>[],
+			'userId'=>"wUserId_rct_$count",
 			'apiUrl'=>Url::to(['/autocomplete/technics']),
 			'inputValueName'=>"RaportConsist[$count][technic_guid]",
 			'inputValueName_Value'=>"",

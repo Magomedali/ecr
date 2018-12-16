@@ -15,6 +15,7 @@ use yii\helpers\Html;
 
     <input type="hidden" name="autocomplete_parameters" class='autocomplete_parameters' data-parameters='<?php echo json_encode($parameters);?>'>
     <span style="display: none;" class="autocomplete_options" data-options='<?php echo json_encode($options);?>'></span>
+    <span style="display: none;" class="autocomplete_widget_id" data-widget_id='<?php echo $id;?>'></span>
 
     <input type="text" name="<?php echo $inputKeyName;?>" autocomplete="off" value="<?php echo Html::encode($inputKeyName_Value);?>" class="form-control autocomplete_input_key <?php echo $required ? 'autocomplete_required' : '';?> input-sm" id="autocomplete_input_key-<?php echo $id; ?>" data-action="<?php echo $apiUrl;?>" placeholder='<?php echo $placeholder;?>'>
 
@@ -31,4 +32,10 @@ use yii\helpers\Html;
     		?>
     	</ul>
     </div>
+    <script type="text/javascript">
+        var WObject_<?php echo $id?> = {
+            id : '<?php echo $id?>',
+            onSelectCallback : <?php echo $onSelectCallback;?>
+        }
+    </script>
 </div>

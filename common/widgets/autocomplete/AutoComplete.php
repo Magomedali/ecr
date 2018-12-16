@@ -16,6 +16,8 @@ class AutoComplete extends Widget
 
     public static $autoIdPrefix = 'w';
 
+    public $userId = null;
+
     public $inputValueName = "autocomplete_input_name";
 
     public $inputKeyName = "autocomplete_input_key";
@@ -36,6 +38,8 @@ class AutoComplete extends Widget
 
     public $data = [];
 
+    public $onSelectCallback="function(item){}";
+
     /**
     * array[]['property'=>'','commonElement'=>'','targetElement'=>'']
     *
@@ -53,7 +57,7 @@ class AutoComplete extends Widget
     */
     public $options = [
         'minKeyLength' => 0,
-        'searchOnFocusin'=>true
+        'searchOnFocusin'=>true,
     ];
 
 
@@ -73,8 +77,11 @@ class AutoComplete extends Widget
      * @return string the rendering result.
      */
     public function renderWidget(){
+
+        $id = $this->userId ? static::$autoIdPrefix . $this->userId : $this->getId();
+
         return $this->view->renderFile($this->getViewPath()."/widget.php",[
-            'id'=>$this->getId(),
+            'id'=>$id,
             'data'=>$this->data,
             'inputValueName'=>$this->inputValueName,
             'inputKeyName'=>$this->inputKeyName,
@@ -87,8 +94,10 @@ class AutoComplete extends Widget
             'properties'=>$this->properties,
             'parameters'=>$this->parameters,
             'options'=>$this->options,
-            'required'=>$this->required
+            'required'=>$this->required,
+            'onSelectCallback'=>$this->onSelectCallback
         ]);
+
     }
 
     /**

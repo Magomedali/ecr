@@ -47,7 +47,7 @@ class RaportWork extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['raport_id','work_guid','line_guid','length','count'], 'required'],
+            [['raport_id','work_guid','line_guid','length'], 'required','message'=>'Обязательное поле'],
             
             [['length','count','squaremeter'], 'number'],
 

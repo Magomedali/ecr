@@ -30,7 +30,16 @@ $(function(){
                 $.each(properties,function(i,p){
                     if(p.hasOwnProperty("targetElement") && p.hasOwnProperty("commonElement")){            
                         var pr =  thisElement.parents(p.commonElement).find(p.targetElement);
-                        pr.length ? pr.val(null) : null;
+                        pr.length
+                        if(pr.length){
+                            pr.each(function(){
+                                if($(this).prop("nodeName") == "INPUT" || $(this).prop("nodeName") == "SELECT"){
+                                    $(this).val(null);
+                                }else{
+                                    $(this).html(null);
+                                }
+                            })
+                        }
                     }
                 })
             }
@@ -162,14 +171,24 @@ $(function(){
                     var tEl = inputValue.parents(p.commonElement).find(p.targetElement);
                                     
                     if(tEl.length && data.hasOwnProperty(p.property)){
-                        if(tEl.prop("nodeName") == "INPUT" || tEl.prop("nodeName") == "SELECT"){
-                            tEl.val(data[p.property]);
-                        }else{
-                            tEl.html(data[p.property]);
-                        }
+                        tEl.each(function(){
+                            if($(this).prop("nodeName") == "INPUT" || $(this).prop("nodeName") == "SELECT"){
+                                $(this).val(data[p.property]);
+                            }else{
+                                $(this).html(data[p.property]);
+                            }
+                        });
                     }
                 }
             })
+        }
+
+        var wId = inputKey.siblings("span.autocomplete_widget_id").data("widget_id");
+        var widgetObject = "WObject_"+wId;
+        if(window.hasOwnProperty(widgetObject)){
+            var WObject = window[widgetObject];
+            if(WObject.hasOwnProperty('onSelectCallback'))
+                WObject.onSelectCallback($(this));
         }
 
     	$(this).parents(".autocomplete_data").attr("data-block",0);

@@ -30,7 +30,9 @@ if(!$hasErrors){
 		'line_name'=>null,
 		'mechanized'=>null,
 		'length'=>null,
+		'hint_length'=>null,
 		'count'=>null,
+		'hint_count'=>null,
 		'squaremeter'=>null
 	]];
 }else{
@@ -346,7 +348,31 @@ $this->title = "Форма рапорта";
 															'inputKeyName'=>"RaportWork[$key][line_name]",
 															'inputKeyName_Value'=>$item['line_name'],
 															'placeholder'=>'Укажите линию',
-															'labelShow'=>false
+															'labelShow'=>false,
+															'properties'=>[
+																['property'=>'hint_length','commonElement'=>'tr','targetElement'=>'td.td_length span.hint_length,td.td_length input[type=hidden].hint_length'],
+																['property'=>'hint_count','commonElement'=>'tr','targetElement'=>'td.td_count span.hint_count,td.td_count input[type=hidden].hint_count'],
+																['property'=>'is_countable','commonElement'=>'tr','targetElement'=>'td.td_count input[type=hidden].is_countable'],
+															],
+															'onSelectCallback'=>"function(item){
+																if(!item.length) return;
+																var is_countable = parseInt(item.attr('data-is_countable'));
+																var commonEl = item.parents('tr');
+																var InputElement = commonEl.find('td.td_count input[type=number]');
+																InputElement.attr('readonly',!is_countable);
+																
+
+																if(!is_countable){
+																	commonEl.find('td.td_count input[type=hidden].hint_count').val(null);
+																	commonEl.find('td.td_count span.hint_count').html(null);
+																	InputElement.removeClass('isRequired');
+																	InputElement.removeClass('fieldHasError');
+																	InputElement.val(null);
+																}else{
+																	InputElement.addClass('isRequired');
+																}
+																
+															}"
 														]);
 													?>	
 													</td>
@@ -355,9 +381,27 @@ $this->title = "Форма рапорта";
 													</td>
 													<td class="td_length">
 														<?php echo Html::input("number","RaportWork[$key][length]",$item['length'],['class'=>'form-control isRequired input-sm','step'=>"0.01",'autocomplete'=>'off']); ?>
+														<?php echo Html::hiddenInput("RaportWork[$key][hint_length]",isset($item['hint_length']) ? $item['hint_length'] : "",['class'=>'hint_length'])?>
+														<span class="hint_field hint_length"><?php echo isset($item['hint_length']) ? $item['hint_length'] : ""?></span>
 													</td>
 													<td  class="td_count">
-														<?php echo Html::input("number","RaportWork[$key][count]",$item['count'],['class'=>'form-control isRequired input-sm','step'=>"0.01",'autocomplete'=>'off']); ?>
+														<?php 
+														$countisRequired = isset($item['is_countable']) && boolval($item['is_countable']) ? "isRequired" : null;
+
+														echo Html::input("number","RaportWork[$key][count]",
+															$countisRequired ? $item['count'] : null,
+															[
+															'class'=>'form-control input-sm '.$countisRequired,
+															'step'=>"0.01",
+															'autocomplete'=>'off',
+															'readonly'=>!boolval($countisRequired)
+															]
+														); 
+														?>
+														<?php echo Html::hiddenInput("RaportWork[$key][hint_count]",isset($item['hint_count']) ? $item['hint_count'] : "",['class'=>'hint_count'])?>
+
+														<?php echo Html::hiddenInput("RaportWork[$key][is_countable]",isset($item['is_countable']) ? $item['is_countable'] : "",['class'=>'is_countable'])?>
+														<span class="hint_field hint_count"><?php echo isset($item['hint_count']) ? $item['hint_count'] : ""?></span>
 													</td>
 													<td class="td_squaremeter">
 														<?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?>
@@ -797,8 +841,17 @@ $script = <<<JS
 			$("input[name='Raport[project_guid]']").val(null);
 			project_at.focus();
 		}
-	})
+	});
 
+
+	$("body").on("focus","td.td_length input[type=number],td.td_count input[type=number]",function(){
+		var hint = $(this).siblings(".hint_field");
+		hint.show();
+	});
+	$("body").on("focusout","td.td_length input[type=number],td.td_count input[type=number]",function(){
+		var hint = $(this).siblings(".hint_field");
+		hint.hide();
+	});
 JS;
 
 

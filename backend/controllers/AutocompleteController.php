@@ -140,14 +140,22 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            if(!$key){
-                $results = Line::find()->asArray()->all();
-            }else{
-                $results = Line::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+            $query = Line::find();
+
+            if($key){
+                $query->where("`name` LIKE '%{$key}%'");//
             }
             
+            $results = $query->asArray()->all();//
+
             foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name'],
+                    'is_countable'=>$value['is_countable'],
+                    'hint_count'=>$value['hint_count'],
+                    'hint_length'=>$value['hint_length'],
+                ]; 
             }
             
             return ['data'=>$data];

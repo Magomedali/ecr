@@ -443,7 +443,7 @@ class Raport extends ActiveRecordVersionable
 
     public function getWorks(){
         if($this->id){
-            return (new Query)->select(['rw.line_guid','l.name as line_name','rw.work_guid','tw.name as work_name','rw.mechanized','rw.length','rw.count','rw.squaremeter'])->from(['rw'=>RaportWork::tableName()])
+            return (new Query)->select(['rw.line_guid','l.name as line_name','rw.work_guid','tw.name as work_name','rw.mechanized','rw.length','l.hint_length','l.hint_count','l.is_countable','rw.count','rw.squaremeter'])->from(['rw'=>RaportWork::tableName()])
                                 ->innerJoin(['tw'=>TypeOfWork::tableName()]," tw.guid = rw.work_guid")
                                 ->innerJoin(['l'=>Line::tableName()]," l.guid = rw.line_guid")
                                 ->where(['raport_id'=>$this->id])
@@ -578,7 +578,7 @@ class Raport extends ActiveRecordVersionable
             $arData['raport_id'] = $this->id;
 
             if(!$model->load(['RaportMaterial'=>$arData]) || !$model->save()){
-                $this->materialsErrors[$model->nomenclature_guid] = json_encode($model->getErrors());
+                $this->materialsErrors[$model->nomenclature_guid] = $model->getErrors();
             }
         }
 
@@ -633,7 +633,7 @@ class Raport extends ActiveRecordVersionable
             $arData['raport_id'] = $this->id;
 
             if(!$model->load(['RaportConsist'=>$arData]) || !$model->save()){
-                $this->consistErrors[$model->user_guid] = json_encode($model->getErrors());
+                $this->consistErrors[$model->user_guid] = $model->getErrors();
             }
         }
 
@@ -683,7 +683,7 @@ class Raport extends ActiveRecordVersionable
             $arData['raport_id'] = $this->id;
 
             if(!$model->load(['RaportWork'=>$arData]) || !$model->save()){
-                $this->worksErrors[$model->work_guid] = json_encode($model->getErrors());
+                $this->worksErrors[$model->work_guid] = $model->getErrors();
             }
         }
 
@@ -738,7 +738,7 @@ class Raport extends ActiveRecordVersionable
             $arData['raport_id'] = $this->id;
 
             if(!$model->load(['RaportFile'=>$arData]) || !$model->save()){
-                $this->filesErrors[] = json_encode($model->getErrors());
+                $this->filesErrors[] = $model->getErrors();
             }
         }
 
