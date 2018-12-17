@@ -51,7 +51,9 @@ phpunit.phar
 /console/data/
 /console/logs/
 /console/logs
+/console/logs/info.log
 
 /common/tmp/
+/common/config/main.php
 
 .htaccess
