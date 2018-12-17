@@ -11,9 +11,9 @@ return [
   		'webservice1C'=>[
   			'class'=>'soapclient\SClient',
   			
-        'wsdl'=>'https://crm.omegamail.org/usom/ws/drrload.1cws?wsdl',
-        'location'=>'https://crm.omegamail.org/usom/ws/drrload.1cws',
-        'username'=>'obmendrr',
+        'wsdl'=>'https://crm.omegamail.org/usotest/ws/drrload.1cws?wsdl',
+        'location'=>'https://crm.omegamail.org/usotest/ws/drrload.1cws',
+        'username'=>'Окмазов Магомед',
         'password'=>'651865'
   		]
     ],
