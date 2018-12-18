@@ -40,7 +40,7 @@ phpunit.phar
 /frontend/web/assets/
 /frontend/web/tmp/
 /frontend/logs/
-/frontend/logs
+/frontend/logs/api.log
 
 /backend/web/assets
 /backend/web/assets/
@@ -50,7 +50,7 @@ phpunit.phar
 
 /console/data/
 /console/logs/
-/console/logs
+/console/logs/info.log
 
 /common/tmp/
 
