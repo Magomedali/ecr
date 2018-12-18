@@ -221,4 +221,5 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
 span.hint_length,span.hint_count{
     position: absolute;
     display: none;
+    color: #6d6d6d;
 }
