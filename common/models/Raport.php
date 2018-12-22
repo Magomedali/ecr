@@ -810,9 +810,8 @@ class Raport extends ActiveRecordVersionable
                 return false; 
             }
 
-            Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`raport_id`=:raport_id AND `request`=:request AND `id` < :rg_id AND completed=0")
+            Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`raport_id`=:raport_id AND `request`=:request AND  completed=0")
                 ->bindValue(":request",$request->request)
-                ->bindValue(":rg_id",$request->id)
                 ->bindValue(":raport_id",$this->id)
                 ->execute();
 
