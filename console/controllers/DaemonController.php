@@ -10,6 +10,7 @@ use common\models\Raport;
 use common\models\RaportFile;
 use soapclient\methods\Useraccountload;
 use soapclient\methods\RaportLoad;
+use common\dictionaries\RaportStatuses;
  
 /**
  * Daemon controller
@@ -77,12 +78,12 @@ class DaemonController extends Controller {
                   Yii::info($r->params_out,'cron');
                   echo $r->params_out,"\n";
                   $responce = json_decode($r->params_out,1);
-                  if($r->result && isset($responce['guid']) && $responce['guid'] && isset($responce['number']) && $responce['number']){
-                      $model->guid = $responce['guid'];
-                      $model->number = $responce['number'];
+                  if($r->result && isset($responce['return']) && isset($responce['return']['guid']) && $responce['return']['guid'] && isset($responce['return']['number']) && $responce['return']['number']){
+                      $model->guid = $responce['return']['guid'];
+                      $model->number = $responce['return']['number'];
 
                       if($model->status == RaportStatuses::CREATED){
-                        $model->status = RaportStatuses::IN_CONFIRMING;
+                         $model->status = RaportStatuses::IN_CONFIRMING;
                       }
 
                       $model->save(1);

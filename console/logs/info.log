@@ -2,3 +2,378 @@
 2018-12-18 12:15:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
 2018-12-18 12:15:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=webali_ecr
 2018-12-18 12:15:02 [-][-][-][info][cron] Processing for 0.035977125167847 seconds
+2018-12-23 09:13:04 [-][-][-][info][cron] Process start
+2018-12-23 09:13:05 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:13:05 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:13:05 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `requests`
+2018-12-23 09:13:05 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'requests' AND kcu.table_name = 'requests'
+2018-12-23 09:13:06 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:13:06 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `raport`
+2018-12-23 09:13:06 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'raport' AND kcu.table_name = 'raport'
+2018-12-23 09:13:06 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:13:06 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:13:24 [-][-][-][info][yii\db\Command::execute] UPDATE `requests` SET `params_out`='{\"return\":{\"success\":false,\"error\":\"{\\u041e\\u0431\\u0449\\u0438\\u0439\\u041c\\u043e\\u0434\\u0443\\u043b\\u044c.\\u0434\\u0440\\u0440\\u041e\\u0431\\u043c\\u0435\\u043d\\u0421\\u041b\\u041a.\\u041c\\u043e\\u0434\\u0443\\u043b\\u044c(2046)}: \\u041e\\u0448\\u0438\\u0431\\u043a\\u0430 \\u043f\\u0440\\u0438 \\u0432\\u044b\\u0437\\u043e\\u0432\\u0435 \\u043a\\u043e\\u043d\\u0441\\u0442\\u0440\\u0443\\u043a\\u0442\\u043e\\u0440\\u0430 (\\u0423\\u043d\\u0438\\u043a\\u0430\\u043b\\u044c\\u043d\\u044b\\u0439\\u0418\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440): \\u041d\\u0435\\u0434\\u043e\\u043f\\u0443\\u0441\\u0442\\u0438\\u043c\\u043e\\u0435 \\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u0438\\u0435 \\u043f\\u0430\\u0440\\u0430\\u043c\\u0435\\u0442\\u0440\\u0430 (\\u043f\\u0430\\u0440\\u0430\\u043c\\u0435\\u0442\\u0440 \\u043d\\u043e\\u043c\\u0435\\u0440 \'1\')\",\"number\":null,\"guid\":null}}' WHERE `id`=1
+2018-12-23 09:13:24 [-][-][-][info][cron] Method not executed
+2018-12-23 09:13:24 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:13:24 [-][-][-][info][cron] Processing for 20.356990098953 seconds
+2018-12-23 09:14:01 [-][-][-][info][cron] Process start
+2018-12-23 09:14:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:14:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:14:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:14:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:14:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:14:03 [-][-][-][info][cron] Method not executed
+2018-12-23 09:14:03 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:14:03 [-][-][-][info][cron] Processing for 1.5983788967133 seconds
+2018-12-23 09:15:00 [-][-][-][info][cron] Process start
+2018-12-23 09:15:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:15:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:15:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:15:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:15:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:15:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:15:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:15:01 [-][-][-][info][cron] Processing for 1.124685049057 seconds
+2018-12-23 09:16:01 [-][-][-][info][cron] Process start
+2018-12-23 09:16:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:16:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:16:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:16:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:16:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:16:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:16:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:16:02 [-][-][-][info][cron] Processing for 1.1561319828033 seconds
+2018-12-23 09:17:00 [-][-][-][info][cron] Process start
+2018-12-23 09:17:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:17:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:17:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:17:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:17:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:17:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:17:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:17:01 [-][-][-][info][cron] Processing for 1.100841999054 seconds
+2018-12-23 09:18:01 [-][-][-][info][cron] Process start
+2018-12-23 09:18:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:18:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:18:02 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:18:02 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:18:02 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:18:03 [-][-][-][info][cron] Method not executed
+2018-12-23 09:18:03 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:18:03 [-][-][-][info][cron] Processing for 1.8254189491272 seconds
+2018-12-23 09:19:00 [-][-][-][info][cron] Process start
+2018-12-23 09:19:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:19:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:19:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:19:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:19:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:19:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:19:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:19:01 [-][-][-][info][cron] Processing for 1.119647026062 seconds
+2018-12-23 09:20:00 [-][-][-][info][cron] Process start
+2018-12-23 09:20:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:20:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:20:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:20:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:20:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:20:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:20:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:20:01 [-][-][-][info][cron] Processing for 1.1918570995331 seconds
+2018-12-23 09:21:00 [-][-][-][info][cron] Process start
+2018-12-23 09:21:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:21:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:21:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:21:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:21:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:21:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:21:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:21:01 [-][-][-][info][cron] Processing for 1.1095650196075 seconds
+2018-12-23 09:22:00 [-][-][-][info][cron] Process start
+2018-12-23 09:22:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:22:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:22:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:22:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:22:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:22:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:22:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:22:01 [-][-][-][info][cron] Processing for 1.1359419822693 seconds
+2018-12-23 09:23:00 [-][-][-][info][cron] Process start
+2018-12-23 09:23:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:23:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:23:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:23:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:23:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:23:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:23:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:23:01 [-][-][-][info][cron] Processing for 1.1661820411682 seconds
+2018-12-23 09:24:00 [-][-][-][info][cron] Process start
+2018-12-23 09:24:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:24:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:24:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:24:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:24:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:24:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:24:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:24:02 [-][-][-][info][cron] Processing for 1.6806890964508 seconds
+2018-12-23 09:25:00 [-][-][-][info][cron] Process start
+2018-12-23 09:25:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:25:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:25:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:25:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:25:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:25:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:25:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:25:01 [-][-][-][info][cron] Processing for 1.1220090389252 seconds
+2018-12-23 09:26:00 [-][-][-][info][cron] Process start
+2018-12-23 09:26:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:26:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:26:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:26:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:26:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:26:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:26:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:26:01 [-][-][-][info][cron] Processing for 1.0955469608307 seconds
+2018-12-23 09:27:00 [-][-][-][info][cron] Process start
+2018-12-23 09:27:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:27:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:27:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:27:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:27:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:27:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:27:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:27:01 [-][-][-][info][cron] Processing for 1.0971348285675 seconds
+2018-12-23 09:28:00 [-][-][-][info][cron] Process start
+2018-12-23 09:28:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:28:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:28:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:28:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:28:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:28:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:28:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:28:01 [-][-][-][info][cron] Processing for 1.1059811115265 seconds
+2018-12-23 09:29:00 [-][-][-][info][cron] Process start
+2018-12-23 09:29:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:29:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:29:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:29:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:29:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:29:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:29:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:29:01 [-][-][-][info][cron] Processing for 1.0987689495087 seconds
+2018-12-23 09:30:00 [-][-][-][info][cron] Process start
+2018-12-23 09:30:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:30:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:30:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:30:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:30:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:30:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:30:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:30:01 [-][-][-][info][cron] Processing for 1.0951449871063 seconds
+2018-12-23 09:31:01 [-][-][-][info][cron] Process start
+2018-12-23 09:31:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:31:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:31:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:31:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:31:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:31:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:31:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:31:02 [-][-][-][info][cron] Processing for 1.0950419902802 seconds
+2018-12-23 09:32:00 [-][-][-][info][cron] Process start
+2018-12-23 09:32:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:32:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:32:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:32:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:32:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:32:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:32:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:32:01 [-][-][-][info][cron] Processing for 1.0817260742188 seconds
+2018-12-23 09:33:00 [-][-][-][info][cron] Process start
+2018-12-23 09:33:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:33:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:33:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:33:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:33:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:33:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:33:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:33:02 [-][-][-][info][cron] Processing for 1.0914199352264 seconds
+2018-12-23 09:34:00 [-][-][-][info][cron] Process start
+2018-12-23 09:34:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:34:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:34:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:34:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:34:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:34:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:34:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:34:01 [-][-][-][info][cron] Processing for 1.1043021678925 seconds
+2018-12-23 09:35:00 [-][-][-][info][cron] Process start
+2018-12-23 09:35:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:35:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:35:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:35:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:35:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:35:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:35:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:35:01 [-][-][-][info][cron] Processing for 1.0914840698242 seconds
+2018-12-23 09:36:00 [-][-][-][info][cron] Process start
+2018-12-23 09:36:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:36:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:36:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:36:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:36:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:36:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:36:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:36:01 [-][-][-][info][cron] Processing for 1.0919749736786 seconds
+2018-12-23 09:37:00 [-][-][-][info][cron] Process start
+2018-12-23 09:37:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:37:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:37:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:37:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:37:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:37:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:37:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:37:01 [-][-][-][info][cron] Processing for 1.0945348739624 seconds
+2018-12-23 09:38:00 [-][-][-][info][cron] Process start
+2018-12-23 09:38:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:38:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:38:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:38:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:38:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:38:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:38:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:38:01 [-][-][-][info][cron] Processing for 1.1377220153809 seconds
+2018-12-23 09:39:01 [-][-][-][info][cron] Process start
+2018-12-23 09:39:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:39:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:39:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:39:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:39:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:39:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:39:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:39:02 [-][-][-][info][cron] Processing for 1.1194460391998 seconds
+2018-12-23 09:40:00 [-][-][-][info][cron] Process start
+2018-12-23 09:40:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:40:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:40:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:40:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:40:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:40:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:40:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:40:01 [-][-][-][info][cron] Processing for 1.1268630027771 seconds
+2018-12-23 09:41:01 [-][-][-][info][cron] Process start
+2018-12-23 09:41:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:41:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:41:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:41:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:41:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:41:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:41:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:41:02 [-][-][-][info][cron] Processing for 1.099867105484 seconds
+2018-12-23 09:42:00 [-][-][-][info][cron] Process start
+2018-12-23 09:42:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:42:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:42:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:42:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:42:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:42:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:42:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:42:01 [-][-][-][info][cron] Processing for 1.0871469974518 seconds
+2018-12-23 09:43:01 [-][-][-][info][cron] Process start
+2018-12-23 09:43:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:43:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:43:01 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:43:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:43:01 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:43:02 [-][-][-][info][cron] Method not executed
+2018-12-23 09:43:02 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:43:02 [-][-][-][info][cron] Processing for 1.095773935318 seconds
+2018-12-23 09:44:00 [-][-][-][info][cron] Process start
+2018-12-23 09:44:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:44:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:44:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:44:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:44:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:44:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:44:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:44:01 [-][-][-][info][cron] Processing for 1.1050019264221 seconds
+2018-12-23 09:45:00 [-][-][-][info][cron] Process start
+2018-12-23 09:45:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:45:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:45:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:45:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:45:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:45:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:45:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:45:01 [-][-][-][info][cron] Processing for 1.0768609046936 seconds
+2018-12-23 09:46:00 [-][-][-][info][cron] Process start
+2018-12-23 09:46:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:46:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:46:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:46:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:46:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:46:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:46:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:46:01 [-][-][-][info][cron] Processing for 1.0945479869843 seconds
+2018-12-23 09:47:00 [-][-][-][info][cron] Process start
+2018-12-23 09:47:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:47:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:47:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:47:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:47:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:47:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:47:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:47:01 [-][-][-][info][cron] Processing for 1.0855250358582 seconds
+2018-12-23 09:48:00 [-][-][-][info][cron] Process start
+2018-12-23 09:48:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:48:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:48:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:48:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:48:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:48:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:48:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:48:01 [-][-][-][info][cron] Processing for 1.0898990631104 seconds
+2018-12-23 09:49:00 [-][-][-][info][cron] Process start
+2018-12-23 09:49:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:49:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:49:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:49:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:49:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:49:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:49:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:49:01 [-][-][-][info][cron] Processing for 1.0773050785065 seconds
+2018-12-23 09:50:00 [-][-][-][info][cron] Process start
+2018-12-23 09:50:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2018-12-23 09:50:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2018-12-23 09:50:00 [-][-][-][info][cron] Execute soapclient\methods\RaportLoad method #1
+2018-12-23 09:50:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `raport` WHERE `id`=1
+2018-12-23 09:50:00 [-][-][-][info][yii\db\Command::query] SELECT `file_binary` AS `file`, `file_type` AS `type`, `file_name` FROM `raport_files` WHERE `raport_id`=1
+2018-12-23 09:50:01 [-][-][-][info][cron] Method not executed
+2018-12-23 09:50:01 [-][-][-][info][cron] {"return":{"success":false,"error":"{\u041e\u0431\u0449\u0438\u0439\u041c\u043e\u0434\u0443\u043b\u044c.\u0434\u0440\u0440\u041e\u0431\u043c\u0435\u043d\u0421\u041b\u041a.\u041c\u043e\u0434\u0443\u043b\u044c(2046)}: \u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0432\u044b\u0437\u043e\u0432\u0435 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0430 (\u0423\u043d\u0438\u043a\u0430\u043b\u044c\u043d\u044b\u0439\u0418\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440): \u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u043e\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u0430 (\u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u043d\u043e\u043c\u0435\u0440 '1')","number":null,"guid":null}}
+2018-12-23 09:50:01 [-][-][-][info][cron] Processing for 1.0856502056122 seconds
