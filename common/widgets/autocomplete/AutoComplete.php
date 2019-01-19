@@ -40,6 +40,8 @@ class AutoComplete extends Widget
 
     public $onSelectCallback="function(item){}";
 
+    public $generateSearchFiltersCallback = "function(){return {};}";
+
     /**
     * array[]['property'=>'','commonElement'=>'','targetElement'=>'']
     *
@@ -95,7 +97,8 @@ class AutoComplete extends Widget
             'parameters'=>$this->parameters,
             'options'=>$this->options,
             'required'=>$this->required,
-            'onSelectCallback'=>$this->onSelectCallback
+            'onSelectCallback'=>$this->onSelectCallback,
+            'generateSearchFiltersCallback'=>$this->generateSearchFiltersCallback
         ]);
 
     }

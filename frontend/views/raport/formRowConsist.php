@@ -24,7 +24,25 @@ use common\widgets\autocomplete\AutoComplete;
 				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
 				//['property'=>'technic_guid','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_value'],
 				//['property'=>'technic_name','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_key']
-			]
+			],
+			'generateSearchFiltersCallback'=>"function(){
+				
+				var users = $('#tableConsist').find('input[name$=\'[user_guid]\'][name^=\'RaportConsist\']');
+
+				if(users.length){
+					var data = [];
+					users.each(function(){
+						data.push($(this).val());
+					});
+
+					return {
+						users_extends:data
+					}
+
+				}else{
+					return {};
+				}
+			}"
 		]);
 	?>
 	</td>

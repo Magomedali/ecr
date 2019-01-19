@@ -76,6 +76,7 @@ class AutocompleteController extends Controller{
             $data = [];
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+            $users_extends = isset($get['users_extends']) && is_array($get['users_extends']) ? $get['users_extends'] : array();
 
             $query = (new Query())->select(['u.guid','u.name','u.ktu'])
                                 ->from(['u'=>User::tableName()])
@@ -84,6 +85,19 @@ class AutocompleteController extends Controller{
                                 ->andWhere("u.`guid` is not null");
             if($key){
                 $query->andWhere("u.`name` LIKE '%{$key}%'");
+            }
+
+            if(count($users_extends)){
+                $notIn = array();
+                foreach ($users_extends as $guid) {
+                    if (!$guid) continue;
+
+                    $notIn[] = "'{$guid}'";
+                }
+                if(count($notIn)){
+                    $notIn = implode(",", $notIn);
+                    $query->andWhere("u.`guid` NOT IN ($notIn)");
+                }
             }
 
             $results = $query->all();

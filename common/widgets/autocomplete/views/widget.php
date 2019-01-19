@@ -35,7 +35,8 @@ use yii\helpers\Html;
     <script type="text/javascript">
         var WObject_<?php echo $id?> = {
             id : '<?php echo $id?>',
-            onSelectCallback : <?php echo $onSelectCallback;?>
+            onSelectCallback : <?php echo $onSelectCallback;?>,
+            generateSearchFiltersCallback: <?php echo $generateSearchFiltersCallback; ?>
         }
     </script>
 </div>

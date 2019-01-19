@@ -46,6 +46,15 @@ $(function(){
         }
 
         var data = {};
+
+        var wId = thisElement.siblings("span.autocomplete_widget_id").data("widget_id");
+        var widgetObject = "WObject_"+wId;
+        if(window.hasOwnProperty(widgetObject)){
+            var WObject = window[widgetObject];
+            if(WObject.hasOwnProperty('generateSearchFiltersCallback'))
+                data = WObject.generateSearchFiltersCallback($(this));
+        }
+
         data['key']=val;
 
         if(parameters.length){
