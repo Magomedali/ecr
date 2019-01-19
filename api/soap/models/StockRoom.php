@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class Nomenclature  extends ApiModel
+class StockRoom  extends ApiModel
 {
     /**
      * @var string
@@ -21,11 +21,5 @@ class Nomenclature  extends ApiModel
     * @var string
     */
     public $name;
-
-    /**
-    * @var string
-    * @nillable
-    */
-    public $unit;
 
 }

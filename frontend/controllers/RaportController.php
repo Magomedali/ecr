@@ -9,6 +9,9 @@ use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\Raport;
 use common\models\RaportFile;
+
+use frontend\modules\RaportFilter;
+
 use yii\web\UploadedFile;
 
 class RaportController extends Controller{
@@ -24,7 +27,7 @@ class RaportController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','form','read-file','add-files','get-row-consist','get-row-work','get-row-remnant'],
+                        'actions' => ['index','view','form','read-file','add-files','get-row-consist','get-row-work','get-row-remnant'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -42,6 +45,28 @@ class RaportController extends Controller{
     }
 
 
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionIndex()
+    {   
+        $user = Yii::$app->user->identity;
+        if(!$user->brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+        $modelFilters = new RaportFilter;
+        $params = Yii::$app->request->queryParams;
+        $params['RaportFilter']['brigade_guid']=$user->brigade_guid;
+        $params['RaportFilter']['user_guid']=$user->guid;
+        $dataProvider = $modelFilters->filter($params);
+        return $this->render('index',array('dataProvider'=>$dataProvider,'modelFilters'=>$modelFilters));
+
+    }
 
 
     public function actionView($id){

@@ -269,6 +269,23 @@ class ApiController extends Controller
     }
 
 
+
+    /**
+     * unload stockrooms
+     * @param api\soap\models\StockRoom[] $stockrooms
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function unloadstockroom($stockrooms){   
+        $type = 'stockrooms';
+        $stockrooms = json_decode(json_encode($stockrooms),1); 
+        if(!isset($stockrooms[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'stockrooms'");
+
+        return $this->exec(__METHOD__,$stockrooms[$type]);
+    }
+
+
     /**
      * unload raports
      * @param api\soap\models\Raport[] $raports

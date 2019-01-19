@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://api.ecr:8081/index.php?ws=1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://api.ecr:8081/index.php?ws=1">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://radorm-api/index.php?ws=1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ApiController" targetNamespace="http://radorm-api/index.php?ws=1">
   <types>
-    <xsd:schema targetNamespace="http://api.ecr:8081/index.php?ws=1">
+    <xsd:schema targetNamespace="http://radorm-api/index.php?ws=1">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
       <xsd:complexType name="itemOfBrigade">
         <xsd:sequence>
@@ -243,6 +243,7 @@
         <xsd:sequence>
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="unit" type="xsd:string" nillable="true"/>
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="Nomenclature">
@@ -258,6 +259,31 @@
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="unloadnomenclatureResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="returns" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="itemOfStockRoom">
+        <xsd:sequence>
+          <xsd:element name="guid" type="xsd:string"/>
+          <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="StockRoom">
+        <xsd:sequence>
+          <xsd:element name="StockRoom" type="tns:itemOfStockRoom" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadstockroom">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="stockrooms" type="tns:StockRoom"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadstockroomResponse">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="returns" type="tns:Responce"/>
@@ -425,6 +451,11 @@
       <input message="tns:unloadnomenclatureIn"/>
       <output message="tns:unloadnomenclatureOut"/>
     </operation>
+    <operation name="unloadstockroom">
+      <documentation>unload stockrooms</documentation>
+      <input message="tns:unloadstockroomIn"/>
+      <output message="tns:unloadstockroomOut"/>
+    </operation>
     <operation name="unloadraport">
       <documentation>unload raports</documentation>
       <input message="tns:unloadraportIn"/>
@@ -439,7 +470,7 @@
   <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="unloadbrigade">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadbrigade"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadbrigade"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -448,7 +479,7 @@
       </output>
     </operation>
     <operation name="test">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#test"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#test"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -457,7 +488,7 @@
       </output>
     </operation>
     <operation name="unloadworker">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadworker"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadworker"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -466,7 +497,7 @@
       </output>
     </operation>
     <operation name="unloadtechnic">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadtechnic"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadtechnic"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -475,7 +506,7 @@
       </output>
     </operation>
     <operation name="unloadobject">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadobject"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadobject"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -484,7 +515,7 @@
       </output>
     </operation>
     <operation name="unloadboundary">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadboundary"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadboundary"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -493,7 +524,7 @@
       </output>
     </operation>
     <operation name="unloadproject">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadproject"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadproject"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -502,7 +533,7 @@
       </output>
     </operation>
     <operation name="unloadtypeofwork">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadtypeofwork"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadtypeofwork"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -511,7 +542,7 @@
       </output>
     </operation>
     <operation name="unloadline">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadline"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadline"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -520,7 +551,16 @@
       </output>
     </operation>
     <operation name="unloadnomenclature">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadnomenclature"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadnomenclature"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="unloadstockroom">
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadstockroom"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -529,7 +569,7 @@
       </output>
     </operation>
     <operation name="unloadraport">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadraport"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadraport"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -538,7 +578,7 @@
       </output>
     </operation>
     <operation name="unloadremnant">
-      <soap:operation soapAction="http://api.ecr:8081/index.php?ws=1#unloadremnant"/>
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadremnant"/>
       <input>
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </input>
@@ -549,7 +589,7 @@
   </binding>
   <service name="ApiControllerService">
     <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
-      <soap:address location="http://api.ecr:8081/index.php?ws=1"/>
+      <soap:address location="http://radorm-api/index.php?ws=1"/>
     </port>
   </service>
   <message name="unloadbrigadeIn">
@@ -611,6 +651,12 @@
   </message>
   <message name="unloadnomenclatureOut">
     <part name="parameters" element="tns:unloadnomenclatureResponse"/>
+  </message>
+  <message name="unloadstockroomIn">
+    <part name="parameters" element="tns:unloadstockroom"/>
+  </message>
+  <message name="unloadstockroomOut">
+    <part name="parameters" element="tns:unloadstockroomResponse"/>
   </message>
   <message name="unloadraportIn">
     <part name="parameters" element="tns:unloadraport"/>

@@ -59,8 +59,8 @@ class m181105_123340_raport extends Migration
             'number'=>$this->string()->null(),
             'status'=>$this->integer()->null(),
             'created_at'=>$this->timestamp(),
-            'starttime'=>$this->timestamp()->null(),
-            'endtime'=>$this->timestamp()->null(),
+            'starttime'=>$this->time()->null(),
+            'endtime'=>$this->time()->null(),
 
             'temperature_start'=>$this->float()->null(),
             'temperature_end'=>$this->float()->null(),

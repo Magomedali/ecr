@@ -21,6 +21,7 @@ use common\models\Objects;
 use common\models\Project;
 use common\models\RemnantsPackage;
 use common\models\Raport;
+use common\models\StockRoom;
 
 class Api{
 
@@ -490,6 +491,8 @@ class Api{
 
 
 
+
+
     /**
      * unload nomenclatures
      * @param api\soap\models\Nomenclature[] $nomenclatures
@@ -539,7 +542,62 @@ class Api{
 
 
 
+
+
+
+    /**
+     * unload stockrooms
+     * @param api\soap\models\StockRoom[] $stockrooms
+     * @return api\soap\models\Responce
+     */
+    public static function unloadstockroom($data){   
+        self::log("Called Method 'unloadstockroom'");
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
+
+        $Type = "StockRoom";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
+            throw new ApiExceptionWrongType();
+        }
+
+        if(ArrayHelper::isAssociative($data[$Type])){
+            $data[$Type] =  [$data[$Type]];
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($data[$Type] as $key => $item) {
+            $model = new StockRoom();
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['StockRoom'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+
+        return $responce;
+    }
+
+
+
     
+
+
+
     /**
      * unload RemnantsPackage
      * @param api\soap\models\RemnantsPackage[] $remnants

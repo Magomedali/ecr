@@ -13,7 +13,7 @@ use common\models\User;
 
 use common\base\ActiveRecordVersionable;
 
-class Nomenclature extends ActiveRecordVersionable 
+class StockRoom extends ActiveRecordVersionable 
 {
     
 
@@ -23,7 +23,7 @@ class Nomenclature extends ActiveRecordVersionable
      */
     public static function tableName()
     {
-        return '{{%nomenclature}}';
+        return '{{%stockroom}}';
     }
 
 
@@ -32,7 +32,6 @@ class Nomenclature extends ActiveRecordVersionable
         return [
             'guid',
             'name',
-            'unit',
             'isDeleted',
         ];
     }
@@ -43,11 +42,9 @@ class Nomenclature extends ActiveRecordVersionable
         return [
             // name, email, subject and body are required
             [['guid','name'], 'required'],
-           // ['guid','unique','targetClass' => '\common\models\Nomenclature', 'message' => 'Запись с таким guid уже существует!'],
-            [['name','unit'],'string','max'=>255],
-            ['unit','default','value'=>null],
+            [['name'],'string','max'=>255],
             [['guid'],'string','max'=>36],
-            [['name','unit'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
+            [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
         ];
     }
@@ -79,7 +76,6 @@ class Nomenclature extends ActiveRecordVersionable
             'id'=>'Id',
             'guid'=>'Идентификатор в 1С',
             'name'=>'Наименование',
-            'unit'=>'Едининца измерения'
         );
     }
 

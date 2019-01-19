@@ -3,10 +3,11 @@
 use yii\db\Migration;
 
 /**
- * Class m181105_115548_nomenclature
+ * Class m190119_143236_stockroom
  */
-class m181105_115548_nomenclature extends Migration
+class m190119_143236_stockroom extends Migration
 {
+
     /**
      * {@inheritdoc}
      */
@@ -21,23 +22,21 @@ class m181105_115548_nomenclature extends Migration
         }
 
 
-        $this->createTable('{{%nomenclature}}', [
+        $this->createTable('{{%stockroom}}', [
             'id' => $this->primaryKey(),
             'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(255)->notNull(),
-            'unit' => $this->string(255)->null(),
             'version_id'=>$this->integer()->null(),
             'isDeleted'=>$this->smallInteger()->null()->defaultValue(0)
         ], $tableOptions);
 
 
-        $this->createTable('{{%nomenclature_history}}', [
+        $this->createTable('{{%stockroom_history}}', [
             'id' => $this->primaryKey(),
             'entity_id' => $this->integer()->notNull(),
 
             'guid' => $this->string(36)->notNull(),
             'name' => $this->string(255)->notNull(),
-            'unit' => $this->string(255)->null(),
             
             'created_at'=>$this->timestamp(),
             'type_action'=> $this->integer()->notNull(),
@@ -47,10 +46,10 @@ class m181105_115548_nomenclature extends Migration
         ], $tableOptions);
 
         
-        $this->addForeignKey('fk-nomenclature_history-entity_id',"{{%nomenclature_history}}",'entity_id',"{{%nomenclature}}",'id','CASCADE','CASCADE');
-        $this->addForeignKey('fk-nomenclature_history-creator_id',"{{%nomenclature_history}}",'creator_id',"{{%user}}",'id','CASCADE','CASCADE');
+        $this->addForeignKey('fk-stockroom_history-entity_id',"{{%stockroom_history}}",'entity_id',"{{%stockroom}}",'id','CASCADE','CASCADE');
+        $this->addForeignKey('fk-stockroom_history-creator_id',"{{%stockroom_history}}",'creator_id',"{{%user}}",'id','CASCADE','CASCADE');
 
-        $this->addForeignKey('fk-nomenclature-version_id',"{{%nomenclature}}",'version_id',"{{%nomenclature_history}}",'id','CASCADE','CASCADE');
+        $this->addForeignKey('fk-stockroom-version_id',"{{%stockroom}}",'version_id',"{{%stockroom_history}}",'id','CASCADE','CASCADE');
 
     }
 
@@ -60,12 +59,12 @@ class m181105_115548_nomenclature extends Migration
     public function safeDown()
     {
        
-        $this->dropForeignKey('fk-nomenclature-version_id',"{{%nomenclature}}");
-        $this->dropForeignKey('fk-nomenclature_history-creator_id',"{{%nomenclature_history}}");
-        $this->dropForeignKey('fk-nomenclature_history-entity_id',"{{%nomenclature_history}}");
+        $this->dropForeignKey('fk-stockroom-version_id',"{{%stockroom}}");
+        $this->dropForeignKey('fk-stockroom_history-creator_id',"{{%stockroom_history}}");
+        $this->dropForeignKey('fk-stockroom_history-entity_id',"{{%stockroom_history}}");
 
-        $this->dropTable('{{%nomenclature_history}}');
-        $this->dropTable('{{%nomenclature}}');
+        $this->dropTable('{{%stockroom_history}}');
+        $this->dropTable('{{%stockroom}}');
 
 
     }

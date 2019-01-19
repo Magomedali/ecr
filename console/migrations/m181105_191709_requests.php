@@ -24,7 +24,7 @@ class m181105_191709_requests extends Migration
         $this->createTable('{{%requests}}', [
             'id' => $this->primaryKey(),
             'created_at'=>$this->timestamp(),
-            'completed_at'=>$this->timestamp(),
+            'completed_at'=>$this->timestamp()->null(),
             'request'=>$this->string(50)->notNull(),
             'params_in'=>$this->text(50)->null(),
             'params_out'=>$this->text(50)->null(),
@@ -44,7 +44,7 @@ class m181105_191709_requests extends Migration
             'entity_id' => $this->integer()->notNull(),
 
             'created_at'=>$this->timestamp(),
-            'completed_at'=>$this->timestamp(),
+            'completed_at'=>$this->timestamp()->null(),
             'request'=>$this->string(50)->notNull(),
             'params_in'=>$this->text(50)->null(),
             'params_out'=>$this->text(50)->null(),
@@ -54,7 +54,7 @@ class m181105_191709_requests extends Migration
             'user_id'=>$this->integer()->null(),
             'actor_id'=> $this->integer()->null(),
 
-            'created_at'=>$this->timestamp(),
+            'created_at'=>$this->timestamp()->null(),
             'type_action'=> $this->integer()->notNull(),
             'version'=> $this->integer()->notNull(),
             'creator_id'=> $this->integer()->null(),

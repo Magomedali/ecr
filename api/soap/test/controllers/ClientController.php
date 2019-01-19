@@ -36,6 +36,7 @@ class ClientController extends Controller
         $this->actionUnloadtechnic();
         $this->actionUnloadline();
         $this->actionUnloadnomenclature();
+        $this->actionUnloadstockroom();
         $this->actionUnloadtypeofwork();
         $this->actionUnloadboundary();
         $this->actionUnloadobject();
@@ -427,16 +428,19 @@ class ClientController extends Controller
             [
                 'guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                 'name'=>'Термоклапан ЗМЗ - 405',
+                'unit'=>'кг'
             ],
             [
 
                 'guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
                 'name'=>'Термопистолет Makita',
+                'unit'=>'кг'
             ],
             [
 
                 'guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
                 'name'=>'Теплообменник д. 1138',
+                'unit'=>'кг'
             ],
             [
 
@@ -445,7 +449,8 @@ class ClientController extends Controller
             ],
             [
                 'guid'=>'f8e0e0c7-1674-11e8-8112-005056b47a2e',
-                'name'=>'Остаток 1'
+                'name'=>'Остаток 1',
+                'unit'=>'кг'
             ],
             [
                 'guid'=>'6c5af50b-1676-11e8-8112-005056b47a2e',
@@ -453,15 +458,18 @@ class ClientController extends Controller
             ],
             [
                 'guid'=>'ab1d222a-1676-11e8-8112-005056b47a2e',
-                'name'=>'Остаток 3'
+                'name'=>'Остаток 3',
+                'unit'=>'кг'
             ],
             [
                 'guid'=>'f38a408c-9ba9-11e8-811a-005056b47a2e',
-                'name'=>'Остаток 4'
+                'name'=>'Остаток 4',
+                'unit'=>'кг'
             ],
             [
                 'guid'=>'39ca8e0b-a096-11e8-811a-005056b47a2e',
-                'name'=>'Остаток 5'
+                'name'=>'Остаток 5',
+                'unit'=>'кг'
             ]
         ];
 
@@ -472,6 +480,47 @@ class ClientController extends Controller
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
     }
+
+
+
+
+
+    public function actionUnloadstockroom(){
+
+        echo "\n---Method Unloadstockroom : ";
+
+        $par = [
+            [
+                'guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
+                'name'=>'Склад 1',
+            ],
+            [
+
+                'guid'=>'c2643f0a-0278-11e7-80f9-005056b47a2e',
+                'name'=>'Склад 2',
+            ],
+            [
+
+                'guid'=>'f99973a7-8706-11e7-8106-005056b47a2e',
+                'name'=>'Склад 3',
+            ],
+            [
+
+                'guid'=>'9bf987a6-b234-11e6-80e8-005056b47a2e',
+                'name'=>'Склад 4',
+            ]
+        ];
+
+
+        $par['stockrooms'] = $par;
+        $answer = Yii::$app->testclient->getClient()->unloadstockroom($par); 
+
+        // print_r(Yii::$app->testclient->getClient()->__getFunctions());
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
+        echo $result;
+    }
+
 
 
 
