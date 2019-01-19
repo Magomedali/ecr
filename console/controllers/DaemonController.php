@@ -53,13 +53,13 @@ class DaemonController extends Controller {
                 echo $r->params_out,"\n";
               }
             }elseif($method instanceof RaportLoad){
-              if(!$r->raport_id){
-                Yii::info('Raport_id dont have','cron');
-                echo "Raport_id dont have \n";
+              if(!$r->resource_id){
+                Yii::info('resource_id dont have','cron');
+                echo "resource_id dont have \n";
                 continue;
               }
 
-              $model = Raport::findOne([$r->raport_id]);
+              $model = Raport::findOne([$r->resource_id]);
               if(!isset($model->id)){
                 Yii::info('Raport dont have','cron');
                 echo "Raport dont have \n";

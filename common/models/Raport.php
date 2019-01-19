@@ -796,7 +796,7 @@ class Raport extends ActiveRecordVersionable
             $request = new Request([
                 'request'=>get_class($method),
                 'params_in'=>json_encode($params),
-                'raport_id'=>$this->id,
+                'resource_id'=>$this->id,
                 'actor_id'=>$user->id
             ]);
 
@@ -810,9 +810,9 @@ class Raport extends ActiveRecordVersionable
                 return false; 
             }
 
-            Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`raport_id`=:raport_id AND `request`=:request AND  completed=0")
+            Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`resource_id`=:resource_id AND `request`=:request AND  completed=0")
                 ->bindValue(":request",$request->request)
-                ->bindValue(":raport_id",$this->id)
+                ->bindValue(":resource_id",$this->id)
                 ->execute();
 
             if($request->send($method)){

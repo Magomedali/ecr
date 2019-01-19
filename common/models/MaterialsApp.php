@@ -11,8 +11,9 @@ use yii\web\IdentityInterface;
 use yii\helpers\ArrayHelper;
 
 use common\models\User;
-use common\models\Brigade;
+use common\models\MaterialsAppItem;
 use common\models\Nomenclature;
+use common\models\StockRoom;
 
 
 use common\base\ActiveRecordVersionable;
@@ -38,18 +39,29 @@ class MaterialsApp extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['user_guid'], 'required'],
-            ['updated_at','filter','filter'=>function($v){
+            [['user_guid','stockroom_guid'], 'required'],
+            ['created_at','filter','filter'=>function($v){
                 $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s");
                 return $date;
             }],
-            ['updated_at','default','value'=>date("Y-m-d\TH:i:s",time())],
-            
-            [['isActual'],'default','value'=>1],
+            [['user_guid','stockroom_guid'], 'string', 'max' => 36],
+            ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
+            ['number','default','value'=>null],
+            [['status'],'default','value'=>1],
         ];
 	}
 
-
+    public static function versionableAttributes(){
+        return [
+            'guid',
+            'created_at',
+            'number',
+            'status',
+            'user_guid',
+            'stockroom_guid',
+            'isDeleted',
+        ];
+    }
 
     public function load($data, $formName = null){
         
@@ -67,13 +79,23 @@ class MaterialsApp extends ActiveRecordVersionable
                     $this->user = $user;
                 }
             }
+
+            if($this->stockroom_guid){
+
+                $stockroom = StockRoom::findOne(['guid'=>$this->stockroom_guid]);
+
+                if(!isset($stockroom->id)){
+                    $this->addError('stockroom_guid',"Stockroom '".$this->stockroom_guid."' not exists on the site");
+                    return false;
+                }
+            }
+
             $scope = $formName === null ? $this->formName() : $formName;
-            
             
             if(isset($data[$scope]['items']) && is_array($data[$scope]['items'])){
                 $this->items = $data[$scope]['items'];
-            }elseif(isset($data[$scope]['RemnantsItem']) && is_array($data[$scope]['RemnantsItem'])){
-                $this->items = $data[$scope]['RemnantsItem'];
+            }elseif(isset($data[$scope]['MaterialsAppItem']) && is_array($data[$scope]['MaterialsAppItem'])){
+                $this->items = $data[$scope]['MaterialsAppItem'];
             }else{
                 $this->items = [];
             }
@@ -96,11 +118,15 @@ class MaterialsApp extends ActiveRecordVersionable
      */
     public function attributeLabels(){
     	return array(
-    		'id'=>'Package Id',
+    		'id'=>'Id',
     		'user_guid'=>'Ответственный',
-            'updated_at'=>'Время обновления',
+            'stockroom_guid'=>'Склад',
+            'created_at'=>'Время создания',
+            'number'=>'Номер документа',
+            'status'=>'Статус'
     	);
     }
+
 
     public function getItemsErrors(){
         return $this->itemsErrors;
@@ -128,7 +154,7 @@ class MaterialsApp extends ActiveRecordVersionable
         if(!isset($user->id) || $this->hasErrors()) return false;
 
         $items = $this->items;
-        $Type = "RemnantsItem";
+        $Type = "MaterialsAppItem";
         if(!isset($items[$Type])){
             $models[$Type] = $items;
         }else{
@@ -138,9 +164,6 @@ class MaterialsApp extends ActiveRecordVersionable
         if(ArrayHelper::isAssociative($models[$Type])){
             $models[$Type] =  [$models[$Type]];
         }
-
-        // Если актуальные остатки на сайте равны этим, то просто возвращаем true
-        if($user->remnantItemsIsEqual($models[$Type])) return true;
 
         return $this->save() && $this->saveRelationEntities();
     }
@@ -153,13 +176,12 @@ class MaterialsApp extends ActiveRecordVersionable
 
     public function saveRelationEntities(){
 
-
         //Связываем остатки
         if($this->items && $this->id){
             try {
                 $transaction = Yii::$app->db->beginTransaction();
 
-                $this->doUnActualPackage();
+                $this->deleteMaterialsAppItems();
 
                 if($this->saveItems()){
                     $transaction->commit();
@@ -198,8 +220,7 @@ class MaterialsApp extends ActiveRecordVersionable
         }
 
         
-        
-        $Type = "RemnantsItem";
+        $Type = "MaterialsAppItem";
         if(!isset($items[$Type])){
             $items[$Type] = $items;
         }
@@ -209,19 +230,19 @@ class MaterialsApp extends ActiveRecordVersionable
         }
         
         foreach ($items[$Type] as $key => $mdata) {
-            $model = new RemnantsItem();
+            $model = new MaterialsAppItem();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
-            $arData['package_id'] = $this->id;
+            $arData['material_app_id'] = $this->id;
 
-            if(!$model->load(['RemnantsItem'=>$arData]) || !$model->save()){
+            if(!$model->load(['MaterialsAppItem'=>$arData]) || !$model->save()){
                 $this->itemsErrors[$model->nomenclature_guid] = json_encode($model->getErrors());
             }
         }
 
         if(count($this->itemsErrors)){
-            Yii::warning("Error when save items","unloadremnant");
-            Yii::warning(json_encode($this->itemsErrors),"unloadremnant");
+            Yii::warning("Error when save items","MaterialsApp::saveItems");
+            Yii::warning(json_encode($this->itemsErrors),"MaterialsApp");
             //Yii::$app->session->setFlash("warning","Произошла ошибка при сохранении остатков");
         }
 
@@ -233,10 +254,10 @@ class MaterialsApp extends ActiveRecordVersionable
 
 
 
-    public function doUnActualPackage(){
-        if(!$this->id || !$this->user_guid) return false;
-        return Yii::$app->db->createCommand()->update(self::tableName(),['isActual'=>0],"`isActual`=1 AND `user_guid`='{$this->user_guid}' AND `id` <> {$this->id}")
-        ->execute();
+    public function deleteMaterialsAppItems($data = []){
+        if(!$this->id) return false;
+
+        Yii::$app->db->createCommand()->delete(MaterialsAppItem::tableName(),['material_app_id'=>$this->id])->execute();
     }
 
 }

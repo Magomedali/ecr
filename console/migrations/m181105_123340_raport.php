@@ -27,7 +27,7 @@ class m181105_123340_raport extends Migration
             'guid' => $this->string(36)->null()->unique(),
             'number'=>$this->string()->null(),
             'status'=>$this->integer()->null(),
-            'created_at'=>$this->timestamp()->null(),
+            'created_at'=>$this->timestamp(),
             'starttime'=>$this->time()->null(),
             'endtime'=>$this->time()->null(),
 
@@ -58,7 +58,7 @@ class m181105_123340_raport extends Migration
             'guid' => $this->string(36)->null(),
             'number'=>$this->string()->null(),
             'status'=>$this->integer()->null(),
-            'created_at'=>$this->timestamp(),
+            'created_at'=>$this->timestamp()->null(),
             'starttime'=>$this->time()->null(),
             'endtime'=>$this->time()->null(),
 
