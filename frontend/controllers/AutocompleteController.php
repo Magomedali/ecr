@@ -132,7 +132,7 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
             $extends = isset($get['extends']) && is_array($get['extends']) ? $get['extends'] : array();
 
-            $query = (new Query())->select(['u.guid','u.name'])
+            $query = (new Query())->select(['u.guid','u.name','u.unit'])
                                 ->from(['u'=>Nomenclature::tableName()])
                                 ->andWhere("u.`guid` is not null");
             if($key){
@@ -157,7 +157,8 @@ class AutocompleteController extends Controller{
             foreach ($results as $key => $value) {
                 $data[] = [
                     'value'=>$value['guid'],
-                    'title'=>$value['name']
+                    'title'=>$value['name'],
+                    'unit'=>$value['unit']
                 ]; 
             }
             

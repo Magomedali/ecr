@@ -18,7 +18,9 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Номенклатура',
 			'labelShow'=>false,
-			
+			'properties'=>[
+																['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit span'],
+															],
 			'generateSearchFiltersCallback'=>"function(){
 				
 				var ns = $('#tableMaterials').find('input[name$=\'[nomenclature_guid]\'][name^=\'MaterialsAppItem\']');
@@ -42,6 +44,9 @@ use common\widgets\autocomplete\AutoComplete;
 	</td>
 	<td>
 		<?php echo Html::input("number","MaterialsAppItem[{$count}][count]",null,['min'=>0,'step'=>'0.001','class'=>'form-control input-sm isRequired'])?>
+	</td>
+	<td class="nomenclature_unit">
+		<span></span>
 	</td>
 	<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?></td>
 </tr>

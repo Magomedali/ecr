@@ -18,8 +18,9 @@ class ExportMaterialsApp{
 		$params = [
 			'guid'=>$model['guid'],
 			'date'=>date("Y-m-d\TH:i:s",strtotime($model['created_at'])),
-			'status'=>ExchangeStatuses::getLabel($model['status']),
+			'status'=>ExchangeStatuses::getLabels($model['status']),
 			'mol_guid'=>$model['user_guid'],
+            'master_guid'=>$model['master_guid'],
 			'warehouse_guid'=>$model['stockroom_guid'],
             'comment'=>''
 		];
@@ -29,7 +30,7 @@ class ExportMaterialsApp{
 									'count'
 								])
 							->from(MaterialsAppItem::tableName())
-							->where(['app.isDeleted'=>0,'material_app_id'=>$model['id']])
+							->where(['isDeleted'=>0,'material_app_id'=>$model['id']])
 							->all();
 
 		try {
@@ -58,6 +59,7 @@ class ExportMaterialsApp{
             if($request->send($method)){
                 $responce = json_decode($request->params_out,1);
 
+                $responce = isset($responce['return']) ? $responce['return'] : $responce;
                 if(isset($responce['error'])){
                 	Yii::warning("Error","ExportMaterialsApp");
                 	Yii::warning($responce['error'],"ExportMaterialsApp");

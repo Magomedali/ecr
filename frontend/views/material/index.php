@@ -11,6 +11,8 @@ $this->title = 'Мои материалы';
 <div class="row">
 	<div class="col-md-12">
 		<?php echo Html::a("Создать заявку",['material/form']);?>
+
+        <?php echo Html::a("Создать перевод",['transfer-materials/form']);?>
 	</div>
 </div>
 <div class="row raports_list">
@@ -45,6 +47,13 @@ $this->title = 'Мои материалы';
                     [
                         'attribute'=>"number",
                         "value"=>"number",
+                    ],
+                    [
+                        'attribute'=>"master_guid",
+                        'value'=>function($m){
+                            $master = $m->master;
+                            return isset($master->id) ? $master['name'] : "";
+                        },
                     ],
                     [
                         'attribute'=>"stockroom_guid",

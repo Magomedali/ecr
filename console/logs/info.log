@@ -7194,3 +7194,342 @@ JOIN information_schema.key_column_usage AS kcu ON
 WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
 AND rc.table_name = 'import' AND kcu.table_name = 'import'
 2019-01-19 18:26:54 [-][-][-][info][yii\db\Command::execute] INSERT INTO `import` (`version`, `apply_time`) VALUES ('m181105_141438_init', 1547922414)
+2019-01-26 19:15:54 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:15:54 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=radorm
+2019-01-26 19:15:54 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:15:54 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-nomenclature_guid`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-material_app_id`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-version_id`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` DROP FOREIGN KEY `fk-materials_app_item_history-creator_id`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` DROP FOREIGN KEY `fk-materials_app_item_history-entity_id`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_item_history`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_item`
+2019-01-26 19:15:59 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_155959_materials_app_item'
+2019-01-26 19:16:02 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:16:02 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=radorm
+2019-01-26 19:16:02 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:16:02 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-26 19:16:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-user_guid`
+2019-01-26 19:16:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-stockroom_guid`
+2019-01-26 19:16:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-version_id`
+2019-01-26 19:16:04 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` DROP FOREIGN KEY `fk-materials_app_history-creator_id`
+2019-01-26 19:16:05 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` DROP FOREIGN KEY `fk-materials_app_history-entity_id`
+2019-01-26 19:16:05 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_history`
+2019-01-26 19:16:05 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app`
+2019-01-26 19:16:05 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_155950_materials_app'
+2019-01-26 19:18:59 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:18:59 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=radorm
+2019-01-26 19:18:59 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:18:59 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2019-01-26 19:18:59 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:18:59 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`created_at` timestamp,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`user_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`stockroom_guid` varchar(36) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`user_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`stockroom_guid` varchar(36) NOT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` ADD CONSTRAINT `fk-materials_app_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `materials_app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` ADD CONSTRAINT `fk-materials_app_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-version_id` FOREIGN KEY (`version_id`) REFERENCES `materials_app_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-stockroom_guid` FOREIGN KEY (`stockroom_guid`) REFERENCES `stockroom` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-master_guid` FOREIGN KEY (`master_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155950_materials_app', 1548530341)
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_item` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`material_app_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_item_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`material_app_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` ADD CONSTRAINT `fk-materials_app_item_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `materials_app_item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` ADD CONSTRAINT `fk-materials_app_item_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-version_id` FOREIGN KEY (`version_id`) REFERENCES `materials_app_item_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-material_app_id` FOREIGN KEY (`material_app_id`) REFERENCES `materials_app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:01 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155959_materials_app_item', 1548530341)
+2019-01-26 19:19:05 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:05 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=radorm
+2019-01-26 19:19:05 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:05 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 2
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-nomenclature_guid`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-material_app_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-version_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` DROP FOREIGN KEY `fk-materials_app_item_history-creator_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` DROP FOREIGN KEY `fk-materials_app_item_history-entity_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_item_history`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_item`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_155959_materials_app_item'
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-master_guid`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-user_guid`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-stockroom_guid`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-version_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` DROP FOREIGN KEY `fk-materials_app_history-creator_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` DROP FOREIGN KEY `fk-materials_app_history-entity_id`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_history`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app`
+2019-01-26 19:19:06 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_155950_materials_app'
+2019-01-26 19:19:08 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:08 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=radorm
+2019-01-26 19:19:08 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:08 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2019-01-26 19:19:08 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:08 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`created_at` timestamp,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`user_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`stockroom_guid` varchar(36) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`user_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`stockroom_guid` varchar(36) NOT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` ADD CONSTRAINT `fk-materials_app_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `materials_app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` ADD CONSTRAINT `fk-materials_app_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-version_id` FOREIGN KEY (`version_id`) REFERENCES `materials_app_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-stockroom_guid` FOREIGN KEY (`stockroom_guid`) REFERENCES `stockroom` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-master_guid` FOREIGN KEY (`master_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155950_materials_app', 1548530349)
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_item` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`material_app_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_item_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`material_app_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` ADD CONSTRAINT `fk-materials_app_item_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `materials_app_item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` ADD CONSTRAINT `fk-materials_app_item_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-version_id` FOREIGN KEY (`version_id`) REFERENCES `materials_app_item_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-material_app_id` FOREIGN KEY (`material_app_id`) REFERENCES `materials_app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155959_materials_app_item', 1548530349)

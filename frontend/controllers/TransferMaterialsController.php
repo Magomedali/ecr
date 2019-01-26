@@ -7,12 +7,12 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
-use common\models\MaterialsApp;
+use common\modules\TransferMaterials;
 use frontend\modules\MaterialAppFilter;
 
 use common\modules\ExportMaterialsApp;
 
-class MaterialController extends Controller{
+class TransferMaterialsController extends Controller{
 
 
     protected $user;
@@ -31,7 +31,7 @@ class MaterialController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','view','form','get-row-material'],
+                        'actions' => ['view','form'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -59,30 +59,7 @@ class MaterialController extends Controller{
 
 
 
-    /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {   
-        $user = Yii::$app->user->identity;
-        if(!$user->brigade_guid){
-            Yii::$app->user->logout();
-            return $this->goHome();
-        }
-
-        $modelFilters = new MaterialAppFilter;
-        $params = Yii::$app->request->queryParams;
-        $params['MaterialAppFilter']['user_guid']=$user->guid;
-        $dataProvider = $modelFilters->filter($params);
-
-        return $this->render('index',[
-            'dataProvider'=>$dataProvider,
-            'modelFilters'=>$modelFilters
-        ]);
-
-    }
+    
 
 
     public function actionView($id){
@@ -109,35 +86,22 @@ class MaterialController extends Controller{
 
     public function actionForm($id = null){
 
-
-        
-
-
         $post = Yii::$app->request->post();
 
-        if($id || isset($post['model_id'])){
-            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
-
-            $model =  MaterialsApp::findOne(['id'=>$id,'user_guid'=>$this->user->guid]);
-            if(!isset($model->id))
-                throw new \Exception("Документ не найден!",404);
-
-        }else{
-           $model = new MaterialsApp(); 
-        }
-        
+        $model = new TransferMaterials();
+        $remnants = [];
         $hasErrors = false;
         $errorsMaterialsApp=[];
         $errorsMaterialsAppItem = [];
         $errors = [];
-        if(isset($post['MaterialsApp'])){
 
+        if(isset($post['TransferMaterials'])){
+            print_r($post);
+            exit;
             $data = $post;
-            $data['MaterialsApp']['user_guid']=Yii::$app->user->identity->guid;
+            $data['TransferMaterials']['user_guid']=$this->user->guid;
 
             if($model->load($data) && $model->save(1)){
-                
-                $model->saveRelationEntities();
 
                 if(count($model->getItemsErrors())){
                     Yii::$app->session->setFlash("error","Заявка не сохранена. Некорректные данные в табличной части заявки имеют не корректные данные");
@@ -148,7 +112,7 @@ class MaterialController extends Controller{
                     Yii::$app->session->setFlash("success","Заявка сохранена");
 
                     //Отправить заявку в 1С
-                    ExportMaterialsApp::export($model);
+                    //ExportMaterialsApp::export($model);
 
                     return $this->redirect(['material/index']);
                 }
@@ -173,15 +137,20 @@ class MaterialController extends Controller{
                     }
                 }
             }
+
             $hasErrors = true;
             $errorsMaterialsApp = isset($post['MaterialsApp']) ? $post['MaterialsApp'] : [];
             $errorsMaterialsAppItem = isset($post['MaterialsAppItem']) ? $post['MaterialsAppItem'] : [];
 
+        }else{
+            $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
+            $remnants = \common\modules\ImportRemnantsWithSeries::import($this->user->guid);
         }
 
 
         return $this->render('form',[
             'model'=>$model,
+            'remnants'=>$remnants,
             'hasErrors'=>$hasErrors,
             'errors'=>$errors,
             'errorsMaterialsApp'=>$errorsMaterialsApp,
@@ -192,24 +161,7 @@ class MaterialController extends Controller{
 
 
 
-    public function actionGetRowMaterial(){
-
-        if(Yii::$app->request->isAjax){
-            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-
-            $get = Yii::$app->request->get();
-
-            $count = isset($get['count']) ? (int)$get['count'] : 0;
-
-            $ans['html'] = $this->renderPartial("formRowMaterial",[
-                                                    'count'=>$count
-                                                ]);
-            return $ans;
-        }else{
-            return $this->goBack();
-        }
-        
-    }
+    
 
 
 

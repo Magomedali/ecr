@@ -30,6 +30,7 @@ class m190119_155950_materials_app extends Migration
 
             'status'=>$this->integer()->null(),
             'user_guid'=>$this->string(36)->notNull(),
+            'master_guid'=>$this->string(36)->notNull(),
             'stockroom_guid' => $this->string(36)->notNull(),
 
             'version_id'=>$this->integer()->null(),
@@ -46,6 +47,7 @@ class m190119_155950_materials_app extends Migration
             'number'=>$this->string()->null(),
             'status'=>$this->integer()->null(),
             'user_guid'=>$this->string(36)->notNull(),
+            'master_guid'=>$this->string(36)->notNull(),
             'stockroom_guid' => $this->string(36)->notNull(),
 
             'created_at'=>$this->timestamp(),
@@ -63,6 +65,7 @@ class m190119_155950_materials_app extends Migration
 
         $this->addForeignKey('fk-materials_app-stockroom_guid',"{{%materials_app}}",'stockroom_guid',"{{%stockroom}}",'guid','CASCADE','CASCADE');
         $this->addForeignKey('fk-materials_app-user_guid',"{{%materials_app}}",'user_guid',"{{%user}}",'guid','CASCADE','CASCADE');
+        $this->addForeignKey('fk-materials_app-master_guid',"{{%materials_app}}",'master_guid',"{{%user}}",'guid','CASCADE','CASCADE');
     }
 
     /**
@@ -71,6 +74,7 @@ class m190119_155950_materials_app extends Migration
     public function safeDown()
     {
         
+        $this->dropForeignKey('fk-materials_app-master_guid',"{{%materials_app}}");
         $this->dropForeignKey('fk-materials_app-user_guid',"{{%materials_app}}");
         $this->dropForeignKey('fk-materials_app-stockroom_guid',"{{%materials_app}}");
         $this->dropForeignKey('fk-materials_app-version_id',"{{%materials_app}}");

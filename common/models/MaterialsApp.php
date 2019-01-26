@@ -26,6 +26,10 @@ class MaterialsApp extends ActiveRecordVersionable
     protected $itemsErrors = [];
 
     protected $user;
+
+
+
+    protected $master;
     
 
     /**
@@ -40,13 +44,13 @@ class MaterialsApp extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['user_guid','stockroom_guid'], 'required'],
+            [['user_guid','master_guid','stockroom_guid'], 'required'],
             ['created_at','filter','filter'=>function($v){
                 $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s",time());
 
                 return $date;
             }],
-            [['user_guid','stockroom_guid'], 'string', 'max' => 36],
+            [['user_guid','stockroom_guid','master_guid'], 'string', 'max' => 36],
             ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             ['number','default','value'=>null],
             ['status', 'default', 'value' => ExchangeStatuses::CREATED],
@@ -66,6 +70,7 @@ class MaterialsApp extends ActiveRecordVersionable
             'number',
             'status',
             'user_guid',
+            'master_guid',
             'stockroom_guid',
             'isDeleted',
         ];
@@ -85,6 +90,14 @@ class MaterialsApp extends ActiveRecordVersionable
                     return false;
                 }else{
                     $this->user = $user;
+                }
+            }
+
+            if($this->master_guid){
+                $m = User::findOne(['guid'=>$this->master_guid,'is_master'=>1]);
+                if(!isset($m->id)){
+                    $this->addError('master_guid',"Master ".$this->master_guid." not exists on the site");
+                    return false;
                 }
             }
 
@@ -128,6 +141,7 @@ class MaterialsApp extends ActiveRecordVersionable
     	return array(
     		'id'=>'Id',
     		'user_guid'=>'Ответственный',
+            'master_guid'=>"Мастер",
             'stockroom_guid'=>'Склад',
             'created_at'=>'Время создания',
             'number'=>'Номер документа',
@@ -155,6 +169,19 @@ class MaterialsApp extends ActiveRecordVersionable
         }
     }
 
+    public function getMaster(){
+        if(!$this->master_guid) return null;
+
+        if($this->master instanceof User && isset($this->master->id))
+            return $this->user;
+
+        $master = User::findOne(['guid'=>$this->master_guid,'is_master'=>1]);
+        if(isset($master->id)){
+            $this->master = $master;
+            return $this->master;
+        }
+    }
+
 
     public function getStockroom(){
         return $this->hasOne(StockRoom::className(),["guid"=>'stockroom_guid']);
@@ -174,7 +201,7 @@ class MaterialsApp extends ActiveRecordVersionable
     public function getMaterialsAppItems(){
         if($this->id){
 
-            return (new Query)->select(['mai.nomenclature_guid','n.name as nomenclature_name','mai.count'])
+            return (new Query)->select(['mai.nomenclature_guid','n.name as nomenclature_name','mai.count','n.unit as nomenclature_unit'])
                                 ->from(['mai'=>MaterialsAppItem::tableName()])
                                 ->innerJoin(['n'=>Nomenclature::tableName()]," n.guid = mai.nomenclature_guid")
                                 ->where(['mai.material_app_id'=>$this->id])

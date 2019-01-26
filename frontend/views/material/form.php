@@ -17,12 +17,16 @@ if(!$hasErrors){
 if(isset($model->id)){
 	$stockroom = $model->stockroom_guid ? $model->stockroom : null;
 	$stockroom_name = isset($stockroom->id) ? $stockroom->name : "";
+
+	$master = $model->master_guid ? $model->master : null;
+	$master_name = isset($master->id) ? $master->name : "";
 }else{
 	$stockroom = null;
 	if($hasErrors){
 		$stockroom_name = $errorsMaterialsApp['stockroom_name'];
+		$master_name = $errorsMaterialsApp['master_name'];
 	}else{
-		$stockroom_name = "";
+		$stockroom_name = $master_name = "";
 	}
 }
 
@@ -55,12 +59,29 @@ if(isset($model->id)){
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-md-4">
+				<?php 
+					echo AutoComplete::widget([
+						'data'=>[],
+						'apiUrl'=>Url::to(['/autocomplete/masters']),
+						'inputValueName'=>'MaterialsApp[master_guid]',
+						'inputValueName_Value'=>$model->master_guid,
+						'inputKeyName'=>'MaterialsApp[master_name]',
+						'inputKeyName_Value'=>$master_name,
+						'placeholder'=>'Укажите мастера',
+						'label'=>'Мастер'
+					]);
+				?>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-12">
 				<table id="tableMaterials" class="table table-bordered table-hovered table-collapsed">
 					<thead>
 						<tr>
 							<td>Номенклатура</td>
 							<td>Количество</td>
+							<td>Единица Измерения</td>
 							<td><?php echo html::a('+',['material/get-row-material'],['class'=>'btn btn-sm btn-primary','id'=>'btnAddMaterial'])?></td>
 						</tr>
 					</thead>
@@ -82,7 +103,9 @@ if(isset($model->id)){
 															'inputKeyName_Value'=>$item['nomenclature_name'],
 															'placeholder'=>'Номенклатура',
 															'labelShow'=>false,
-															
+															'properties'=>[
+																['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit span'],
+															],
 															'generateSearchFiltersCallback'=>"function(){
 																
 																var ns = $('#tableMaterials').find('input[name$=\'[nomenclature_guid]\'][name^=\'MaterialsAppItem\']');
@@ -106,6 +129,9 @@ if(isset($model->id)){
 													</td>
 													<td>
 														<?php echo Html::input("number","MaterialsAppItem[{$key}][count]",$item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control input-sm isRequired'])?>
+													</td>
+													<td class="nomenclature_unit">
+														<span><?php echo $item['nomenclature_unit'];?></span>
 													</td>
 													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow'])?></td>
 												</tr>
