@@ -15,6 +15,8 @@ use common\models\TypeOfWork;
 use common\models\Line;
 use common\models\Objects;
 use common\models\Boundary;
+use common\models\StockRoom;
+use common\models\Nomenclature;
 use common\models\Project;
 use soapclient\methods\Calcsquare;
 
@@ -31,7 +33,7 @@ class AutocompleteController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['masters','users','technics','lines','works','objects','projects','calcsquare'],
+                        'actions' => ['masters','users','technics','lines','works','objects','projects','calcsquare','stockroom','nomenclature'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -118,6 +120,78 @@ class AutocompleteController extends Controller{
 
 
 
+
+
+    public function actionNomenclature(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+            $extends = isset($get['extends']) && is_array($get['extends']) ? $get['extends'] : array();
+
+            $query = (new Query())->select(['u.guid','u.name'])
+                                ->from(['u'=>Nomenclature::tableName()])
+                                ->andWhere("u.`guid` is not null");
+            if($key){
+                $query->andWhere("u.`name` LIKE '%{$key}%'");
+            }
+
+            if(count($extends)){
+                $notIn = array();
+                foreach ($extends as $guid) {
+                    if (!$guid) continue;
+
+                    $notIn[] = "'{$guid}'";
+                }
+                if(count($notIn)){
+                    $notIn = implode(",", $notIn);
+                    $query->andWhere("u.`guid` NOT IN ($notIn)");
+                }
+            }
+
+            $results = $query->all();
+
+            foreach ($results as $key => $value) {
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name']
+                ]; 
+            }
+            
+            return ['data'=>$data];
+        }else{
+            return $this->redirect(['site/index']);
+        } 
+    }
+
+
+    public function actionStockroom(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+
+            if(!$key){
+                $results = StockRoom::find()->asArray()->all();
+            }else{
+                $results = StockRoom::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+            }
+            
+            foreach ($results as $key => $value) {
+                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
+            }
+            
+            return ['data'=>$data];
+        }else{
+            return $this->redirect(['site/index']);
+        } 
+    }
 
 
     public function actionTechnics(){

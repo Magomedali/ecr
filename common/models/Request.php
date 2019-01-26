@@ -41,7 +41,7 @@ class Request extends ActiveRecordVersionable
             ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             
             [['completed','result'],'default','value'=>0],
-            [['raport_id','actor_id','user_id'],'default','value'=>null],
+            [['resource_id','actor_id','user_id'],'default','value'=>null],
             [['params_out','completed_at','params_in'],'safe']
             
         ];
@@ -63,7 +63,7 @@ class Request extends ActiveRecordVersionable
             'completed_at',
             'params_in',
             'params_out',
-            'raport_id',
+            'resource_id',
             'actor_id',
             'user_id',
             'result',

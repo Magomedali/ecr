@@ -14,6 +14,7 @@ use common\models\User;
 use common\models\MaterialsAppItem;
 use common\models\Nomenclature;
 use common\models\StockRoom;
+use common\dictionaries\ExchangeStatuses;
 
 
 use common\base\ActiveRecordVersionable;
@@ -41,13 +42,20 @@ class MaterialsApp extends ActiveRecordVersionable
             // name, email, subject and body are required
             [['user_guid','stockroom_guid'], 'required'],
             ['created_at','filter','filter'=>function($v){
-                $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s");
+                $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s",time());
+
                 return $date;
             }],
             [['user_guid','stockroom_guid'], 'string', 'max' => 36],
             ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             ['number','default','value'=>null],
-            [['status'],'default','value'=>1],
+            ['status', 'default', 'value' => ExchangeStatuses::CREATED],
+            ['status', 'in', 'range' => [
+                ExchangeStatuses::CREATED, 
+                ExchangeStatuses::IN_CONFIRMING,
+                ExchangeStatuses::CONFIRMED,
+                ExchangeStatuses::DELETED]
+            ],
         ];
 	}
 
@@ -94,14 +102,14 @@ class MaterialsApp extends ActiveRecordVersionable
             
             if(isset($data[$scope]['items']) && is_array($data[$scope]['items'])){
                 $this->items = $data[$scope]['items'];
-            }elseif(isset($data[$scope]['MaterialsAppItem']) && is_array($data[$scope]['MaterialsAppItem'])){
-                $this->items = $data[$scope]['MaterialsAppItem'];
+            }elseif(isset($data['MaterialsAppItem']) && is_array($data['MaterialsAppItem'])){
+                $this->items = $data['MaterialsAppItem'];
             }else{
                 $this->items = [];
             }
 
             if(!count($this->items)){
-                $this->addError('items',"doesn`t have items");
+                $this->addError('items',"doesn`t have nomenclatures");
                 return false;
             }
 
@@ -148,31 +156,33 @@ class MaterialsApp extends ActiveRecordVersionable
     }
 
 
-
-    public function savePackage(){
-        $user = $this->getUser();
-        if(!isset($user->id) || $this->hasErrors()) return false;
-
-        $items = $this->items;
-        $Type = "MaterialsAppItem";
-        if(!isset($items[$Type])){
-            $models[$Type] = $items;
-        }else{
-            $models = $items;
-        }
-        
-        if(ArrayHelper::isAssociative($models[$Type])){
-            $models[$Type] =  [$models[$Type]];
-        }
-
-        return $this->save() && $this->saveRelationEntities();
+    public function getStockroom(){
+        return $this->hasOne(StockRoom::className(),["guid"=>'stockroom_guid']);
     }
 
 
+    public function getStatusTitle(){
+        $title = ExchangeStatuses::getLabels($this->status);
 
+        return !is_array($title) ? $title : null;
+    }
 
+    public function getIsCanUpdate(){
+        return $this->status <= ExchangeStatuses::IN_CONFIRMING;
+    }
 
+    public function getMaterialsAppItems(){
+        if($this->id){
 
+            return (new Query)->select(['mai.nomenclature_guid','n.name as nomenclature_name','mai.count'])
+                                ->from(['mai'=>MaterialsAppItem::tableName()])
+                                ->innerJoin(['n'=>Nomenclature::tableName()]," n.guid = mai.nomenclature_guid")
+                                ->where(['mai.material_app_id'=>$this->id])
+                                ->all();
+        }else{
+           return $this->items; 
+        }
+    }
 
     public function saveRelationEntities(){
 
@@ -187,10 +197,11 @@ class MaterialsApp extends ActiveRecordVersionable
                     $transaction->commit();
 
                     return true;
-                }else{
-                    $transaction->rollBack();
-                    $this->delete();
                 }
+                
+                $transaction->rollBack();
+                $this->delete();
+                
             } catch (\Exception $e) {
                 $transaction->rollBack();
                 $this->delete();
@@ -235,7 +246,7 @@ class MaterialsApp extends ActiveRecordVersionable
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
             $arData['material_app_id'] = $this->id;
 
-            if(!$model->load(['MaterialsAppItem'=>$arData]) || !$model->save()){
+            if(!$model->load(['MaterialsAppItem'=>$arData]) || !$model->save(1)){
                 $this->itemsErrors[$model->nomenclature_guid] = json_encode($model->getErrors());
             }
         }

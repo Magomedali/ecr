@@ -61,7 +61,7 @@ if(isset($model->id)){
 		$boundary_name = $errorsRaport['boundary_name'];
 		$project_name = $errorsRaport['project_name'];
 		$object_name = $errorsRaport['object_name'];
-		$master_name = $errorsRaport['master_name'];;
+		$master_name = $errorsRaport['master_name'];
 	}else{
 		$boundary_name = $project_name = $object_name = $master_name = "";
 	}
@@ -109,10 +109,6 @@ $this->title = "Форма рапорта";
 											?>
 											
 											<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
-
-											<?php echo $form->field($model,'brigade_guid')->hiddenInput(['value'=>$user->brigade_guid])->label(false); ?>
-											
-											<?php echo $form->field($model,'user_guid')->hiddenInput(['value'=>$user->guid])->label(false); ?>
 
 											<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
 

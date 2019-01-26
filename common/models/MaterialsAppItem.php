@@ -8,12 +8,12 @@ use yii\db\Query;
 use yii\db\Command;
 use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
-use yii\db\ActiveRecord;
 use common\models\User;
 use common\models\MaterialsApp;
 use common\models\Nomenclature;
 
-class MaterialsAppItem extends ActiveRecord 
+use common\base\ActiveRecordVersionable;
+class MaterialsAppItem extends ActiveRecordVersionable 
 {
     
 

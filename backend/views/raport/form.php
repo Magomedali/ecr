@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
 use common\models\RaportWork;
-use common\dictionaries\RaportStatuses;
+use common\dictionaries\ExchangeStatuses;
 
 $user = Yii::$app->user->identity;
 $masters = User::find()->where(['is_master'=>true])->asArray()->all();
@@ -168,7 +168,7 @@ $this->title = "Форма рапорта";
 												</div>
 												<div class="col-md-12">
 													<?php
-														echo $form->field($model,'status')->dropDownList(RaportStatuses::getLabels());
+														echo $form->field($model,'status')->dropDownList(ExchangeStatuses::getLabels());
 													?>
 												</div>
 											</div>

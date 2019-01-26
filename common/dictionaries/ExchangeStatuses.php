@@ -3,8 +3,8 @@
 namespace common\dictionaries;
 
 
-// Old class for statuses
-class RaportStatuses extends Dictionary{
+
+class ExchangeStatuses extends Dictionary{
 	
 	const CREATED = 1;
 	const IN_CONFIRMING = 2;

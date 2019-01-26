@@ -25,7 +25,7 @@ use common\models\Line;
 use common\models\Remnant;
 
 use common\base\ActiveRecordVersionable;
-use common\dictionaries\RaportStatuses;
+use common\dictionaries\ExchangeStatuses;
 
 use soapclient\methods\RaportLoad;
 
@@ -107,12 +107,12 @@ class Raport extends ActiveRecordVersionable
             ['number', 'string', 'max' => 255],
             
             ['status','integer'],
-            ['status', 'default', 'value' => RaportStatuses::CREATED],
+            ['status', 'default', 'value' => ExchangeStatuses::CREATED],
             ['status', 'in', 'range' => [
-                RaportStatuses::CREATED, 
-                RaportStatuses::IN_CONFIRMING,
-                RaportStatuses::CONFIRMED,
-                RaportStatuses::DELETED]
+                ExchangeStatuses::CREATED, 
+                ExchangeStatuses::IN_CONFIRMING,
+                ExchangeStatuses::CONFIRMED,
+                ExchangeStatuses::DELETED]
             ],
         ];
 	}
@@ -156,11 +156,11 @@ class Raport extends ActiveRecordVersionable
         if(parent::load($data, $formName)){
 
             if(is_numeric($this->status)){
-                $labels = RaportStatuses::getLabels();
-                $this->status = array_key_exists($this->status, $labels) ? $this->status : RaportStatuses::CREATED;
+                $labels = ExchangeStatuses::getLabels();
+                $this->status = array_key_exists($this->status, $labels) ? $this->status : ExchangeStatuses::CREATED;
             }else{
-                $code = RaportStatuses::getCode($this->status);
-                $this->status = $code ? $code : RaportStatuses::CREATED;
+                $code = ExchangeStatuses::getCode($this->status);
+                $this->status = $code ? $code : ExchangeStatuses::CREATED;
             }
             
             //Проверяем есть ли гуид бригады в базе
@@ -293,13 +293,13 @@ class Raport extends ActiveRecordVersionable
 
 
     public function getStatusTitle(){
-        $title = RaportStatuses::getLabels($this->status);
+        $title = ExchangeStatuses::getLabels($this->status);
 
         return !is_array($title) ? $title : null;
     }
 
     public function getIsCanUpdate(){
-        return $this->status <= RaportStatuses::IN_CONFIRMING;
+        return $this->status <= ExchangeStatuses::IN_CONFIRMING;
     }
 
 
@@ -822,8 +822,8 @@ class Raport extends ActiveRecordVersionable
                         $this->guid = $responce['return']['guid'];
                         $this->number = $responce['return']['number'];
 
-                        if($this->status == RaportStatuses::CREATED){
-                            $this->status = RaportStatuses::IN_CONFIRMING;
+                        if($this->status == ExchangeStatuses::CREATED){
+                            $this->status = ExchangeStatuses::IN_CONFIRMING;
                         }
                         
                         return $this->save(1);
@@ -843,8 +843,8 @@ class Raport extends ActiveRecordVersionable
 
     public static function getUnconfirmedStatuses(){
         return [
-            RaportStatuses::CREATED,
-            RaportStatuses::IN_CONFIRMING
+            ExchangeStatuses::CREATED,
+            ExchangeStatuses::IN_CONFIRMING
         ];
     }
 }

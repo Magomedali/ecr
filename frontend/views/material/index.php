@@ -3,13 +3,16 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use common\dictionaries\ExchangeStatuses;
-
 /* @var $this yii\web\View */
 
-$this->title = 'Мои рапорта';
+$this->title = 'Мои материалы';
 ?>
 
-
+<div class="row">
+	<div class="col-md-12">
+		<?php echo Html::a("Создать заявку",['material/form']);?>
+	</div>
+</div>
 <div class="row raports_list">
 	<div class="col-md-12">
 		<?php
@@ -27,47 +30,27 @@ $this->title = 'Мои рапорта';
 
                     $ops['class']=array_key_exists($model->status, ExchangeStatuses::$notification) ? ExchangeStatuses::$notification[$model->status] : "";
 
-                    if($model->isWrongMaterials()){
-                        Yii::$app->session->setFlash("warning","В остатках недостаточное количество материалов!");
-                        $ops['class']='warning';
-                    }
-
-
-
+                    
                     return $ops;
                 },
                 'columns'=>[
+                    
+                    [
+                        'attribute'=>"created_at",
+                        'value'=>function($m){
+                        	return date("d.m.Y H:i:s",strtotime($m['created_at']));
+                        },
+                        'filter'=>Html::dropDownList("RaportFilter[month]",$modelFilters->month,$modelFilters::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
+                    ],
                     [
                         'attribute'=>"number",
                         "value"=>"number",
                     ],
                     [
-                        'attribute'=>"created_at",
+                        'attribute'=>"stockroom_guid",
                         'value'=>function($m){
-                        	return date("d.m.Y",strtotime($m['created_at']));
-                        },
-                        'filter'=>Html::dropDownList("RaportFilter[month]",$modelFilters->month,$modelFilters::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
-                    ],
-                    [
-                        'attribute'=>"object_guid",
-                        'value'=>function($m){
-                        	$object = $m->object;
-                        	return isset($object->id) ? $object['name'] : "";
-                        },
-                    ],
-                    [
-                        'attribute'=>"project_guid",
-                        'value'=>function($m){
-                        	$project = $m->project;
-                        	return isset($project->id) ? $project['name'] : "";
-                        },
-                    ],
-                    [
-                        'attribute'=>"boundary_guid",
-                        'value'=>function($m){
-                        	$object = $m->object;
-                        	$boundary = isset($object->id) ? $object->boundary : null;
-                        	return isset($boundary->id) ? $boundary['name'] : "";
+                        	$stockroom = $m->stockroom;
+                        	return isset($stockroom->id) ? $stockroom['name'] : "";
                         },
                     ],
                     [
@@ -82,12 +65,12 @@ $this->title = 'Мои рапорта';
                         'buttons' =>
                         [
                             'view' => function ($url, $model) {
-                                return  Html::a('<i class="glyphicon glyphicon-eye-open"></i>', Url::to(['/raport/view', 'id' => $model->id]), [
+                                return  Html::a('<i class="glyphicon glyphicon-eye-open"></i>', Url::to(['/material/view', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Посмотреть')
                                 ]); 
                             },
                             'update' => function ($url, $model) {
-                                return $model->isCanUpdate ? Html::a('<i class="glyphicon glyphicon-pencil"></i>', Url::to(['/raport/form', 'id' => $model->id]), [
+                                return $model->isCanUpdate ? Html::a('<i class="glyphicon glyphicon-pencil"></i>', Url::to(['/material/form', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Изменить')
                                 ]) : ""; 
                             }, 

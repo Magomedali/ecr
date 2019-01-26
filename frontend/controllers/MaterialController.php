@@ -7,14 +7,17 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
-use common\models\Raport;
-use common\models\RaportFile;
+use common\models\MaterialsApp;
+use frontend\modules\MaterialAppFilter;
 
-use frontend\modules\RaportFilter;
-
-use yii\web\UploadedFile;
 
 class MaterialController extends Controller{
+
+
+    protected $user;
+
+
+    protected $brigade_guid;
 
 
 	/**
@@ -27,7 +30,7 @@ class MaterialController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','view','form'],
+                        'actions' => ['index','view','form','get-row-material'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -38,9 +41,18 @@ class MaterialController extends Controller{
 
 	
     public function beforeAction($action){
+        
         if(defined('YII_DEBUG') && YII_DEBUG){
             Yii::$app->assetManager->forceCopy = true;
         }
+
+        $this->user = Yii::$app->user->identity;
+        $this->brigade_guid = isset($this->user->brigade_guid) ? $this->user->brigade_guid : null;
+        if(!$this->brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
         return parent::beforeAction($action);
     }
 
@@ -59,9 +71,14 @@ class MaterialController extends Controller{
             return $this->goHome();
         }
 
-        
-        return $this->render('index',[
+        $modelFilters = new MaterialAppFilter;
+        $params = Yii::$app->request->queryParams;
+        $params['MaterialAppFilter']['user_guid']=$user->guid;
+        $dataProvider = $modelFilters->filter($params);
 
+        return $this->render('index',[
+            'dataProvider'=>$dataProvider,
+            'modelFilters'=>$modelFilters
         ]);
 
     }
@@ -69,16 +86,12 @@ class MaterialController extends Controller{
 
     public function actionView($id){
 
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
-            Yii::$app->user->logout();
-            return $this->goHome();
-        }
+       
 
         if(!(int)$id) 
             throw new \Exception("Документ не найден!",404);
 
-        $model = Raport::findOne(['id'=>(int)$id,'brigade_guid'=>$brigade_guid]);
+        $model = MaterialAppFilter::findOne(['id'=>(int)$id,'user_guid'=>$this->user->guid]);
 
         if(!isset($model->id))
             throw new \Exception("Документ не найден!",404);
@@ -96,11 +109,7 @@ class MaterialController extends Controller{
     public function actionForm($id = null){
 
 
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
-            Yii::$app->user->logout();
-            return $this->goHome();
-        }
+        
 
 
         $post = Yii::$app->request->post();
@@ -108,37 +117,98 @@ class MaterialController extends Controller{
         if($id || isset($post['model_id'])){
             $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
 
-            $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
+            $model =  MaterialsApp::findOne(['id'=>$id,'user_guid'=>$this->user->guid]);
             if(!isset($model->id))
                 throw new \Exception("Документ не найден!",404);
 
-            if(!$model->isCanUpdate)
-                throw new \Exception("Нет доступа к редактированию документа!",404);
-
         }else{
-           $model = new Raport(); 
+           $model = new MaterialsApp(); 
         }
         
         $hasErrors = false;
-        $errorsRaport=[];
+        $errorsMaterialsApp=[];
+        $errorsMaterialsAppItem = [];
+        $errors = [];
+        if(isset($post['MaterialsApp'])){
 
-        if(isset($post['Raport']) && isset($post['password'])){
+            $data = $post;
+            $data['MaterialsApp']['user_guid']=Yii::$app->user->identity->guid;
 
-        
+            if($model->load($data) && $model->save(1)){
+                
+                $model->saveRelationEntities();
+
+                if(count($model->getItemsErrors())){
+                    Yii::$app->session->setFlash("error","Заявка не сохранена. Некорректные данные в табличной части заявки имеют не корректные данные");
+                    Yii::warning("Error when save raport tables data","materialform");
+                    Yii::warning(json_encode($model->getItemsErrors()),"materialform");
+                    $errors = $model->getItemsErrors();
+                }else{
+                    Yii::$app->session->setFlash("success"," отправлен на проверку");
+
+                    //Отправить заявку в 1С
+                    ExportMaterialsApp::export($model);
+
+                    return $this->redirect(['material/index']);
+                }
+                   
+            }else{
+                Yii::$app->session->setFlash("error","Возникла ошибка при сохранении заявки. Заявка не сохранена!");
+                Yii::warning("Error when save raport","materialform");
+                Yii::warning(json_encode($model->getErrors()),"materialform");
+                $errors = $model->getErrors();
+            }
+
+            if(count($errors)){
+                foreach ($errors as $key => $er) {
+                    if(!is_array($er)){
+                        Yii::$app->session->setFlash("warning",$er);
+                        Yii::warning($key.": ",$er,"materialform");
+                    }else{
+                        foreach ($er as $key2 => $e) {
+                            Yii::$app->session->setFlash("warning",$er);
+                            Yii::warning($key2.": ",$e,"materialform");
+                        }
+                    }
+                }
+            }
+            $hasErrors = true;
+            $errorsMaterialsApp = isset($post['MaterialsApp']) ? $post['MaterialsApp'] : [];
+            $errorsMaterialsAppItem = isset($post['MaterialsAppItem']) ? $post['MaterialsAppItem'] : [];
+
         }
 
 
         return $this->render('form',[
             'model'=>$model,
-            'inValidPassword'=>$inValidPassword,
             'hasErrors'=>$hasErrors,
-            'errorsRaportConsist'=>$errorsRaportConsist,
-            'errorsRaportWorks'=>$errorsRaportWorks,
-            'errorsRaportMaterials'=>$errorsRaportMaterials,
-            'errorsRaport'=>$errorsRaport
+            'errors'=>$errors,
+            'errorsMaterialsApp'=>$errorsMaterialsApp,
+            'errorsMaterialsAppItem'=>$errorsMaterialsAppItem
         ]);
     }
 
+
+
+
+    public function actionGetRowMaterial(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $get = Yii::$app->request->get();
+
+            $count = isset($get['count']) ? (int)$get['count'] : 0;
+
+            $ans['html'] = $this->renderPartial("formRowMaterial",[
+                                                    'count'=>$count
+                                                ]);
+            return $ans;
+        }else{
+            return $this->goBack();
+        }
+        
+    }
 
 
 

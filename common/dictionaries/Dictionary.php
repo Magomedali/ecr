@@ -18,7 +18,7 @@ abstract class Dictionary{
 	public static function getLabels($code = null){
         if($code && array_key_exists($code, static::$labels))
             return static::$labels[$code];
-        return static::$labels;
+        return $code === null ? static::$labels : "";
     }
 
 

@@ -10,7 +10,7 @@ use common\models\Raport;
 use common\models\RaportFile;
 use soapclient\methods\Useraccountload;
 use soapclient\methods\RaportLoad;
-use common\dictionaries\RaportStatuses;
+use common\dictionaries\ExchangeStatuses;
  
 /**
  * Daemon controller
@@ -82,8 +82,8 @@ class DaemonController extends Controller {
                       $model->guid = $responce['return']['guid'];
                       $model->number = $responce['return']['number'];
 
-                      if($model->status == RaportStatuses::CREATED){
-                         $model->status = RaportStatuses::IN_CONFIRMING;
+                      if($model->status == ExchangeStatuses::CREATED){
+                         $model->status = ExchangeStatuses::IN_CONFIRMING;
                       }
 
                       $model->save(1);
