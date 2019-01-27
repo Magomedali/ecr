@@ -8,7 +8,13 @@ use common\models\User;
 
 class TransferMaterials extends Model{
 
-
+    public $mol_guid;
+    
+    public $mol_guid_recipient;
+    
+    public $created_at;
+    
+    public $comment;
 
 	/**
 	* Associative multiple array
@@ -43,25 +49,20 @@ class TransferMaterials extends Model{
 
             //Проверяем есть ли гуид бригады в базе
             if($this->mol_guid){
-
                 $user = User::findOne(['guid'=>$this->mol_guid]);
-
                 if(!isset($user->id)){
                     $this->addError('mol_guid',"User '".$this->mol_guid."' not exists on the site");
                     return false;
-                }else{
-                    $this->user = $user;
                 }
             }
 
             if($this->mol_guid_recipient){
-                $m = User::findOne(['guid'=>$this->mol_guid_recipient,'is_master'=>1]);
+                $m = User::findOne(['guid'=>$this->mol_guid_recipient,'is_master'=>0]);
                 if(!isset($m->id)){
                     $this->addError('mol_guid_recipient',"Master ".$this->mol_guid_recipient." not exists on the site");
                     return false;
                 }
             }
-
 
             $scope = $formName === null ? $this->formName() : $formName;
             
@@ -76,6 +77,8 @@ class TransferMaterials extends Model{
             if(!count($this->materials)){
                 $this->addError('materials',"doesn`t have materials");
                 return false;
+            }else{
+                if(!$this->checkAndFilterMaterials()) return false;
             }
 
             return true;
@@ -84,7 +87,53 @@ class TransferMaterials extends Model{
         return false;
     }
 
+    public function checkAndFilterMaterials(){
+        if(!count($this->materials)){
+            $this->addError('materials',"Не указаны материалы для передачи!");
+            return false;
+        }
 
+        $this->materialsError = [];
+        $filterMaterials = [];
+        foreach ($this->materials as $key => $material) {
+            if(!isset($material['nomenclature_guid']) || !$material['nomenclature_guid']
+                 || !isset($material['series_guid']) || !$material['series_guid'] 
+                 || !isset($material['send'])){
+                array_push($this->materialsError, "Отсутствуют обязательные параметры!");
+                continue;
+            }
+
+            if($material['send'] > 0){
+                if(isset($material['count']) && $material['send'] > $material['count']){
+                    array_push($this->materialsError, "Недостаточное количество материала");
+                    continue;
+                }
+
+                $filterMaterials[$key]['nomenclature_guid'] = $material['nomenclature_guid'];
+                $filterMaterials[$key]['series_guid'] = $material['series_guid'];
+                $filterMaterials[$key]['count'] = $material['send'];
+            }
+
+        }
+
+        if(!count($filterMaterials)){
+            $this->addError('materials',"Не указаны материалы для передачи!");
+            return false;
+        }
+
+        $this->materials = $filterMaterials;
+
+        return count($this->materials);
+    }
+
+    
+    public function getMaterialsError(){
+        return $this->materialsError;
+    }
+
+    public function getMaterials(){
+        return $this->materials;
+    }
 
     /**
      * @return array customized attribute labels (name=>label)
@@ -93,11 +142,20 @@ class TransferMaterials extends Model{
         return array(
             'id'=>'Id',
             'guid'=>'Идентификатор в 1С',
-            'name'=>'Наименование',
-            'is_countable' => 'Количественный расчет',
-            'hint_count' => 'Подсказка для количества',
-            'hint_length'=> 'Подсказка для П.М./Шт'
+            'created_at'=>'Дата создания документа',
+            'comment'=>'Комментарий',
         );
+    }
+
+
+
+
+    public function getActualTransfersFromMe(){
+
+    }
+
+    public function getActualTransfersToMe(){
+        
     }
 
 }

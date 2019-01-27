@@ -7533,3 +7533,1133 @@ JOIN information_schema.key_column_usage AS kcu ON
 WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
 AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
 2019-01-26 19:19:09 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155959_materials_app_item', 1548530349)
+2019-01-27 09:25:00 [-][-][-][info][cron] Process start
+2019-01-27 09:25:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:25:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:25:00 [-][-][-][info][cron] Processing for 0.02534294128418 seconds
+2019-01-27 09:26:00 [-][-][-][info][cron] Process start
+2019-01-27 09:26:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:26:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:26:01 [-][-][-][info][cron] Processing for 0.024354934692383 seconds
+2019-01-27 09:27:00 [-][-][-][info][cron] Process start
+2019-01-27 09:27:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:27:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:27:00 [-][-][-][info][cron] Processing for 0.016990900039673 seconds
+2019-01-27 09:28:00 [-][-][-][info][cron] Process start
+2019-01-27 09:28:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:28:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:28:01 [-][-][-][info][cron] Processing for 0.01728081703186 seconds
+2019-01-27 09:29:00 [-][-][-][info][cron] Process start
+2019-01-27 09:29:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:29:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:29:00 [-][-][-][info][cron] Processing for 0.017142057418823 seconds
+2019-01-27 09:30:01 [-][-][-][info][cron] Process start
+2019-01-27 09:30:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:30:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:30:01 [-][-][-][info][cron] Processing for 0.017940998077393 seconds
+2019-01-27 09:31:00 [-][-][-][info][cron] Process start
+2019-01-27 09:31:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:31:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:31:00 [-][-][-][info][cron] Processing for 0.017897129058838 seconds
+2019-01-27 09:31:32 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 09:31:32 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:31:32 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 09:31:32 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2019-01-27 09:32:01 [-][-][-][info][cron] Process start
+2019-01-27 09:32:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:32:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:32:01 [-][-][-][info][cron] Processing for 0.017086029052734 seconds
+2019-01-27 09:33:00 [-][-][-][info][cron] Process start
+2019-01-27 09:33:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:33:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:33:00 [-][-][-][info][cron] Processing for 0.016809940338135 seconds
+2019-01-27 09:34:00 [-][-][-][info][cron] Process start
+2019-01-27 09:34:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:34:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:34:00 [-][-][-][info][cron] Processing for 0.017596960067749 seconds
+2019-01-27 09:35:00 [-][-][-][info][cron] Process start
+2019-01-27 09:35:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:35:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:35:00 [-][-][-][info][cron] Processing for 0.016849040985107 seconds
+2019-01-27 09:36:00 [-][-][-][info][cron] Process start
+2019-01-27 09:36:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:36:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:36:00 [-][-][-][info][cron] Processing for 0.017929077148438 seconds
+2019-01-27 09:37:00 [-][-][-][info][cron] Process start
+2019-01-27 09:37:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:37:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:37:00 [-][-][-][info][cron] Processing for 0.016930103302002 seconds
+2019-01-27 09:38:00 [-][-][-][info][cron] Process start
+2019-01-27 09:38:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:38:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:38:00 [-][-][-][info][cron] Processing for 0.017165184020996 seconds
+2019-01-27 09:39:00 [-][-][-][info][cron] Process start
+2019-01-27 09:39:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:39:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:39:00 [-][-][-][info][cron] Processing for 0.017321109771729 seconds
+2019-01-27 09:40:00 [-][-][-][info][cron] Process start
+2019-01-27 09:40:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:40:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:40:00 [-][-][-][info][cron] Processing for 0.017335891723633 seconds
+2019-01-27 09:41:00 [-][-][-][info][cron] Process start
+2019-01-27 09:41:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:41:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:41:00 [-][-][-][info][cron] Processing for 0.017295122146606 seconds
+2019-01-27 09:42:00 [-][-][-][info][cron] Process start
+2019-01-27 09:42:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:42:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:42:00 [-][-][-][info][cron] Processing for 0.017213106155396 seconds
+2019-01-27 09:43:00 [-][-][-][info][cron] Process start
+2019-01-27 09:43:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:43:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:43:00 [-][-][-][info][cron] Processing for 0.017116069793701 seconds
+2019-01-27 09:44:00 [-][-][-][info][cron] Process start
+2019-01-27 09:44:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:44:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:44:00 [-][-][-][info][cron] Processing for 0.018010854721069 seconds
+2019-01-27 09:45:00 [-][-][-][info][cron] Process start
+2019-01-27 09:45:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:45:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:45:00 [-][-][-][info][cron] Processing for 0.016918182373047 seconds
+2019-01-27 09:46:00 [-][-][-][info][cron] Process start
+2019-01-27 09:46:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:46:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:46:00 [-][-][-][info][cron] Processing for 0.017405033111572 seconds
+2019-01-27 09:47:00 [-][-][-][info][cron] Process start
+2019-01-27 09:47:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:47:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:47:00 [-][-][-][info][cron] Processing for 0.017230987548828 seconds
+2019-01-27 09:48:00 [-][-][-][info][cron] Process start
+2019-01-27 09:48:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:48:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:48:00 [-][-][-][info][cron] Processing for 0.01836085319519 seconds
+2019-01-27 09:49:00 [-][-][-][info][cron] Process start
+2019-01-27 09:49:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:49:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:49:00 [-][-][-][info][cron] Processing for 0.017109155654907 seconds
+2019-01-27 09:50:00 [-][-][-][info][cron] Process start
+2019-01-27 09:50:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:50:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:50:00 [-][-][-][info][cron] Processing for 0.018372058868408 seconds
+2019-01-27 09:51:00 [-][-][-][info][cron] Process start
+2019-01-27 09:51:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:51:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:51:00 [-][-][-][info][cron] Processing for 0.016951084136963 seconds
+2019-01-27 09:52:00 [-][-][-][info][cron] Process start
+2019-01-27 09:52:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:52:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:52:00 [-][-][-][info][cron] Processing for 0.017043113708496 seconds
+2019-01-27 09:53:00 [-][-][-][info][cron] Process start
+2019-01-27 09:53:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:53:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:53:00 [-][-][-][info][cron] Processing for 0.016777992248535 seconds
+2019-01-27 09:54:00 [-][-][-][info][cron] Process start
+2019-01-27 09:54:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:54:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:54:00 [-][-][-][info][cron] Processing for 0.017102003097534 seconds
+2019-01-27 09:55:00 [-][-][-][info][cron] Process start
+2019-01-27 09:55:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:55:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:55:00 [-][-][-][info][cron] Processing for 0.01694917678833 seconds
+2019-01-27 09:56:00 [-][-][-][info][cron] Process start
+2019-01-27 09:56:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:56:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:56:00 [-][-][-][info][cron] Processing for 0.017143964767456 seconds
+2019-01-27 09:57:00 [-][-][-][info][cron] Process start
+2019-01-27 09:57:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:57:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:57:00 [-][-][-][info][cron] Processing for 0.016972064971924 seconds
+2019-01-27 09:58:01 [-][-][-][info][cron] Process start
+2019-01-27 09:58:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:58:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:58:01 [-][-][-][info][cron] Processing for 0.017359018325806 seconds
+2019-01-27 09:59:00 [-][-][-][info][cron] Process start
+2019-01-27 09:59:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 09:59:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 09:59:00 [-][-][-][info][cron] Processing for 0.017131090164185 seconds
+2019-01-27 10:00:01 [-][-][-][info][cron] Process start
+2019-01-27 10:00:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:00:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:00:01 [-][-][-][info][cron] Processing for 0.017525196075439 seconds
+2019-01-27 10:00:48 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-27 10:00:48 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:00:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-nomenclature_guid`
+2019-01-27 10:00:55 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-material_app_id`
+2019-01-27 10:00:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` DROP FOREIGN KEY `fk-materials_app_item-version_id`
+2019-01-27 10:00:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` DROP FOREIGN KEY `fk-materials_app_item_history-creator_id`
+2019-01-27 10:00:56 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` DROP FOREIGN KEY `fk-materials_app_item_history-entity_id`
+2019-01-27 10:00:56 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_item_history`
+2019-01-27 10:00:56 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_item`
+2019-01-27 10:00:56 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_155959_materials_app_item'
+2019-01-27 10:00:57 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:00:57 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:00:57 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:00:57 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-27 10:00:58 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-master_guid`
+2019-01-27 10:01:00 [-][-][-][info][cron] Process start
+2019-01-27 10:01:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:01:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:01:00 [-][-][-][info][cron] Processing for 0.022472143173218 seconds
+2019-01-27 10:01:16 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:16 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:01:16 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:17 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-user_guid`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-stockroom_guid`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` DROP FOREIGN KEY `fk-materials_app-version_id`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` DROP FOREIGN KEY `fk-materials_app_history-creator_id`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` DROP FOREIGN KEY `fk-materials_app_history-entity_id`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app_history`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] DROP TABLE `materials_app`
+2019-01-27 10:01:18 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_155950_materials_app'
+2019-01-27 10:01:23 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:23 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:01:23 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:23 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-27 10:01:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `stockroom` DROP FOREIGN KEY `fk-stockroom-version_id`
+2019-01-27 10:01:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `stockroom_history` DROP FOREIGN KEY `fk-stockroom_history-creator_id`
+2019-01-27 10:01:26 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `stockroom_history` DROP FOREIGN KEY `fk-stockroom_history-entity_id`
+2019-01-27 10:01:26 [-][-][-][info][yii\db\Command::execute] DROP TABLE `stockroom_history`
+2019-01-27 10:01:26 [-][-][-][info][yii\db\Command::execute] DROP TABLE `stockroom`
+2019-01-27 10:01:26 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m190119_143236_stockroom'
+2019-01-27 10:01:28 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:28 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:01:28 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:28 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC LIMIT 1
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-actor_id`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-user_id`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` DROP FOREIGN KEY `fk-requests-version_id`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` DROP FOREIGN KEY `fk-requests_history-creator_id`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` DROP FOREIGN KEY `fk-requests_history-entity_id`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] DROP TABLE `requests_history`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] DROP TABLE `requests`
+2019-01-27 10:01:29 [-][-][-][info][yii\db\Command::execute] DELETE FROM `migration` WHERE `version`='m181105_191709_requests'
+2019-01-27 10:01:32 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:32 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:01:32 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:32 [-][-][-][info][yii\db\Command::query] SELECT `version`, `apply_time` FROM `migration` ORDER BY `apply_time` DESC, `version` DESC
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `requests` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`created_at` timestamp,
+	`completed_at` timestamp NULL DEFAULT NULL,
+	`request` varchar(50) NOT NULL,
+	`params_in` text NULL DEFAULT NULL,
+	`params_out` text NULL DEFAULT NULL,
+	`result` tinyint(1) NULL DEFAULT 0,
+	`completed` tinyint(1) NULL DEFAULT 0,
+	`resource_id` int(11) NULL DEFAULT NULL,
+	`user_id` int(11) NULL DEFAULT NULL,
+	`actor_id` int(11) NULL DEFAULT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `requests_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`created_at` timestamp NULL DEFAULT NULL,
+	`completed_at` timestamp NULL DEFAULT NULL,
+	`request` varchar(50) NOT NULL,
+	`params_in` text NULL DEFAULT NULL,
+	`params_out` text NULL DEFAULT NULL,
+	`result` tinyint(1) NULL DEFAULT 0,
+	`completed` tinyint(1) NULL DEFAULT 0,
+	`resource_id` int(11) NULL DEFAULT NULL,
+	`user_id` int(11) NULL DEFAULT NULL,
+	`actor_id` int(11) NULL DEFAULT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` ADD CONSTRAINT `fk-requests_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `requests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests_history` ADD CONSTRAINT `fk-requests_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-version_id` FOREIGN KEY (`version_id`) REFERENCES `requests_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `requests` ADD CONSTRAINT `fk-requests-actor_id` FOREIGN KEY (`actor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m181105_191709_requests', 1548583294)
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `stockroom` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NOT NULL UNIQUE,
+	`name` varchar(255) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `stockroom_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NOT NULL,
+	`name` varchar(255) NOT NULL,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `stockroom_history` ADD CONSTRAINT `fk-stockroom_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `stockroom` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `stockroom_history` ADD CONSTRAINT `fk-stockroom_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `stockroom` ADD CONSTRAINT `fk-stockroom-version_id` FOREIGN KEY (`version_id`) REFERENCES `stockroom_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_143236_stockroom', 1548583294)
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`guid` varchar(36) NULL UNIQUE DEFAULT NULL,
+	`created_at` timestamp,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`user_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`stockroom_guid` varchar(36) NOT NULL,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`guid` varchar(36) NULL DEFAULT NULL,
+	`created_at` timestamp,
+	`number` varchar(255) NULL DEFAULT NULL,
+	`status` int(11) NULL DEFAULT NULL,
+	`user_guid` varchar(36) NOT NULL,
+	`master_guid` varchar(36) NOT NULL,
+	`stockroom_guid` varchar(36) NOT NULL,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` ADD CONSTRAINT `fk-materials_app_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `materials_app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_history` ADD CONSTRAINT `fk-materials_app_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-version_id` FOREIGN KEY (`version_id`) REFERENCES `materials_app_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-stockroom_guid` FOREIGN KEY (`stockroom_guid`) REFERENCES `stockroom` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-user_guid` FOREIGN KEY (`user_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app` ADD CONSTRAINT `fk-materials_app-master_guid` FOREIGN KEY (`master_guid`) REFERENCES `user` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155950_materials_app', 1548583294)
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_item` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`material_app_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	`version_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] CREATE TABLE `materials_app_item_history` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`entity_id` int(11) NOT NULL,
+	`material_app_id` int(11) NOT NULL,
+	`nomenclature_guid` varchar(36) NOT NULL,
+	`count` float NOT NULL DEFAULT 0,
+	`created_at` timestamp,
+	`type_action` int(11) NOT NULL,
+	`version` int(11) NOT NULL,
+	`creator_id` int(11) NULL DEFAULT NULL,
+	`isDeleted` smallint(6) NULL DEFAULT 0
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` ADD CONSTRAINT `fk-materials_app_item_history-entity_id` FOREIGN KEY (`entity_id`) REFERENCES `materials_app_item` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item_history` ADD CONSTRAINT `fk-materials_app_item_history-creator_id` FOREIGN KEY (`creator_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-version_id` FOREIGN KEY (`version_id`) REFERENCES `materials_app_item_history` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-material_app_id` FOREIGN KEY (`material_app_id`) REFERENCES `materials_app` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] ALTER TABLE `materials_app_item` ADD CONSTRAINT `fk-materials_app_item-nomenclature_guid` FOREIGN KEY (`nomenclature_guid`) REFERENCES `nomenclature` (`guid`) ON DELETE CASCADE ON UPDATE CASCADE
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `migration`
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::query] SELECT
+    kcu.constraint_name,
+    kcu.column_name,
+    kcu.referenced_table_name,
+    kcu.referenced_column_name
+FROM information_schema.referential_constraints AS rc
+JOIN information_schema.key_column_usage AS kcu ON
+    (
+        kcu.constraint_catalog = rc.constraint_catalog OR
+        (kcu.constraint_catalog IS NULL AND rc.constraint_catalog IS NULL)
+    ) AND
+    kcu.constraint_schema = rc.constraint_schema AND
+    kcu.constraint_name = rc.constraint_name
+WHERE rc.constraint_schema = database() AND kcu.table_schema = database()
+AND rc.table_name = 'migration' AND kcu.table_name = 'migration'
+2019-01-27 10:01:34 [-][-][-][info][yii\db\Command::execute] INSERT INTO `migration` (`version`, `apply_time`) VALUES ('m190119_155959_materials_app_item', 1548583294)
+2019-01-27 10:02:01 [-][-][-][info][cron] Process start
+2019-01-27 10:02:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:02:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:02:01 [-][-][-][info][cron] Processing for 0.017361879348755 seconds
+2019-01-27 10:03:00 [-][-][-][info][cron] Process start
+2019-01-27 10:03:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:03:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:03:00 [-][-][-][info][cron] Processing for 0.017058134078979 seconds
+2019-01-27 10:04:00 [-][-][-][info][cron] Process start
+2019-01-27 10:04:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:04:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:04:00 [-][-][-][info][cron] Processing for 0.01728892326355 seconds
+2019-01-27 10:06:00 [-][-][-][info][cron] Process start
+2019-01-27 10:06:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:06:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:06:00 [-][-][-][info][cron] Processing for 0.017280101776123 seconds
+2019-01-27 10:07:00 [-][-][-][info][cron] Process start
+2019-01-27 10:07:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:07:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:07:00 [-][-][-][info][cron] Processing for 0.017910957336426 seconds
+2019-01-27 10:08:00 [-][-][-][info][cron] Process start
+2019-01-27 10:08:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:08:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:08:00 [-][-][-][info][cron] Processing for 0.018141984939575 seconds
+2019-01-27 10:09:00 [-][-][-][info][cron] Process start
+2019-01-27 10:09:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:09:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:09:00 [-][-][-][info][cron] Processing for 0.017469882965088 seconds
+2019-01-27 10:10:00 [-][-][-][info][cron] Process start
+2019-01-27 10:10:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:10:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:10:00 [-][-][-][info][cron] Processing for 0.017221927642822 seconds
+2019-01-27 10:11:00 [-][-][-][info][cron] Process start
+2019-01-27 10:11:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:11:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:11:00 [-][-][-][info][cron] Processing for 0.017280101776123 seconds
+2019-01-27 10:12:00 [-][-][-][info][cron] Process start
+2019-01-27 10:12:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:12:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:12:00 [-][-][-][info][cron] Processing for 0.017521142959595 seconds
+2019-01-27 10:13:00 [-][-][-][info][cron] Process start
+2019-01-27 10:13:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:13:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:13:00 [-][-][-][info][cron] Processing for 0.017804861068726 seconds
+2019-01-27 10:14:00 [-][-][-][info][cron] Process start
+2019-01-27 10:14:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:14:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:14:00 [-][-][-][info][cron] Processing for 0.017509937286377 seconds
+2019-01-27 10:15:00 [-][-][-][info][cron] Process start
+2019-01-27 10:15:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:15:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:15:00 [-][-][-][info][cron] Processing for 0.018186092376709 seconds
+2019-01-27 10:16:01 [-][-][-][info][cron] Process start
+2019-01-27 10:16:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:16:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:16:01 [-][-][-][info][cron] Processing for 0.017791986465454 seconds
+2019-01-27 10:17:00 [-][-][-][info][cron] Process start
+2019-01-27 10:17:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:17:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:17:00 [-][-][-][info][cron] Processing for 0.01679515838623 seconds
+2019-01-27 10:18:00 [-][-][-][info][cron] Process start
+2019-01-27 10:18:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:18:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:18:00 [-][-][-][info][cron] Processing for 0.017238855361938 seconds
+2019-01-27 10:19:00 [-][-][-][info][cron] Process start
+2019-01-27 10:19:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:19:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:19:00 [-][-][-][info][cron] Processing for 0.019295930862427 seconds
+2019-01-27 10:20:00 [-][-][-][info][cron] Process start
+2019-01-27 10:20:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:20:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:20:00 [-][-][-][info][cron] Processing for 0.017210006713867 seconds
+2019-01-27 10:21:00 [-][-][-][info][cron] Process start
+2019-01-27 10:21:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:21:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:21:00 [-][-][-][info][cron] Processing for 0.018200159072876 seconds
+2019-01-27 10:22:00 [-][-][-][info][cron] Process start
+2019-01-27 10:22:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:22:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:22:00 [-][-][-][info][cron] Processing for 0.017311096191406 seconds
+2019-01-27 10:23:00 [-][-][-][info][cron] Process start
+2019-01-27 10:23:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:23:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:23:00 [-][-][-][info][cron] Processing for 0.01806378364563 seconds
+2019-01-27 10:24:00 [-][-][-][info][cron] Process start
+2019-01-27 10:24:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:24:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:24:01 [-][-][-][info][cron] Processing for 0.017285108566284 seconds
+2019-01-27 10:25:00 [-][-][-][info][cron] Process start
+2019-01-27 10:25:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:25:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:25:00 [-][-][-][info][cron] Processing for 0.017769813537598 seconds
+2019-01-27 10:26:00 [-][-][-][info][cron] Process start
+2019-01-27 10:26:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:26:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:26:01 [-][-][-][info][cron] Processing for 0.016983032226562 seconds
+2019-01-27 10:27:00 [-][-][-][info][cron] Process start
+2019-01-27 10:27:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:27:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:27:00 [-][-][-][info][cron] Processing for 0.017336845397949 seconds
+2019-01-27 10:28:01 [-][-][-][info][cron] Process start
+2019-01-27 10:28:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:28:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:28:01 [-][-][-][info][cron] Processing for 0.017599821090698 seconds
+2019-01-27 10:29:00 [-][-][-][info][cron] Process start
+2019-01-27 10:29:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:29:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:29:00 [-][-][-][info][cron] Processing for 0.017074108123779 seconds
+2019-01-27 10:30:00 [-][-][-][info][cron] Process start
+2019-01-27 10:30:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:30:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:30:00 [-][-][-][info][cron] Processing for 0.016952991485596 seconds
+2019-01-27 10:31:00 [-][-][-][info][cron] Process start
+2019-01-27 10:31:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:31:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:31:00 [-][-][-][info][cron] Processing for 0.017055034637451 seconds
+2019-01-27 10:32:00 [-][-][-][info][cron] Process start
+2019-01-27 10:32:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:32:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:32:00 [-][-][-][info][cron] Processing for 0.016952037811279 seconds
+2019-01-27 10:33:00 [-][-][-][info][cron] Process start
+2019-01-27 10:33:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:33:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:33:00 [-][-][-][info][cron] Processing for 0.020524978637695 seconds
+2019-01-27 10:34:00 [-][-][-][info][cron] Process start
+2019-01-27 10:34:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:34:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:34:00 [-][-][-][info][cron] Processing for 0.017516136169434 seconds
+2019-01-27 10:35:00 [-][-][-][info][cron] Process start
+2019-01-27 10:35:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:35:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:35:00 [-][-][-][info][cron] Processing for 0.016917943954468 seconds
+2019-01-27 10:36:00 [-][-][-][info][cron] Process start
+2019-01-27 10:36:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:36:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:36:00 [-][-][-][info][cron] Processing for 0.01705002784729 seconds
+2019-01-27 10:37:00 [-][-][-][info][cron] Process start
+2019-01-27 10:37:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:37:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:37:00 [-][-][-][info][cron] Processing for 0.01730489730835 seconds
+2019-01-27 10:38:00 [-][-][-][info][cron] Process start
+2019-01-27 10:38:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:38:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:38:00 [-][-][-][info][cron] Processing for 0.017091989517212 seconds
+2019-01-27 10:39:00 [-][-][-][info][cron] Process start
+2019-01-27 10:39:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:39:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:39:00 [-][-][-][info][cron] Processing for 0.016677856445312 seconds
+2019-01-27 10:40:00 [-][-][-][info][cron] Process start
+2019-01-27 10:40:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:40:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:40:00 [-][-][-][info][cron] Processing for 0.016746997833252 seconds
+2019-01-27 10:41:00 [-][-][-][info][cron] Process start
+2019-01-27 10:41:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:41:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:41:00 [-][-][-][info][cron] Processing for 0.016942977905273 seconds
+2019-01-27 10:42:00 [-][-][-][info][cron] Process start
+2019-01-27 10:42:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:42:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:42:00 [-][-][-][info][cron] Processing for 0.017145156860352 seconds
+2019-01-27 10:43:00 [-][-][-][info][cron] Process start
+2019-01-27 10:43:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:43:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:43:00 [-][-][-][info][cron] Processing for 0.017329931259155 seconds
+2019-01-27 10:44:00 [-][-][-][info][cron] Process start
+2019-01-27 10:44:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:44:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:44:00 [-][-][-][info][cron] Processing for 0.016793966293335 seconds
+2019-01-27 10:45:00 [-][-][-][info][cron] Process start
+2019-01-27 10:45:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:45:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:45:00 [-][-][-][info][cron] Processing for 0.017091035842896 seconds
+2019-01-27 10:46:00 [-][-][-][info][cron] Process start
+2019-01-27 10:46:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:46:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:46:00 [-][-][-][info][cron] Processing for 0.02261209487915 seconds
+2019-01-27 10:47:00 [-][-][-][info][cron] Process start
+2019-01-27 10:47:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:47:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:47:00 [-][-][-][info][cron] Processing for 0.017457008361816 seconds
+2019-01-27 10:48:00 [-][-][-][info][cron] Process start
+2019-01-27 10:48:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:48:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:48:00 [-][-][-][info][cron] Processing for 0.017896890640259 seconds
+2019-01-27 10:49:00 [-][-][-][info][cron] Process start
+2019-01-27 10:49:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:49:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:49:00 [-][-][-][info][cron] Processing for 0.017853975296021 seconds
+2019-01-27 10:50:00 [-][-][-][info][cron] Process start
+2019-01-27 10:50:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:50:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:50:00 [-][-][-][info][cron] Processing for 0.017173051834106 seconds
+2019-01-27 10:51:00 [-][-][-][info][cron] Process start
+2019-01-27 10:51:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:51:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:51:00 [-][-][-][info][cron] Processing for 0.017047882080078 seconds
+2019-01-27 10:52:00 [-][-][-][info][cron] Process start
+2019-01-27 10:52:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:52:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:52:00 [-][-][-][info][cron] Processing for 0.016994953155518 seconds
+2019-01-27 10:53:00 [-][-][-][info][cron] Process start
+2019-01-27 10:53:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:53:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:53:00 [-][-][-][info][cron] Processing for 0.017114162445068 seconds
+2019-01-27 10:54:00 [-][-][-][info][cron] Process start
+2019-01-27 10:54:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:54:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:54:00 [-][-][-][info][cron] Processing for 0.016944885253906 seconds
+2019-01-27 10:55:00 [-][-][-][info][cron] Process start
+2019-01-27 10:55:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:55:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:55:01 [-][-][-][info][cron] Processing for 0.017030954360962 seconds
+2019-01-27 10:56:00 [-][-][-][info][cron] Process start
+2019-01-27 10:56:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:56:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:56:00 [-][-][-][info][cron] Processing for 0.017158031463623 seconds
+2019-01-27 10:57:01 [-][-][-][info][cron] Process start
+2019-01-27 10:57:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:57:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:57:01 [-][-][-][info][cron] Processing for 0.017467975616455 seconds
+2019-01-27 10:58:00 [-][-][-][info][cron] Process start
+2019-01-27 10:58:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:58:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:58:00 [-][-][-][info][cron] Processing for 0.016763925552368 seconds
+2019-01-27 10:59:01 [-][-][-][info][cron] Process start
+2019-01-27 10:59:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 10:59:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 10:59:01 [-][-][-][info][cron] Processing for 0.017359018325806 seconds
+2019-01-27 11:00:00 [-][-][-][info][cron] Process start
+2019-01-27 11:00:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:00:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:00:00 [-][-][-][info][cron] Processing for 0.02203893661499 seconds
+2019-01-27 11:01:00 [-][-][-][info][cron] Process start
+2019-01-27 11:01:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:01:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:01:00 [-][-][-][info][cron] Processing for 0.016968965530396 seconds
+2019-01-27 11:02:00 [-][-][-][info][cron] Process start
+2019-01-27 11:02:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:02:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:02:00 [-][-][-][info][cron] Processing for 0.016757011413574 seconds
+2019-01-27 11:03:00 [-][-][-][info][cron] Process start
+2019-01-27 11:03:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:03:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:03:00 [-][-][-][info][cron] Processing for 0.016839981079102 seconds
+2019-01-27 11:04:00 [-][-][-][info][cron] Process start
+2019-01-27 11:04:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:04:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:04:00 [-][-][-][info][cron] Processing for 0.017125844955444 seconds
+2019-01-27 11:05:00 [-][-][-][info][cron] Process start
+2019-01-27 11:05:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:05:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:05:00 [-][-][-][info][cron] Processing for 0.017055034637451 seconds
+2019-01-27 11:06:00 [-][-][-][info][cron] Process start
+2019-01-27 11:06:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:06:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:06:00 [-][-][-][info][cron] Processing for 0.016858100891113 seconds
+2019-01-27 11:07:00 [-][-][-][info][cron] Process start
+2019-01-27 11:07:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:07:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:07:00 [-][-][-][info][cron] Processing for 0.016938924789429 seconds
+2019-01-27 11:08:00 [-][-][-][info][cron] Process start
+2019-01-27 11:08:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:08:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:08:00 [-][-][-][info][cron] Processing for 0.017212152481079 seconds
+2019-01-27 11:09:00 [-][-][-][info][cron] Process start
+2019-01-27 11:09:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:09:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:09:00 [-][-][-][info][cron] Processing for 0.016949892044067 seconds
+2019-01-27 11:10:00 [-][-][-][info][cron] Process start
+2019-01-27 11:10:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:10:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:10:00 [-][-][-][info][cron] Processing for 0.016923189163208 seconds
+2019-01-27 11:11:00 [-][-][-][info][cron] Process start
+2019-01-27 11:11:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:11:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:11:00 [-][-][-][info][cron] Processing for 0.017106056213379 seconds
+2019-01-27 11:12:00 [-][-][-][info][cron] Process start
+2019-01-27 11:12:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:12:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:12:00 [-][-][-][info][cron] Processing for 0.017308950424194 seconds
+2019-01-27 11:13:00 [-][-][-][info][cron] Process start
+2019-01-27 11:13:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:13:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:13:00 [-][-][-][info][cron] Processing for 0.017054080963135 seconds
+2019-01-27 11:14:00 [-][-][-][info][cron] Process start
+2019-01-27 11:14:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:14:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:14:00 [-][-][-][info][cron] Processing for 0.016855001449585 seconds
+2019-01-27 11:15:00 [-][-][-][info][cron] Process start
+2019-01-27 11:15:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:15:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:15:00 [-][-][-][info][cron] Processing for 0.016974925994873 seconds
+2019-01-27 11:16:00 [-][-][-][info][cron] Process start
+2019-01-27 11:16:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:16:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:16:00 [-][-][-][info][cron] Processing for 0.017369985580444 seconds
+2019-01-27 11:17:00 [-][-][-][info][cron] Process start
+2019-01-27 11:17:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:17:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:17:00 [-][-][-][info][cron] Processing for 0.020420074462891 seconds
+2019-01-27 11:18:00 [-][-][-][info][cron] Process start
+2019-01-27 11:18:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:18:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:18:00 [-][-][-][info][cron] Processing for 0.017731189727783 seconds
+2019-01-27 11:19:00 [-][-][-][info][cron] Process start
+2019-01-27 11:19:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:19:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:19:00 [-][-][-][info][cron] Processing for 0.017259120941162 seconds
+2019-01-27 11:20:00 [-][-][-][info][cron] Process start
+2019-01-27 11:20:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:20:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:20:00 [-][-][-][info][cron] Processing for 0.017117023468018 seconds
+2019-01-27 11:21:00 [-][-][-][info][cron] Process start
+2019-01-27 11:21:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:21:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:21:00 [-][-][-][info][cron] Processing for 0.017049074172974 seconds
+2019-01-27 11:22:00 [-][-][-][info][cron] Process start
+2019-01-27 11:22:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:22:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:22:00 [-][-][-][info][cron] Processing for 0.016955137252808 seconds
+2019-01-27 11:23:00 [-][-][-][info][cron] Process start
+2019-01-27 11:23:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:23:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:23:00 [-][-][-][info][cron] Processing for 0.017150163650513 seconds
+2019-01-27 11:24:00 [-][-][-][info][cron] Process start
+2019-01-27 11:24:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:24:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:24:00 [-][-][-][info][cron] Processing for 0.016884088516235 seconds
+2019-01-27 11:25:00 [-][-][-][info][cron] Process start
+2019-01-27 11:25:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:25:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:25:00 [-][-][-][info][cron] Processing for 0.017295837402344 seconds
+2019-01-27 11:26:00 [-][-][-][info][cron] Process start
+2019-01-27 11:26:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:26:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:26:00 [-][-][-][info][cron] Processing for 0.017196178436279 seconds
+2019-01-27 11:27:00 [-][-][-][info][cron] Process start
+2019-01-27 11:27:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:27:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:27:01 [-][-][-][info][cron] Processing for 0.017385005950928 seconds
+2019-01-27 11:28:00 [-][-][-][info][cron] Process start
+2019-01-27 11:28:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:28:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:28:00 [-][-][-][info][cron] Processing for 0.017332077026367 seconds
+2019-01-27 11:29:01 [-][-][-][info][cron] Process start
+2019-01-27 11:29:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:29:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:29:01 [-][-][-][info][cron] Processing for 0.017781019210815 seconds
+2019-01-27 11:30:00 [-][-][-][info][cron] Process start
+2019-01-27 11:30:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:30:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:30:00 [-][-][-][info][cron] Processing for 0.016916036605835 seconds
+2019-01-27 11:31:01 [-][-][-][info][cron] Process start
+2019-01-27 11:31:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:31:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:31:01 [-][-][-][info][cron] Processing for 0.018079996109009 seconds
+2019-01-27 11:32:00 [-][-][-][info][cron] Process start
+2019-01-27 11:32:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:32:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:32:00 [-][-][-][info][cron] Processing for 0.016998052597046 seconds
+2019-01-27 11:33:00 [-][-][-][info][cron] Process start
+2019-01-27 11:33:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:33:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:33:00 [-][-][-][info][cron] Processing for 0.017475843429565 seconds
+2019-01-27 11:34:00 [-][-][-][info][cron] Process start
+2019-01-27 11:34:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:34:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:34:00 [-][-][-][info][cron] Processing for 0.0174720287323 seconds
+2019-01-27 11:35:00 [-][-][-][info][cron] Process start
+2019-01-27 11:35:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:35:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:35:00 [-][-][-][info][cron] Processing for 0.017117023468018 seconds
+2019-01-27 11:36:00 [-][-][-][info][cron] Process start
+2019-01-27 11:36:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:36:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:36:00 [-][-][-][info][cron] Processing for 0.016602039337158 seconds
+2019-01-27 11:37:00 [-][-][-][info][cron] Process start
+2019-01-27 11:37:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:37:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:37:00 [-][-][-][info][cron] Processing for 0.017000913619995 seconds
+2019-01-27 11:38:00 [-][-][-][info][cron] Process start
+2019-01-27 11:38:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:38:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:38:00 [-][-][-][info][cron] Processing for 0.017313003540039 seconds
+2019-01-27 11:39:00 [-][-][-][info][cron] Process start
+2019-01-27 11:39:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:39:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:39:00 [-][-][-][info][cron] Processing for 0.017385005950928 seconds
+2019-01-27 11:40:00 [-][-][-][info][cron] Process start
+2019-01-27 11:40:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:40:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:40:00 [-][-][-][info][cron] Processing for 0.017247915267944 seconds
+2019-01-27 11:41:00 [-][-][-][info][cron] Process start
+2019-01-27 11:41:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:41:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:41:00 [-][-][-][info][cron] Processing for 0.016779899597168 seconds
+2019-01-27 11:42:00 [-][-][-][info][cron] Process start
+2019-01-27 11:42:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:42:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:42:00 [-][-][-][info][cron] Processing for 0.017101049423218 seconds
+2019-01-27 11:43:00 [-][-][-][info][cron] Process start
+2019-01-27 11:43:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:43:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:43:00 [-][-][-][info][cron] Processing for 0.017112970352173 seconds
+2019-01-27 11:44:00 [-][-][-][info][cron] Process start
+2019-01-27 11:44:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:44:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:44:00 [-][-][-][info][cron] Processing for 0.016707897186279 seconds
+2019-01-27 11:45:00 [-][-][-][info][cron] Process start
+2019-01-27 11:45:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:45:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:45:00 [-][-][-][info][cron] Processing for 0.017452001571655 seconds
+2019-01-27 11:46:00 [-][-][-][info][cron] Process start
+2019-01-27 11:46:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:46:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:46:00 [-][-][-][info][cron] Processing for 0.017581939697266 seconds
+2019-01-27 11:47:00 [-][-][-][info][cron] Process start
+2019-01-27 11:47:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:47:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:47:00 [-][-][-][info][cron] Processing for 0.016853094100952 seconds
+2019-01-27 11:48:00 [-][-][-][info][cron] Process start
+2019-01-27 11:48:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:48:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:48:00 [-][-][-][info][cron] Processing for 0.017244100570679 seconds
+2019-01-27 11:49:00 [-][-][-][info][cron] Process start
+2019-01-27 11:49:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:49:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:49:00 [-][-][-][info][cron] Processing for 0.016783952713013 seconds
+2019-01-27 11:50:00 [-][-][-][info][cron] Process start
+2019-01-27 11:50:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:50:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:50:00 [-][-][-][info][cron] Processing for 0.016834020614624 seconds
+2019-01-27 11:51:00 [-][-][-][info][cron] Process start
+2019-01-27 11:51:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:51:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:51:00 [-][-][-][info][cron] Processing for 0.016972064971924 seconds
+2019-01-27 11:52:00 [-][-][-][info][cron] Process start
+2019-01-27 11:52:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:52:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:52:00 [-][-][-][info][cron] Processing for 0.017632961273193 seconds
+2019-01-27 11:53:00 [-][-][-][info][cron] Process start
+2019-01-27 11:53:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:53:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:53:00 [-][-][-][info][cron] Processing for 0.016949892044067 seconds
+2019-01-27 11:54:00 [-][-][-][info][cron] Process start
+2019-01-27 11:54:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:54:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:54:00 [-][-][-][info][cron] Processing for 0.017182111740112 seconds
+2019-01-27 11:55:00 [-][-][-][info][cron] Process start
+2019-01-27 11:55:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:55:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:55:00 [-][-][-][info][cron] Processing for 0.016720056533813 seconds
+2019-01-27 11:56:00 [-][-][-][info][cron] Process start
+2019-01-27 11:56:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:56:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:56:00 [-][-][-][info][cron] Processing for 0.016992092132568 seconds
+2019-01-27 11:57:00 [-][-][-][info][cron] Process start
+2019-01-27 11:57:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:57:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:57:00 [-][-][-][info][cron] Processing for 0.016885042190552 seconds
+2019-01-27 11:58:00 [-][-][-][info][cron] Process start
+2019-01-27 11:58:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:58:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:58:00 [-][-][-][info][cron] Processing for 0.016895055770874 seconds
+2019-01-27 11:59:00 [-][-][-][info][cron] Process start
+2019-01-27 11:59:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 11:59:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 11:59:01 [-][-][-][info][cron] Processing for 0.017338037490845 seconds
+2019-01-27 12:00:00 [-][-][-][info][cron] Process start
+2019-01-27 12:00:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:00:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:00:00 [-][-][-][info][cron] Processing for 0.019151926040649 seconds
+2019-01-27 12:01:01 [-][-][-][info][cron] Process start
+2019-01-27 12:01:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:01:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:01:01 [-][-][-][info][cron] Processing for 0.018551111221313 seconds
+2019-01-27 12:02:00 [-][-][-][info][cron] Process start
+2019-01-27 12:02:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:02:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:02:00 [-][-][-][info][cron] Processing for 0.017459154129028 seconds
+2019-01-27 12:03:01 [-][-][-][info][cron] Process start
+2019-01-27 12:03:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:03:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:03:01 [-][-][-][info][cron] Processing for 0.01658296585083 seconds
+2019-01-27 12:04:00 [-][-][-][info][cron] Process start
+2019-01-27 12:04:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:04:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:04:00 [-][-][-][info][cron] Processing for 0.017325162887573 seconds
+2019-01-27 12:05:00 [-][-][-][info][cron] Process start
+2019-01-27 12:05:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:05:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:05:00 [-][-][-][info][cron] Processing for 0.019564867019653 seconds
+2019-01-27 12:06:00 [-][-][-][info][cron] Process start
+2019-01-27 12:06:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:06:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:06:00 [-][-][-][info][cron] Processing for 0.025014162063599 seconds
+2019-01-27 12:07:00 [-][-][-][info][cron] Process start
+2019-01-27 12:07:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:07:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:07:00 [-][-][-][info][cron] Processing for 0.020829200744629 seconds
+2019-01-27 12:08:00 [-][-][-][info][cron] Process start
+2019-01-27 12:08:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:08:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:08:00 [-][-][-][info][cron] Processing for 0.017106056213379 seconds
+2019-01-27 12:09:00 [-][-][-][info][cron] Process start
+2019-01-27 12:09:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:09:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:09:00 [-][-][-][info][cron] Processing for 0.017199039459229 seconds
+2019-01-27 12:10:00 [-][-][-][info][cron] Process start
+2019-01-27 12:10:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:10:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:10:00 [-][-][-][info][cron] Processing for 0.017375946044922 seconds
+2019-01-27 12:11:00 [-][-][-][info][cron] Process start
+2019-01-27 12:11:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:11:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:11:00 [-][-][-][info][cron] Processing for 0.018002033233643 seconds
+2019-01-27 12:12:00 [-][-][-][info][cron] Process start
+2019-01-27 12:12:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:12:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:12:00 [-][-][-][info][cron] Processing for 0.017590999603271 seconds
+2019-01-27 12:13:00 [-][-][-][info][cron] Process start
+2019-01-27 12:13:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:13:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:13:00 [-][-][-][info][cron] Processing for 0.017359018325806 seconds
+2019-01-27 12:14:00 [-][-][-][info][cron] Process start
+2019-01-27 12:14:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:14:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:14:00 [-][-][-][info][cron] Processing for 0.017424821853638 seconds
+2019-01-27 12:15:00 [-][-][-][info][cron] Process start
+2019-01-27 12:15:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:15:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:15:00 [-][-][-][info][cron] Processing for 0.016946077346802 seconds
+2019-01-27 12:16:00 [-][-][-][info][cron] Process start
+2019-01-27 12:16:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:16:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:16:00 [-][-][-][info][cron] Processing for 0.017026901245117 seconds
+2019-01-27 12:17:00 [-][-][-][info][cron] Process start
+2019-01-27 12:17:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:17:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:17:00 [-][-][-][info][cron] Processing for 0.017323970794678 seconds
+2019-01-27 12:18:00 [-][-][-][info][cron] Process start
+2019-01-27 12:18:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:18:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:18:00 [-][-][-][info][cron] Processing for 0.016968011856079 seconds
+2019-01-27 12:19:00 [-][-][-][info][cron] Process start
+2019-01-27 12:19:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:19:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:19:00 [-][-][-][info][cron] Processing for 0.021245002746582 seconds
+2019-01-27 12:20:00 [-][-][-][info][cron] Process start
+2019-01-27 12:20:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:20:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:20:00 [-][-][-][info][cron] Processing for 0.017374992370605 seconds
+2019-01-27 12:21:00 [-][-][-][info][cron] Process start
+2019-01-27 12:21:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:21:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:21:00 [-][-][-][info][cron] Processing for 0.01723313331604 seconds
+2019-01-27 12:22:00 [-][-][-][info][cron] Process start
+2019-01-27 12:22:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:22:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:22:00 [-][-][-][info][cron] Processing for 0.017782926559448 seconds
+2019-01-27 12:23:00 [-][-][-][info][cron] Process start
+2019-01-27 12:23:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:23:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:23:00 [-][-][-][info][cron] Processing for 0.017820119857788 seconds
+2019-01-27 12:24:00 [-][-][-][info][cron] Process start
+2019-01-27 12:24:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:24:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:24:00 [-][-][-][info][cron] Processing for 0.017554998397827 seconds
+2019-01-27 12:25:00 [-][-][-][info][cron] Process start
+2019-01-27 12:25:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:25:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:25:00 [-][-][-][info][cron] Processing for 0.017337083816528 seconds
+2019-01-27 12:26:00 [-][-][-][info][cron] Process start
+2019-01-27 12:26:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:26:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:26:00 [-][-][-][info][cron] Processing for 0.01698112487793 seconds
+2019-01-27 12:27:00 [-][-][-][info][cron] Process start
+2019-01-27 12:27:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:27:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:27:00 [-][-][-][info][cron] Processing for 0.01764702796936 seconds
+2019-01-27 12:28:00 [-][-][-][info][cron] Process start
+2019-01-27 12:28:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:28:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:28:00 [-][-][-][info][cron] Processing for 0.016857862472534 seconds
+2019-01-27 12:29:00 [-][-][-][info][cron] Process start
+2019-01-27 12:29:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:29:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:29:01 [-][-][-][info][cron] Processing for 0.016989946365356 seconds
+2019-01-27 12:30:00 [-][-][-][info][cron] Process start
+2019-01-27 12:30:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:30:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:30:00 [-][-][-][info][cron] Processing for 0.017277002334595 seconds
+2019-01-27 12:31:01 [-][-][-][info][cron] Process start
+2019-01-27 12:31:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:31:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:31:01 [-][-][-][info][cron] Processing for 0.017352104187012 seconds
+2019-01-27 12:32:00 [-][-][-][info][cron] Process start
+2019-01-27 12:32:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:32:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:32:00 [-][-][-][info][cron] Processing for 0.017075061798096 seconds
+2019-01-27 12:33:01 [-][-][-][info][cron] Process start
+2019-01-27 12:33:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:33:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:33:01 [-][-][-][info][cron] Processing for 0.016983032226562 seconds
+2019-01-27 12:34:00 [-][-][-][info][cron] Process start
+2019-01-27 12:34:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:34:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:34:00 [-][-][-][info][cron] Processing for 0.019524097442627 seconds
+2019-01-27 12:35:01 [-][-][-][info][cron] Process start
+2019-01-27 12:35:01 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:35:01 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:35:01 [-][-][-][info][cron] Processing for 0.017648935317993 seconds
+2019-01-27 12:36:00 [-][-][-][info][cron] Process start
+2019-01-27 12:36:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:36:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:36:00 [-][-][-][info][cron] Processing for 0.016823053359985 seconds
+2019-01-27 12:37:00 [-][-][-][info][cron] Process start
+2019-01-27 12:37:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:37:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:37:00 [-][-][-][info][cron] Processing for 0.018212080001831 seconds
+2019-01-27 12:38:00 [-][-][-][info][cron] Process start
+2019-01-27 12:38:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:38:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:38:00 [-][-][-][info][cron] Processing for 0.016992092132568 seconds
+2019-01-27 12:39:00 [-][-][-][info][cron] Process start
+2019-01-27 12:39:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:39:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:39:00 [-][-][-][info][cron] Processing for 0.01700496673584 seconds
+2019-01-27 12:40:00 [-][-][-][info][cron] Process start
+2019-01-27 12:40:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:40:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:40:00 [-][-][-][info][cron] Processing for 0.017544031143188 seconds
+2019-01-27 12:41:00 [-][-][-][info][cron] Process start
+2019-01-27 12:41:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:41:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:41:00 [-][-][-][info][cron] Processing for 0.01731014251709 seconds
+2019-01-27 12:42:00 [-][-][-][info][cron] Process start
+2019-01-27 12:42:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:42:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:42:00 [-][-][-][info][cron] Processing for 0.017596006393433 seconds
+2019-01-27 12:43:00 [-][-][-][info][cron] Process start
+2019-01-27 12:43:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:43:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:43:00 [-][-][-][info][cron] Processing for 0.017196893692017 seconds
+2019-01-27 12:44:00 [-][-][-][info][cron] Process start
+2019-01-27 12:44:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:44:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:44:00 [-][-][-][info][cron] Processing for 0.017035007476807 seconds
+2019-01-27 12:45:00 [-][-][-][info][cron] Process start
+2019-01-27 12:45:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:45:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:45:00 [-][-][-][info][cron] Processing for 0.017174005508423 seconds
+2019-01-27 12:46:00 [-][-][-][info][cron] Process start
+2019-01-27 12:46:00 [-][-][-][info][yii\db\Command::query] SELECT * FROM `requests` WHERE (`result`=0) AND (`completed`=0)
+2019-01-27 12:46:00 [-][-][-][info][yii\db\Connection::open] Opening DB connection: mysql:host=localhost;dbname=ecr
+2019-01-27 12:46:00 [-][-][-][info][cron] Processing for 0.017626047134399 seconds

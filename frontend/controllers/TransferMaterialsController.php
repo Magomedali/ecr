@@ -8,9 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\modules\TransferMaterials;
+use common\modules\ExportTransferMaterials;
 use frontend\modules\MaterialAppFilter;
-
-use common\modules\ExportMaterialsApp;
 
 class TransferMaterialsController extends Controller{
 
@@ -91,36 +90,40 @@ class TransferMaterialsController extends Controller{
         $model = new TransferMaterials();
         $remnants = [];
         $hasErrors = false;
-        $errorsMaterialsApp=[];
-        $errorsMaterialsAppItem = [];
+        $errorsTransfer = [];
         $errors = [];
 
         if(isset($post['TransferMaterials'])){
-            print_r($post);
-            exit;
+            
             $data = $post;
-            $data['TransferMaterials']['user_guid']=$this->user->guid;
+            $data['TransferMaterials']['mol_guid']=$this->user->guid;
 
-            if($model->load($data) && $model->save(1)){
+            if($model->load($data) && $model->validate()){
 
-                if(count($model->getItemsErrors())){
-                    Yii::$app->session->setFlash("error","Заявка не сохранена. Некорректные данные в табличной части заявки имеют не корректные данные");
-                    Yii::warning("Error when save raport tables data","materialform");
-                    Yii::warning(json_encode($model->getItemsErrors()),"materialform");
-                    $errors = $model->getItemsErrors();
+                if(count($model->getMaterialsError())){
+                    Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.. Некорректные данные в табличной части документа имеют не корректные данные");
+                    Yii::warning("Error when validate transfer tables data","transferMaterialForm");
+                    Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
+                    $errors = $model->getMaterialsError();
                 }else{
-                    Yii::$app->session->setFlash("success","Заявка сохранена");
+                    // echo "<PRE>";
+                    // print_r($model->attributes);
+                    // print_r($model->materials);
+                    // echo "</PRE>";
 
                     //Отправить заявку в 1С
-                    //ExportMaterialsApp::export($model);
-
-                    return $this->redirect(['material/index']);
+                    if(ExportTransferMaterials::export($model)){
+                        Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
+                        return $this->redirect(['material/index']);
+                    }else{
+                        Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на проверку в 1С");
+                    }
                 }
                    
             }else{
-                Yii::$app->session->setFlash("error","Возникла ошибка при сохранении заявки. Заявка не сохранена!");
-                Yii::warning("Error when save raport","materialform");
-                Yii::warning(json_encode($model->getErrors()),"materialform");
+                Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.");
+                Yii::warning("Error when validate transfermaterials document","transferMaterialForm");
+                Yii::warning(json_encode($model->getErrors()),"transferMaterialForm");
                 $errors = $model->getErrors();
             }
 
@@ -128,19 +131,19 @@ class TransferMaterialsController extends Controller{
                 foreach ($errors as $key => $er) {
                     if(!is_array($er)){
                         Yii::$app->session->setFlash("warning",$er);
-                        Yii::warning($key.": ",$er,"materialform");
+                        Yii::warning($key.": ",$er,"transferMaterialForm");
                     }else{
                         foreach ($er as $key2 => $e) {
                             Yii::$app->session->setFlash("warning",$er);
-                            Yii::warning($key2.": ",$e,"materialform");
+                            Yii::warning($key2.": ",$e,"transferMaterialForm");
                         }
                     }
                 }
             }
 
             $hasErrors = true;
-            $errorsMaterialsApp = isset($post['MaterialsApp']) ? $post['MaterialsApp'] : [];
-            $errorsMaterialsAppItem = isset($post['MaterialsAppItem']) ? $post['MaterialsAppItem'] : [];
+            $errorsTransfer = isset($post['TransferMaterials']) ? $post['TransferMaterials'] : [];
+            $remnants = isset($post['materials']) ? $post['materials'] : [];
 
         }else{
             $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
@@ -153,8 +156,7 @@ class TransferMaterialsController extends Controller{
             'remnants'=>$remnants,
             'hasErrors'=>$hasErrors,
             'errors'=>$errors,
-            'errorsMaterialsApp'=>$errorsMaterialsApp,
-            'errorsMaterialsAppItem'=>$errorsMaterialsAppItem
+            'errorsTransfer'=>$errorsTransfer
         ]);
     }
 

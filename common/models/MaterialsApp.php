@@ -143,7 +143,7 @@ class MaterialsApp extends ActiveRecordVersionable
     		'user_guid'=>'Ответственный',
             'master_guid'=>"Мастер",
             'stockroom_guid'=>'Склад',
-            'created_at'=>'Время создания',
+            'created_at'=>'Дата создания документа',
             'number'=>'Номер документа',
             'status'=>'Статус'
     	);
