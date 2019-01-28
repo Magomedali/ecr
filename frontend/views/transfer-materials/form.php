@@ -75,7 +75,7 @@ if($hasErrors){
 						<tr>
 							<td>
 								<?php echo Html::hiddenInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired'])?>
-								<?php echo Html::textInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
+								<?php echo Html::textInput("materials[{$key}][nomenclature_name]",$item['nomenclature_name'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
 							</td>
 							<td>
 								<?php echo Html::hiddenInput("materials[{$key}][series_guid]",$item['series_guid'],['class'=>'form-control input-sm isRequired'])?>

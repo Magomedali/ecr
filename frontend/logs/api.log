@@ -6654,3 +6654,76 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1548592512.102
     'REQUEST_TIME' => 1548592512
 ]
+2019-01-28 20:56:02 [127.0.0.1][5][-][warning][Unloadremnantseries] Call unload Unloadremnantseries
+    in D:\usr\www\ecr\common\modules\ImportRemnantsWithSeries.php:26
+    in D:\usr\www\ecr\frontend\controllers\TransferMaterialsController.php:150
+2019-01-28 20:56:02 [127.0.0.1][5][-][warning][Unloadremnantseries] Parameters
+    in D:\usr\www\ecr\common\modules\ImportRemnantsWithSeries.php:27
+    in D:\usr\www\ecr\frontend\controllers\TransferMaterialsController.php:150
+2019-01-28 20:56:02 [127.0.0.1][5][-][warning][Unloadremnantseries] {"guidmol":"07b7112a-40af-11e8-8114-005056b47a2e"}
+    in D:\usr\www\ecr\common\modules\ImportRemnantsWithSeries.php:28
+    in D:\usr\www\ecr\frontend\controllers\TransferMaterialsController.php:150
+2019-01-28 20:56:04 [127.0.0.1][5][-][warning][Unloadremnantseries] Response
+    in D:\usr\www\ecr\common\modules\ImportRemnantsWithSeries.php:32
+    in D:\usr\www\ecr\frontend\controllers\TransferMaterialsController.php:150
+2019-01-28 20:56:04 [127.0.0.1][5][-][warning][Unloadremnantseries] {"return":{"remnant":[{"mol_guid":"07b7112a-40af-11e8-8114-005056b47a2e","datetime":"2019-01-28T23:56:25","nomenclature_name":"\u0422\u0435\u0440\u043c\u043e\u043f\u043b\u0430\u0441\u0442\u0438\u043a \u0431\u0435\u043b\u044b\u0439 (\u041f\u043b\u0430\u0441\u0442\u0438\u0434\u043e\u0440-\u0422 \u0417\u0430\u043a\u0443\u043f\u043d\u043e\u0439)","nomenclature_guid":"08070b75-9baa-11e8-811a-005056b47a2e","series_name":"\u042225\/08-01","series_guid":"7243999a-d382-11e8-8124-005056b47a2e","count":-210},{"mol_guid":"07b7112a-40af-11e8-8114-005056b47a2e","datetime":"2019-01-28T23:56:25","nomenclature_name":"\u041c\u0421\u0428 500-900 (\u0421\u0444\u0435\u0440\u0430\u0441\u0442\u0435\u043a \u0417\u0430\u043a\u0443\u043f\u043d\u043e\u0439) ","nomenclature_guid":"4d4cb38a-a096-11e8-811a-005056b47a2e","series_name":"180-2","series_guid":"cc0d7fb5-706e-11e8-8119-005056b47a2e","count":-73}],"success":true}}
+    in D:\usr\www\ecr\common\modules\ImportRemnantsWithSeries.php:33
+    in D:\usr\www\ecr\frontend\controllers\TransferMaterialsController.php:150
+2019-01-28 20:56:01 [127.0.0.1][5][-][info][application] $_GET = [
+    'r' => 'transfer-materials/form'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity-ecr-frontend' => '127c3a615c6a9f0de08b756223392b3f66573c5ee1aa0c6ddbf025c6bb906318a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[5,\"RFIjYNdGE2MUMgdH_cGBc3hiv9cc_4nR\",2592000]\";}'
+    'ecr-frontend' => 'v65f8t506hj99l2jutb30r5ta2'
+    '_csrf' => '13ddf311cff931ad4059c6f3ddbec9184c243c57dffd93cbeb39d8fb1a5b801ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"nyuiwR5tpj2m8vyqvAul2X3fffcWAPYX\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 5
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'ecr:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://ecr:8081/index.php?r=material%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity-ecr-frontend=127c3a615c6a9f0de08b756223392b3f66573c5ee1aa0c6ddbf025c6bb906318a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22RFIjYNdGE2MUMgdH_cGBc3hiv9cc_4nR%22%2C2592000%5D%22%3B%7D; ecr-frontend=v65f8t506hj99l2jutb30r5ta2; _csrf=13ddf311cff931ad4059c6f3ddbec9184c243c57dffd93cbeb39d8fb1a5b801ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22nyuiwR5tpj2m8vyqvAul2X3fffcWAPYX%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5\\ext;D:\\usr\\php;C:\\ProgramData\\ComposerSetup\\bin;D:\\usr\\shared\\php;D:\\usr\\shared\\php\\ext;D:\\usr\\php\\ext;D:\\xampp\\php;E:\\ProgramFiles\\nodejs\\;D:\\OpenServer\\OpenServer\\modules\\php\\PHP-5.5;D:\\usr\\www;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Win64) PHP/7.0.33'
+    'SERVER_NAME' => 'ecr'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '8081'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/usr/www/ecr/frontend/web'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => 'D:/usr/www/ecr/frontend/web/index.php'
+    'REMOTE_PORT' => '4931'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=transfer-materials%2Fform'
+    'REQUEST_URI' => '/index.php?r=transfer-materials%2Fform'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1548708961.932
+    'REQUEST_TIME' => 1548708961
+]
