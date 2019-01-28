@@ -33,7 +33,7 @@ class AutocompleteController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['masters','users','technics','lines','works','objects','projects','calcsquare','stockroom','nomenclature'],
+                        'actions' => ['masters','users','brigadier','technics','lines','works','objects','projects','calcsquare','stockroom','nomenclature'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -82,7 +82,6 @@ class AutocompleteController extends Controller{
 
             $query = (new Query())->select(['u.guid','u.name','u.ktu'])
                                 ->from(['u'=>User::tableName()])
-                                //->leftJoin(['t'=>Technic::tableName()], "u.technic_guid = t.guid")
                                 ->where(['u.is_master'=>0])
                                 ->andWhere("u.`guid` is not null");
             if($key){
@@ -109,6 +108,45 @@ class AutocompleteController extends Controller{
                     'value'=>$value['guid'],
                     'title'=>$value['name'],
                     'ktu'=>$value['ktu']
+                ]; 
+            }
+            
+            return ['data'=>$data];
+        }else{
+            return $this->redirect(['site/index']);
+        } 
+    }
+
+
+    public function actionBrigadier(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+
+            $cUser = Yii::$app->user->identity;
+
+            $query = (new Query())->select(['u.guid','u.name','u.ktu'])
+                                ->from(['u'=>User::tableName()])
+                                ->where(['u.is_master'=>0])
+                                ->andWhere("u.`guid` is not null and `login` IS NOT NULL");
+
+            if(!boolval($cUser->is_master)){
+                $query->andWhere("u.`guid` != '{$cUser->guid}'");
+            }
+
+            if($key){
+                $query->andWhere("u.`name` LIKE '%{$key}%'");
+            }
+            $results = $query->all();
+
+            foreach ($results as $key => $value) {
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name']
                 ]; 
             }
             
