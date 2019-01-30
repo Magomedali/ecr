@@ -738,10 +738,8 @@ class Api{
         self::log("Called Method 'unloadsettings'");
         self::log("Parameter Type:".gettype($data));
         self::log("Parameter Value:".json_encode($data));
-<<<<<<< HEAD
-=======
 
->>>>>>> f5c6f982fb89b2c1aea219244832e1246a189e03
+
         $Type = "Setting";
         $data = json_decode(json_encode($data),1);
         if(!is_array($data)){
@@ -753,31 +751,20 @@ class Api{
         $model = new Setting();
             
         $params = ['Setting'=>$data];
-<<<<<<< HEAD
-=======
 
->>>>>>> f5c6f982fb89b2c1aea219244832e1246a189e03
         if(!$model->load($params) || !$model->save()){
             $erros[] = json_encode($model->getErrors());
             $responce->success = false;
         }else{
             $responce->success = true;
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> f5c6f982fb89b2c1aea219244832e1246a189e03
+
         if(count($erros)){
             $responce->success = false;
             $responce->errorsExtend = $erros;
         }
-<<<<<<< HEAD
-        return $responce;
-    }
-=======
-
         return $responce;
     }
 
->>>>>>> f5c6f982fb89b2c1aea219244832e1246a189e03
 }
