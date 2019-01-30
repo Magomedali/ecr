@@ -44,6 +44,7 @@ class ClientController extends Controller
         $this->actionUnloadworker();
         $this->actionUnloadremnant();
         $this->actionUnloadraport();
+        $this->actionUnloadsettings();
 
         echo "\n---Finish testing\n\n";
     }
@@ -108,7 +109,7 @@ class ClientController extends Controller
                 'is_master'=>true
             ],
             [
-                'guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
+                'guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
                 'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
                 'name'=>'Мишуров Андрей Николаевич',
                 'login'=>'tester',
@@ -618,7 +619,7 @@ class ClientController extends Controller
                     ],
                     [
                         'technic_guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
-                        'user_guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
+                        'user_guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
                     ]
                 ],
             ],
@@ -695,6 +696,25 @@ class ClientController extends Controller
 
         $par['raports'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadraport($par); 
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
+        echo $result;
+        echo "\n\n\n", json_encode($answer),"\n\n\n";
+    }
+
+
+
+    public function actionUnloadsettings(){
+        echo "\n---Method Unloadtechnic : ";
+        $par = [
+            'shift_start_hours'=>date("H:i:s",time()-3600)
+        ];
+
+
+        $par['setting'] = $par;
+
+        $answer = Yii::$app->testclient->getClient()->unloadsettings($par); 
+
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;

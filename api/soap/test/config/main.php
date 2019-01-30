@@ -19,19 +19,19 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['info'],
-                    'logFile'=>'@api/soap/logs/info.txt',
+                    'logFile'=>'@api/soap/logs/info.log',
                     'logVars'=>['api']
                 ],
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error'],
-                    'logFile'=>'@api/soap/logs/error.txt',
+                    'logFile'=>'@api/soap/logs/error.log',
                     'logVars'=>[]
                 ],
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
-                    'logFile'=>'@api/soap/logs/warning.txt',
+                    'logFile'=>'@api/soap/logs/warning.log',
                     'logVars'=>[]
                 ],
             ],

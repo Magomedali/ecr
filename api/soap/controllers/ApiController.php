@@ -316,4 +316,20 @@ class ApiController extends Controller
 
         return $this->exec(__METHOD__,$remnants[$type]);
     }
+
+
+    /**
+     * unload Setting
+     * @param api\soap\models\Setting $setting
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function unloadsettings($setting){
+        $type = 'setting';
+        $setting = json_decode(json_encode($setting),1);
+        if(!isset($setting[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'setting'");
+
+        return $this->exec(__METHOD__,$setting[$type]);
+    }
 }
