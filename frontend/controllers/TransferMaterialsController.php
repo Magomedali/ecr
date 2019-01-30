@@ -146,7 +146,7 @@ class TransferMaterialsController extends Controller{
             $remnants = isset($post['materials']) ? $post['materials'] : [];
 
         }else{
-            $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
+            // $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
             $remnants = \common\modules\ImportRemnantsWithSeries::import($this->user->guid);
         }
 

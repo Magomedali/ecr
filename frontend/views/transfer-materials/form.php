@@ -75,7 +75,11 @@ if($hasErrors){
 						<tr>
 							<td>
 								<?php echo Html::hiddenInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired'])?>
+<<<<<<< HEAD
 								<?php echo Html::textInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
+=======
+								<?php echo Html::textInput("materials[{$key}][nomenclature_name]",$item['nomenclature_name'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
+>>>>>>> f5c6f982fb89b2c1aea219244832e1246a189e03
 							</td>
 							<td>
 								<?php echo Html::hiddenInput("materials[{$key}][series_guid]",$item['series_guid'],['class'=>'form-control input-sm isRequired'])?>

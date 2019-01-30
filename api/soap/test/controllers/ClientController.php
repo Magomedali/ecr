@@ -715,7 +715,11 @@ class ClientController extends Controller
 
 
     public function actionUnloadsettings(){
+<<<<<<< HEAD
         echo "\n---Method Unloadsettings : ";
+=======
+        echo "\n---Method Unloadtechnic : ";
+>>>>>>> f5c6f982fb89b2c1aea219244832e1246a189e03
         $par = [
             'shift_start_hours'=>date("H:i:s",time()-3600)
         ];
