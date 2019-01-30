@@ -22,6 +22,7 @@ use common\models\Project;
 use common\models\RemnantsPackage;
 use common\models\Raport;
 use common\models\StockRoom;
+use common\models\Setting;
 
 class Api{
 
@@ -727,4 +728,37 @@ class Api{
     }
 
 
+
+    /**
+     * unload setting
+     * @param api\soap\models\Setting $setting
+     * @return api\soap\models\Responce
+     */
+    public static function unloadsettings($data){   
+        self::log("Called Method 'unloadsettings'");
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
+        $Type = "Setting";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data)){
+            throw new ApiExceptionWrongType();
+        }
+        
+        $responce = new Responce();
+        $erros = [];
+        $model = new Setting();
+            
+        $params = ['Setting'=>$data];
+        if(!$model->load($params) || !$model->save()){
+            $erros[] = json_encode($model->getErrors());
+            $responce->success = false;
+        }else{
+            $responce->success = true;
+        }
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+        return $responce;
+    }
 }

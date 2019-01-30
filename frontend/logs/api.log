@@ -277,3 +277,154 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1548537236.597
     'REQUEST_TIME' => 1548537236
 ]
+2019-01-30 20:15:15 [127.0.0.1][5][-][warning][FormOfListOfDocuments] Call unload FormOfListOfDocuments
+    in /Users/ali/www/radorm/common/modules/ImportListOfDocuments.php:26
+    in /Users/ali/www/radorm/frontend/controllers/MaterialController.php:82
+2019-01-30 20:15:15 [127.0.0.1][5][-][warning][FormOfListOfDocuments] Parameters
+    in /Users/ali/www/radorm/common/modules/ImportListOfDocuments.php:27
+    in /Users/ali/www/radorm/frontend/controllers/MaterialController.php:82
+2019-01-30 20:15:15 [127.0.0.1][5][-][warning][FormOfListOfDocuments] {"mol_guid":"f086d155-20ec-11e7-80e5-000c29a0432f"}
+    in /Users/ali/www/radorm/common/modules/ImportListOfDocuments.php:28
+    in /Users/ali/www/radorm/frontend/controllers/MaterialController.php:82
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][FormOfListOfDocuments] Response
+    in /Users/ali/www/radorm/common/modules/ImportListOfDocuments.php:32
+    in /Users/ali/www/radorm/frontend/controllers/MaterialController.php:82
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][FormOfListOfDocuments] {"return":{"success":true}}
+    in /Users/ali/www/radorm/common/modules/ImportListOfDocuments.php:33
+    in /Users/ali/www/radorm/frontend/controllers/MaterialController.php:82
+2019-01-30 20:15:14 [127.0.0.1][5][-][info][application] $_GET = [
+    'r' => 'material/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity-ecr-frontend' => '95cf6307ec5a7b6f2cf0756d2865c814cc204fed1eebe67262506ac630fd2dc4a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[5,\"woqMLYdFLnpfLmSaoGvM3uLQou4dqqWS\",2592000]\";}'
+    'ecr-frontend' => 'asibko8utn0egmpuirea1pahh2'
+    '_csrf' => '1f67896c5898ad7d3d535d5db7a4e9bc68e6bf1f57bf0f56ca7cc64a5b6348e7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"QUwD89CpVI3_RVDDegqi3w7--OasA04G\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 5
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'radorm'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://radorm/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity-ecr-frontend=95cf6307ec5a7b6f2cf0756d2865c814cc204fed1eebe67262506ac630fd2dc4a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22woqMLYdFLnpfLmSaoGvM3uLQou4dqqWS%22%2C2592000%5D%22%3B%7D; ecr-frontend=asibko8utn0egmpuirea1pahh2; _csrf=1f67896c5898ad7d3d535d5db7a4e9bc68e6bf1f57bf0f56ca7cc64a5b6348e7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22QUwD89CpVI3_RVDDegqi3w7--OasA04G%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.37 (Unix) PHP/7.2.14'
+    'SERVER_NAME' => 'radorm'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/ali/www/radorm/frontend/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/ali/www/radorm/frontend/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => '/Users/ali/www/radorm/frontend/web/index.php'
+    'REMOTE_PORT' => '64152'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=material%2Findex'
+    'REQUEST_URI' => '/index.php?r=material%2Findex'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1548879314.97
+    'REQUEST_TIME' => 1548879314
+]
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] Call unload remnant
+    in /Users/ali/www/radorm/common/models/User.php:454
+    in /Users/ali/www/radorm/common/models/Raport.php:363
+    in /Users/ali/www/radorm/common/models/Raport.php:331
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] Parameters
+    in /Users/ali/www/radorm/common/models/User.php:455
+    in /Users/ali/www/radorm/common/models/Raport.php:363
+    in /Users/ali/www/radorm/common/models/Raport.php:331
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] {"guidmol":"f086d155-20ec-11e7-80e5-000c29a0432f"}
+    in /Users/ali/www/radorm/common/models/User.php:456
+    in /Users/ali/www/radorm/common/models/Raport.php:363
+    in /Users/ali/www/radorm/common/models/Raport.php:331
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] Response
+    in /Users/ali/www/radorm/common/models/User.php:460
+    in /Users/ali/www/radorm/common/models/Raport.php:363
+    in /Users/ali/www/radorm/common/models/Raport.php:331
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] {"return":{"remnant":{"mol_guid":"f086d155-20ec-11e7-80e5-000c29a0432f","datetime":"2019-01-30T23:15:51","nomenclature_guid":"08070b75-9baa-11e8-811a-005056b47a2e","count":-23},"success":true}}
+    in /Users/ali/www/radorm/common/models/User.php:461
+    in /Users/ali/www/radorm/common/models/Raport.php:363
+    in /Users/ali/www/radorm/common/models/Raport.php:331
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] Error when save items
+    in /Users/ali/www/radorm/common/models/RemnantsPackage.php:222
+    in /Users/ali/www/radorm/common/models/RemnantsPackage.php:163
+    in /Users/ali/www/radorm/common/models/User.php:501
+2019-01-30 20:15:27 [127.0.0.1][5][-][warning][unloadremnant] {"08070b75-9baa-11e8-811a-005056b47a2e":"{\"nomenclature_guid\":[\"nomenclature_guid 08070b75-9baa-11e8-811a-005056b47a2e not exists on the site\"]}"}
+    in /Users/ali/www/radorm/common/models/RemnantsPackage.php:223
+    in /Users/ali/www/radorm/common/models/RemnantsPackage.php:163
+    in /Users/ali/www/radorm/common/models/User.php:501
+2019-01-30 20:15:19 [127.0.0.1][5][-][info][application] $_GET = [
+    'r' => 'raport/index'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_identity-ecr-frontend' => '95cf6307ec5a7b6f2cf0756d2865c814cc204fed1eebe67262506ac630fd2dc4a:2:{i:0;s:22:\"_identity-ecr-frontend\";i:1;s:46:\"[5,\"woqMLYdFLnpfLmSaoGvM3uLQou4dqqWS\",2592000]\";}'
+    'ecr-frontend' => 'asibko8utn0egmpuirea1pahh2'
+    '_csrf' => '1f67896c5898ad7d3d535d5db7a4e9bc68e6bf1f57bf0f56ca7cc64a5b6348e7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"QUwD89CpVI3_RVDDegqi3w7--OasA04G\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 5
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'radorm'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_DNT' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://radorm/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_identity-ecr-frontend=95cf6307ec5a7b6f2cf0756d2865c814cc204fed1eebe67262506ac630fd2dc4a%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22_identity-ecr-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B5%2C%22woqMLYdFLnpfLmSaoGvM3uLQou4dqqWS%22%2C2592000%5D%22%3B%7D; ecr-frontend=asibko8utn0egmpuirea1pahh2; _csrf=1f67896c5898ad7d3d535d5db7a4e9bc68e6bf1f57bf0f56ca7cc64a5b6348e7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22QUwD89CpVI3_RVDDegqi3w7--OasA04G%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.37 (Unix) PHP/7.2.14'
+    'SERVER_NAME' => 'radorm'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/ali/www/radorm/frontend/web/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/ali/www/radorm/frontend/web/'
+    'SERVER_ADMIN' => 'web-ali@yandex.ru'
+    'SCRIPT_FILENAME' => '/Users/ali/www/radorm/frontend/web/index.php'
+    'REMOTE_PORT' => '64154'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=raport%2Findex'
+    'REQUEST_URI' => '/index.php?r=raport%2Findex'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1548879319.366
+    'REQUEST_TIME' => 1548879319
+]

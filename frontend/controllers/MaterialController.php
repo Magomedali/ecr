@@ -10,6 +10,7 @@ use yii\web\HttpException;
 use common\models\MaterialsApp;
 use frontend\modules\MaterialAppFilter;
 
+use common\modules\ImportListOfDocuments;
 use common\modules\ExportMaterialsApp;
 
 class MaterialController extends Controller{
@@ -77,6 +78,11 @@ class MaterialController extends Controller{
         $params['MaterialAppFilter']['user_guid']=$user->guid;
         $dataProvider = $modelFilters->filter($params);
 
+
+        $documents = ImportListOfDocuments::import($user->guid);
+
+        print_r($documents);
+        exit;
         return $this->render('index',[
             'dataProvider'=>$dataProvider,
             'modelFilters'=>$modelFilters

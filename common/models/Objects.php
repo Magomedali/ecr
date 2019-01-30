@@ -34,6 +34,7 @@ class Objects extends ActiveRecordVersionable
             'name',
             'boundary_id',
             'boundary_guid',
+            'master_guid',
             'isDeleted',
         ];
     }
@@ -47,7 +48,8 @@ class Objects extends ActiveRecordVersionable
             [['name','guid'], 'required'],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             ['boundary_id','integer'],
-            [['guid','boundary_guid'],'string','max'=>36],
+            [['guid','boundary_guid','master_guid'],'string','max'=>36],
+            ['master_guid','default','value'=>null],
             [['name'],'string','max'=>128]
             
         ];
@@ -67,6 +69,16 @@ class Objects extends ActiveRecordVersionable
                     return false;
                 }else{
                     $this->boundary_id = $m->id;
+                }
+            }
+
+            if($this->master_guid){
+                if($this->master_guid){
+                    $master = User::findOne(['guid'=>$this->master_guid,'is_master'=>1]);
+                    if(!isset($master->id)){
+                        $this->addError('master_guid',"Master ".$this->master_guid." not exists on the site");
+                        return false;
+                    }
                 }
             }
 
@@ -94,12 +106,18 @@ class Objects extends ActiveRecordVersionable
     		'guid'=>'Идентификатор в 1С',
             'name'=>'Наименование',
             'boundary_id'=>'Граница',
-            'boundary_guid'=>'Граница'
+            'boundary_guid'=>'Граница',
+            'master_guid'=>'Мастер'
     	);
     }
 
     public function getBoundary(){
         return $this->hasOne(Boundary::className(),["guid"=>'boundary_guid']);
+    }
+
+
+    public function getMaster(){
+        return $this->hasOne(User::className(),["guid"=>'master_guid']);
     }
 
 

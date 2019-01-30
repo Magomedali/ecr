@@ -30,10 +30,16 @@ class ClientController extends Controller
     
 
     public function actionIndex(){
+
+        // $m = \common\models\User::findOne(['guid'=>'e9d9bbf7-5271-11e7-80ec-000c29a0432f','is_master'=>1]);
+        // print_r($m->attributes);
+        // exit;
+
         echo "\n---Start testing\n";
         $this->actionTest();
         $this->actionUnloadbrigade();
         $this->actionUnloadtechnic();
+        $this->actionUnloadworker();
         $this->actionUnloadline();
         $this->actionUnloadnomenclature();
         $this->actionUnloadstockroom();
@@ -41,9 +47,9 @@ class ClientController extends Controller
         $this->actionUnloadboundary();
         $this->actionUnloadobject();
         $this->actionUnloadproject();
-        $this->actionUnloadworker();
         $this->actionUnloadremnant();
         $this->actionUnloadraport();
+        $this->actionUnloadsettings();
 
         echo "\n---Finish testing\n\n";
     }
@@ -108,7 +114,7 @@ class ClientController extends Controller
                 'is_master'=>true
             ],
             [
-                'guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
+                'guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
                 'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
                 'name'=>'Мишуров Андрей Николаевич',
                 'login'=>'tester',
@@ -198,7 +204,8 @@ class ClientController extends Controller
             [
                 'guid'=>'49a16abb-3f28-11e8-8114-005056b47a2e',
                 'name'=>'Капитальный ремонт а/д «Трасса «Кавказ» - Нестеров...',
-                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e",
+                'master_guid'=>'e9d9bbf7-5271-11e7-80ec-000c29a0432f'
             ],
             [
 
@@ -210,13 +217,15 @@ class ClientController extends Controller
 
                 'guid'=>'ce376d9c-3f28-11e8-8114-005056b47a2e',
                 'name'=>'Реконструкция автомобильной дороги «Назрань – Малгобек – Нижний Курп - Терек» км 9+000 – км 22+000',
-                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e",
+                'master_guid'=>'e9d9bbf7-5271-11e7-80ec-000c29a0432f'
             ],
             [
 
                 'guid'=>'ef1449ab-3f28-11e8-8114-005056b47a2e',
                 'name'=>'Реконструкция автомобильной дороги «Назрань – Малгобек – Нижний Курп - Терек» км 32+000 – км 42+000',
-                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e"
+                'boundary_guid'=>"be8cea0a-3352-11e8-8113-005056b47a2e",
+                'master_guid'=>'e9d9bbf7-5271-11e7-80ec-000c29a0432f'
             ],
             [
 
@@ -228,7 +237,8 @@ class ClientController extends Controller
 
                 'guid'=>'6dca691c-a6cd-11e8-811a-005056b47a2e',
                 'name'=>'Калужское шоссе',
-                'boundary_guid'=>"024d3173-16c5-11e8-8112-005056b47a2e"
+                'boundary_guid'=>"024d3173-16c5-11e8-8112-005056b47a2e",
+                'master_guid'=>'209c80df-68f2-11e8-8117-005056b47a2e'
             ]
         ];
 
@@ -239,6 +249,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 
 
@@ -618,7 +629,7 @@ class ClientController extends Controller
                     ],
                     [
                         'technic_guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
-                        'user_guid'=>'f086d155-20ec-11e7-80e5-000c29a0432f',
+                        'user_guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
                     ]
                 ],
             ],
@@ -695,6 +706,25 @@ class ClientController extends Controller
 
         $par['raports'] = $par;
         $answer = Yii::$app->testclient->getClient()->unloadraport($par); 
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
+        echo $result;
+        echo "\n\n\n", json_encode($answer),"\n\n\n";
+    }
+
+
+
+    public function actionUnloadsettings(){
+        echo "\n---Method Unloadsettings : ";
+        $par = [
+            'shift_start_hours'=>date("H:i:s",time()-3600)
+        ];
+
+
+        $par['setting'] = $par;
+
+        $answer = Yii::$app->testclient->getClient()->unloadsettings($par); 
+
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;

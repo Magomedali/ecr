@@ -28,4 +28,10 @@ class Objects  extends ApiModel
     */
     public $boundary_guid;
 
+    /**
+    * @var string
+    * @nillable
+    */
+    public $master_guid;
+
 }

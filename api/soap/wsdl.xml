@@ -114,6 +114,7 @@
           <xsd:element name="guid" type="xsd:string"/>
           <xsd:element name="name" type="xsd:string"/>
           <xsd:element name="boundary_guid" type="xsd:string"/>
+          <xsd:element name="master_guid" type="xsd:string" nillable="true"/>
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="Objects">
@@ -398,6 +399,25 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:complexType name="Setting">
+        <xsd:sequence>
+          <xsd:element name="shift_start_hours" type="xsd:time"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="unloadsettings">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="setting" type="tns:Setting"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="unloadsettingsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="returns" type="tns:Responce"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
     </xsd:schema>
   </types>
   <portType name="ApiControllerPort">
@@ -465,6 +485,11 @@
       <documentation>unload RemnantsPackage</documentation>
       <input message="tns:unloadremnantIn"/>
       <output message="tns:unloadremnantOut"/>
+    </operation>
+    <operation name="unloadsettings">
+      <documentation>unload Setting</documentation>
+      <input message="tns:unloadsettingsIn"/>
+      <output message="tns:unloadsettingsOut"/>
     </operation>
   </portType>
   <binding name="ApiControllerBinding" type="tns:ApiControllerPort">
@@ -586,6 +611,15 @@
         <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
       </output>
     </operation>
+    <operation name="unloadsettings">
+      <soap:operation soapAction="http://radorm-api/index.php?ws=1#unloadsettings"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
   </binding>
   <service name="ApiControllerService">
     <port name="ApiControllerPort" binding="tns:ApiControllerBinding">
@@ -669,5 +703,11 @@
   </message>
   <message name="unloadremnantOut">
     <part name="parameters" element="tns:unloadremnantResponse"/>
+  </message>
+  <message name="unloadsettingsIn">
+    <part name="parameters" element="tns:unloadsettings"/>
+  </message>
+  <message name="unloadsettingsOut">
+    <part name="parameters" element="tns:unloadsettingsResponse"/>
   </message>
 </definitions>
