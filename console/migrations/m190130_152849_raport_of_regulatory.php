@@ -29,7 +29,7 @@ class m190130_152849_raport_of_regulatory extends Migration
             'starttime'=>$this->time()->null(),
             'endtime'=>$this->time()->null(),
 
-            // 'brigade_guid' => $this->string(36)->notNull(),
+            'brigade_guid' => $this->string(36)->notNull(),
             // 'object_guid' => $this->string(36)->notNull(),
             // 'boundary_guid' => $this->string(36)->null(),
             // 'project_guid' => $this->string(36)->notNull(),
@@ -53,7 +53,7 @@ class m190130_152849_raport_of_regulatory extends Migration
             'starttime'=>$this->time()->null(),
             'endtime'=>$this->time()->null(),
 
-            // 'brigade_guid' => $this->string(36)->notNull(),
+            'brigade_guid' => $this->string(36)->notNull(),
             // 'object_guid' => $this->string(36)->notNull(),
             // 'boundary_guid' => $this->string(36)->null(),
             // 'project_guid' => $this->string(36)->notNull(),
@@ -75,7 +75,7 @@ class m190130_152849_raport_of_regulatory extends Migration
 
         $this->addForeignKey('fk-raport_regulatory-version_id',"{{%raport_regulatory}}",'version_id',"{{%raport_regulatory_history}}",'id','CASCADE','CASCADE');
 
-        //$this->addForeignKey('fk-raport_regulatory-brigade_guid',"{{%raport_regulatory}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
+        $this->addForeignKey('fk-raport_regulatory-brigade_guid',"{{%raport_regulatory}}",'brigade_guid',"{{%brigade}}",'guid','CASCADE','CASCADE');
         //$this->addForeignKey('fk-raport_regulatory-object_guid',"{{%raport_regulatory}}",'object_guid',"{{%object}}",'guid','CASCADE','CASCADE');
         //$this->addForeignKey('fk-raport_regulatory-boundary_guid',"{{%raport_regulatory}}",'boundary_guid',"{{%boundary}}",'guid','CASCADE','CASCADE');
         // $this->addForeignKey('fk-raport_regulatory-project_guid',"{{%raport_regulatory}}",'project_guid',"{{%project}}",'guid','CASCADE','CASCADE');
@@ -89,11 +89,12 @@ class m190130_152849_raport_of_regulatory extends Migration
     public function safeDown()
     {
         
-        // $this->dropForeignKey('fk-raport_regulatory-brigade_guid',"{{%raport_regulatory}}");
+        
         // $this->dropForeignKey('fk-raport_regulatory-object_guid',"{{%raport_regulatory}}");
         // $this->dropForeignKey('fk-raport_regulatory-boundary_guid',"{{%raport_regulatory}}");
         // $this->dropForeignKey('fk-raport_regulatory-project_guid',"{{%raport_regulatory}}");
         
+        $this->dropForeignKey('fk-raport_regulatory-brigade_guid',"{{%raport_regulatory}}");
         $this->dropForeignKey('fk-raport_regulatory-user_guid',"{{%raport_regulatory}}");
         $this->dropForeignKey('fk-raport_regulatory-master_guid',"{{%raport_regulatory}}");
         $this->dropForeignKey('fk-raport_regulatory-version_id',"{{%raport_regulatory}}");

@@ -10,23 +10,23 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class TypeOfWork  extends ApiModel
+class ProjectStandard  extends ApiModel
 {
     /**
      * @var string
     */
-    public $guid;
+    public $project_guid;
 
     /**
     * @var string
     */
-    public $name;
+    public $typeofwork_guid;
+
 
     /**
-    * @var string
-    * @minOccurs 0
-    * @maxOccurs unbounded
+    * @var float
     */
-    public $nomenclatures_guid;
+    public $standard;
+
 
 }

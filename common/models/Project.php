@@ -74,8 +74,12 @@ class Project extends ActiveRecordVersionable
             }
 
             $scope = $formName === null ? $this->formName() : $formName;
-            $this->objects_guids = isset($data[$scope]['objects_guids']) && is_array($data[$scope]['objects_guids']) ? $data[$scope]['objects_guids'] : [];
-
+            
+            if(isset($data[$scope]['objects_guids']) && is_array($data[$scope]['objects_guids'])){
+                $this->objects_guids = $data[$scope]['objects_guids'];
+            }elseif(isset($data[$scope]['objects_guids']) && is_string($data[$scope]['objects_guids']) && $data[$scope]['objects_guids']){
+                $this->objects_guids[] = $data[$scope]['objects_guids'];
+            }
             return true;
         }
 

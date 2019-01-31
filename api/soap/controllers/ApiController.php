@@ -332,4 +332,37 @@ class ApiController extends Controller
 
         return $this->exec(__METHOD__,$setting[$type]);
     }
+
+
+    /**
+     * unload regulatoryraports
+     * @param api\soap\models\RaportRegulatory[] $regulatoryraports
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function unloadraportregulatory($regulatoryraports){   
+        $type = 'regulatoryraports';
+        $regulatoryraports = json_decode(json_encode($regulatoryraports),1); 
+        if(!isset($regulatoryraports[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'regulatoryraports'");
+
+        return $this->exec(__METHOD__,$regulatoryraports[$type]);
+    }
+
+
+
+    /**
+     * unload projectstandards
+     * @param api\soap\models\ProjectStandard[] $projectstandards
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function unloadprojectstandard($projectstandards){   
+        $type = 'projectstandards';
+        $projectstandards = json_decode(json_encode($projectstandards),1); 
+        if(!isset($projectstandards[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'projectstandards'");
+
+        return $this->exec(__METHOD__,$projectstandards[$type]);
+    }
 }

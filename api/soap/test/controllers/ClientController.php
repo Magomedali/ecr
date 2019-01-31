@@ -49,7 +49,9 @@ class ClientController extends Controller
         $this->actionUnloadproject();
         $this->actionUnloadremnant();
         $this->actionUnloadraport();
+        $this->actionUnloadraportregulatory();
         $this->actionUnloadsettings();
+        $this->actionUnloadprojectstandard();
 
         echo "\n---Finish testing\n\n";
     }
@@ -58,13 +60,11 @@ class ClientController extends Controller
 
 
     public function actionTest(){
-        echo "\n---Method Test : ";
-
-
         $answer = Yii::$app->testclient->getClient()->test("test message"); 
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Test\n";
     }
 
 
@@ -76,7 +76,7 @@ class ClientController extends Controller
 
   
     public function actionUnloadbrigade(){
-        echo "\n---Method Unloadbrigade : ";
+        
 
         $model = new \common\models\Brigade();
 
@@ -93,6 +93,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadbrigade\n";
     }
 
 
@@ -100,8 +101,7 @@ class ClientController extends Controller
 
     
     public function actionUnloadworker(){
-        echo "\n---Method Unloadworker : ";
-
+        
         $par = [
             [
                 'guid'=>'209c80df-68f2-11e8-8117-005056b47a2e',
@@ -150,6 +150,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadworker\n";
     }
 
 
@@ -159,7 +160,7 @@ class ClientController extends Controller
 
     
     public function actionUnloadtechnic(){
-        echo "\n---Method Unloadtechnic : ";
+        
         $par = [
             [
                 'guid'=>'baf1abf2-cd5c-11e8-8122-005056b47a2e',
@@ -191,6 +192,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadtechnic\n";
     }
 
 
@@ -199,7 +201,7 @@ class ClientController extends Controller
 
 
     public function actionUnloadobject(){
-        echo "\n---Method Unloadobject : ";
+        
         $par = [
             [
                 'guid'=>'49a16abb-3f28-11e8-8114-005056b47a2e',
@@ -249,7 +251,8 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
-        echo "\n\n\n", json_encode($answer),"\n\n\n";
+        echo " : ---Method Unloadobject\n";
+       // echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 
 
@@ -258,7 +261,7 @@ class ClientController extends Controller
 
     
     public function actionUnloadboundary(){
-        echo "\n---Method Unloadboundary : ";
+        
 
         $par = [
             [
@@ -309,13 +312,14 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadboundary\n";
     }
 
 
 
     
     public function actionUnloadproject(){
-        echo "\n---Method Unloadproject : ";
+        
 
         $par = [
             [
@@ -332,8 +336,7 @@ class ClientController extends Controller
                 'guid'=>'2d835e00-a6cd-11e8-811a-005056b47a2e',
                 'name'=>'Помощь МАДИ-Практик',
                 'objects_guids'=>[
-                    '6dca691c-a6cd-11e8-811a-005056b47a2e',
-                    '1939b9ef-a6c1-11e8-811a-005056b47a2e'
+                    '6dca691c-a6cd-11e8-811a-005056b47a2e'
                 ]
             ]
         ];
@@ -344,27 +347,38 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
-        echo "\n",$answer->returns->errorMessage;
+        echo " : ---Method Unloadproject\n";
+        //echo "\n",$answer->returns->errorMessage;
     }
     
 
 
 
     public function actionUnloadtypeofwork(){
-        echo "\n---Method Unloadtypeofwork : ";
 
         $par = [
             [
                 'guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                 'name'=>'Закраска разметки',
+                'nomenclatures_guid'=>[
+                    'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
+                    'c2643f0a-0278-11e7-80f9-005056b47a2e'
+                ]
             ],
             [
                 'guid'=>'2483a64e-201f-11e8-8112-005056b47a2e',
                 'name'=>'Зачистка разметки',
+                'nomenclatures_guid'=>[
+                    'c0dbfe08-d8d0-11e6-80f1-005056b47a2e'
+                ]
             ],
             [
                 'guid'=>'2c8fe8b0-201f-11e8-8112-005056b47a2e',
                 'name'=>'Разметка готовыми формами',
+                'nomenclatures_guid'=>[
+                    'c2643f0a-0278-11e7-80f9-005056b47a2e',
+                    'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
+                ]
             ],
             [
                 'guid'=>'34e264ea-201f-11e8-8112-005056b47a2e',
@@ -391,6 +405,9 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+
+
+        echo " : ---Method Unloadtypeofwork\n";
     }
 
     
@@ -398,7 +415,7 @@ class ClientController extends Controller
 
 
     public function actionUnloadline(){
-        echo "\n---Method Unloadline : ";
+        
 
         $par = [
             [
@@ -424,6 +441,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadline\n";
     }
 
 
@@ -432,8 +450,6 @@ class ClientController extends Controller
 
 
     public function actionUnloadnomenclature(){
-
-        echo "\n---Method Unloadnomenclature : ";
 
         $par = [
             [
@@ -490,6 +506,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadnomenclature\n";
     }
 
 
@@ -498,8 +515,7 @@ class ClientController extends Controller
 
     public function actionUnloadstockroom(){
 
-        echo "\n---Method Unloadstockroom : ";
-
+        
         $par = [
             [
                 'guid'=>'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
@@ -530,6 +546,7 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadstockroom\n";
     }
 
 
@@ -537,7 +554,6 @@ class ClientController extends Controller
 
     public function actionUnloadremnant(){
         
-        echo "\n---Method Unloadremnant : ";
 
         $par = [
             [
@@ -554,14 +570,15 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
-        echo "\n\n\n", json_encode($answer),"\n\n\n";
+        echo " : ---Method Unloadremnant\n";
+        //echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 
 
 
     public function actionUnloadraport(){
 
-        echo "\n---Method Unloadraport : ";
+        
 
         $par = [
             [
@@ -709,14 +726,81 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
-        echo "\n\n\n", json_encode($answer),"\n\n\n";
+        echo " : ---Method Unloadraport\n";
+        //echo "\n\n\n", json_encode($answer),"\n\n\n";
+    }
+
+
+
+    public function actionUnloadraportregulatory(){
+        
+
+        $par = [
+            [
+                'guid'=>'2asdasjdhuu32423jkasdfa',
+                'number'=>'10000029',
+                'status'=>"На подтверждении",
+                'created_at'=>date("Y-m-d\TH:i:s"),
+                'starttime'=>date("H:i:s",time()-3600),
+                'endtime'=>date("H:i:s"),
+                
+                'brigade_guid'=>"c6fb11c4-3476-418b-85cc-299e34ad58c4",
+                'master_guid'=>"e9d9bbf7-5271-11e7-80ec-000c29a0432f",
+                'user_guid'=>"07b7112a-40af-11e8-8114-005056b47a2e",
+                'comment'=>"Тест",
+                
+                'works'=>[
+                    [
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
+                        'count'=>2.3
+                    ],
+                    [
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'user_guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
+                        'count'=>2.3
+                    ]
+                ]
+            ],
+            [
+                'guid'=>'1asdasjdhuu32423jkasdfa',
+                'number'=>'10000029',
+                'status'=>"ывфывлжд",
+                'created_at'=>date("Y-m-d\TH:i:s"),
+                'starttime'=>date("H:i:s",time()-3600),
+                'endtime'=>date("H:i:s"),
+                'brigade_guid'=>"c6fb11c4-3476-418b-85cc-299e34ad58c4",
+                'master_guid'=>"e9d9bbf7-5271-11e7-80ec-000c29a0432f",
+                'user_guid'=>"07b7112a-40af-11e8-8114-005056b47a2e",
+                'comment'=>"Тест",
+                'works'=>[
+                    [
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'user_guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
+                        'count'=>2.3
+                    ],
+                    [
+                        'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                        'user_guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
+                        'count'=>2.3
+                    ]
+                ],
+            ]
+        ];
+
+        $par['regulatoryraports'] = $par;
+        $answer = Yii::$app->testclient->getClient()->unloadraportregulatory($par); 
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
+        echo $result;
+        echo " : ---Method unloadraportregulatory\n";
+        //echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 
 
 
     public function actionUnloadsettings(){
 
-        echo "\n---Method Unloadsettings : ";
 
         $par = [
             'shift_start_hours'=>date("H:i:s",time()-3600)
@@ -730,6 +814,34 @@ class ClientController extends Controller
 
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
+        echo " : ---Method Unloadsettings\n";
+        //echo "\n\n\n", json_encode($answer),"\n\n\n";
+    }
+
+
+    public function actionUnloadprojectstandard(){
+        $par = [
+            [
+                'project_guid'=>'231ca414-3f28-11e8-8114-005056b47a2e',
+                'typeofwork_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                'standard'=>2.13
+            ],
+            [
+                'project_guid'=>'2d835e00-a6cd-11e8-811a-005056b47a2e',
+                'typeofwork_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
+                'standard'=>2
+            ]
+        ];
+
+
+        $params['projectstandards'] = $par;
+
+        $answer = Yii::$app->testclient->getClient()->unloadprojectstandard($params); 
+
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
+        echo $result;
+        echo " : ---Method unloadprojectstandard\n";
         echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
 }

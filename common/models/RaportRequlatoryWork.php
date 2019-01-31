@@ -52,7 +52,6 @@ class RaportRequlatoryWork extends ActiveRecordVersionable
             
             [['work_guid','user_guid'],'string','max'=>36],
             
-
             ['raport_regulatory_id', 'number','integerOnly'=>true],
         ];
 	}

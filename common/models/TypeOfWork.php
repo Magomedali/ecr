@@ -10,13 +10,13 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
-
+use common\models\NomenclatureOfTypeOfWorks;
 use common\base\ActiveRecordVersionable;
 
 class TypeOfWork extends ActiveRecordVersionable 
 {
     
-
+    public $nomenclatures_guid = [];
     
     /**
      * @inheritdoc
@@ -62,10 +62,52 @@ class TypeOfWork extends ActiveRecordVersionable
                 $this->setOldAttributes($model->attributes);           
             }
 
+
+            $scope = $formName === null ? $this->formName() : $formName;
+            if(isset($data[$scope]['nomenclatures_guid']) && is_array($data[$scope]['nomenclatures_guid'])){
+                $this->nomenclatures_guid = $data[$scope]['nomenclatures_guid'];
+            }elseif(isset($data[$scope]['nomenclatures_guid']) && is_string($data[$scope]['nomenclatures_guid']) && $data[$scope]['nomenclatures_guid']){
+                $this->nomenclatures_guid[] = $data[$scope]['nomenclatures_guid'];
+            }
+
             return true;
         }
 
         return false;
+    }
+
+
+
+    public function saveRelationWithNomenclatures(){
+        //Связываем тип работы с номенклатурами
+        
+        if($this->nomenclatures_guid && $this->guid){
+            $this->nomenclatures_guid = array_unique($this->nomenclatures_guid);
+            $inserts = [];
+            foreach ($this->nomenclatures_guid as $value) {
+                    $inserts[]=['typeofwork_guid'=>$this->guid,'nomenclature_guid'=>$value];
+            }
+            if(!$inserts) return false;
+            
+            $transaction = Yii::$app->db->beginTransaction();
+            try {
+                Yii::$app->db->createCommand()->delete(NomenclatureOfTypeOfWorks::tableName(),['typeofwork_guid'=>$this->guid])->execute();
+                
+                Yii::$app->db->createCommand()->batchInsert(NomenclatureOfTypeOfWorks::tableName(),['typeofwork_guid','nomenclature_guid'],$inserts)->execute();
+
+                $transaction->commit();
+            } catch (\Exception $e) {
+                $transaction->rollBack();
+                throw $e;
+            } catch (\Throwable $e) {
+                $transaction->rollBack();
+                throw $e;
+            }
+            
+        }elseif($this->guid){
+            //Если объектов нет удаляем из базы, если они есть
+            Yii::$app->db->createCommand()->delete(NomenclatureOfTypeOfWorks::tableName(),['typeofwork_guid'=>$this->guid])->execute();
+        }
     }
 
     

@@ -10,23 +10,21 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class TypeOfWork  extends ApiModel
+class RaportRequlatoryWork  extends ApiModel
 {
+
     /**
      * @var string
     */
-    public $guid;
+    public $work_guid;
 
     /**
     * @var string
     */
-    public $name;
+    public $user_guid;
 
     /**
-    * @var string
-    * @minOccurs 0
-    * @maxOccurs unbounded
+    * @var float
     */
-    public $nomenclatures_guid;
-
+    public $count;
 }

@@ -23,6 +23,9 @@ use common\models\RemnantsPackage;
 use common\models\Raport;
 use common\models\StockRoom;
 use common\models\Setting;
+use common\models\RaportRegulatory;
+use common\models\ProjectStandard;
+
 
 class Api{
 
@@ -426,6 +429,7 @@ class Api{
                 }
                 $responce->success = false;
             }else{
+                $model->saveRelationWithNomenclatures();
                 $responce->success = true;
             }
         }
@@ -729,6 +733,73 @@ class Api{
 
 
 
+
+
+    /**
+     * unload regulatoryraports
+     * @param api\soap\models\RaportRegulatory[] $regulatoryraports
+     * @return api\soap\models\Responce
+     */
+    public static function unloadraportregulatory($data){   
+        self::log("Called Method 'unloadraportregulatory'");
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
+
+        $Type = "RaportRegulatory";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
+            throw new ApiExceptionWrongType();
+        }
+
+        if(ArrayHelper::isAssociative($data[$Type])){
+            $data[$Type] =  [$data[$Type]];
+        }
+
+        $responce = new Responce();
+        $erros = [];
+        foreach ($data[$Type] as $key => $item) {
+            $model = new RaportRegulatory();
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['RaportRegulatory'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                if(isset($arData['guid'])){
+                   $erros[$arData['guid']] = json_encode($model->getErrors());
+                }
+                $responce->success = false;
+                $responce->error = "ValidationError";
+                $responce->errorMessage = "Wrong data in the header";
+                $responce->errorUserMessage = "Ошибка, при валидации даных основной части!";
+                $responce->errorsExtend = $erros;
+            }else{
+                $responce->success = true;
+                $model->saveRelationEntities();
+                
+                $tablePartsErrors = [];
+
+                if(count($model->getWorksErrors())){
+                    $tablePartsErrors['works'] = json_encode($model->getWorksErrors());
+                }
+
+                if(count($tablePartsErrors)){
+                    $responce->success = false;
+                    $responce->error = "ErrorInRelationData";
+                    $responce->errorMessage = "Wrong data in the table data";
+                    $responce->errorUserMessage = "Ошибка, при валидации даных в табличной части!";
+                    $responce->errorsExtend = $tablePartsErrors;
+                }
+                
+            }
+        }
+
+        return $responce;
+    }
+
+
+
+
     /**
      * unload setting
      * @param api\soap\models\Setting $setting
@@ -766,5 +837,57 @@ class Api{
         }
         return $responce;
     }
+
+
+
+
+    /**
+     * unload projectstandards
+     * @param api\soap\models\ProjectStandard $projectstandards
+     * @return api\soap\models\Responce
+     */
+    public static function unloadprojectstandard($data){   
+        self::log("Called Method 'unloadprojectstandard'");
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
+
+
+        $Type = "ProjectStandard";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data) || !isset($data[$Type])){
+            throw new ApiExceptionWrongType();
+        }
+
+        if(ArrayHelper::isAssociative($data[$Type])){
+            $data[$Type] =  [$data[$Type]];
+        }
+        
+        $responce = new Responce();
+        $erros = [];
+        foreach ($data[$Type] as $key => $item) {
+            $model = new ProjectStandard();
+            
+            //stdObject to array
+            $arData = json_decode(json_encode($item),1);
+            $params = ['ProjectStandard'=>$arData];
+
+            if(!$model->load($params) || !$model->save(1)){
+                $erros = $model->getErrors();
+                
+                $responce->success = false;
+            }else{
+                $responce->success = true;
+            }
+        }
+
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+        return $responce;
+    }
+    
+
 
 }

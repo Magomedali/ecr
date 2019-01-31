@@ -16,6 +16,7 @@ use yii\helpers\ArrayHelper;
 use common\models\RaportRequlatoryWork;
 use common\models\User;
 use common\models\TypeOfWork;
+use common\models\Brigade;
 
 use common\base\ActiveRecordVersionable;
 use common\dictionaries\ExchangeStatuses;
@@ -47,7 +48,7 @@ class RaportRegulatory extends ActiveRecordVersionable
             'starttime',
             'endtime',
             
-            // 'brigade_guid',
+            'brigade_guid',
             // 'object_guid',
             // 'boundary_guid',
             // 'project_guid',
@@ -65,7 +66,7 @@ class RaportRegulatory extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['master_guid','user_guid','created_at'], 'required','message'=>'Обязательное поле'],
+            [['master_guid','user_guid','brigade_guid','created_at'], 'required','message'=>'Обязательное поле'],
             
             [['number','comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             
@@ -76,7 +77,7 @@ class RaportRegulatory extends ActiveRecordVersionable
 
             [['starttime','endtime'],'required','message'=>''],
 
-            [['guid','master_guid','user_guid'],'string','max'=>36],
+            [['guid','master_guid','user_guid','brigade_guid'],'string','max'=>36],
             
             ['number', 'string', 'max' => 255],
             
@@ -105,7 +106,7 @@ class RaportRegulatory extends ActiveRecordVersionable
             'created_at'=>'Дата',
             'starttime'=>'Время начало работ',
             'endtime'=>'Время окончания работ',
-            
+            'brigade_guid'=>'Бригада',
             'user_guid'=>'Бригадир',
             'master_guid'=>"Мастер",
             'comment'=>"Комментарии",
@@ -127,6 +128,17 @@ class RaportRegulatory extends ActiveRecordVersionable
                 $code = ExchangeStatuses::getCode($this->status);
                 $this->status = $code ? $code : ExchangeStatuses::CREATED;
             }
+            
+
+            //Проверяем есть ли гуид бригады в базе
+            if($this->brigade_guid){
+                $br = Brigade::findOne(['guid'=>$this->brigade_guid]);
+                if(!isset($br->id)){
+                    $this->addError('brigade_guid',"'".$this->brigade_guid."' not exists on the site");
+                    return false;
+                }
+            }
+
             
             if($this->master_guid){
                 $m = User::findOne(['guid'=>$this->master_guid,'is_master'=>1]);
@@ -156,7 +168,6 @@ class RaportRegulatory extends ActiveRecordVersionable
             $scope = $formName === null ? $this->formName() : $formName;
             
             
-
             if(isset($data[$scope]['works']) && is_array($data[$scope]['works'])){
                 $this->works = $data[$scope]['works'];
             }elseif(isset($data['RaportRequlatoryWork']) && is_array($data['RaportRequlatoryWork'])){
@@ -226,7 +237,6 @@ class RaportRegulatory extends ActiveRecordVersionable
         //Связываем материалы
         
 
-
         if($this->works && $this->id){
             try {
                 $transaction = Yii::$app->db->beginTransaction();
@@ -270,6 +280,7 @@ class RaportRegulatory extends ActiveRecordVersionable
         if(ArrayHelper::isAssociative($models[$Type])){
             $models[$Type] =  [$models[$Type]];
         }
+
         foreach ($models[$Type] as $key => $mdata) {
             $model = new RaportRequlatoryWork();
 
@@ -288,97 +299,7 @@ class RaportRegulatory extends ActiveRecordVersionable
     public function deleteWorks($data = []){
         if(!$this->id) return false;
 
-        Yii::$app->db->createCommand()->delete(RaportWork::tableName(),['raport_regulatory_id'=>$this->id])->execute();
-    }
-
-
-
-
-
-
-
-
-
-    public function sendToConfirmation(){
-        if(!$this->id) return false;
-
-        try {
-            $method = new RaportLoad();
-            $params = $this->getAttributes(null,[
-                'id',
-                'status',
-                'isDeleted',
-                'version_id',
-                'number'
-            ]);
-
-            
-            $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$this->id])->all();
-
-            $params['consist'] = (new Query)->select(['user_guid','technic_guid'])->from(RaportConsist::tableName())->where(['raport_id'=>$this->id])->all();
-            
-            $materials = (new Query)->select(['nomenclature_guid','spent as count'])->from(RaportMaterial::tableName())->where(['raport_id'=>$this->id])->all();
-            
-            if(is_array($materials) && count($materials)){
-                $params['materials'] = $materials;
-            }
-            
-            
-            $user = Yii::$app->user->identity;
-
-            $files = (new Query)->select(['file_binary as file','file_type as type','file_name'])->from(RaportFile::tableName())->where(['raport_id'=>$this->id])->all();
-
-            $minFiles = [];
-            foreach ($files as $key => $f) {
-                 $minFiles[$key]['type'] = $f['type'];
-                 $minFiles[$key]['file_name'] = $f['file_name'];
-            } 
-
-            $params['files'] = $minFiles;
-
-            $request = new Request([
-                'request'=>get_class($method),
-                'params_in'=>json_encode($params),
-                'resource_id'=>$this->id,
-                'actor_id'=>$user->id
-            ]);
-
-            $params['files'] = $files;
-
-            $method->setParameters($params);
-
-            if(!$request->validate()){
-                Yii::error("Request validate error","api");
-                Yii::error($request->getErrors(),"api");
-                return false; 
-            }
-
-            Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`resource_id`=:resource_id AND `request`=:request AND  completed=0")
-                ->bindValue(":request",$request->request)
-                ->bindValue(":resource_id",$this->id)
-                ->execute();
-
-            if($request->send($method)){
-                $responce = json_decode($request->params_out,1);
-
-                if($request->result && isset($responce['return']) && isset($responce['return']['guid']) && $responce['return']['guid'] && isset($responce['return']['number']) && $responce['return']['number']){
-                        $this->guid = $responce['return']['guid'];
-                        $this->number = $responce['return']['number'];
-
-                        if($this->status == ExchangeStatuses::CREATED){
-                            $this->status = ExchangeStatuses::IN_CONFIRMING;
-                        }
-                        
-                        return $this->save(1);
-                }
-            }
-                 
-            
-        } catch (\Exception $e) {
-            Yii::warning($e->getMessage(),'api');
-        }
-        
-        return false;
+        Yii::$app->db->createCommand()->delete(RaportRequlatoryWork::tableName(),['raport_regulatory_id'=>$this->id])->execute();
     }
 
 
