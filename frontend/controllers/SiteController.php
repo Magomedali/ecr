@@ -10,8 +10,9 @@ use yii\filters\AccessControl;
 
 use frontend\models\LoginForm;
 use frontend\models\ResetPasswordForm;
-use common\models\User;
+use frontend\modules\TotalOutputFilter;
 
+use common\models\User;
 
 
 /**
@@ -31,7 +32,6 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 
                 'rules' => [
-                    
                     [
                         'actions' => ['index','reset-password','logout'],
                         'allow' => true,
@@ -74,10 +74,29 @@ class SiteController extends Controller
     {   
         $user = Yii::$app->user->identity;
         
-        return $this->render('index',[
+        if($user->is_master){
+            return $this->render('master',[
 
-        ]);
+            ]);
+        }else{
 
+            $actualBrigadeRemnants = $user->getActualBrigadeRemnants();
+            $brigadeConsist = $user->getBrigadeConsist();
+            
+            
+            $TotalOutputFilter = new TotalOutputFilter;
+            $params = Yii::$app->request->queryParams;
+            $params['TotalOutputFilter']['brigade_guid']=$user->brigade_guid;
+            $dataProviderTotalOutput = $TotalOutputFilter->filter($params);
+
+            return $this->render('index',[
+                'model'=>$user,
+                'brigadeConsist'=>$brigadeConsist,
+                'actualBrigadeRemnants'=>$actualBrigadeRemnants,
+                'TotalOutputFilter'=>$TotalOutputFilter,
+                'dataProviderTotalOutput'=>$dataProviderTotalOutput
+            ]);
+        }
     }
 
 

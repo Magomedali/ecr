@@ -338,8 +338,10 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
 
-            $query = (new Query())->select(['o.*','b.name as boundary_name'])->from(['o'=>Objects::tableName()])
-                        ->leftJoin(['b'=>Boundary::tableName()]," o.boundary_guid = b.guid ");
+            $query = (new Query())->select(['o.*','b.name as boundary_name','u.name as master_name'])
+                                ->from(['o'=>Objects::tableName()])
+                                ->leftJoin(['b'=>Boundary::tableName()]," o.boundary_guid = b.guid ")
+                                ->leftJoin(['u'=>User::tableName()], " o.master_guid = u.guid");
             if($key){
                 $query = $query->where("o.`name` LIKE '%{$key}%'");
             }
@@ -347,7 +349,14 @@ class AutocompleteController extends Controller{
             $results = $query->all();
 
             foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name'],'boundary_guid'=>$value['boundary_guid'],'boundary_name'=>$value['boundary_name']]; 
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name'],
+                    'boundary_guid'=>$value['boundary_guid'],
+                    'boundary_name'=>$value['boundary_name'],
+                    'master_guid'=>$value['master_guid'],
+                    'master_name'=>$value['master_name']
+                ]; 
             }
             
             return ['data'=>$data];

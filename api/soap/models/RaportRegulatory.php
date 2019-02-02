@@ -70,7 +70,7 @@ class RaportRegulatory  extends ApiModel
     public $comment;
 
     /**
-    * @var api\soap\models\RaportRequlatoryWork
+    * @var api\soap\models\RaportRegulatoryWork
     * @minOccurs 1
     * @maxOccurs unbounded
     */

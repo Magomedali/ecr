@@ -40,12 +40,9 @@ class ImportListOfDocuments
 
                 	return [];
                 }
-
-                print_r($resp);
-                exit;
-
-                if(isset($resp['remnant'])){
-                    $items = $resp['remnant'];
+                
+                if(isset($resp['success']) && boolval($resp['success']) && isset($resp['documents'])){
+                    $items = $resp['documents'];
                     
                     \yii\helpers\ArrayHelper::isAssociative($items) ? $documents[] = $items : $documents = $items;
                     

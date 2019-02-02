@@ -42,6 +42,8 @@ class User extends ActiveRecord implements IdentityInterface
 
     public $password;
 
+    protected $brigade;
+
     /**
      * @inheritdoc
      */
@@ -321,10 +323,21 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
+    public function getBrigade(){
+        if(!$this->brigade_guid) return null;
+
+        if(!$this->brigade){
+            $this->brigade = Brigade::findOne(["guid"=>$this->brigade_guid]);
+        }
+
+        return $this->brigade;
+        
+    }
+
 
     public function getBrigadeConsist(){
 
-        if(!$this->brigade_guid || !$this->id) return false;
+        if(!$this->brigade_guid || !$this->id) return [];
 
         $result = (new Query())->select(['u.guid as user_guid','u.name as user_name','u.ktu as user_ktu','u.technic_guid','t.name as technic_name'])
                     ->from(['u'=>self::tableName()])
@@ -534,11 +547,13 @@ class User extends ActiveRecord implements IdentityInterface
     /**
     * @param $calcPrev - параметр указывающий нужно ли списывать материалы не принятых рапортов 
     **/
-    public function getActualBrigadeRemnants($calcPrev = true){
+    public function getActualBrigadeRemnants($calcPrev = true,$toUpdate = true){
         if(!$this->guid || !$this->id || !$this->brigade_guid) return false;
 
-        //Загрузим сначала из 1С;
-        $this->unloadRemnantsFrom1C();
+        if($toUpdate){
+            //Загрузим сначала из 1С;
+            $this->unloadRemnantsFrom1C();
+        }
         
         $remnants = $this->getRemnants();
 

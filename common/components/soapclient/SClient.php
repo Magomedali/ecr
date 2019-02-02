@@ -56,11 +56,11 @@ class SClient extends Component
 
 
     public function afterSend(){
-        //Yii::info($this->client->__getLastRequestHeaders(),"api");
-        //Yii::info($this->client->__getLastRequest(),"api");
+        Yii::info($this->client->__getLastRequestHeaders(),"api");
+        Yii::info($this->client->__getLastRequest(),"api");
 
-        //Yii::info($this->client->__getLastResponseHeaders(),"api");
-        //Yii::info($this->client->__getLastResponse(),"api");
+        Yii::info($this->client->__getLastResponseHeaders(),"api");
+        Yii::info($this->client->__getLastResponse(),"api");
     }
 
 

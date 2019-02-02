@@ -32,7 +32,7 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'logFile'=>'@frontend/logs/api.log',
-                    'levels' => ['warning'],
+                    'levels' => ['info'],
                     'enableRotation'=>false
                 ],
             ],

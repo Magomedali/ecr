@@ -7,6 +7,7 @@ use yii\bootstrap\ActiveForm;
 use common\widgets\autocomplete\AutoComplete;
 
 $this->title = "Перевод материалов на другого бригадира";
+$this->params['backlink']['url']=Url::to(['material/index']);
 
 $stockroom = null;
 if($hasErrors){
@@ -71,6 +72,8 @@ if($hasErrors){
 					<tbody>
 						<?php if(is_array($remnants)){
 								foreach ($remnants as $key => $item) {
+									//Временно
+									$item['count'] = abs($item['count']);
 							?>
 						<tr>
 							<td>

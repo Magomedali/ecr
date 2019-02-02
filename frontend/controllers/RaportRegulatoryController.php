@@ -1,0 +1,197 @@
+<?php
+
+namespace frontend\controllers;
+
+use Yii;
+use yii\filters\AccessControl;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
+use yii\web\HttpException;
+use common\models\RaportRegulatory;
+
+
+class RaportRegulatoryController extends Controller{
+
+
+	/**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index','view','form','get-row-work'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ]
+        ];
+    }
+
+	
+    public function beforeAction($action){
+        if(defined('YII_DEBUG') && YII_DEBUG){
+            Yii::$app->assetManager->forceCopy = true;
+        }
+        return parent::beforeAction($action);
+    }
+
+
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionIndex()
+    {   
+        return $this->redirect(['raport/index']);
+    }
+
+
+    public function actionView($id){
+
+        $brigade_guid = Yii::$app->user->identity->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+        if(!(int)$id) 
+            throw new \Exception("Документ не найден!",404);
+
+        $model = RaportRegulatory::findOne(['id'=>(int)$id,'brigade_guid'=>$brigade_guid]);
+
+        if(!isset($model->id))
+            throw new \Exception("Документ не найден!",404);
+
+        return $this->render('view',['model'=>$model]);
+    }
+
+
+
+
+    public function actionForm($id = null){
+
+        $user = Yii::$app->user->identity;
+        $brigade_guid = $user->brigade_guid;
+        if(!$brigade_guid){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+
+
+        $post = Yii::$app->request->post();
+
+        if($id || isset($post['model_id'])){
+            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
+
+            $model =  RaportRegulatory::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
+            if(!isset($model->id))
+                throw new \Exception("Документ не найден!",404);
+
+            if(!$model->isCanUpdate)
+                throw new \Exception("Нет доступа к редактированию документа!",404);
+
+        }else{
+           $model = new RaportRegulatory(); 
+        }
+        
+
+
+        $hasErrors = false;
+        $inValidPassword = false;
+        $errorsRaport = [];
+        $errorsRaportRegulatoryWork = [];
+        $errors = [];
+
+        if(isset($post['RaportRegulatory'])){
+
+            $data = $post;
+            $data['RaportRegulatory']['user_guid']=$user->guid;
+            $data['RaportRegulatory']['brigade_guid']=$user->brigade_guid;
+
+            if($model->load($data) && $model->save(1)){
+                        
+                $model->saveRelationEntities();
+
+                if(count($model->getWorksErrors())){
+                    Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
+                    Yii::warning("Error when save raport tables data","raportform");
+                    Yii::warning(json_encode($model->getWorksErrors()),"raportform");
+                    $errors = count($errors) ? $errors : $model->getWorksErrors();
+                }else{
+                    Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+
+                    //Отправить заявку в 1С
+                    //$model->sendToConfirmation();
+
+                    return $this->redirect(['raport/index']);
+                }
+            }else{
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
+                Yii::warning("Error when save raport","raportform");
+                Yii::warning(json_encode($model->getErrors()),"raportform");
+                $errors = $model->getErrors();
+            }
+
+
+            if(count($errors)){
+                foreach ($errors as $key => $er) {
+                    if(!is_array($er)){
+                        Yii::$app->session->setFlash("warning",$er);
+                        Yii::warning($key.": ",$er,"raportform");
+                    }else{
+                        foreach ($er as $key2 => $e) {
+                            Yii::$app->session->setFlash("warning",$e);
+                            Yii::warning($key2.": ",$e,"raportform");
+                        }
+                    }
+                }
+            }
+            
+            $hasErrors = true;
+            $errorsRaport = isset($post['RaportRegulatory']) ? $post['RaportRegulatory'] : [];
+            $errorsRaportRegulatoryWork = isset($post['RaportRegulatoryWork']) ? $post['RaportRegulatoryWork'] : [];
+        }
+
+        return $this->render('form',[
+            'model'=>$model,
+            'inValidPassword'=>$inValidPassword,
+            'hasErrors'=>$hasErrors,
+            'errorsRaportRegulatoryWork'=>$errorsRaportRegulatoryWork,
+            'errorsRaport'=>$errorsRaport
+        ]);
+    }
+
+
+
+
+
+
+
+    public function actionGetRowWork(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $get = Yii::$app->request->get();
+
+            $count = isset($get['count']) ? (int)$get['count'] : 0;
+
+            $ans['html'] = $this->renderPartial("formRowWork",[
+                                                    'count'=>$count
+                                                ]);
+            return $ans;
+        }else{
+            return $this->goBack();
+        }
+    }
+
+
+
+}

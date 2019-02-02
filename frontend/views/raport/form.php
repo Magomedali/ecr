@@ -69,7 +69,7 @@ if(isset($model->id)){
 
 
 $this->title = "Форма рапорта";
-
+$this->params['backlink']['url']=Url::to(['raport/index']);
 ?>
 
 <?php $form = ActiveForm::begin(['id'=>'raportForm','options'=>['enctype'=>'multipart/form-data','autocomplete'=>'off']]);?>
@@ -95,18 +95,20 @@ $this->title = "Форма рапорта";
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-6">
-											<?php 
-												echo AutoComplete::widget([
-													'data'=>ArrayHelper::map($masters,'guid','name'),
-													'apiUrl'=>Url::to(['/autocomplete/masters']),
-													'inputValueName'=>'Raport[master_guid]',
-													'inputValueName_Value'=>$model->master_guid,
-													'inputKeyName'=>'Raport[master_name]',
-													'inputKeyName_Value'=>$master_name,
-													'placeholder'=>'Укажите мастера',
-													'label'=>'Мастер'
-												]);
-											?>
+											<div id="master_autocomplete">
+												<?php 
+													echo AutoComplete::widget([
+														'data'=>ArrayHelper::map($masters,'guid','name'),
+														'apiUrl'=>Url::to(['/autocomplete/masters']),
+														'inputValueName'=>'Raport[master_guid]',
+														'inputValueName_Value'=>$model->master_guid,
+														'inputKeyName'=>'Raport[master_name]',
+														'inputKeyName_Value'=>$master_name,
+														'placeholder'=>'Укажите мастера',
+														'label'=>'Мастер'
+													]);
+												?>
+											</div>
 											
 											<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
 
@@ -131,7 +133,10 @@ $this->title = "Форма рапорта";
 															'label'=>"Объект",
 															'properties'=>[
 																['property'=>'boundary_guid','commonElement'=>'div.object_form','targetElement'=>'input#raport-boundary_guid'],
-																['property'=>'boundary_name','commonElement'=>'div.object_form','targetElement'=>'input.input_boundary_name']
+																['property'=>'boundary_name','commonElement'=>'div.object_form','targetElement'=>'input.input_boundary_name'],
+
+																['property'=>'master_guid','commonElement'=>'div#base','targetElement'=>'div#master_autocomplete input.autocomplete_input_value'],
+																['property'=>'master_name','commonElement'=>'div#base','targetElement'=>'div#master_autocomplete input.autocomplete_input_key']
 															]
 														]);
                                                     ?>

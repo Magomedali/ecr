@@ -33,6 +33,7 @@ if($model->isWrongMaterials($ActualBrigadeRemnants)){
 }
 
 $this->title = "Рапорт " . $model->number;
+$this->params['backlink']['url']=Url::to(['raport/index']);
 
 ?>
 <div class="row">

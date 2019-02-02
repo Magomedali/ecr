@@ -11,6 +11,7 @@ use common\models\Raport;
 use common\models\RaportFile;
 
 use frontend\modules\RaportFilter;
+use frontend\modules\RaportRegulatoryFilter;
 
 use yii\web\UploadedFile;
 
@@ -59,12 +60,26 @@ class RaportController extends Controller{
             return $this->goHome();
         }
 
-        $modelFilters = new RaportFilter;
+        $RaportFilter = new RaportFilter;
         $params = Yii::$app->request->queryParams;
         $params['RaportFilter']['brigade_guid']=$user->brigade_guid;
         $params['RaportFilter']['user_guid']=$user->guid;
-        $dataProvider = $modelFilters->filter($params);
-        return $this->render('index',array('dataProvider'=>$dataProvider,'modelFilters'=>$modelFilters));
+        $dataProviderRaport = $RaportFilter->filter($params);
+
+
+        $RaportRegulatoryFilter = new RaportRegulatoryFilter;
+        $params = Yii::$app->request->queryParams;
+        $params['RaportRegulatoryFilter']['brigade_guid']=$user->brigade_guid;
+        $params['RaportRegulatoryFilter']['user_guid']=$user->guid;
+        $dataProviderRaportRegulatory = $RaportRegulatoryFilter->filter($params);
+
+
+        return $this->render('index',[
+            'dataProviderRaport'=>$dataProviderRaport,
+            'RaportFilter'=>$RaportFilter,
+            'dataProviderRaportRegulatory'=>$dataProviderRaportRegulatory,
+            'RaportRegulatoryFilter'=>$RaportRegulatoryFilter,
+        ]);
 
     }
 
@@ -157,7 +172,6 @@ class RaportController extends Controller{
         $errorsRaportConsist = [];
         $errorsRaportWorks = [];
         $errorsRaportMaterials = [];
-        $errorsRaport=[];
         $errors = [];
         if(isset($post['Raport']) && isset($post['password'])){
 
@@ -179,9 +193,9 @@ class RaportController extends Controller{
                         if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
                             Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
                             Yii::warning("Error when save raport tables data","raportform");
-                            Yii::warning(json_encode($model->getConsistErrors()),"unloadremnant");
-                            Yii::warning(json_encode($model->getWorksErrors()),"unloadremnant");
-                            Yii::warning(json_encode($model->getMaterialsErrors()),"unloadremnant");
+                            Yii::warning(json_encode($model->getConsistErrors()),"raportform");
+                            Yii::warning(json_encode($model->getWorksErrors()),"raportform");
+                            Yii::warning(json_encode($model->getMaterialsErrors()),"raportform");
                             $errors = count($errors) ? $errors : $model->getConsistErrors();
                             $errors = count($errors) ? $errors : $model->getWorksErrors();
                             $errors = count($errors) ? $errors : $model->getMaterialsErrors();
@@ -196,7 +210,7 @@ class RaportController extends Controller{
                     }else{
                         Yii::$app->session->setFlash("error","Рапорт не сохранен!");
                         Yii::warning("Error when save raport","raportform");
-                        Yii::warning(json_encode($model->getErrors()),"unloadremnant");
+                        Yii::warning(json_encode($model->getErrors()),"raportform");
                         $errors = $model->getErrors();
                     }
 
@@ -209,11 +223,11 @@ class RaportController extends Controller{
                 foreach ($errors as $key => $er) {
                     if(!is_array($er)){
                         Yii::$app->session->setFlash("warning",$er);
-                        Yii::warning($key.": ",$er,"materialform");
+                        Yii::warning($key.": ",$er,"raportform");
                     }else{
                         foreach ($er as $key2 => $e) {
-                            Yii::$app->session->setFlash("warning",$er);
-                            Yii::warning($key2.": ",$e,"materialform");
+                            Yii::$app->session->setFlash("warning",$e);
+                            Yii::warning($key2.": ",$e,"raportform");
                         }
                     }
                 }

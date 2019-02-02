@@ -27,7 +27,7 @@ class m190130_153513_raport_of_regulatory_works extends Migration
             'raport_regulatory_id' => $this->integer()->notNull(),
             'user_guid'=>  $this->string(36)->notNull(),
             'work_guid' => $this->string(36)->notNull(),
-            'count'=>$this->float()->notNull()->defaultValue(0),
+            'hours'=>$this->float()->notNull()->defaultValue(0),
 
             'version_id'=>$this->integer()->null(),
             'isDeleted'=>$this->smallInteger()->null()->defaultValue(0)
@@ -41,7 +41,7 @@ class m190130_153513_raport_of_regulatory_works extends Migration
             'raport_regulatory_id' => $this->integer()->notNull(),
             'user_guid'=>  $this->string(36)->notNull(),
             'work_guid' => $this->string(36)->notNull(),
-            'count'=>$this->float()->notNull()->defaultValue(0),
+            'hours'=>$this->float()->notNull()->defaultValue(0),
 
             'created_at'=>$this->timestamp(),
             'type_action'=> $this->integer()->notNull(),

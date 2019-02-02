@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 use yii\helpers\ArrayHelper;
 
 
-use common\models\RaportRequlatoryWork;
+use common\models\RaportRegulatoryWork;
 use common\models\User;
 use common\models\TypeOfWork;
 use common\models\Brigade;
@@ -170,14 +170,14 @@ class RaportRegulatory extends ActiveRecordVersionable
             
             if(isset($data[$scope]['works']) && is_array($data[$scope]['works'])){
                 $this->works = $data[$scope]['works'];
-            }elseif(isset($data['RaportRequlatoryWork']) && is_array($data['RaportRequlatoryWork'])){
-                $this->works = $data['RaportRequlatoryWork'];
+            }elseif(isset($data['RaportRegulatoryWork']) && is_array($data['RaportRegulatoryWork'])){
+                $this->works = $data['RaportRegulatoryWork'];
             }else{
                 $this->works = [];
             }
 
             if(!count($this->works)){
-                $this->addError('works',"doesn`t have works");
+                $this->addError('works',"Отсутствует табличная часть");
                 return false;
             }
             
@@ -220,7 +220,7 @@ class RaportRegulatory extends ActiveRecordVersionable
 
     public function getWorks(){
         if($this->id){
-            return (new Query)->select(['rw.line_guid','u.name as user_name','rw.work_guid','tw.name as work_name','rw.count'])->from(['rw'=>RaportRequlatoryWork::tableName()])
+            return (new Query)->select(['rw.user_guid','u.name as user_name','rw.work_guid','tw.name as work_name','rw.hours'])->from(['rw'=>RaportRegulatoryWork::tableName()])
                                 ->innerJoin(['tw'=>TypeOfWork::tableName()]," tw.guid = rw.work_guid")
                                 ->innerJoin(['u'=>User::tableName()]," u.guid = rw.user_guid")
                                 ->where(['raport_regulatory_id'=>$this->id])
@@ -230,6 +230,19 @@ class RaportRegulatory extends ActiveRecordVersionable
         }
     }
 
+
+
+    public function getWorkers(): string{
+        if($this->id){
+            return (new Query)->select(['GROUP_CONCAT(u.name SEPARATOR ", ") as workers'])
+                        ->from(['rw'=>RaportRegulatoryWork::tableName()])
+                                ->innerJoin(['u'=>User::tableName()]," u.guid = rw.user_guid")
+                                ->where(['raport_regulatory_id'=>$this->id])
+                                ->scalar();
+        }
+
+        return "";
+    }
 
 
 
@@ -270,7 +283,7 @@ class RaportRegulatory extends ActiveRecordVersionable
             return false;
         }
         
-        $Type = "RaportRequlatoryWork";
+        $Type = "RaportRegulatoryWork";
         if(!isset($works[$Type])){
             $models[$Type] = $works;
         }else{
@@ -282,12 +295,12 @@ class RaportRegulatory extends ActiveRecordVersionable
         }
 
         foreach ($models[$Type] as $key => $mdata) {
-            $model = new RaportRequlatoryWork();
+            $model = new RaportRegulatoryWork();
 
             $arData = is_object($mdata) ? json_decode(json_encode($mdata),1) : $mdata;
             $arData['raport_regulatory_id'] = $this->id;
 
-            if(!$model->load(['RaportRequlatoryWork'=>$arData]) || !$model->save()){
+            if(!$model->load(['RaportRegulatoryWork'=>$arData]) || !$model->save(1)){
                 $this->worksErrors[$model->work_guid] = $model->getErrors();
             }
         }
@@ -299,7 +312,7 @@ class RaportRegulatory extends ActiveRecordVersionable
     public function deleteWorks($data = []){
         if(!$this->id) return false;
 
-        Yii::$app->db->createCommand()->delete(RaportRequlatoryWork::tableName(),['raport_regulatory_id'=>$this->id])->execute();
+        Yii::$app->db->createCommand()->delete(RaportRegulatoryWork::tableName(),['raport_regulatory_id'=>$this->id])->execute();
     }
 
 

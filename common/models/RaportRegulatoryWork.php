@@ -14,7 +14,7 @@ use common\models\User;
 use common\models\TypeOfWork;
 use common\base\ActiveRecordVersionable;
 
-class RaportRequlatoryWork extends ActiveRecordVersionable 
+class RaportRegulatoryWork extends ActiveRecordVersionable 
 {
     
 
@@ -33,7 +33,7 @@ class RaportRequlatoryWork extends ActiveRecordVersionable
             'raport_regulatory_id',
             'work_guid',
             'user_guid',
-            'count',
+            'hours',
             'isDeleted',
         ];
     }
@@ -44,11 +44,11 @@ class RaportRequlatoryWork extends ActiveRecordVersionable
 	public function rules(){
 		return [
             // name, email, subject and body are required
-            [['raport_regulatory_id','work_guid','user_guid','count'], 'required','message'=>'Обязательное поле'],
+            [['raport_regulatory_id','work_guid','user_guid','hours'], 'required','message'=>'Обязательное поле'],
             
-            [['count'], 'number'],
+            [['hours'], 'number'],
 
-            [['count'], 'default','value'=>0],
+            [['hours'], 'default','value'=>0],
             
             [['work_guid','user_guid'],'string','max'=>36],
             
@@ -68,7 +68,7 @@ class RaportRequlatoryWork extends ActiveRecordVersionable
     		'raport_regulatory_id'=>'Рапорт регламентных работ',
             'work_guid'=>'Вид работы',
             'user_guid'=>'Физ лицо',
-            'count'=>'Количество'
+            'hours'=>'Количество часов'
     	);
     }
 

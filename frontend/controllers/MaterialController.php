@@ -80,12 +80,13 @@ class MaterialController extends Controller{
 
 
         $documents = ImportListOfDocuments::import($user->guid);
-
-        print_r($documents);
-        exit;
+        $remnants = $user->getActualBrigadeRemnants();
+        
         return $this->render('index',[
             'dataProvider'=>$dataProvider,
-            'modelFilters'=>$modelFilters
+            'modelFilters'=>$modelFilters,
+            'documents'=>$documents,
+            'remnants'=>$remnants
         ]);
 
     }
@@ -173,7 +174,7 @@ class MaterialController extends Controller{
                         Yii::warning($key.": ",$er,"materialform");
                     }else{
                         foreach ($er as $key2 => $e) {
-                            Yii::$app->session->setFlash("warning",$er);
+                            Yii::$app->session->setFlash("warning",$e);
                             Yii::warning($key2.": ",$e,"materialform");
                         }
                     }

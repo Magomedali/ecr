@@ -7,11 +7,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
-use common\modules\TransferMaterials;
-use common\modules\ExportTransferMaterials;
-use frontend\modules\MaterialAppFilter;
+use common\modules\LoadDocument;
 
-class TransferMaterialsController extends Controller{
+class DocumentController extends Controller{
 
 
     protected $user;
@@ -30,7 +28,7 @@ class TransferMaterialsController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','form'],
+                        'actions' => ['open','form'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -39,15 +37,6 @@ class TransferMaterialsController extends Controller{
         ];
     }
 
-
-    /**
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {   
-        return $this->redirect(['material/index']);
-    }
 	
     public function beforeAction($action){
         
@@ -67,22 +56,33 @@ class TransferMaterialsController extends Controller{
 
 
 
+
+    /**
+     *
+     * @return mixed
+     */
+    public function actionIndex()
+    {   
+        return $this->redirect(['material/index']);
+    }
     
 
 
-    public function actionView($id){
+    public function actionOpen(){
+        $get = Yii::$app->request->get();
 
-       
-
-        if(!(int)$id) 
+        if(!isset($get['guid']) || !isset($get['movement_type'])) 
             throw new \Exception("Документ не найден!",404);
 
-        $model = MaterialAppFilter::findOne(['id'=>(int)$id,'user_guid'=>$this->user->guid]);
+        $guid = $get['guid'];
+        $movement_type = $get['movement_type'];
+        $doc = LoadDocument::import($guid,$movement_type);
+        
+        if(!$doc || (is_array($doc) && !count($doc))){
+            return $this->redirect(['material/index']);
+        }
 
-        if(!isset($model->id))
-            throw new \Exception("Документ не найден!",404);
-
-        return $this->render('view',['model'=>$model]);
+        return $this->render('form',['doc'=>$doc]);
     }
 
 

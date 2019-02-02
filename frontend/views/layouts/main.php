@@ -76,9 +76,21 @@ AppAsset::register($this);
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
+                <?php
+                    $show_backLink = isset($this->params['backlink']) && isset($this->params['backlink']['url']);
+                ?>
+                <div class="<?php echo $show_backLink ? 'col-lg-6' : 'col-lg-12';?>">
                     <h1 class="page-header"><?php echo $this->title;?></h1>
                 </div>
+                <?php
+                    if($show_backLink){
+                    ?>
+                    <div class="col-lg-6" style="padding-top: 50px;">
+                        <?php echo Html::a("Назад",$this->params['backlink']['url'],['class'=>'btn btn-danger pull-right'])?>
+                    </div>
+                    <?php
+                    }
+                ?>
             </div>
             
             <?php  echo Breadcrumbs::widget([

@@ -10,7 +10,7 @@ use yii\base\NotSupportedException;
 use yii\web\IdentityInterface;
 use yii\base\Model;
 
-class RaportRequlatoryWork  extends ApiModel
+class RaportRegulatoryWork  extends ApiModel
 {
 
     /**
@@ -26,5 +26,5 @@ class RaportRequlatoryWork  extends ApiModel
     /**
     * @var float
     */
-    public $count;
+    public $hours;
 }

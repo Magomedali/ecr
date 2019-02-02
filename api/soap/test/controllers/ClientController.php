@@ -117,7 +117,7 @@ class ClientController extends Controller
                 'guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
                 'brigade_guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4',
                 'name'=>'Мишуров Андрей Николаевич',
-                'login'=>'tester',
+                'login'=>'test',
                 'password'=>'12345qwE',
                 'ktu'=>0.85,
                 'is_master'=>false
@@ -753,12 +753,12 @@ class ClientController extends Controller
                     [
                         'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                         'user_guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
-                        'count'=>2.3
+                        'hours'=>2.3
                     ],
                     [
                         'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                         'user_guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
-                        'count'=>2.3
+                        'hours'=>2.3
                     ]
                 ]
             ],
@@ -777,12 +777,12 @@ class ClientController extends Controller
                     [
                         'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                         'user_guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
-                        'count'=>2.3
+                        'hours'=>2.3
                     ],
                     [
                         'work_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                         'user_guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
-                        'count'=>2.3
+                        'hours'=>2.3
                     ]
                 ],
             ]

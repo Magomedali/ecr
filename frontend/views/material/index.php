@@ -9,15 +9,21 @@ $this->title = 'Мои материалы';
 ?>
 
 <div class="row">
-	<div class="col-md-12">
-		<?php echo Html::a("Создать заявку",['material/form']);?>
-
-        <?php echo Html::a("Создать перевод",['transfer-materials/form']);?>
+	<div class="col-md-4">
+        <div class="row">
+            <div class="col-md-12">
+                <?php echo Html::a("Создать заявку на получение материала",['material/form'],['class'=>'btn btn-success btn-lg']);?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top:25px; ">
+                <?php echo Html::a("Создать документ на перевод материала",['transfer-materials/form'],['class'=>'btn btn-success btn-lg']);?>
+            </div>
+        </div>
 	</div>
-</div>
-<div class="row raports_list">
-	<div class="col-md-12">
-		<?php
+    <div class="col-md-8">
+        <h3>Заявки на метериал:</h3>
+        <?php
             echo \yii\grid\GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $modelFilters,
@@ -40,7 +46,7 @@ $this->title = 'Мои материалы';
                     [
                         'attribute'=>"created_at",
                         'value'=>function($m){
-                        	return date("d.m.Y H:i:s",strtotime($m['created_at']));
+                            return date("d.m.Y H:i:s",strtotime($m['created_at']));
                         },
                         'filter'=>Html::dropDownList("RaportFilter[month]",$modelFilters->month,$modelFilters::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
                     ],
@@ -58,14 +64,14 @@ $this->title = 'Мои материалы';
                     [
                         'attribute'=>"stockroom_guid",
                         'value'=>function($m){
-                        	$stockroom = $m->stockroom;
-                        	return isset($stockroom->id) ? $stockroom['name'] : "";
+                            $stockroom = $m->stockroom;
+                            return isset($stockroom->id) ? $stockroom['name'] : "";
                         },
                     ],
                     [
                         'attribute'=>"status",
                         'value'=>function($m){
-                        	return $m->statusTitle;
+                            return $m->statusTitle;
                         },
                     ],
                   
@@ -88,5 +94,72 @@ $this->title = 'Мои материалы';
                 ]
             ]);
         ?>
+    </div>
+</div>
+<div class="row raports_list">
+	<div class="col-md-7">
+        <h3>Движение материала:</h3>
+        <table class="table table-bordered table-collapsed table-hover">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Номер</th>
+                    <th>Статус</th>
+                    <th>Вид движения</th>
+                    <th>Вид документа</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    if(is_array($documents)){
+                        foreach ($documents as $key => $item) {
+                ?>
+                    <tr>
+                        <td><?php echo date("d.m.Y",strtotime($item['date']));?></td>
+                        <td><?php echo $item['number'];?></td>
+                        <td><?php echo $item['status'];?></td>
+                        <td><?php echo $item['movement_type'];?></td>
+                        <td><?php echo $item['type_of_operation'];?></td>
+                        <td>
+                            <?php echo Html::a("Открыть",['document/open','guid'=>$item['guid'],'movement_type'=>$item['movement_type']]);?>
+                        </td>
+                    </tr>
+                <?php
+                        }
+                    }
+                ?>
+            </tbody>
+        </table>
+        <?php
+            //echo "<PRE>";
+            //print_r($documents);
+            //echo "</PRE>";
+        ?>
 	</div>
+    <div class="col-md-5">
+        <h3>Остатки:</h3>
+        <table class="table table-bordered table-collapsed table-hover">
+            <thead>
+                <tr>
+                    <th>Номенклатура</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    if(is_array($remnants)){
+                        foreach ($remnants as $key => $item) {
+                ?>
+                    <tr>
+                        <td><?php echo $item['nomenclature_name'];?></td>
+                        <td><?php echo $item['was'];?></td>
+                    </tr>
+                <?php
+                        }
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div>
 </div>
