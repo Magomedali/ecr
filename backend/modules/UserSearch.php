@@ -21,7 +21,7 @@ class UserSearch extends User{
     {
         return [
             // Только числа, значение как минимум должна равняться единице
-            [['login','name'],'safe'],
+            [['login','name','status'],'safe'],
 
         ];
     }
@@ -77,6 +77,11 @@ class UserSearch extends User{
         }
         if($this->name){
         	$query->andFilterWhere(['like','name',$this->name]);
+        }
+
+
+        if($this->status !== null){
+            $query->andWhere(['status'=>$this->status]);
         }
 
         return $dataProvider;

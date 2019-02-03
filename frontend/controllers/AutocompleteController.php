@@ -51,7 +51,9 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            $query = User::find()->where(['is_master'=>1])->andWhere("`guid` is not null");
+            $query = User::find()->where(['is_master'=>1])
+                        ->andWhere("`guid` is not null")
+                        ->andWhere(['status'=>User::STATUS_ACTIVE]);
             if($key){
                 $query->andWhere("`name` LIKE '%{$key}%'");
             }
@@ -83,7 +85,8 @@ class AutocompleteController extends Controller{
             $query = (new Query())->select(['u.guid','u.name','u.ktu'])
                                 ->from(['u'=>User::tableName()])
                                 ->where(['u.is_master'=>0])
-                                ->andWhere("u.`guid` is not null");
+                                ->andWhere("u.`guid` is not null")
+                                ->andWhere(['status'=>User::STATUS_ACTIVE]);
             if($key){
                 $query->andWhere("u.`name` LIKE '%{$key}%'");
             }
@@ -132,7 +135,8 @@ class AutocompleteController extends Controller{
             $query = (new Query())->select(['u.guid','u.name','u.ktu'])
                                 ->from(['u'=>User::tableName()])
                                 ->where(['u.is_master'=>0])
-                                ->andWhere("u.`guid` is not null and `login` IS NOT NULL");
+                                ->andWhere("u.`guid` is not null and `login` IS NOT NULL")
+                                ->andWhere(['status'=>User::STATUS_ACTIVE]);
 
             if(!boolval($cUser->is_master)){
                 $query->andWhere("u.`guid` != '{$cUser->guid}'");

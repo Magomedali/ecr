@@ -26,7 +26,7 @@ class UserController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','change-user-password'],
+                        'actions' => ['view','change-user-password','change-status'],
                         'allow' => true,
                         'roles' => ['superadmin','administrator'],
                     ]
@@ -36,6 +36,7 @@ class UserController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'change-status'=>['post']
                 ],
             ],
         ];
@@ -70,6 +71,8 @@ class UserController extends Controller
         if(!isset($model->id) || !$model->brigade_guid)
             throw new \Exception("Бригадир не найден!",404);
 
+        Yii::$app->getSession()->set(Yii::$app->getUser()->returnUrlParam, ['user/view','id'=>$model->id]);
+
         $RaportFilter = new RaportFilter;
         $params = Yii::$app->request->queryParams;
         $params['RaportFilter']['brigade_guid']=$model->brigade_guid;
@@ -100,6 +103,36 @@ class UserController extends Controller
             Yii::$app->session->setFlash('success', 'Произошла ошибка');
             return $this->goHome();
         }
+    }
+
+
+
+    public function actionChangeStatus(){
+
+        $post = Yii::$app->request->post();
+        if(!isset($post['id']) || !(int)$post['id']){
+            Yii::$app->session->setFlash("error","Неправильный запрос!");
+            return $this->goBack();
+        }
+
+        $user = User::findOne((int)$post['id']);
+        if(!isset($user['id']) || !(int)$user['id']){
+            Yii::$app->session->setFlash("error","Пользователь не существует!");
+            return $this->goBack();
+        }
+
+        $user->status = $user->status == User::STATUS_ACTIVE ? User::STATUS_DELETED : User::STATUS_ACTIVE;
+        if($user->save(false)){
+            $msg = $user->status == User::STATUS_ACTIVE ? "Пользователь восстановлен" : "Пользователь переведен в архив";
+            Yii::$app->session->setFlash("success",$msg);
+
+            //Выгрузка в 1С
+
+        }else{
+            Yii::$app->session->setFlash("error","Ошибка при смене статуса пользователя");
+        }
+
+        return $this->goBack();
     }
    
 }

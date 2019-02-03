@@ -25,7 +25,6 @@ class m181105_115548_nomenclature extends Migration
             'id' => $this->primaryKey(),
             'guid' => $this->string(36)->notNull()->unique(),
             'name' => $this->string(255)->notNull(),
-            'unit' => $this->string(255)->null(),
             'version_id'=>$this->integer()->null(),
             'isDeleted'=>$this->smallInteger()->null()->defaultValue(0)
         ], $tableOptions);
@@ -37,7 +36,6 @@ class m181105_115548_nomenclature extends Migration
 
             'guid' => $this->string(36)->notNull(),
             'name' => $this->string(255)->notNull(),
-            'unit' => $this->string(255)->null(),
             
             'created_at'=>$this->timestamp(),
             'type_action'=> $this->integer()->notNull(),

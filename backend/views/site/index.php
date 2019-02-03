@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
+use common\models\User;
 
-$this->title = 'Бригадиры';
 ?>
 <?php
 
@@ -37,11 +37,20 @@ $this->title = 'Бригадиры';
                     }
 				],
 				['class' => 'yii\grid\ActionColumn',
-                    'template' => '{view}',
+                    'template' => '{change-status}',
                     'buttons' =>[
-	                        'view' => function ($url, $model) {
-	                            return  Html::a('<i class="glyphicon glyphicon-eye-open"></i>', Url::to(['/user/view', 'id' => $model['id']]),['title' => Yii::t('yii', 'Подробнее')]); 
-	                        } 
+	                        'change-status' => function ($url, $model) {
+	                        	$title = $model->status == User::STATUS_ACTIVE ? "Перевести в архив" : "Восстановить"; 
+	                        	
+	                        	return Html::beginForm(['/user/change-status'], 'post')
+	                        		. Html::hiddenInput("id",$model->id)
+	                        		.Html::a('<i class="glyphicon glyphicon-eye-open"></i>', Url::to(['/user/view', 'id' => $model['id']]),['title' => Yii::t('yii', 'Подробнее')])
+                                    . Html::submitButton(
+                                            $title,
+                                            ['class' => 'btn btn-link','data-confirm'=>'Подтвердите свои действия']
+                                    )
+                                    . Html::endForm(); 
+	                        },
 	                    ]
                 ]
 			],

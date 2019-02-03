@@ -57,4 +57,11 @@ class Worker  extends ApiModel
     */
     public $password;
 
+
+    /**
+    * @var int
+    * @nillable
+    */
+    public $status;
+
 }

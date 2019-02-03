@@ -119,7 +119,9 @@ class ApiController extends Controller
 
 
     /**
-     * unload workers
+     * Добавление и изменение информации о пользователе
+     * *Замечание для реквизита status |
+     * status int    nullable  values : 10 - Восстановление пользователя, 0 - Для архивирования пользователя
      * @param api\soap\models\Worker[] $workers 
      * @return api\soap\models\Responce
      * @soap

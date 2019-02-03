@@ -128,9 +128,17 @@ class User extends ActiveRecord implements IdentityInterface
                 }
             }
 
+            $scope = $formName === null ? $this->formName() : $formName;
+
             $model = self::find()->where(['guid'=>$this->guid])->one();
             if ($model && isset($model->id)) {
                 $this->id = $model->id;
+
+                //Если статус не был передан, то сохраняем предыдущий статус
+                if(!isset($data[$scope]['status'])){
+                    $this->status = $model->status;
+                }
+
                 $this->setOldAttributes($model->attributes);           
             }
 

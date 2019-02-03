@@ -120,7 +120,8 @@ class ClientController extends Controller
                 'login'=>'test',
                 'password'=>'12345qwE',
                 'ktu'=>0.85,
-                'is_master'=>false
+                'is_master'=>false,
+                'status'=>10
             ],
             [
                 'guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
@@ -128,7 +129,8 @@ class ClientController extends Controller
                 'technic_guid'=>'ac22777f-cd5c-11e8-8122-005056b47a2e',
                 'name'=>'Джалолов Сухроб Рустамович',
                 'ktu'=>0.9,
-                'is_master'=>false
+                'is_master'=>false,
+                'status'=>0
             ],
             [
                 'guid'=>'be2e6d76-2128-11e7-80e5-000c29a0432f',
@@ -138,7 +140,8 @@ class ClientController extends Controller
                 'ktu'=>1,
                 'is_master'=>false,
                 'login'=>'nozdrenkovai',
-                'password'=>'12345qwE'
+                'password'=>'12345qwE',
+                'status'=>0
             ]
         ];
 
@@ -151,6 +154,7 @@ class ClientController extends Controller
         $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
         echo $result;
         echo " : ---Method Unloadworker\n";
+        print_r($answer);
     }
 
 

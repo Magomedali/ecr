@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use common\dictionaries\RaportStatuses;
 use yii\bootstrap\ActiveForm;
 
+use common\models\User;
 
 
 $this->title = 'Бригадир: '.$model->name;
@@ -18,7 +19,7 @@ $actualBrigadeRemnants = $model->getActualBrigadeRemnants(false);
 <div class="row">
 	<div class="col-md-4">
 		<h3>Данные:</h3>
-		<?php $form = ActiveForm::begin(['action'=>['user/change-user-password']])?>
+		
 		<table class="table table-bordered table-collapsed table-hover">
 			<tbody>
 				<tr>
@@ -35,16 +36,47 @@ $actualBrigadeRemnants = $model->getActualBrigadeRemnants(false);
 				</tr>
 				<tr>
 					<td>
-						<?php echo $form->field($changePassModel,'password')->passwordInput()->label(false);?>
-						<?php echo $form->field($changePassModel,'user_id')->hiddenInput(['value'=>$model['id']])->label(false);?>
+						<strong>Смена пароля</strong>
 					</td>
 					<td>
-						<?php echo Html::submitButton("Сменить пароль бригадира",['class'=>'btn btn-primary','data-confirm'=>"Подтвердите ваши действия!"]);?>
+						<?php $form = ActiveForm::begin(['action'=>['user/change-user-password']])?>
+						<?php echo $form->field($changePassModel,'password')->passwordInput()->label(false);?>
+						<?php echo $form->field($changePassModel,'user_id')->hiddenInput(['value'=>$model['id']])->label(false);?>
+						<?php echo Html::submitButton("Сменить пароль бригадира",['class'=>'btn btn-sm btn-primary','data-confirm'=>"Подтвердите ваши действия!"]);?>
+
+						<?php ActiveForm::end();?>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<strong>
+							Cтатус (
+						<?php
+							echo $model->status == User::STATUS_ACTIVE ? "Активный" : "В архиве"; 
+						?>
+						)
+						</strong>
+					</td>
+					<td>
+						<?php 
+							$btn = "btn-danger";
+							$title = "Перевести в архив";
+							if($model->status != User::STATUS_ACTIVE){
+								$btn = "btn-success";
+								$title = "Восстановить пользователя";
+							}
+							echo Html::beginForm(['/user/change-status'], 'post')
+	                        		. Html::hiddenInput("id",$model->id)
+                                    . Html::submitButton(
+                                            $title,
+                                            ['class' => 'btn btn-sm '.$btn,'data-confirm'=>'Подтвердите свои действия!']
+                                    )
+                                    . Html::endForm();
+						?>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<?php ActiveForm::end();?>
 	</div>
 	<div class="col-md-4">
 		<h3>Состав бригады:</h3>

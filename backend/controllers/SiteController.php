@@ -32,7 +32,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','reset-password'],
+                        'actions' => ['index','archive','reset-password'],
                         'allow' => true,
                         'roles' => ['superadmin','administrator'],
                     ],
@@ -71,9 +71,35 @@ class SiteController extends Controller
     {   
 
         $UserSearch = new UserSearch;
+        $filters = Yii::$app->request->get();
+        $filters['UserSearch']['status'] = User::STATUS_ACTIVE;
+        $dataProvider = $UserSearch->search($filters);
         
-        $dataProvider = $UserSearch->search(Yii::$app->request->get());
-        return $this->render('index',['dataProvider'=>$dataProvider,'UserSearch'=>$UserSearch]);
+        $this->view->title = "Бригадиры";
+
+        Yii::$app->getSession()->set(Yii::$app->getUser()->returnUrlParam, ['site/index']);
+
+        return $this->render('index',[
+            'dataProvider'=>$dataProvider,
+            'UserSearch'=>$UserSearch
+        ]);
+    }
+
+
+    public function actionArchive(){
+        $UserSearch = new UserSearch;
+        $filters = Yii::$app->request->get();
+        $filters['UserSearch']['status'] = User::STATUS_DELETED;
+        $dataProvider = $UserSearch->search($filters);
+
+
+        Yii::$app->getSession()->set(Yii::$app->getUser()->returnUrlParam, ['site/archive']);
+
+        $this->view->title = "Архив бригадиров";
+        return $this->render('index',[
+            'dataProvider'=>$dataProvider,
+            'UserSearch'=>$UserSearch
+        ]);
     }
 
 
