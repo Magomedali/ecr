@@ -73,7 +73,7 @@ if($hasErrors){
 						<?php if(is_array($remnants)){
 								foreach ($remnants as $key => $item) {
 									//Временно
-									$item['count'] = abs($item['count']);
+									//$item['count'] = abs($item['count']);
 							?>
 						<tr>
 							<td>

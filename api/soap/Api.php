@@ -57,7 +57,7 @@ class Api{
         }
         //self::log(json_encode($params));
         //$responce = new Responce(['success'=>true,'error'=>"ServerError",'errorMessage'=>"Test"]);
-
+        Yii::info($responce->toString(),"return");
         if(0){
             //rpc
             return $responce;

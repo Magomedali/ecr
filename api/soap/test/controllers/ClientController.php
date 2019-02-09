@@ -829,11 +829,6 @@ class ClientController extends Controller
                 'project_guid'=>'231ca414-3f28-11e8-8114-005056b47a2e',
                 'typeofwork_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                 'standard'=>2.13
-            ],
-            [
-                'project_guid'=>'2d835e00-a6cd-11e8-811a-005056b47a2e',
-                'typeofwork_guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
-                'standard'=>2
             ]
         ];
 

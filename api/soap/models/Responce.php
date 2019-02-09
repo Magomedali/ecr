@@ -41,5 +41,14 @@ class Responce  extends ApiModel
     */
     public $errorsExtend;
 
-
+    
+    
+    
+    public function toString(){
+        $params['success']=$this->success;
+        $params['error']=$this->error;
+        $params['errorUserMessage']=$this->errorUserMessage;
+        $params['errorsExtend']=$this->errorsExtend;
+        return json_encode($params);
+    }
 }
