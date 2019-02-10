@@ -17,7 +17,7 @@ use common\models\Objects;
 use common\models\Boundary;
 use common\models\StockRoom;
 use common\models\Nomenclature;
-use common\models\Project;
+use common\models\{Project,NomenclatureOfTypeOfWorks,ProjectStandard};
 use soapclient\methods\Calcsquare;
 
 class AutocompleteController extends Controller{
@@ -33,7 +33,7 @@ class AutocompleteController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['masters','users','brigadier','technics','lines','works','objects','projects','calcsquare','stockroom','nomenclature'],
+                        'actions' => ['masters','users','brigadier','technics','lines','works','objects','projects','calcsquare','stockroom','nomenclature','project-standarts'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -310,17 +310,19 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            if(!$key){
-                $results = TypeOfWork::find()->asArray()->all();
-            }else{
-                $results = TypeOfWork::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+            $query = (new Query())->select(['guid as `value`','name as title','GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'])
+                                    ->from(TypeOfWork::tableName())
+                                    ->leftJoin(['rtn'=>NomenclatureOfTypeOfWorks::tableName()],'rtn.typeofwork_guid = guid')
+                                    ->groupBy(['guid']);
+
+            if($key){
+                $query->where("`name` LIKE '%{$key}%'");
             }
+
+            $results = $query->all();
             
-            foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
-            }
             
-            return ['data'=>$data];
+            return ['data'=>$results];
         }else{
             return $this->redirect(['site/index']);
         } 
@@ -407,6 +409,29 @@ class AutocompleteController extends Controller{
     }
 
 
+
+    public function actionProjectStandarts(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $guid = isset($get['guid']) ? trim(strip_tags($get['guid'])) : null;
+
+            $result = !$guid ? [] : (new Query())->select(['p.*','t.name as typeofwork_name'])
+                            ->from(['p'=>ProjectStandard::tableName()])
+                            ->innerJoin(['t'=>TypeOfWork::tableName()]," t.guid = p.typeofwork_guid")
+                            ->where(['project_guid'=>$guid])
+                            ->all();
+
+            
+            
+            return $result;
+        }else{
+            return $this->redirect(['site/index']);
+        }
+    }
 
 
 

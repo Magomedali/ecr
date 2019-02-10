@@ -5,6 +5,8 @@ use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use common\widgets\autocomplete\AutoComplete;
+use common\models\Nomenclature;
+use common\models\User;
 
 $this->title = "Перевод материалов на другого бригадира";
 $this->params['backlink']['url']=Url::to(['material/index']);
@@ -13,7 +15,13 @@ $stockroom = null;
 if($hasErrors){
 	$mol_guid_recipient_name = $errorsTransfer['mol_guid_recipient_name'];
 }else{
-	$mol_guid_recipient_name = "";
+
+	if($model->mol_guid_recipient){
+		$mol = User::findOne(['guid'=>$model->mol_guid_recipient]);
+		$mol_guid_recipient_name = isset($mol->name) ? $mol->name : "Неизвестный мол";
+	}else{
+		$mol_guid_recipient_name = "";
+	}
 }
 
 
@@ -24,7 +32,7 @@ if($hasErrors){
 		<?php $form = ActiveForm::begin(['id'=>'transferMaterialForm']);?>
 		<div class="row">
 			<div class="col-md-4">
-				<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->created_at) && $model->created_at ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
+				<?php echo $form->field($model,'date')->input("datetime-local",['value'=>isset($model->date) && $model->date ? date("Y-m-d\TH:i:s",strtotime($model->date)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
 			</div>
 			<div class="col-md-4">
 				<?php 
@@ -79,8 +87,15 @@ if($hasErrors){
 							<td>
 								<?php echo Html::hiddenInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired'])?>
 
-								<?php echo Html::textInput("materials[{$key}][nomenclature_name]",$item['nomenclature_name'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
-
+								<?php 
+									if(!isset($item['nomenclature_name'])){
+										$nomen = Nomenclature::findOne(['guid'=>$item['nomenclature_guid']]);
+										$nomenclature_name = $nomen && isset($nomen->name) ? $nomen->name : "";
+									}else{
+										$nomenclature_name = $item['nomenclature_name'];
+									}
+									echo Html::textInput("materials[{$key}][nomenclature_name]",$nomenclature_name,['class'=>'form-control input-sm isRequired','readonly'=>true]);
+								?>
 							</td>
 							<td>
 								<?php echo Html::hiddenInput("materials[{$key}][series_guid]",$item['series_guid'],['class'=>'form-control input-sm isRequired'])?>
@@ -90,7 +105,21 @@ if($hasErrors){
 								<?php echo Html::input("number","materials[{$key}][count]",$item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control was_input input-sm','readonly'=>true])?>
 							</td>
 							<td>
-								<?php echo Html::input("number","materials[{$key}][send]",isset($item['send']) ? $item['send'] : null,['min'=>0,'step'=>'0.001','max'=>$item['count'],'class'=>'form-control input-sm spent_input isRequired'])?>
+								<?php 
+									$sended = null;
+									
+									if(is_array($unLoadedMaterials) && count($unLoadedMaterials) 
+										&& array_key_exists($item['nomenclature_guid'], $unLoadedMaterials)
+										&& array_key_exists($item['series_guid'], $unLoadedMaterials[$item['nomenclature_guid']])
+										&& array_key_exists('count', $unLoadedMaterials[$item['nomenclature_guid']][$item['series_guid']])){
+
+										$sended = $unLoadedMaterials[$item['nomenclature_guid']][$item['series_guid']]['count'];
+									}elseif(isset($item['send'])){
+										$sended = $item['send'];
+									}
+
+									echo Html::input("number","materials[{$key}][send]",$sended,['min'=>0,'step'=>'0.001','max'=>$item['count'],'class'=>'form-control input-sm spent_input isRequired']);
+								?>
 							</td>
 							<td>
 								<?php echo Html::input("number","materials[{$key}][rest]",isset($item['rest']) ? $item['rest'] : $item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control rest_input input-sm','readonly'=>true])?>

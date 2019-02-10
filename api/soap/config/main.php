@@ -7,6 +7,7 @@ return [
     'language' => 'ru-RU',
     'controllerNamespace' => 'api\soap\controllers',
     'bootstrap' => ['log'],
+    'timeZone'=>'Europe/Moscow',
     'defaultRoute'=>'api',
     'components' => [
         'user'=>[

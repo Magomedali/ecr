@@ -67,4 +67,21 @@ class Setting extends ActiveRecord
             'name'=>'Наименование'
         );
     }
+
+
+
+    public static function getStartShiftTime(){
+        $shift = self::find()->where(['is_actual'=>1])->one();
+
+        if(!isset($shift->id)) return false;
+        
+        $cur_day = date("Y-m-d\T{$shift->shift_start_hours}");
+        $now = date("Y-m-d\TH:i:s",time());
+        
+        if(strtotime($cur_day) < time()){
+            return $cur_day;
+        }else{
+            return date("Y-m-d\TH:i:s",strtotime($cur_day)-86400);
+        }
+    }
 }

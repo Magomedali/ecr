@@ -443,11 +443,29 @@ class Raport extends ActiveRecordVersionable
 
     public function getWorks(){
         if($this->id){
-            return (new Query)->select(['rw.line_guid','l.name as line_name','rw.work_guid','tw.name as work_name','rw.mechanized','rw.length','l.hint_length','l.hint_count','l.is_countable','rw.count','rw.squaremeter'])->from(['rw'=>RaportWork::tableName()])
-                                ->innerJoin(['tw'=>TypeOfWork::tableName()]," tw.guid = rw.work_guid")
-                                ->innerJoin(['l'=>Line::tableName()]," l.guid = rw.line_guid")
-                                ->where(['raport_id'=>$this->id])
-                                ->all();
+            return (new Query)->select([
+                'rw.line_guid',
+                'l.name as line_name',
+                'rw.work_guid',
+                'tw.name as work_name',
+                'rw.mechanized',
+                'rw.length',
+                'l.hint_length',
+                'l.hint_count',
+                'l.is_countable',
+                'rw.count',
+                'rw.squaremeter',
+                'GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'
+            ])
+            ->from([
+                    'rw'=>RaportWork::tableName(),
+                ])
+                ->innerJoin(['tw'=>TypeOfWork::tableName()]," tw.guid = rw.work_guid")
+                ->innerJoin(['l'=>Line::tableName()]," l.guid = rw.line_guid")
+                ->leftJoin(['rtn'=>NomenclatureOfTypeOfWorks::tableName()],'rtn.typeofwork_guid = rw.work_guid')
+                ->where(['raport_id'=>$this->id])
+                ->groupBy(['rw.id'])
+                ->all();
         }else{
            return $this->works; 
         }

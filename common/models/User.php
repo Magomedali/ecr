@@ -18,6 +18,7 @@ use common\models\RemnantsPackage;
 use common\models\RemnantsItem;
 use common\models\Nomenclature;
 use common\base\ActiveRecordVersionable;
+use common\models\NomenclatureOfTypeOfWorks;
 
 use soapclient\methods\Unloadremnant;
 
@@ -528,11 +529,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function getRemnants($indexGuid = true){
         if(!$this->guid || !$this->id || !$this->brigade_guid) return [];
 
-        $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was,  (null) as spent, r.count as rest, n.name as nomenclature_name')
+        $result = (new Query())->select('rp.user_guid, r.nomenclature_guid, r.count as was,  (null) as spent, r.count as rest, n.name as nomenclature_name, CASE when  `rtn`.`typeofwork_guid` > 0 THEN 1 ELSE 0 END as `assigned`')
                     ->from(['rp'=>RemnantsPackage::tableName()])
                     ->innerJoin(['r'=>RemnantsItem::tableName()]," r.package_id = rp.id")
                     ->innerJoin(['n'=>Nomenclature::tableName()]," r.nomenclature_guid = n.guid")
+                    ->leftJoin(['rtn'=>NomenclatureOfTypeOfWorks::tableName()]," r.nomenclature_guid = rtn.nomenclature_guid")
                     ->where(['rp.user_guid'=>$this->guid,'rp.isActual'=>1])
+                    ->groupBy(['r.nomenclature_guid'])
                     ->all();
 
 
@@ -546,6 +549,7 @@ class User extends ActiveRecord implements IdentityInterface
             $remnants[$item['nomenclature_guid']]['was'] = $item['was'];
             $remnants[$item['nomenclature_guid']]['spent'] = $item['spent'];
             $remnants[$item['nomenclature_guid']]['rest'] = $item['rest'];
+            $remnants[$item['nomenclature_guid']]['assigned'] = $item['assigned'];
         }
 
         return $remnants;

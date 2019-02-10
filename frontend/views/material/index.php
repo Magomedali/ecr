@@ -112,6 +112,26 @@ $this->title = 'Мои материалы';
             </thead>
             <tbody>
                 <?php 
+                    if(is_array($unExportedDocs)){
+                        foreach ($unExportedDocs as $key => $req) {
+                            if(!isset($req['params_in'])) continue;
+                            $item = json_decode($req['params_in'],1);
+                ?>
+                    <tr>
+                        <td><?php echo date("d.m.Y",strtotime($item['date']));?></td>
+                        <td><?php echo "";?></td>
+                        <td><?php echo $item['status'];?></td>
+                        <td><?php echo "Расход";?></td>
+                        <td><?php echo "Перевод на другого мол";?></td>
+                        <td>
+                            <?php echo Html::a("Изменить",['transfer-materials/form','request'=>$req['id']]);?>
+                        </td>
+                    </tr>
+                <?php
+                        }
+                    }
+                ?>
+                <?php 
                     if(is_array($documents)){
                         foreach ($documents as $key => $item) {
                 ?>

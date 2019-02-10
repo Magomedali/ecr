@@ -92,11 +92,18 @@ class TransferMaterialsController extends Controller{
 
 
 
-    public function actionForm($id = null){
+    public function actionForm($request = null){
 
         $post = Yii::$app->request->post();
+        
+        if($request){
+            $model = TransferMaterials::loadFromRequest($request);
+            $unLoadedMaterials = $model->getUnLoadedStructuredMaterials();
+        }else{
+            $model = new TransferMaterials();
+            $unLoadedMaterials = [];
+        }
 
-        $model = new TransferMaterials();
         $remnants = [];
         $hasErrors = false;
         $errorsTransfer = [];
@@ -115,11 +122,6 @@ class TransferMaterialsController extends Controller{
                     Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
                     $errors = $model->getMaterialsError();
                 }else{
-                    // echo "<PRE>";
-                    // print_r($model->attributes);
-                    // print_r($model->materials);
-                    // echo "</PRE>";
-
                     //Отправить заявку в 1С
                     if(ExportTransferMaterials::export($model)){
                         Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
@@ -153,7 +155,7 @@ class TransferMaterialsController extends Controller{
             $hasErrors = true;
             $errorsTransfer = isset($post['TransferMaterials']) ? $post['TransferMaterials'] : [];
             $remnants = isset($post['materials']) ? $post['materials'] : [];
-
+            $unLoadedMaterials = [];
         }else{
             // $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
             $remnants = \common\modules\ImportRemnantsWithSeries::import($this->user->guid);
@@ -165,7 +167,8 @@ class TransferMaterialsController extends Controller{
             'remnants'=>$remnants,
             'hasErrors'=>$hasErrors,
             'errors'=>$errors,
-            'errorsTransfer'=>$errorsTransfer
+            'errorsTransfer'=>$errorsTransfer,
+            'unLoadedMaterials'=>$unLoadedMaterials
         ]);
     }
 

@@ -17,8 +17,14 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>"RaportWork[$count][work_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
-			'labelShow'=>false
+			'labelShow'=>false,
+			'properties'=>[
+				['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
+			]
 		]);
+	?>
+	<?php
+		echo Html::hiddenInput("RaportWork[$count][work_nomenclatures]",null,['class'=>'work_assigned_nomencaltures']);
 	?>
 	</td>
 	<td class="td_line_guid">

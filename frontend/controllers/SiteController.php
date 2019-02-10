@@ -12,7 +12,7 @@ use frontend\models\LoginForm;
 use frontend\models\ResetPasswordForm;
 use frontend\modules\TotalOutputFilter;
 
-use common\models\User;
+use common\models\{User,Setting};
 
 
 /**
@@ -74,11 +74,17 @@ class SiteController extends Controller
     {   
         $user = Yii::$app->user->identity;
         
+
+
         if($user->is_master){
             return $this->render('master',[
 
             ]);
         }else{
+
+            $startTime = Setting::getStartShiftTime();
+            
+            $this->view->params['shift_start'] = $startTime;
 
             $actualBrigadeRemnants = $user->getActualBrigadeRemnants();
             $brigadeConsist = $user->getBrigadeConsist();

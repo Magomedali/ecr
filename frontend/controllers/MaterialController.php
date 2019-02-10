@@ -12,6 +12,7 @@ use frontend\modules\MaterialAppFilter;
 
 use common\modules\ImportListOfDocuments;
 use common\modules\ExportMaterialsApp;
+use common\modules\TransferMaterials;
 
 class MaterialController extends Controller{
 
@@ -78,15 +79,17 @@ class MaterialController extends Controller{
         $params['MaterialAppFilter']['user_guid']=$user->guid;
         $dataProvider = $modelFilters->filter($params);
 
-
         $documents = ImportListOfDocuments::import($user->guid);
         $remnants = $user->getActualBrigadeRemnants();
         
+        $unExportedDocs = TransferMaterials::getActualTransfersFromUser(Yii::$app->user->id);
+
         return $this->render('index',[
             'dataProvider'=>$dataProvider,
             'modelFilters'=>$modelFilters,
             'documents'=>$documents,
-            'remnants'=>$remnants
+            'remnants'=>$remnants,
+            'unExportedDocs'=>$unExportedDocs,
         ]);
 
     }

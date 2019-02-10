@@ -25,7 +25,7 @@ $(function(){
         //Удаляем ранее установленные значения параметров
         if(val.length == 0){
             var inputValue = thisElement.siblings("input.autocomplete_input_value");
-            inputValue.val(null);
+            inputValue.val(null).trigger('change');
             if(properties.length){
                 $.each(properties,function(i,p){
                     if(p.hasOwnProperty("targetElement") && p.hasOwnProperty("commonElement")){            
@@ -34,7 +34,7 @@ $(function(){
                         if(pr.length){
                             pr.each(function(){
                                 if($(this).prop("nodeName") == "INPUT" || $(this).prop("nodeName") == "SELECT"){
-                                    $(this).val(null);
+                                    $(this).val(null).trigger('change');
                                 }else{
                                     $(this).html(null);
                                 }
@@ -167,8 +167,8 @@ $(function(){
         var inputValue = $(this).parents(".autocomplete__widget_block").find("input.autocomplete_input_value");
         var inputKey = $(this).parents(".autocomplete__widget_block").find("input.autocomplete_input_key")
             
-        inputValue.val(value);
-    	inputKey.val($(this).text());
+        inputValue.val(value).trigger('change');
+    	inputKey.val($(this).text()).trigger('change');
 
         var data = $(this).data();
         var properties = inputKey.siblings("input.autocomplete_properties").data("properties");
@@ -182,7 +182,7 @@ $(function(){
                     if(tEl.length && data.hasOwnProperty(p.property)){
                         tEl.each(function(){
                             if($(this).prop("nodeName") == "INPUT" || $(this).prop("nodeName") == "SELECT"){
-                                $(this).val(data[p.property]);
+                                $(this).val(data[p.property]).trigger('change');
                             }else{
                                 $(this).html(data[p.property]);
                             }

@@ -26,6 +26,7 @@ if(!$hasErrors){
 	$RaportWorks =isset($model->id) ? $model->works : [[
 		'work_guid'=>null,
 		'work_name'=>null,
+		'work_nomenclatures'=>null,
 		'line_guid'=>null,
 		'line_name'=>null,
 		'mechanized'=>null,
@@ -353,8 +354,14 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 															'inputKeyName'=>"RaportWork[$key][work_name]",
 															'inputKeyName_Value'=>$item['work_name'],
 															'placeholder'=>'Укажите вид работы',
-															'labelShow'=>false
+															'labelShow'=>false,
+															'properties'=>[
+																['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
+															]
 														]);
+													?>
+													<?php
+														echo Html::hiddenInput("RaportWork[$key][work_nomenclatures]",isset($item['work_nomenclatures']) ? $item['work_nomenclatures'] : null,['class'=>'work_assigned_nomencaltures']);
 													?>
 													</td>
 													<td class="td_line_guid">
@@ -457,25 +464,25 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 											<?php if(is_array($ActualBrigadeRemnants)){
 												$key = 0;
 												foreach ($ActualBrigadeRemnants as $index => $item) {
-
+													$assigned = isset($item['assigned']) && (int)($item['assigned']);
 											?>
-												<tr>
+												<tr data-assigned="<?php echo $assigned ? 1 : 0;?>">
 													<td>
-													<?php 
-														echo $item['nomenclature_name'];
-														echo Html::hiddenInput("RaportMaterial[$key][nomenclature_name]",$item['nomenclature_name']);
-														echo Html::hiddenInput("RaportMaterial[$key][nomenclature_guid]",$item['nomenclature_guid']);
-													?>
+														<?php 
+															echo $item['nomenclature_name'];
+															echo Html::hiddenInput("RaportMaterial[$key][nomenclature_name]",$item['nomenclature_name']);
+															echo Html::hiddenInput("RaportMaterial[$key][nomenclature_guid]",$item['nomenclature_guid']);
+														?>
 													</td>
 													<td>
-													<?php 
-														echo Html::textInput("RaportMaterial[$key][was]",$item['was'],['class'=>'form-control input-sm was_input ','readonly'=>1]);
-													?>
+														<?php 
+															echo Html::textInput("RaportMaterial[$key][was]",$item['was'],['class'=>'form-control input-sm was_input ','readonly'=>1]);
+														?>
 													</td>
-													<td>
-													<?php 
-														echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.001",'max'=>$item['was'],'autocomplete'=>'off']);
-													?>
+													<td class="tableRemnant_spent">
+														<?php 
+															echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.001",'max'=>$item['was'],'autocomplete'=>'off','readonly'=>false]); //boolval($assigned)
+														?>
 													</td>
 													<td>
 														<?php 
@@ -488,6 +495,24 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 												}
 											}
 											?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id="projectStandarts" class="row">
+								<div class="col-md-12">
+									<h3>Норматив:</h3>
+									<table id="tableProjectStandarts" class="table table-bordered table-hovered table-collapsed">
+										<thead>
+											<tr>
+												<th>Вид работы</th>
+												<th>Норматив</th>
+												<th>Средний расход</th>
+												<th>Отклонение</th>
+											</tr>
+										</thead>
+										<tbody>
+											
 										</tbody>
 									</table>
 								</div>
@@ -544,6 +569,9 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 <?php ActiveForm::end();?>
 
 <?php 
+
+
+$loadStandarsUrl = Url::to(['autocomplete/project-standarts']);
 
 $script = <<<JS
 
@@ -756,7 +784,11 @@ $script = <<<JS
 			var tr = $(this).parents("tr");
 			if(tr.length) tr.remove();
 		}
-		
+
+		if(table.attr("id") == "tableWorks"){
+			updateRemnantsTable();
+			drawProjectStandart();
+		};
 	});
 
 
@@ -768,6 +800,8 @@ $script = <<<JS
 		var r = parseFloat(total - value);
     	rest.val(r.toFixed(3));
 	});
+
+
 
 	$("body").on("keyup",".spent_input",function(){
 		var rest = $(this).parents("tr").find(".rest_input");
@@ -833,23 +867,27 @@ $script = <<<JS
 		})
 	}
 
+
 	//Расчет кв м
 	$("body").on("change",".td_length input,.td_count input",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
 	
+
 	//Расчет кв м
 	$("body").on("keyup",".td_length input,.td_count input",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
 
+
 	//Расчет кв м
 	$("body").on("click",".td_line_guid .autocomplete_items li",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
+
 
 	//Открываем список проектов при выборе объекта
 	$("body").on("click",".object_autocomplete ul.autocomplete_items li",function(){
@@ -863,14 +901,147 @@ $script = <<<JS
 	});
 
 
+
 	$("body").on("focus","td.td_length input[type=number],td.td_count input[type=number]",function(){
 		var hint = $(this).siblings(".hint_field");
 		hint.show();
 	});
+
+
 	$("body").on("focusout","td.td_length input[type=number],td.td_count input[type=number]",function(){
 		var hint = $(this).siblings(".hint_field");
 		hint.hide();
 	});
+
+
+
+
+
+
+	var projectStandarts = {
+		data:[]
+	}
+
+
+
+
+	var disableRemnantsField = function(){
+		var remnants = $("#tableRemnants tr");
+		if(!remnants.length) return;
+
+		remnants.each(function(){
+			var assigned = $(this).data("assigned");
+			if(assigned != 'undefined'){
+				$(this).find("td.tableRemnant_spent input").prop("readonly",parseInt(assigned) ? true : false);
+			}
+		});
+	}
+
+	var updateRemnantsTable = function(){
+		// console.log("Блокировка/Разблокировка израсходовано");
+		var works = $("#tableWorks tr");
+		
+		disableRemnantsField();
+
+		if(!works.length){
+			return;
+		}
+
+		works.each(function(){
+			var work = $(this);
+			var nomens = work.find("input.work_assigned_nomencaltures").val();
+			if(nomens){
+				var arr_nomens = nomens.split("|");
+				for(var i = 0; i < arr_nomens.length; i++){
+					var rem = $("#tableRemnants input[name$=\'[nomenclature_guid]\'][value=\'"+arr_nomens[i]+"\']");
+					if(rem.length){
+						rem.parents("tr").find(".tableRemnant_spent input").prop("readonly",false);
+					}
+				}
+			}
+		});
+	};
+
+	updateRemnantsTable();
+	var loadStandarsUrl = '{$loadStandarsUrl}';
+
+	var loadStandars = function(){
+		var guid = $("input[name=\'Raport[project_guid]\']");
+		if(guid.length && guid.val()){
+			$.ajax({
+				url:loadStandarsUrl,
+				data:{
+					guid:guid.val()
+				},
+				type:"GET",
+				dataType:"json",
+				beforeSend:function(){
+
+				},
+				success:function(resp){
+					projectStandarts.data = resp;
+					drawProjectStandart();
+				},
+				error:function(msg){
+					console.log(msg);
+				},
+				complete:function(){
+
+				}
+			});
+		}
+	}
+		
+	loadStandars();
+
+	var drawProjectStandart = function(){
+		// console.log("Рисуем таблицу нормативов для выбранного проекта");
+
+		$("#tableProjectStandarts tbody").html("");
+		
+		if(!projectStandarts.data.length){
+			return;
+		}
+		console.log(projectStandarts.data);
+		var data_length = projectStandarts.data.length;
+		for(var i = 0; i < data_length; i++){
+			
+			var standart = projectStandarts.data[i];
+
+			//Проверка есть ли в списке работ текущая работа
+			if(!standart.hasOwnProperty("typeofwork_guid")) continue;
+
+			var work = $("#tableWorks tr input[name^=\'RaportWork\'][name$=\'[work_guid]\'][value=\'"+standart.typeofwork_guid+"\']");
+
+			// console.log(work);
+			if(!work.length) continue;
+
+			var tr = $("<tr/>");
+			tr.append($("<td/>").text(standart.typeofwork_name));
+			//Норматив
+			tr.append($("<td/>").text(standart.standard));
+			//Сред расход
+			tr.append($("<td/>").text(standart.standard));
+			//Отклонение
+			tr.append($("<td/>").text(standart.standard));
+			$("#tableProjectStandarts tbody").append(tr);
+		};
+
+	};
+
+
+	$("body").on("change","input.work_assigned_nomencaltures",function(){
+		updateRemnantsTable();
+		drawProjectStandart();
+	});
+
+
+	$("body").on("change","input[name=\'Raport[project_guid]\']",function(){
+		loadStandars()
+	});
+
+		
+
 JS;
 
 

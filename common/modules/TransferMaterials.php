@@ -2,8 +2,12 @@
 
 namespace common\modules;
 
+use yii\db\Query;
 use yii\base\Model;
 use common\models\User;
+use common\models\Request;
+use common\dictionaries\ExchangeStatuses;
+use soapclient\methods\TransferOfMaterials;
 
 
 class TransferMaterials extends Model{
@@ -12,10 +16,12 @@ class TransferMaterials extends Model{
     
     public $mol_guid_recipient;
     
-    public $created_at;
+    public $date;
     
     public $comment;
 
+    public $status;
+    
 	/**
 	* Associative multiple array
 	* key: nomenclature_guid,count,series_guid
@@ -24,20 +30,23 @@ class TransferMaterials extends Model{
 
 	protected $materialsError = [];
 
+    protected $request_id = null;
+
+
 	public function rules(){
         return [
             // name, email, subject and body are required
             [['mol_guid','mol_guid_recipient'], 'required'],
-            ['created_at','filter','filter'=>function($v){
+            ['date','filter','filter'=>function($v){
                 $date = $v ? date("Y-m-d\TH:i:s",strtotime($v)) : date("Y-m-d\TH:i:s",time());
 
                 return $date;
             }],
-            ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
+            ['date','default','value'=>date("Y-m-d\TH:i:s",time())],
             [['comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
             [['comment',],'default','value'=>null],
             [['mol_guid','mol_guid_recipient'],'string','max'=>36],
-            
+            ['status','default','value'=>ExchangeStatuses::CREATED]
         ];
     }
 
@@ -131,9 +140,49 @@ class TransferMaterials extends Model{
         return $this->materialsError;
     }
 
+
+
     public function getMaterials(){
         return $this->materials;
     }
+
+
+
+    public function getUnLoadedStructuredMaterials(){
+        if(!is_array($this->materials) || !count($this->materials)) return [];
+
+        $structured = [];
+        foreach ($this->materials as $key => $m) {
+            $structured[$m['nomenclature_guid']][$m['series_guid']]['count'] = $m['count'];
+        }
+
+        return $structured;
+    }
+
+
+    public function setMaterials($materials){
+        return $this->materials = $materials;
+    }
+
+
+
+
+
+
+    public function setRequestId($request_id){
+        $this->request_id = $request_id;
+    }
+
+
+
+
+
+    public function getRequestId(){
+        return $this->request_id;
+    }
+
+
+
 
     /**
      * @return array customized attribute labels (name=>label)
@@ -142,17 +191,47 @@ class TransferMaterials extends Model{
         return array(
             'id'=>'Id',
             'guid'=>'Идентификатор в 1С',
-            'created_at'=>'Дата создания документа',
+            'date'=>'Дата создания документа',
             'comment'=>'Комментарий',
         );
     }
 
 
 
+    public static function loadFromRequest($request){
+        $req = (new Query())->select(['id','params_in'])
+                ->from(Request::tableName())
+                ->where(['id'=>$request])
+                ->one();
 
-    public function getActualTransfersFromMe(){
 
+        if(isset($req['params_in'])){
+            $params = json_decode($req['params_in'],1);
+            $model = new static($params);
+
+            $model->setRequestId($request);
+
+            return $model;
+        }
+
+        return new static();
     }
+
+
+    public static function getActualTransfersFromUser($user_id){
+        if(!$user_id) return [];
+        $docs = (new Query())->select(['id','params_in'])
+                ->from(Request::tableName())
+                ->where([
+                    'request'=>get_class(new TransferOfMaterials),
+                    'user_id'=>$user_id,
+                    'result'=>0,
+                    'completed'=>0])
+                ->all();
+
+        return $docs;
+    }
+
 
     public function getActualTransfersToMe(){
         

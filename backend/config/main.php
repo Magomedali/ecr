@@ -12,6 +12,7 @@ return [
     'language' => 'ru-RU',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'timeZone'=>'Europe/Moscow',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',

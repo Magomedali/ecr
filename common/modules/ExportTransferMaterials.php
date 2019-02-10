@@ -14,7 +14,7 @@ class ExportTransferMaterials{
 	public static function export(TransferMaterials $model){
         
 		$params = [
-			'date'=>date("Y-m-d\TH:i:s",strtotime($model['created_at'])),
+			'date'=>date("Y-m-d\TH:i:s",strtotime($model['date'])),
 			'status'=>"Создан",
 			'mol_guid'=>$model['mol_guid'],
             'mol_guid_recipient'=>$model['mol_guid_recipient'],
@@ -22,16 +22,27 @@ class ExportTransferMaterials{
 		];
 
 		$params['materials'] = $model->materials;
-
+        $user_id = Yii::$app->user->id;
 		try {
 			$method = new TransferOfMaterials();
-			$request = new Request([
+			
+            $request = null;
+            $req_params = [
                 'request'=>get_class($method),
                 'params_in'=>json_encode($params),
                 'resource_id'=>null,
-                'actor_id'=>Yii::$app->user->id
-            ]);
+                'user_id'=>$user_id,
+                'actor_id'=>$user_id
+            ];
 
+            if($model->requestId){
+                $request = Request::findOne($model->requestId);
+            }
+
+            if(!isset($request->id) || !$request->load(['Request'=>$req_params])){
+                $request = new Request($req_params);
+            }
+            
 
             $method->setParameters($params);
 

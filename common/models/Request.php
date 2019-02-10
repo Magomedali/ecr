@@ -177,7 +177,7 @@ class Request extends ActiveRecordVersionable
     public function send(BaseMethod $method){
 
         $client = Yii::$app->webservice1C->getClient();
-        $success = false;
+
         try {
             ini_set('default_socket_timeout', 600);
             set_time_limit(0);
@@ -185,8 +185,6 @@ class Request extends ActiveRecordVersionable
                 $responce = Yii::$app->webservice1C->send($method);
                 Yii::warning(json_encode($responce),"api");
                 $responce = json_decode(json_encode($responce),1);
-
-
 
                 //Yii::warning($client->__getLastRequestHeaders(),"api");
                 //Yii::warning($client->__getLastRequest(),"api");
@@ -230,16 +228,17 @@ class Request extends ActiveRecordVersionable
             $this->result = 1;
             $this->completed = 1;
             $this->completed_at = date("Y-m-d\TH:i:s",time());
-            $success = true;
+
         }
         $this->params_out = json_encode($responce);
         
         if(!$this->save()){
             Yii::error("Request validate error","api");
             Yii::error($this->getErrors(),"api");
+            return false;
         }
 
-        return boolval($success);
+        return true;
     }
 
 }

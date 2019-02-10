@@ -52,6 +52,11 @@ AppAsset::register($this);
             <ul class="nav navbar-top-links navbar-right">
                 
                 <!-- /.dropdown -->
+                <?php if(isset($this->params['shift_start'])){?>
+                    <li class="shifttime">
+                        <?php echo "Начало смены: ",date("d.m.Y H:i",strtotime($this->params['shift_start']));?>
+                    </li>
+                <?php } ?>
                 <li class="dropdown">
                     <?php echo Html::a(Yii::$app->user->identity->name,['site/index']);?>
                 </li>

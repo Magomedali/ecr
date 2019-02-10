@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\modules\LoadDocument;
+use common\modules\SendUpdateStatusDocument;
+use common\models\Document;
 
 class DocumentController extends Controller{
 
@@ -96,77 +98,22 @@ class DocumentController extends Controller{
 
         $post = Yii::$app->request->post();
 
-        $model = new TransferMaterials();
-        $remnants = [];
-        $hasErrors = false;
-        $errorsTransfer = [];
-        $errors = [];
-
-        if(isset($post['TransferMaterials'])){
+        if(isset($post['doc']) && (isset($post['cancel']) || isset($post['commit']))){
             
-            $data = $post;
-            $data['TransferMaterials']['mol_guid']=$this->user->guid;
+            $doc_data['document_guid'] = $post['doc']['guid'];
+            $doc_data['movement_type'] = $post['doc']['movement_type'];
+            $doc_data['status'] = isset($post['cancel']) ? Document::STATUS_DONT_ACCEPTED : Document::STATUS_ACCEPTED;
 
-            if($model->load($data) && $model->validate()){
-
-                if(count($model->getMaterialsError())){
-                    Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.. Некорректные данные в табличной части документа имеют не корректные данные");
-                    Yii::warning("Error when validate transfer tables data","transferMaterialForm");
-                    Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
-                    $errors = $model->getMaterialsError();
-                }else{
-                    // echo "<PRE>";
-                    // print_r($model->attributes);
-                    // print_r($model->materials);
-                    // echo "</PRE>";
-
-                    //Отправить заявку в 1С
-                    if(ExportTransferMaterials::export($model)){
-                        Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
-                        return $this->redirect(['material/index']);
-                    }else{
-                        Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на проверку в 1С");
-                    }
-                }
-                   
-            }else{
-                Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.");
-                Yii::warning("Error when validate transfermaterials document","transferMaterialForm");
-                Yii::warning(json_encode($model->getErrors()),"transferMaterialForm");
-                $errors = $model->getErrors();
+            if(SendUpdateStatusDocument::export($doc_data)){
+                return $this->redirect(['material/index']);
             }
 
-            if(count($errors)){
-                foreach ($errors as $key => $er) {
-                    if(!is_array($er)){
-                        Yii::$app->session->setFlash("warning",$er);
-                        Yii::warning($key.": ",$er,"transferMaterialForm");
-                    }else{
-                        foreach ($er as $key2 => $e) {
-                            Yii::$app->session->setFlash("warning",$e);
-                            Yii::warning($key2.": ",$e,"transferMaterialForm");
-                        }
-                    }
-                }
-            }
+            // print_r($post);
+            // exit;
 
-            $hasErrors = true;
-            $errorsTransfer = isset($post['TransferMaterials']) ? $post['TransferMaterials'] : [];
-            $remnants = isset($post['materials']) ? $post['materials'] : [];
-
-        }else{
-            // $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
-            $remnants = \common\modules\ImportRemnantsWithSeries::import($this->user->guid);
         }
 
-
-        return $this->render('form',[
-            'model'=>$model,
-            'remnants'=>$remnants,
-            'hasErrors'=>$hasErrors,
-            'errors'=>$errors,
-            'errorsTransfer'=>$errorsTransfer
-        ]);
+        return $this->redirect(['material/index']);
     }
 
 
