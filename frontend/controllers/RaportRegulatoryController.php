@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\RaportRegulatory;
+use common\modules\ExportRaportRegulatoryLoad;
 
 
 class RaportRegulatoryController extends Controller{
@@ -125,10 +126,20 @@ class RaportRegulatoryController extends Controller{
                     Yii::warning(json_encode($model->getWorksErrors()),"raportform");
                     $errors = count($errors) ? $errors : $model->getWorksErrors();
                 }else{
-                    Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+                    Yii::$app->session->setFlash("success","Рапорт успешно сохранен");
 
-                    //Отправить заявку в 1С
-                    //$model->sendToConfirmation();
+                    try {
+                        //Отправить заявку в 1С
+                        if(ExportRaportRegulatoryLoad::export($model)){
+                            Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
+                        }else{
+                            Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                        }
+                        
+                    } catch (\Exception $e) {
+                        Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                    }
+                    
 
                     return $this->redirect(['raport/index']);
                 }

@@ -126,10 +126,14 @@ class RaportController extends Controller{
                     Yii::warning(json_encode($model->getWorksErrors()),"unloadremnant");
                     Yii::warning(json_encode($model->getMaterialsErrors()),"unloadremnant");
                 }else{
-                    Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+                    Yii::$app->session->setFlash("success","Рапорт успешно сохранен");
 
                     //Отправить заявку в 1С
-                    $model->sendToConfirmation();
+                    if($model->sendToConfirmation()){
+                        Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
+                    }else{
+                        Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                    }
 
                     return $this->redirect(['user/view','guid'=>$model->user_guid]);
                 }
@@ -181,7 +185,11 @@ class RaportController extends Controller{
             Yii::$app->session->setFlash("success","Файлы прикреплены к рапорту");
 
             //Отправить в 1С
-            $model->sendToConfirmation();
+            if($model->sendToConfirmation()){
+                Yii::$app->session->setFlash("success","Файлы прикреплены к рапорту");  
+            }else{
+                Yii::$app->session->setFlash("error","Файлы не удалось отправть в 1С");
+            }
             
         }else{
             Yii::$app->session->setFlash("error","Файлы не удалось прикрепить к рапорту");

@@ -12,6 +12,7 @@ class m190118_082120_column_unit_nomenclature extends Migration
      */
     public function safeUp()
     {   
+        
         $this->addColumn("{{%nomenclature}}",'unit',$this->string(255)->null());
         $this->addColumn("{{%nomenclature_history}}",'unit',$this->string(255)->null());
     }

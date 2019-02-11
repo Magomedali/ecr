@@ -200,10 +200,15 @@ class RaportController extends Controller{
                             $errors = count($errors) ? $errors : $model->getWorksErrors();
                             $errors = count($errors) ? $errors : $model->getMaterialsErrors();
                         }else{
-                            Yii::$app->session->setFlash("success","Рапорт отправлен на проверку");
+                            Yii::$app->session->setFlash("success","Рапорт успешно сохранен!");
 
-                            //Отправить заявку в 1С
-                            $model->sendToConfirmation();
+                            //Отправить в 1С
+                            if($model->sendToConfirmation()){
+                                Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
+                            }else{
+                                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                            }
+                            
 
                             return $this->redirect(['raport/index']);
                         }
@@ -282,7 +287,11 @@ class RaportController extends Controller{
             Yii::$app->session->setFlash("success","Файлы прикреплены к рапорту");
 
             //Отправить в 1С
-            $model->sendToConfirmation();
+            if($model->sendToConfirmation()){
+                Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
+            }else{
+                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+            }
             
         }else{
             Yii::$app->session->setFlash("error","Файлы не удалось прикрепить к рапорту");

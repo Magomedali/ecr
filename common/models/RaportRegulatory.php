@@ -233,15 +233,18 @@ class RaportRegulatory extends ActiveRecordVersionable
 
 
     public function getWorkers(): string{
+        
+        $workers = "";
+
         if($this->id){
-            return (new Query)->select(['GROUP_CONCAT(u.name SEPARATOR ", ") as workers'])
+            $workers = (new Query)->select(['GROUP_CONCAT(u.name SEPARATOR ", ") as workers'])
                         ->from(['rw'=>RaportRegulatoryWork::tableName()])
                                 ->innerJoin(['u'=>User::tableName()]," u.guid = rw.user_guid")
                                 ->where(['raport_regulatory_id'=>$this->id])
                                 ->scalar();
         }
 
-        return "";
+        return $workers ? $workers : "";
     }
 
 
