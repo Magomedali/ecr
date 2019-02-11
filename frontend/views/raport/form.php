@@ -481,7 +481,7 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 													</td>
 													<td class="tableRemnant_spent">
 														<?php 
-															echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.001",'max'=>$item['was'],'autocomplete'=>'off','readonly'=>false]); //boolval($assigned)
+															echo Html::input("number","RaportMaterial[$key][spent]",$item['spent'] ? $item['spent'] : null,['class'=>'form-control input-sm spent_input','min'=>0,'step'=>"0.001",'max'=>$item['was'],'autocomplete'=>'off','readonly'=>false,'data-value'=>$item['spent'] ? $item['spent'] : null]); //boolval($assigned)
 														?>
 													</td>
 													<td>
@@ -786,8 +786,9 @@ $script = <<<JS
 		}
 
 		if(table.attr("id") == "tableWorks"){
-			updateRemnantsTable();
-			drawProjectStandart();
+			updateRemnantsTable();//блокировка и разблокировка номенклатур
+			drawProjectStandart();//отрисовка таблицы норматива
+			calcAVGStandard();//рассчет норматива
 		};
 	});
 
@@ -798,7 +799,10 @@ $script = <<<JS
 		var total = parseFloat($(this).attr("max"));
 		var value = parseFloat($(this).val());
 		var r = parseFloat(total - value);
+		r = r > 0 || r < 0 ? r : 0; 
     	rest.val(r.toFixed(3));
+
+    	calcAVGStandard();//рассчет норматива
 	});
 
 
@@ -824,7 +828,8 @@ $script = <<<JS
 		}else{
 			rest.val("");
 		}
-		
+
+		calcAVGStandard();//рассчет норматива
 	});
 
 
@@ -855,6 +860,7 @@ $script = <<<JS
 			success:function(json){
 				if(json.hasOwnProperty("result") && json.result){
 					tr.find("td.td_squaremeter input").val(json.result);
+					calcAVGStandard();//рассчет норматива
 				}
 				
 			},
@@ -931,8 +937,17 @@ $script = <<<JS
 
 		remnants.each(function(){
 			var assigned = $(this).data("assigned");
-			if(assigned != 'undefined'){
-				$(this).find("td.tableRemnant_spent input").prop("readonly",parseInt(assigned) ? true : false);
+			if(assigned == 'undefined') return;
+			var rem = $(this).find("td.tableRemnant_spent input");;
+			if(!rem.length) return;
+			assigned = parseInt(assigned) ? true : false;
+
+			if(assigned){
+				rem.prop("readonly",true);
+				if(rem.val()){
+					rem.attr("data-value",rem.val());
+				}
+				rem.val(null);
 			}
 		});
 	}
@@ -950,19 +965,24 @@ $script = <<<JS
 		works.each(function(){
 			var work = $(this);
 			var nomens = work.find("input.work_assigned_nomencaltures").val();
-			if(nomens){
-				var arr_nomens = nomens.split("|");
-				for(var i = 0; i < arr_nomens.length; i++){
-					var rem = $("#tableRemnants input[name$=\'[nomenclature_guid]\'][value=\'"+arr_nomens[i]+"\']");
-					if(rem.length){
-						rem.parents("tr").find(".tableRemnant_spent input").prop("readonly",false);
-					}
-				}
+			if(!nomens) return;
+			var arr_nomens = nomens.split("|");
+			
+			for(var i = 0; i < arr_nomens.length; i++){
+				var rem = $("#tableRemnants input[name$=\'[nomenclature_guid]\'][value=\'"+arr_nomens[i]+"\']");
+				if(!rem.length) continue;
+				
+				var spent = rem.parents("tr").find(".tableRemnant_spent input");
+				if(!spent.length) continue;
+				spent.prop("readonly",false);
+				var old_val = spent.attr("data-value");
+				spent.val(old_val != 'undefined' ? old_val : null);
 			}
+			
 		});
 	};
 
-	updateRemnantsTable();
+	
 	var loadStandarsUrl = '{$loadStandarsUrl}';
 
 	var loadStandars = function(){
@@ -981,6 +1001,7 @@ $script = <<<JS
 				success:function(resp){
 					projectStandarts.data = resp;
 					drawProjectStandart();
+					calcAVGStandard();
 				},
 				error:function(msg){
 					console.log(msg);
@@ -991,7 +1012,8 @@ $script = <<<JS
 			});
 		}
 	}
-		
+	
+	updateRemnantsTable();
 	loadStandars();
 
 	var drawProjectStandart = function(){
@@ -1002,7 +1024,7 @@ $script = <<<JS
 		if(!projectStandarts.data.length){
 			return;
 		}
-		console.log(projectStandarts.data);
+		// console.log(projectStandarts.data);
 		var data_length = projectStandarts.data.length;
 		for(var i = 0; i < data_length; i++){
 			
@@ -1017,18 +1039,72 @@ $script = <<<JS
 			if(!work.length) continue;
 
 			var tr = $("<tr/>");
-			tr.append($("<td/>").text(standart.typeofwork_name));
+			tr.append($("<td/>").addClass("std_work").attr("data-guid",standart.typeofwork_guid).text(standart.typeofwork_name));
+			
 			//Норматив
-			tr.append($("<td/>").text(standart.standard));
+			tr.append($("<td/>").addClass("std").text(standart.standard));
+			
 			//Сред расход
-			tr.append($("<td/>").text(standart.standard));
+			tr.append($("<td/>").addClass("avg_spent"));
+			
 			//Отклонение
-			tr.append($("<td/>").text(standart.standard));
+			tr.append($("<td/>").addClass("std_offset").text(standart.standard));
+			
 			$("#tableProjectStandarts tbody").append(tr);
 		};
 
 	};
 
+	var calcAVGStandard = function(){
+
+		var trs = $("#tableProjectStandarts tbody tr");
+
+		if(!trs.length){
+			drawProjectStandart();
+			trs = $("#tableProjectStandarts tbody tr");
+		}
+
+		if(!trs.length) return; 
+		
+
+		trs.each(function(){
+			var tr = $(this);
+			var guid = tr.find(".std_work").attr("data-guid");
+			if(!guid) return;
+
+			var works = $("#tableWorks tr input[name^=\'RaportWork\'][name$=\'[work_guid]\'][value=\'"+guid+"\']");
+			var works_calcsquare = 0;
+				
+			if(!works.length) return; 
+
+			works.each(function(){
+				works_calcsquare += parseFloat($(this).parents("tr").find(".td_squaremeter input").val());
+			});
+			
+			var nomen = works.eq(0).parents("td").find("input.work_assigned_nomencaltures").val();
+			if(!nomen.length) return;
+			
+			var arr_nomen = nomen.split("|");
+			if(!arr_nomen.length) return;
+			
+			var materials_spent = 0;
+
+			for(var i=0; i < arr_nomen.length;i++){
+				var rem = $("#tableRemnants input[name$=\'[nomenclature_guid]\'][value=\'"+arr_nomen[i]+"\']");
+				if(!rem.length) continue;
+				materials_spent +=parseFloat(rem.parents("tr").find(".tableRemnant_spent input").val());
+			}
+
+			if(works_calcsquare <= 0) return;
+			materials_spent = materials_spent > 0 ? materials_spent : 0;
+			var avg = parseFloat(materials_spent/works_calcsquare);
+			var std = parseFloat(tr.find(".std").text());
+			// console.log(materials_spent+"/"+works_calcsquare+"="+avg);
+			tr.find(".avg_spent").text(avg.toFixed(3));
+			var offset = parseFloat(std - avg).toFixed(3);
+			tr.find(".std_offset").text(offset).css("color",offset > 0 ? "green" : "red");
+		});
+	}
 
 	$("body").on("change","input.work_assigned_nomencaltures",function(){
 		updateRemnantsTable();
@@ -1037,7 +1113,7 @@ $script = <<<JS
 
 
 	$("body").on("change","input[name=\'Raport[project_guid]\']",function(){
-		loadStandars()
+		loadStandars();
 	});
 
 		
