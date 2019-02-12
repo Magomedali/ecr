@@ -106,12 +106,16 @@ class ClientController extends Controller
             [
                 'guid'=>'209c80df-68f2-11e8-8117-005056b47a2e',
                 'name'=>'Абрамов Михаил Сергеевич',
-                'is_master'=>true
+                'is_master'=>true,
+                'login'=>'master1',
+                'password'=>'12345qwE',
             ],
             [
                 'guid'=>'e9d9bbf7-5271-11e7-80ec-000c29a0432f',
                 'name'=>'Акопян Вираб Робертович',
-                'is_master'=>true
+                'is_master'=>true,
+                'login'=>'master2',
+                'password'=>'12345qwE',
             ],
             [
                 'guid'=>'07b7112a-40af-11e8-8114-005056b47a2e',
@@ -141,7 +145,7 @@ class ClientController extends Controller
                 'is_master'=>false,
                 'login'=>'nozdrenkovai',
                 'password'=>'12345qwE',
-                'status'=>0
+                'status'=>10
             ]
         ];
 

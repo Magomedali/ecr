@@ -12,6 +12,8 @@ use frontend\models\LoginForm;
 use frontend\models\ResetPasswordForm;
 use frontend\modules\TotalOutputFilter;
 
+use frontend\modules\RaportFilter;
+use frontend\modules\RaportRegulatoryFilter;
 use common\models\{User,Setting};
 
 
@@ -77,9 +79,26 @@ class SiteController extends Controller
 
 
         if($user->is_master){
-            return $this->render('master',[
 
+            $RaportFilter = new RaportFilter;
+            $params = Yii::$app->request->queryParams;
+            $params['RaportFilter']['master_guid']=$user->guid;
+            $dataProviderRaport = $RaportFilter->filter($params);
+
+
+            $RaportRegulatoryFilter = new RaportRegulatoryFilter;
+            $params = Yii::$app->request->queryParams;
+            $params['RaportRegulatoryFilter']['master_guid']=$user->guid;
+            $dataProviderRaportRegulatory = $RaportRegulatoryFilter->filter($params);
+
+
+            return $this->render('master',[
+                'dataProviderRaport'=>$dataProviderRaport,
+                'RaportFilter'=>$RaportFilter,
+                'dataProviderRaportRegulatory'=>$dataProviderRaportRegulatory,
+                'RaportRegulatoryFilter'=>$RaportRegulatoryFilter,
             ]);
+
         }else{
 
             $startTime = Setting::getStartShiftTime();

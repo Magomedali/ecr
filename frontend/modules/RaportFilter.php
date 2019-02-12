@@ -23,7 +23,7 @@ class RaportFilter extends Raport
     public function rules()
     {
         return [
-            [['brigade_guid','user_guid'],'required'],
+            [['brigade_guid','user_guid','master_guid'],'string','length'=>36],
             ['month','safe']
         ];
     }
@@ -90,21 +90,23 @@ class RaportFilter extends Raport
 
         //если данные не фильтра не переданы или переданы не валидные данныеы
         if(!($this->load($params) && $this->validate())){
-            
-            if($this->brigade_guid && $this->user_guid){
-                $query->andWhere(['brigade_guid'=>$this->brigade_guid]);
-                $query->andWhere(['user_guid'=>$this->user_guid]);
-            }else{
-                $query->where("id < 0");
-            }
-            
+            $query->where("id < 0");
+        
             return $dataProvider;
         }
         
         
-        $query->andWhere(['brigade_guid'=>$this->brigade_guid]);
-        $query->andWhere(['user_guid'=>$this->user_guid]);
-        
+        if($this->brigade_guid){
+            $query->andWhere(['brigade_guid'=>$this->brigade_guid]);
+        }
+
+        if($this->user_guid){
+           $query->andWhere(['user_guid'=>$this->user_guid]); 
+        }
+
+        if($this->master_guid){
+           $query->andWhere(['master_guid'=>$this->master_guid]); 
+        }
 
         if($this->month){
             $now = time();
