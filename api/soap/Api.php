@@ -10,6 +10,7 @@ use api\soap\Exceptions\ApiException;
 use api\soap\Exceptions\ApiExceptionMethodNotExists;
 use api\soap\Exceptions\ApiExceptionWrongType;
 
+use common\dictionaries\ExchangeStatuses;
 use common\models\Brigade;
 use common\models\Technic;
 use common\models\User;
@@ -24,7 +25,7 @@ use common\models\Raport;
 use common\models\StockRoom;
 use common\models\Setting;
 use common\models\RaportRegulatory;
-use common\models\ProjectStandard;
+use common\models\{ProjectStandard,MaterialsApp};
 
 
 class Api{
@@ -839,6 +840,50 @@ class Api{
     }
 
 
+
+
+    public static function updateapplicationstatus($data){
+        self::log("Called Method 'updateapplicationstatus'");
+        self::log("Parameter Type:".gettype($data));
+        self::log("Parameter Value:".json_encode($data));
+
+
+        $Type = "ApplicationStatus";
+        $data = json_decode(json_encode($data),1);
+        if(!is_array($data)  || !isset($data['guid']) || !isset($data['status'])){
+            throw new ApiExceptionWrongType();
+        }
+        
+        $responce = new Responce();
+        $erros = [];
+        $model = MaterialsApp::findOne(['guid'=>$data['guid']]);
+        
+        if(!isset($model->id) || !$model->id){
+            $responce->success = false;
+            $responce->error = "MaterialsAppNotFounded";
+            $responce->errorMessage = "Not founded materials app by guid";
+            $responce->errorUserMessage = "Заявка не найдена!";
+
+            return $responce;
+        }
+
+        $model->setStatus($data['status']);
+        $model->status = $model->status <= ExchangeStatuses::CREATED ? ExchangeStatuses::IN_CONFIRMING : $model->status;
+        
+        if(!$model->save(1)){
+            $erros[] = json_encode($model->getErrors());
+            $responce->success = false;
+        }else{
+            $responce->success = true;
+        }
+
+
+        if(count($erros)){
+            $responce->success = false;
+            $responce->errorsExtend = $erros;
+        }
+        return $responce;
+    }
 
 
     /**

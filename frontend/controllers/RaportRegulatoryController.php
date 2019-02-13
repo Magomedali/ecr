@@ -9,7 +9,7 @@ use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\RaportRegulatory;
 use common\modules\ExportRaportRegulatoryLoad;
-
+use common\modules\CheckCloseShift;
 
 class RaportRegulatoryController extends Controller{
 
@@ -83,6 +83,12 @@ class RaportRegulatoryController extends Controller{
         if(!$brigade_guid){
             Yii::$app->user->logout();
             return $this->goHome();
+        }
+
+        $checkerShift = new CheckCloseShift($user);
+        if(!$checkerShift->isClosed()){
+            Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
+            return $this->redirect(['material/index']);
         }
 
 

@@ -4,7 +4,6 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\MaterialsApp;
@@ -13,6 +12,9 @@ use frontend\modules\MaterialAppFilter;
 use common\modules\ImportListOfDocuments;
 use common\modules\ExportMaterialsApp;
 use common\modules\TransferMaterials;
+use common\modules\CheckCloseShift;
+use common\dictionaries\ExchangeStatuses;
+use common\base\Controller;
 
 class MaterialController extends Controller{
 
@@ -38,7 +40,12 @@ class MaterialController extends Controller{
                         'roles' => ['@'],
                     ],
                 ],
-            ]
+            ],
+            // 'checkShift'=>[
+            //     'class'=>\common\behaviors\CheckShift::className(),
+            //     'actions'=>['form'],
+            //     'redirect'=>['material/index']
+            // ]
         ];
     }
 
@@ -74,9 +81,13 @@ class MaterialController extends Controller{
             return $this->goHome();
         }
 
+
         $modelFilters = new MaterialAppFilter;
         $params = Yii::$app->request->queryParams;
         $params['MaterialAppFilter']['user_guid']=$user->guid;
+        
+        //$params['MaterialAppFilter']['statusCode']=ExchangeStatuses::CONFIRMED;
+        
         $dataProvider = $modelFilters->filter($params);
 
         $documents = ImportListOfDocuments::import($user->guid);
@@ -119,10 +130,6 @@ class MaterialController extends Controller{
 
     public function actionForm($id = null){
 
-
-        
-
-
         $post = Yii::$app->request->post();
 
         if($id || isset($post['model_id'])){
@@ -136,6 +143,12 @@ class MaterialController extends Controller{
            $model = new MaterialsApp(); 
         }
         
+        $checkerShift = new CheckCloseShift($this->user);
+        if(!$checkerShift->isClosed()){
+            Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
+            return $this->redirect(['material/index']);
+        }
+
         $hasErrors = false;
         $errorsMaterialsApp=[];
         $errorsMaterialsAppItem = [];

@@ -16,6 +16,7 @@ class MaterialAppFilter extends MaterialsApp
 
     public $page_size = 5;
 
+    public $statusCode;
     /**
      * Правила валидации модели
      * @return array
@@ -24,7 +25,7 @@ class MaterialAppFilter extends MaterialsApp
     {
         return [
             [['user_guid'],'required'],
-            ['month','safe']
+            [['month','statusCode'],'safe']
         ];
     }
 
@@ -102,6 +103,9 @@ class MaterialAppFilter extends MaterialsApp
         
         
         $query->andWhere(['user_guid'=>$this->user_guid]);
+
+        if($this->statusCode)
+            $query->andWhere(['status'=>$this->statusCode]);
         
 
         if($this->month){

@@ -11,6 +11,9 @@ use common\modules\TransferMaterials;
 use common\modules\ExportTransferMaterials;
 use frontend\modules\MaterialAppFilter;
 
+use common\models\Raport;
+use common\dictionaries\ExchangeStatuses;
+
 class TransferMaterialsController extends Controller{
 
 
@@ -102,6 +105,14 @@ class TransferMaterialsController extends Controller{
         }else{
             $model = new TransferMaterials();
             $unLoadedMaterials = [];
+        }
+
+        //Проверка наличии не подтвержденных рапортов;
+        $raports = Raport::find()->where(['user_guid'=>$this->user->guid])->andFilterWhere(['in','status',Raport::getUnconfirmedStatuses()])->all();
+        
+        if(count($raports)){
+            Yii::$app->session->setFlash("warning","У вас есть неподтвержденные рапорта (".count($raports)."). При наличии неподтвержденных рапортов, нельзя создать документ передачи материалов на другого мол!!!");
+            return $this->redirect(['material/index']);
         }
 
         $remnants = [];

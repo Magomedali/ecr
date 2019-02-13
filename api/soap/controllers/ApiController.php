@@ -367,4 +367,21 @@ class ApiController extends Controller
 
         return $this->exec(__METHOD__,$projectstandards[$type]);
     }
+
+
+
+    /**
+     * update application status
+     * @param api\soap\models\ApplicationStatus $applicationstatus
+     * @return api\soap\models\Responce
+     * @soap
+     */
+    public function updateapplicationstatus($applicationstatus){   
+        $type = 'applicationstatus';
+        $applicationstatus = json_decode(json_encode($applicationstatus),1); 
+        if(!isset($applicationstatus[$type]))
+            return new ApiExceptionWrongType("WrongType","Packet doesn`t have parameter 'applicationstatus'");
+
+        return $this->exec(__METHOD__,$applicationstatus[$type]);
+    }
 }

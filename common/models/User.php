@@ -506,6 +506,7 @@ class User extends ActiveRecord implements IdentityInterface
 
 
 
+
     public function saveRemnants($items,$needToGroup = true){
         if(!is_array($items) || !count($items)) return false;
 
@@ -523,6 +524,10 @@ class User extends ActiveRecord implements IdentityInterface
             return $rm->saveRelationEntities();
         }
     }
+
+
+
+
 
 
 
@@ -554,6 +559,12 @@ class User extends ActiveRecord implements IdentityInterface
 
         return $remnants;
     }
+
+
+
+
+
+
 
 
     /**
@@ -602,12 +613,6 @@ class User extends ActiveRecord implements IdentityInterface
 
         return $remnants;
     }
-
-
-
-
-
-    
 
 
 }

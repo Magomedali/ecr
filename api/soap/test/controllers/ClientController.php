@@ -839,4 +839,29 @@ class ClientController extends Controller
         echo " : ---Method unloadprojectstandard\n";
         echo "\n\n\n", json_encode($answer),"\n\n\n";
     }
+
+
+
+
+
+
+
+
+
+    public function actionUpdateAppStatus(){
+        $par = [
+                'guid'=>'a4acc7f8-2f7c-11e9-8153-005056b47a2e',
+                'status'=>'Отклонен'
+        ];
+        
+        $par['applicationstatus'] = $par;
+
+        $answer = Yii::$app->testclient->getClient()->updateapplicationstatus($par); 
+
+
+        $result =isset($answer->returns) && isset($answer->returns->success) && $answer->returns->success ? "true" : "false";
+        echo $result;
+        echo " : ---Method Unloadsettings\n";
+        echo "\n\n\n", json_encode($answer),"\n\n\n";
+    }
 }

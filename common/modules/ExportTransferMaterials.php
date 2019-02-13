@@ -23,6 +23,7 @@ class ExportTransferMaterials{
 
 		$params['materials'] = $model->materials;
         $user_id = Yii::$app->user->id;
+        
 		try {
 			$method = new TransferOfMaterials();
 			

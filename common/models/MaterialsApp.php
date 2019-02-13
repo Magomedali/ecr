@@ -188,15 +188,30 @@ class MaterialsApp extends ActiveRecordVersionable
     }
 
 
+    public function setStatus($status){
+        if(is_numeric($status)){
+            $labels = ExchangeStatuses::getLabels();
+            $this->status = array_key_exists($status, $labels) ? $status : ExchangeStatuses::CREATED;
+        }else{
+            $code = ExchangeStatuses::getCode($status);
+            $this->status = $code ? $code : ExchangeStatuses::CREATED;
+        }
+    }
+
+
     public function getStatusTitle(){
         $title = ExchangeStatuses::getLabels($this->status);
 
         return !is_array($title) ? $title : null;
     }
 
+
+
     public function getIsCanUpdate(){
-        return $this->status <= ExchangeStatuses::IN_CONFIRMING;
+        return $this->status != ExchangeStatuses::CONFIRMED;
     }
+
+
 
     public function getMaterialsAppItems(){
         if($this->id){
