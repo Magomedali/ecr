@@ -11,14 +11,16 @@ use common\modules\TransferMaterials;
 use common\modules\ExportTransferMaterials;
 use frontend\modules\MaterialAppFilter;
 
-use common\models\Raport;
+use common\models\{Raport,Request};
 use common\dictionaries\ExchangeStatuses;
+use soapclient\methods\TransferOfMaterials;
 
 class TransferMaterialsController extends Controller{
 
 
     protected $user;
 
+    public $command;
 
     protected $brigade_guid;
 
@@ -38,6 +40,19 @@ class TransferMaterialsController extends Controller{
                         'roles' => ['@'],
                     ],
                 ],
+            ],
+            'CheckExsistsUnconfirmingRaport'=>[
+                'class'=>\common\behaviors\CheckExsistsUnconfirmingRaport::className(),
+                'actions'=>['form'],
+                'errorCallback'=>function($user,$action){
+                    
+                    $action->controller->command = function(){
+                    
+                        \Yii::$app->session->setFlash("warning","У вас есть неподтвержденные рапорта. При наличии неподтвержденных рапортов, нельзя создать документ передачи материалов на другого мол!!!");
+                        return Yii::$app->response->redirect(['material/index']);
+                    
+                    };
+                }
             ]
         ];
     }
@@ -100,6 +115,24 @@ class TransferMaterialsController extends Controller{
         $post = Yii::$app->request->post();
         
         if($request){
+            if(isset($post['transferMaterialCancel'])){
+                $req = Request::findOne(['id'=>(int)$request,'user_id'=>$this->user->id]);
+
+                if(isset($req->id) && $req->id){
+                    $req->completed = 1;
+                    if($req->save()){
+                        Yii::$app->session->setFlash("success","Документ отклонен!");
+                    }else{
+                        Yii::$app->session->setFlash("error","Документ не удалось отклонить!");
+                    }
+                    return $this->redirect(['material/index']);
+
+                }else{
+                    Yii::$app->session->setFlash("error","Документ для отклонения не найден!");
+                    return $this->redirect(['transfer-materials/form','request'=>$request]);
+                }
+            }
+
             $model = TransferMaterials::loadFromRequest($request);
             $unLoadedMaterials = $model->getUnLoadedStructuredMaterials();
         }else{
@@ -107,12 +140,8 @@ class TransferMaterialsController extends Controller{
             $unLoadedMaterials = [];
         }
 
-        //Проверка наличии не подтвержденных рапортов;
-        $raports = Raport::find()->where(['user_guid'=>$this->user->guid])->andFilterWhere(['in','status',Raport::getUnconfirmedStatuses()])->all();
-        
-        if(count($raports)){
-            Yii::$app->session->setFlash("warning","У вас есть неподтвержденные рапорта (".count($raports)."). При наличии неподтвержденных рапортов, нельзя создать документ передачи материалов на другого мол!!!");
-            return $this->redirect(['material/index']);
+        if($this->command && is_callable($this->command)){
+            return call_user_func($this->command);
         }
 
         $remnants = [];
@@ -133,20 +162,25 @@ class TransferMaterialsController extends Controller{
                     Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
                     $errors = $model->getMaterialsError();
                 }else{
+                    
                     //Отправить заявку в 1С
                     if(ExportTransferMaterials::export($model)){
                         Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
                         return $this->redirect(['material/index']);
                     }else{
                         Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на проверку в 1С");
+                        return $this->redirect(['material/index']);
                     }
+
                 }
                    
             }else{
+                
                 Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.");
                 Yii::warning("Error when validate transfermaterials document","transferMaterialForm");
                 Yii::warning(json_encode($model->getErrors()),"transferMaterialForm");
                 $errors = $model->getErrors();
+
             }
 
             if(count($errors)){
@@ -168,7 +202,6 @@ class TransferMaterialsController extends Controller{
             $remnants = isset($post['materials']) ? $post['materials'] : [];
             $unLoadedMaterials = [];
         }else{
-            // $this->user->guid = "07b7112a-40af-11e8-8114-005056b47a2e";
             $remnants = \common\modules\ImportRemnantsWithSeries::import($this->user->guid);
         }
 

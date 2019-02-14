@@ -16,51 +16,43 @@ class RaportForm extends Widget
 
     public static $autoIdPrefix = 'wForm';
 
-    public $userId = null;
+    public $model;
 
-    public $inputValueName = "autocomplete_input_name";
+    public $forManager = false;
 
-    public $inputKeyName = "autocomplete_input_key";
+    public $user;
 
-    public $required = true;
+    public $masters;
 
-    public $inputValueName_Value = "";
+    public $BrigadeConsist;
 
-    public $inputKeyName_Value = "";
+    public $ActualBrigadeRemnants;
 
-    public $placeholder = 'Введите строку для поиска';
+    public $RaportWorks;
 
-    public $label = "Label";
+    public $object_name = "";
 
-    public $labelShow = true;
+    public $boundary_name = "";
 
-    public $apiUrl = "";
+    public $project_name = "";
 
-    public $data = [];
+    public $master_name = "";
 
-    public $onSelectCallback="function(item){}";
+    public $enableGuardPassword = true;
 
-    public $generateSearchFiltersCallback = "function(){return {};}";
+    public $inValidPassword = true;
 
-    /**
-    * array[]['property'=>'','commonElement'=>'','targetElement'=>'']
-    *
-    */
-    public $properties = [];
+    public $loadStandarsUrl;
 
+    public $urlLoadRaportWorkRow;
 
-    /**
-    * array[]['name'=>'','valueFromElement']
-    *
-    */
-    public $parameters = [];
+    public $urlLoadRaportConsistRow;
+    
+    public $requiredFile = false;
 
-    /**
-    */
-    public $options = [
-        'minKeyLength' => 0,
-        'searchOnFocusin'=>true,
-    ];
+    public $updateStatus = false;
+
+    public $statuses = [];
 
 
     /**
@@ -74,31 +66,34 @@ class RaportForm extends Widget
         return $this->renderWidget();
     }
 
+
+
     /**
      * Renders the AutoComplete widget.
      * @return string the rendering result.
      */
     public function renderWidget(){
 
-        $id = $this->userId ? static::$autoIdPrefix . $this->userId : $this->getId();
-
-        return $this->view->renderFile($this->getViewPath()."/widget.php",[
-            'id'=>$id,
-            'data'=>$this->data,
-            'inputValueName'=>$this->inputValueName,
-            'inputKeyName'=>$this->inputKeyName,
-            'apiUrl'=>$this->apiUrl,
-            'placeholder'=>$this->placeholder,
-            'inputValueName_Value'=>$this->inputValueName_Value,
-            'inputKeyName_Value'=>$this->inputKeyName_Value,
-            'label'=>$this->label,
-            'labelShow'=>$this->labelShow,
-            'properties'=>$this->properties,
-            'parameters'=>$this->parameters,
-            'options'=>$this->options,
-            'required'=>$this->required,
-            'onSelectCallback'=>$this->onSelectCallback,
-            'generateSearchFiltersCallback'=>$this->generateSearchFiltersCallback
+        return $this->view->renderFile($this->getViewPath()."/form.php",[
+            'model'=>$this->model,
+            'forManager'=>$this->forManager,
+            'user'=>$this->user,
+            'masters'=>$this->masters,
+            'BrigadeConsist'=>$this->BrigadeConsist,
+            'ActualBrigadeRemnants'=>$this->ActualBrigadeRemnants,
+            'RaportWorks'=>$this->RaportWorks,
+            'object_name'=>$this->object_name,
+            'boundary_name'=>$this->boundary_name,
+            'project_name'=>$this->project_name,
+            'master_name'=>$this->master_name,
+            'inValidPassword'=>$this->inValidPassword,
+            'enableGuardPassword'=>$this->enableGuardPassword,
+            'loadStandarsUrl'=>$this->loadStandarsUrl,
+            'urlLoadRaportWorkRow'=>$this->urlLoadRaportWorkRow,
+            'urlLoadRaportConsistRow'=>$this->urlLoadRaportConsistRow,
+            'requiredFile'=>$this->requiredFile,
+            'updateStatus'=>$this->updateStatus,
+            'statuses'=>$this->statuses
         ]);
 
     }
@@ -109,7 +104,7 @@ class RaportForm extends Widget
     public function registerAssets(){
 
         $view = $this->getView();
-        AutoCompleteAsset::register($view);
+        RaportFormAsset::register($view);
     }
 
 }

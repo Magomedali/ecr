@@ -15,13 +15,15 @@ use common\models\TypeOfWork;
 use common\models\Line;
 use common\models\Objects;
 use common\models\Boundary;
-use common\models\Project;
+use common\models\StockRoom;
+use common\models\Nomenclature;
+use common\models\{Project,NomenclatureOfTypeOfWorks,ProjectStandard};
 use soapclient\methods\Calcsquare;
 
 class AutocompleteController extends Controller{
 
 
-	/**
+    /**
      * @inheritdoc
      */
     public function behaviors()
@@ -31,16 +33,16 @@ class AutocompleteController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['masters','users','technics','lines','works','objects','projects','calcsquare'],
+                        'actions' => ['masters','users','brigadier','technics','lines','works','objects','projects','calcsquare','stockroom','nomenclature','project-standarts'],
                         'allow' => true,
-                        'roles' => ['superadmin','administrator'],
+                        'roles' => ['@'],
                     ],
                 ],
             ]
         ];
     }
 
-	public function actionMasters(){
+    public function actionMasters(){
 
         if(Yii::$app->request->isAjax){
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -49,7 +51,9 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            $query = User::find()->where(['is_master'=>1])->andWhere("`guid` is not null");
+            $query = User::find()->where(['is_master'=>1])
+                        ->andWhere("`guid` is not null")
+                        ->andWhere(['status'=>User::STATUS_ACTIVE]);
             if($key){
                 $query->andWhere("`name` LIKE '%{$key}%'");
             }
@@ -76,13 +80,28 @@ class AutocompleteController extends Controller{
             $data = [];
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+            $users_extends = isset($get['users_extends']) && is_array($get['users_extends']) ? $get['users_extends'] : array();
 
             $query = (new Query())->select(['u.guid','u.name','u.ktu'])
                                 ->from(['u'=>User::tableName()])
                                 ->where(['u.is_master'=>0])
-                                ->andWhere("u.`guid` is not null");
+                                ->andWhere("u.`guid` is not null")
+                                ->andWhere(['status'=>User::STATUS_ACTIVE]);
             if($key){
                 $query->andWhere("u.`name` LIKE '%{$key}%'");
+            }
+
+            if(count($users_extends)){
+                $notIn = array();
+                foreach ($users_extends as $guid) {
+                    if (!$guid) continue;
+
+                    $notIn[] = "'{$guid}'";
+                }
+                if(count($notIn)){
+                    $notIn = implode(",", $notIn);
+                    $query->andWhere("u.`guid` NOT IN ($notIn)");
+                }
             }
 
             $results = $query->all();
@@ -102,7 +121,120 @@ class AutocompleteController extends Controller{
     }
 
 
+    public function actionBrigadier(){
 
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+
+            $cUser = Yii::$app->user->identity;
+
+            $query = (new Query())->select(['u.guid','u.name','u.ktu'])
+                                ->from(['u'=>User::tableName()])
+                                ->where(['u.is_master'=>0])
+                                ->andWhere("u.`guid` is not null and `login` IS NOT NULL")
+                                ->andWhere(['status'=>User::STATUS_ACTIVE]);
+
+            if(!boolval($cUser->is_master)){
+                $query->andWhere("u.`guid` != '{$cUser->guid}'");
+            }
+
+            if($key){
+                $query->andWhere("u.`name` LIKE '%{$key}%'");
+            }
+            $results = $query->all();
+
+            foreach ($results as $key => $value) {
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name']
+                ]; 
+            }
+            
+            return ['data'=>$data];
+        }else{
+            return $this->redirect(['site/index']);
+        } 
+    }
+
+
+
+
+
+    public function actionNomenclature(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+            $extends = isset($get['extends']) && is_array($get['extends']) ? $get['extends'] : array();
+
+            $query = (new Query())->select(['u.guid','u.name','u.unit'])
+                                ->from(['u'=>Nomenclature::tableName()])
+                                ->andWhere("u.`guid` is not null");
+            if($key){
+                $query->andWhere("u.`name` LIKE '%{$key}%'");
+            }
+
+            if(count($extends)){
+                $notIn = array();
+                foreach ($extends as $guid) {
+                    if (!$guid) continue;
+
+                    $notIn[] = "'{$guid}'";
+                }
+                if(count($notIn)){
+                    $notIn = implode(",", $notIn);
+                    $query->andWhere("u.`guid` NOT IN ($notIn)");
+                }
+            }
+
+            $results = $query->all();
+
+            foreach ($results as $key => $value) {
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name'],
+                    'unit'=>$value['unit']
+                ]; 
+            }
+            
+            return ['data'=>$data];
+        }else{
+            return $this->redirect(['site/index']);
+        } 
+    }
+
+
+    public function actionStockroom(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+
+            if(!$key){
+                $results = StockRoom::find()->asArray()->all();
+            }else{
+                $results = StockRoom::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+            }
+            
+            foreach ($results as $key => $value) {
+                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
+            }
+            
+            return ['data'=>$data];
+        }else{
+            return $this->redirect(['site/index']);
+        } 
+    }
 
 
     public function actionTechnics(){
@@ -178,17 +310,19 @@ class AutocompleteController extends Controller{
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
-            if(!$key){
-                $results = TypeOfWork::find()->asArray()->all();
-            }else{
-                $results = TypeOfWork::find()->where("`name` LIKE '%{$key}%'")->asArray()->all();//
+            $query = (new Query())->select(['guid as `value`','name as title','GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'])
+                                    ->from(TypeOfWork::tableName())
+                                    ->leftJoin(['rtn'=>NomenclatureOfTypeOfWorks::tableName()],'rtn.typeofwork_guid = guid')
+                                    ->groupBy(['guid']);
+
+            if($key){
+                $query->where("`name` LIKE '%{$key}%'");
             }
+
+            $results = $query->all();
             
-            foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name']]; 
-            }
             
-            return ['data'=>$data];
+            return ['data'=>$results];
         }else{
             return $this->redirect(['site/index']);
         } 
@@ -210,8 +344,10 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
 
 
-            $query = (new Query())->select(['o.*','b.name as boundary_name'])->from(['o'=>Objects::tableName()])
-                        ->leftJoin(['b'=>Boundary::tableName()]," o.boundary_guid = b.guid ");
+            $query = (new Query())->select(['o.*','b.name as boundary_name','u.name as master_name'])
+                                ->from(['o'=>Objects::tableName()])
+                                ->leftJoin(['b'=>Boundary::tableName()]," o.boundary_guid = b.guid ")
+                                ->leftJoin(['u'=>User::tableName()], " o.master_guid = u.guid");
             if($key){
                 $query = $query->where("o.`name` LIKE '%{$key}%'");
             }
@@ -219,7 +355,14 @@ class AutocompleteController extends Controller{
             $results = $query->all();
 
             foreach ($results as $key => $value) {
-                $data[] = ['value'=>$value['guid'],'title'=>$value['name'],'boundary_guid'=>$value['boundary_guid'],'boundary_name'=>$value['boundary_name']]; 
+                $data[] = [
+                    'value'=>$value['guid'],
+                    'title'=>$value['name'],
+                    'boundary_guid'=>$value['boundary_guid'],
+                    'boundary_name'=>$value['boundary_name'],
+                    'master_guid'=>$value['master_guid'],
+                    'master_name'=>$value['master_name']
+                ]; 
             }
             
             return ['data'=>$data];
@@ -266,6 +409,29 @@ class AutocompleteController extends Controller{
     }
 
 
+
+    public function actionProjectStandarts(){
+
+        if(Yii::$app->request->isAjax){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $data = [];
+            $get = Yii::$app->request->get();
+            $guid = isset($get['guid']) ? trim(strip_tags($get['guid'])) : null;
+
+            $result = !$guid ? [] : (new Query())->select(['p.*','t.name as typeofwork_name'])
+                            ->from(['p'=>ProjectStandard::tableName()])
+                            ->innerJoin(['t'=>TypeOfWork::tableName()]," t.guid = p.typeofwork_guid")
+                            ->where(['project_guid'=>$guid])
+                            ->all();
+
+            
+            
+            return $result;
+        }else{
+            return $this->redirect(['site/index']);
+        }
+    }
 
 
 

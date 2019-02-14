@@ -21,6 +21,9 @@ class MaterialController extends Controller{
 
     protected $user;
 
+    
+    public $command;
+
 
     protected $brigade_guid;
 
@@ -41,11 +44,19 @@ class MaterialController extends Controller{
                     ],
                 ],
             ],
-            // 'checkShift'=>[
-            //     'class'=>\common\behaviors\CheckShift::className(),
-            //     'actions'=>['form'],
-            //     'redirect'=>['material/index']
-            // ]
+            'checkShift'=>[
+                'class'=>\common\behaviors\CheckShift::className(),
+                'actions'=>['form'],
+                'errorCallback'=>function($user,$action){
+                    
+                    $action->controller->command = function(){
+                    
+                        \Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
+                        return Yii::$app->response->redirect(['material/index']);
+                    
+                    };
+                }
+            ]
         ];
     }
 
@@ -143,10 +154,9 @@ class MaterialController extends Controller{
            $model = new MaterialsApp(); 
         }
         
-        $checkerShift = new CheckCloseShift($this->user);
-        if(!$checkerShift->isClosed()){
-            Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
-            return $this->redirect(['material/index']);
+
+        if($this->command && is_callable($this->command)){
+            return call_user_func($this->command);
         }
 
         $hasErrors = false;

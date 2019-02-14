@@ -14,6 +14,8 @@ use common\modules\CheckCloseShift;
 class RaportRegulatoryController extends Controller{
 
 
+    public $command;
+
 	/**
      * @inheritdoc
      */
@@ -29,6 +31,19 @@ class RaportRegulatoryController extends Controller{
                         'roles' => ['@'],
                     ],
                 ],
+            ],
+            'checkShift'=>[
+                'class'=>\common\behaviors\CheckShift::className(),
+                'actions'=>['form'],
+                'errorCallback'=>function($user,$action){
+                    
+                    $action->controller->command = function(){
+                    
+                        \Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
+                        return Yii::$app->response->redirect(['raport/index']);
+                    
+                    };
+                }
             ]
         ];
     }
@@ -85,13 +100,10 @@ class RaportRegulatoryController extends Controller{
             return $this->goHome();
         }
 
-        $checkerShift = new CheckCloseShift($user);
-        if(!$checkerShift->isClosed()){
-            Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
-            return $this->redirect(['material/index']);
+        if($this->command && is_callable($this->command)){
+            return call_user_func($this->command);
         }
-
-
+        
         $post = Yii::$app->request->post();
 
         if($id || isset($post['model_id'])){

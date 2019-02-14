@@ -9,13 +9,27 @@ use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\Raport;
 use common\models\RaportFile;
-
+use common\modules\RaportServiceSaver;
 use frontend\modules\RaportFilter;
 use frontend\modules\RaportRegulatoryFilter;
 
 use yii\web\UploadedFile;
 
 class RaportController extends Controller{
+
+
+    public $raportServiceSaver;
+
+
+
+    public $command;
+
+    
+    public function __construct($id,$module,$config = []){
+        
+        $this->raportServiceSaver = new RaportServiceSaver(Yii::$app->user->identity);
+        parent::__construct($id, $module, $config);
+    }
 
 
 	/**
@@ -33,6 +47,19 @@ class RaportController extends Controller{
                         'roles' => ['@'],
                     ],
                 ],
+            ],
+            'checkShift'=>[
+                'class'=>\common\behaviors\CheckShift::className(),
+                'actions'=>['form'],
+                'errorCallback'=>function($user,$action){
+                    
+                    $action->controller->command = function(){
+                    
+                        \Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
+                        return Yii::$app->response->redirect(['raport/index']);
+                    
+                    };
+                }
             ]
         ];
     }
@@ -142,30 +169,24 @@ class RaportController extends Controller{
 
     public function actionForm($id = null){
 
-        $user = Yii::$app->user->identity;
-        $brigade_guid = $user->brigade_guid;
-        if(!$brigade_guid){
+        
+        
+        if($this->raportServiceSaver->userCant($id)){
             Yii::$app->user->logout();
             return $this->goHome();
         }
 
+        if($this->command && is_callable($this->command)){
+            return call_user_func($this->command);
+        }
+        
 
         $post = Yii::$app->request->post();
 
-        if($id || isset($post['model_id'])){
-            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
-
-            $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
-            if(!isset($model->id))
-                throw new \Exception("Документ не найден!",404);
-
-            if(!$model->isCanUpdate)
-                throw new \Exception("Нет доступа к редактированию документа!",404);
-
-        }else{
-           $model = new Raport(); 
-        }
+        $model = $this->raportServiceSaver->getForm($post,$id);
         
+        print_r($this->raportServiceSaver);
+        exit;
         $hasErrors = false;
         $inValidPassword = false;
         $errorsRaport = [];
@@ -173,6 +194,29 @@ class RaportController extends Controller{
         $errorsRaportWorks = [];
         $errorsRaportMaterials = [];
         $errors = [];
+
+
+        if(isset($post['Raport']) && (!$this->raportServiceSaver->enableGuardValidPassword || isset($post['password']))){
+
+            try {
+                if($this->raportServiceSaver->save($post)){
+
+                }
+            }catch (\common\modules\exceptions\InvalidPasswordException $e) {
+            
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
+            
+            }catch(\common\modules\exceptions\EmptyRequiredPropertiesException $e){
+
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
+            
+            }catch (Exception $e) {
+                
+            }
+            
+        }
+
         if(isset($post['Raport']) && isset($post['password'])){
 
             $data = $post;
@@ -243,7 +287,6 @@ class RaportController extends Controller{
             $errorsRaportConsist = isset($post['RaportConsist']) ? $post['RaportConsist'] : [];
             $errorsRaportWorks = isset($post['RaportWork']) ? $post['RaportWork'] : [];
             $errorsRaportMaterials = isset($post['RaportMaterial']) ? $post['RaportMaterial'] : [];
-            
             
         }
 

@@ -82,9 +82,9 @@ $this->title = 'Кабинет мастера';
                                 ]); 
                             },
                             'update' => function ($url, $model) {
-                                return $model->isCanUpdate ? Html::a('<i class="glyphicon glyphicon-pencil"></i>', Url::to(['/raport/form', 'id' => $model->id]), [
+                                return Html::a('<i class="glyphicon glyphicon-pencil"></i>', Url::to(['/raport/form', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Изменить')
-                                ]) : ""; 
+                                ]);
                             }, 
                         ]
                     ]

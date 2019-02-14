@@ -50,6 +50,9 @@ if($hasErrors){
 			</div>
 			<div class="col-md-2" style="padding-top:24px; ">
 				<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
+				<?php 
+					echo Html::submitButton("Отменить",['id'=>'transferMaterialCancel','name'=>'transferMaterialCancel','class'=>'btn btn-danger']);
+				?>
 			</div>
 		</div>
 		<div class="row">
@@ -143,6 +146,8 @@ if($hasErrors){
 			"input.autocomplete_required",
 		];
 
+		var enableValidateCheck = true;
+
 		var validateRaportForm = function(){
 
 			var hasError = false;
@@ -193,11 +198,20 @@ if($hasErrors){
 			return valid;
 		}
 
+		
+		if($("#transferMaterialCancel").length){
+			$("#transferMaterialCancel").click(function(event){
+				enableValidateCheck = false;
+			});
+		}
+
 		//form submit
 		$("form#transferMaterialForm").submit(function(event){
+			// submit more than once return false
+			
 			$("#btnMaterialFormSubmit").prop("disabled",true);
 			
-			if(!validateRaportForm() || !checkRemnants()){
+			if(enableValidateCheck && (!validateRaportForm() || !checkRemnants())){
 				event.preventDefault();
 		        $("#btnMaterialFormSubmit").prop("disabled",false);
 			}
@@ -231,8 +245,13 @@ if($hasErrors){
 			var rest = $(this).parents("tr").find(".rest_input");
 			var total = parseFloat($(this).attr("max"));
 			var value = parseFloat($(this).val());
-			var r = parseFloat(total - value);
-	    	rest.val(r.toFixed(3));
+			if(value){
+				var r = parseFloat(total - value);
+	    		rest.val(r.toFixed(3));
+			}else{
+				rest.val(total);
+			}
+			
 		});
 
 		$("body").on("keyup",".spent_input",function(){
