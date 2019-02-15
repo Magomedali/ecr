@@ -30,36 +30,47 @@ use common\widgets\autocomplete\AutoComplete;
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-6">
-											<div id="master_autocomplete">
-												<?php 
-													echo AutoComplete::widget([
-														'data'=>ArrayHelper::map($masters,'guid','name'),
-														'apiUrl'=>Url::to(['/autocomplete/masters']),
-														'inputValueName'=>'Raport[master_guid]',
-														'inputValueName_Value'=>$model->master_guid,
-														'inputKeyName'=>'Raport[master_name]',
-														'inputKeyName_Value'=>$master_name,
-														'placeholder'=>'Укажите мастера',
-														'label'=>'Мастер'
-													]);
-												?>
+											<div class="row">
+												<div class="col-md-12">
+													<?php if(!$disableMaster || !$model->master_guid){ ?>
+													<div id="master_autocomplete">
+														<?php
+															echo AutoComplete::widget([
+																'data'=>ArrayHelper::map($masters,'guid','name'),
+																'apiUrl'=>Url::to(['/autocomplete/masters']),
+																'inputValueName'=>'Raport[master_guid]',
+																'inputValueName_Value'=>$model->master_guid,
+																'inputKeyName'=>'Raport[master_name]',
+																'inputKeyName_Value'=>$master_name,
+																'placeholder'=>'Укажите мастера',
+																'label'=>'Мастер'
+															]);
+														?>
+													</div>
+													<?php }else{
+															echo Html::hiddenInput("Raport[master_guid]",$model->master_guid);
+														}
+													?>
+													
+													
+
+
+													<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
+
+													<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm isRequired']); ?>
+
+													<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm isRequired']);?>
+
+													<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
+
+													<?php 
+														if($forManager){
+														echo $form->field($model,'brigade_guid')->hiddenInput()->label(false);
+														echo $form->field($model,'user_guid')->hiddenInput()->label(false);
+														} 
+													?>
+												</div>
 											</div>
-											
-											<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
-
-											<?php 
-												if($forManager){
-												echo $form->field($model,'brigade_guid')->hiddenInput()->label(false);
-												echo $form->field($model,'user_guid')->hiddenInput()->label(false);
-												} 
-											?>
-
-
-											<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
-
-											<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm isRequired']); ?>
-
-											<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm isRequired']);?>
 										</div>
 										<div class="col-md-6 object_form">
 											<div class="row">

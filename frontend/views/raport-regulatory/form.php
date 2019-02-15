@@ -57,29 +57,44 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-6">
-									<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
+									
 
 									<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
+
+
 
 									<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm isRequired']); ?>
 
 									<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm isRequired']);?>
+
+									<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
+									<?php 
+										if(boolval($user->is_master)){
+											echo $form->field($model,'brigade_guid')->hiddenInput()->label(false);
+											echo $form->field($model,'user_guid')->hiddenInput()->label(false);
+										} 
+									?>
 								</div>
 								<div class="col-md-6">
 									<?php 
-										echo AutoComplete::widget([
-											'data'=>ArrayHelper::map($masters,'guid','name'),
-											'apiUrl'=>Url::to(['/autocomplete/masters']),
-											'inputValueName'=>'RaportRegulatory[master_guid]',
-											'inputValueName_Value'=>$model->master_guid,
-											'inputKeyName'=>'RaportRegulatory[master_name]',
-											'inputKeyName_Value'=>$master_name,
-											'placeholder'=>'Укажите мастера',
-											'label'=>'Мастер'
-										]);
+									
+										if(boolval($user->is_master) && $model->master_guid){
+											echo Html::hiddenInput("RaportRegulatory[master_guid]",$model->master_guid);
+										}else{
+											echo AutoComplete::widget([
+												'data'=>ArrayHelper::map($masters,'guid','name'),
+												'apiUrl'=>Url::to(['/autocomplete/masters']),
+												'inputValueName'=>'RaportRegulatory[master_guid]',
+												'inputValueName_Value'=>$model->master_guid,
+												'inputKeyName'=>'RaportRegulatory[master_name]',
+												'inputKeyName_Value'=>$master_name,
+												'placeholder'=>'Укажите мастера',
+												'label'=>'Мастер'
+											]);
+										}
+										
 									?>
 									<?php echo $form->field($model,'comment')->textarea(['class'=>'form-control input-sm','autocomplete'=>'off']);?>
-
 
 									<?php echo Html::submitButton("Сохранить",['id'=>'btnRaportFormSubmitPassword','class'=>'btn btn-primary']);?>
 								</div>

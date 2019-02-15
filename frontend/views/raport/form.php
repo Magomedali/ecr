@@ -98,6 +98,8 @@ $loadStandarsUrl = Url::to(['autocomplete/project-standarts']);
 		$formParams['updateStatus'] = true;
 		$formParams['statuses'] = ExchangeStatuses::getLabels();
 		$formParams['forManager']=true;
+		$formParams['disableMaster']=true;
+		
 	}
 	
 

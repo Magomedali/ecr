@@ -4,16 +4,24 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
+use yii\web\Controller;
+use yii\web\UploadedFile;
 use yii\web\HttpException;
+use frontend\modules\RaportFilter;
+use frontend\modules\RaportRegulatoryFilter;
 use common\models\Raport;
 use common\models\RaportFile;
 use common\modules\RaportServiceSaver;
-use frontend\modules\RaportFilter;
-use frontend\modules\RaportRegulatoryFilter;
-
-use yii\web\UploadedFile;
+use common\modules\exceptions\{
+    InvalidPasswordException,
+    EmptyRequiredPropertiesException,
+    ValidateErrorsException,
+    ErrorRelationEntitiesException,
+    ErrorExportTo1C,
+    ModelNotFoundException,
+    ModelCantUpdateException
+};
 
 class RaportController extends Controller{
 
@@ -83,6 +91,11 @@ class RaportController extends Controller{
     {   
         $user = Yii::$app->user->identity;
         if(!$user->brigade_guid){
+
+            if(boolval($user->is_master)){
+                return $this->redirect(['site/index']);
+            }
+
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -113,8 +126,9 @@ class RaportController extends Controller{
 
     public function actionView($id){
 
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
+        $user = Yii::$app->user->identity;
+        
+        if(!$user->brigade_guid && !$user->is_master){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -122,9 +136,14 @@ class RaportController extends Controller{
         if(!(int)$id) 
             throw new \Exception("Документ не найден!",404);
 
-        $model = Raport::findOne(['id'=>(int)$id,'brigade_guid'=>$brigade_guid]);
+        $q = Raport::find()->where(['id'=>(int)$id]);
 
-        if(!isset($model->id))
+        if(!$user->is_master){
+            $q->andWhere(['brigade_guid'=>$user->brigade_guid]);
+        }
+
+        $model = $q->one();
+        if(!isset($model->id)  || ($user->is_master && $user->guid != $model->master_guid))
             throw new \Exception("Документ не найден!",404);
 
         return $this->render('view',['model'=>$model]);
@@ -136,8 +155,9 @@ class RaportController extends Controller{
 
     public function actionReadFile($id){
 
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
+        $user = Yii::$app->user->identity;
+        
+        if(!$user->brigade_guid && !$user->is_master){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -145,10 +165,16 @@ class RaportController extends Controller{
         if(!(int)$id) 
             throw new \Exception("Документ не найден!",404);
 
-        $model = RaportFile::find()->innerJoin(['r'=>Raport::tableName()],RaportFile::tableName().".raport_id = r.id")->where([RaportFile::tableName().'.id'=>(int)$id,'r.brigade_guid'=>$brigade_guid])->one();
+        $q = RaportFile::find()->innerJoin(['r'=>Raport::tableName()],RaportFile::tableName().".raport_id = r.id")->where([RaportFile::tableName().'.id'=>(int)$id]);
 
-        if(!isset($model->id))
-            throw new \Exception("Документ не найден!",404);
+        if(!$user->is_master){
+            $q->andWhere(['r.brigade_guid'=>$user->brigade_guid]);
+        }
+        
+        $model = $q->one();
+
+        if(!isset($model->id) || ($user->is_master && $user->guid != $model->master_guid))
+             throw new \Exception("Документ не найден!",404);
 
         $filePath = "tmp/".$model['file'];
                                     
@@ -169,9 +195,7 @@ class RaportController extends Controller{
 
     public function actionForm($id = null){
 
-        
-        
-        if($this->raportServiceSaver->userCant($id)){
+        if(!$this->raportServiceSaver->userCan($id)){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -179,14 +203,22 @@ class RaportController extends Controller{
         if($this->command && is_callable($this->command)){
             return call_user_func($this->command);
         }
-        
 
         $post = Yii::$app->request->post();
-
-        $model = $this->raportServiceSaver->getForm($post,$id);
+        try {
+            $model = $this->raportServiceSaver->getForm($post,$id);
+        } catch (ModelNotFoundException $e) {
+            Yii::$app->session->setFlash("error","Документ не найден.");
+            return $this->redirect(['raport/index']);
+        } catch (ModelCantUpdateException $e) {
+            Yii::$app->session->setFlash("error","Документ неьзя редактировать.");
+            return $this->redirect(['raport/index']);
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");
+            return $this->redirect(['raport/index']);
+        }
         
-        print_r($this->raportServiceSaver);
-        exit;
+        
         $hasErrors = false;
         $inValidPassword = false;
         $errorsRaport = [];
@@ -196,77 +228,48 @@ class RaportController extends Controller{
         $errors = [];
 
 
-        if(isset($post['Raport']) && (!$this->raportServiceSaver->enableGuardValidPassword || isset($post['password']))){
-
-            try {
-                if($this->raportServiceSaver->save($post)){
-
-                }
-            }catch (\common\modules\exceptions\InvalidPasswordException $e) {
+        if(isset($post['Raport'])){
+            try{
+            
+                $this->raportServiceSaver->save($post);
+                Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");
+                return $this->redirect(['raport/index']);
+            
+            }catch(InvalidPasswordException $e){
             
                 Yii::$app->session->setFlash("error","Введен неправильный пароль!");
                 $inValidPassword = true;
             
-            }catch(\common\modules\exceptions\EmptyRequiredPropertiesException $e){
-
+            }catch(EmptyRequiredPropertiesException $e){
+                $inValidPassword = true;
                 Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
-            
-            }catch (Exception $e) {
+
+            }catch(ValidateErrorsException $e){
+
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Неправильный формат данных!");
+                Yii::warning("Error when save raport","raportform");
+                Yii::warning(json_encode($model->getErrors()),"raportform");
+                $errors = $model->getErrors();
+
+            }catch(ErrorRelationEntitiesException $e){
+                
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
+                Yii::warning("Error when save raport tables data","raportform");
+                Yii::warning(json_encode($model->getConsistErrors()),"raportform");
+                Yii::warning(json_encode($model->getWorksErrors()),"raportform");
+                Yii::warning(json_encode($model->getMaterialsErrors()),"raportform");
+                $errors = count($errors) ? $errors : $model->getConsistErrors();
+                $errors = count($errors) ? $errors : $model->getWorksErrors();
+                $errors = count($errors) ? $errors : $model->getMaterialsErrors();
+                
+            }catch(ErrorExportTo1C $e){
+
+                Yii::$app->session->setFlash("success","Рапорт успешно сохранен!");
+                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                return $this->redirect(['raport/index']);
                 
             }
-            
-        }
 
-        if(isset($post['Raport']) && isset($post['password'])){
-
-            $data = $post;
-            $data['Raport']['user_guid']=$user->guid;
-            $data['Raport']['brigade_guid']=$user->brigade_guid;
-
-            if($post['password'] && $model->load($data)){
-                $password = trim(strip_tags($post['password']));
-                if(!Yii::$app->user->identity->validatePassword($password)){
-                    Yii::$app->session->setFlash("error","Введен неправильный пароль!");
-                    $inValidPassword = true;
-                }else{
-
-                    if($model->save(1)){
-                        
-                        $model->saveRelationEntities();
-
-                        if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
-                            Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
-                            Yii::warning("Error when save raport tables data","raportform");
-                            Yii::warning(json_encode($model->getConsistErrors()),"raportform");
-                            Yii::warning(json_encode($model->getWorksErrors()),"raportform");
-                            Yii::warning(json_encode($model->getMaterialsErrors()),"raportform");
-                            $errors = count($errors) ? $errors : $model->getConsistErrors();
-                            $errors = count($errors) ? $errors : $model->getWorksErrors();
-                            $errors = count($errors) ? $errors : $model->getMaterialsErrors();
-                        }else{
-                            Yii::$app->session->setFlash("success","Рапорт успешно сохранен!");
-
-                            //Отправить в 1С
-                            if($model->sendToConfirmation()){
-                                Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
-                            }else{
-                                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
-                            }
-                            
-
-                            return $this->redirect(['raport/index']);
-                        }
-                    }else{
-                        Yii::$app->session->setFlash("error","Рапорт не сохранен!");
-                        Yii::warning("Error when save raport","raportform");
-                        Yii::warning(json_encode($model->getErrors()),"raportform");
-                        $errors = $model->getErrors();
-                    }
-
-                }
-            }else{
-                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
-            }
 
             if(count($errors)){
                 foreach ($errors as $key => $er) {
@@ -287,7 +290,6 @@ class RaportController extends Controller{
             $errorsRaportConsist = isset($post['RaportConsist']) ? $post['RaportConsist'] : [];
             $errorsRaportWorks = isset($post['RaportWork']) ? $post['RaportWork'] : [];
             $errorsRaportMaterials = isset($post['RaportMaterial']) ? $post['RaportMaterial'] : [];
-            
         }
 
 
@@ -306,8 +308,8 @@ class RaportController extends Controller{
 
 
     public function actionAddFiles($id = null){
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
+        $user = Yii::$app->user->identity;
+        if(!$user->brigade_guid && !$user->is_master){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -319,9 +321,14 @@ class RaportController extends Controller{
 
         $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
         
-        $model =  Raport::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
-        
-        if(!isset($model->id))
+        $q = Raport::find()->where(['id'=>(int)$id]);
+
+        if(!$user->is_master){
+            $q->andWhere(['brigade_guid'=>$user->brigade_guid]);
+        }
+        $model = $q->one();
+
+        if(!isset($model->id)  || ($user->is_master && $user->guid != $model->master_guid))
             throw new \Exception("Документ не найден!",404);
 
         $files = UploadedFile::getInstancesByName('files');

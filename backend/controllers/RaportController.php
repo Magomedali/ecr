@@ -10,9 +10,29 @@ use yii\web\HttpException;
 use common\models\Raport;
 use common\models\RaportFile;
 use yii\web\UploadedFile;
+use common\modules\exceptions\{
+    InvalidPasswordException,
+    EmptyRequiredPropertiesException,
+    ValidateErrorsException,
+    ErrorRelationEntitiesException,
+    ErrorExportTo1C,
+    ModelNotFoundException,
+    ModelCantUpdateException
+};
+use common\modules\RaportServiceSaver;
 
 class RaportController extends Controller{
 
+    public $raportServiceSaver;
+
+    public function __construct($id,$module,$config = []){
+        
+        $this->raportServiceSaver = new RaportServiceSaver(Yii::$app->user->identity);
+        $this->raportServiceSaver->enableGuardValidPassword = false;
+        $this->raportServiceSaver->onlyOwner = false;
+        $this->raportServiceSaver->onlyMaster = false;
+        parent::__construct($id, $module, $config);
+    }
 
 	/**
      * @inheritdoc
@@ -95,16 +115,24 @@ class RaportController extends Controller{
 
     public function actionForm($id = null){
 
+        if(!$this->raportServiceSaver->userCan($id)){
+            Yii::$app->session->setFlash("error","Вы не можете редактировать документ!");
+            return $this->goHome();
+        }
+
         $post = Yii::$app->request->post();
 
-        if($id || isset($post['model_id'])){
-            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
-
-            $model =  Raport::findOne(['id'=>$id]);
-            if(!isset($model->id))
-                throw new \Exception("Документ не найден!",404);
-        }else{
-           throw new \Exception("Ошибка в запросе",404);
+        try {
+            $model = $this->raportServiceSaver->getForm($post,$id);
+        } catch (ModelNotFoundException $e) {
+            Yii::$app->session->setFlash("error","Документ не найден.");
+            return $this->redirect(['site/index']);
+        } catch (ModelCantUpdateException $e) {
+            Yii::$app->session->setFlash("error","Документ неьзя редактировать.");
+            return $this->redirect(['site/index']);
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");
+            return $this->redirect(['site/index']);
         }
         
         $hasErrors = false;
@@ -113,35 +141,63 @@ class RaportController extends Controller{
         $errorsRaportWorks = [];
         $errorsRaportMaterials = [];
         $errorsRaport=[];
-        if(isset($post['Raport'])){
+        $inValidPassword = false;
 
-            if($model->load($post) && $model->save(1)){
+        if(isset($post['Raport']) && (!$this->raportServiceSaver->enableGuardValidPassword || isset($post['password']))){
+            try{
+            
+                $this->raportServiceSaver->save($post);
+                Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");
+                return $this->redirect(['site/index']);
+            
+            }catch(InvalidPasswordException $e){
+            
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
+            
+            }catch(EmptyRequiredPropertiesException $e){
+            
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
+            
+            }catch(ValidateErrorsException $e){
 
-                $model->saveRelationEntities();
-
-                if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
-                    Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта");
-                    Yii::warning("Error when save raport tables data","raportform");
-                    Yii::warning(json_encode($model->getConsistErrors()),"unloadremnant");
-                    Yii::warning(json_encode($model->getWorksErrors()),"unloadremnant");
-                    Yii::warning(json_encode($model->getMaterialsErrors()),"unloadremnant");
-                }else{
-                    Yii::$app->session->setFlash("success","Рапорт успешно сохранен");
-
-                    //Отправить заявку в 1С
-                    if($model->sendToConfirmation()){
-                        Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
-                    }else{
-                        Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
-                    }
-
-                    return $this->redirect(['user/view','guid'=>$model->user_guid]);
-                }
-
-            }else{
-                Yii::$app->session->setFlash("error","Рапорт не сохранен. Обнаружены ошибки при проверке данных!");
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Неправильный формат данных!");
                 Yii::warning("Error when save raport","raportform");
-                Yii::warning(json_encode($model->getErrors()),"unloadremnant");
+                Yii::warning(json_encode($model->getErrors()),"raportform");
+                $errors = $model->getErrors();
+
+            }catch(ErrorRelationEntitiesException $e){
+                
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
+                Yii::warning("Error when save raport tables data","raportform");
+                Yii::warning(json_encode($model->getConsistErrors()),"raportform");
+                Yii::warning(json_encode($model->getWorksErrors()),"raportform");
+                Yii::warning(json_encode($model->getMaterialsErrors()),"raportform");
+                $errors = count($errors) ? $errors : $model->getConsistErrors();
+                $errors = count($errors) ? $errors : $model->getWorksErrors();
+                $errors = count($errors) ? $errors : $model->getMaterialsErrors();
+            
+            }catch(ErrorExportTo1C $e){
+           
+                Yii::$app->session->setFlash("success","Рапорт успешно сохранен!");
+                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                return $this->redirect(['site/index']);
+            
+            }
+
+
+            if(count($errors)){
+                foreach ($errors as $key => $er) {
+                    if(!is_array($er)){
+                        Yii::$app->session->setFlash("warning",$er);
+                        Yii::warning($key.": ",$er,"raportform");
+                    }else{
+                        foreach ($er as $key2 => $e) {
+                            Yii::$app->session->setFlash("warning",$e);
+                            Yii::warning($key2.": ",$e,"raportform");
+                        }
+                    }
+                }
             }
             
             $hasErrors = true;
@@ -155,6 +211,7 @@ class RaportController extends Controller{
         return $this->render('form',[
             'model'=>$model,
             'hasErrors'=>$hasErrors,
+            'inValidPassword'=>$inValidPassword,
             'errorsRaportConsist'=>$errorsRaportConsist,
             'errorsRaportWorks'=>$errorsRaportWorks,
             'errorsRaportMaterials'=>$errorsRaportMaterials,

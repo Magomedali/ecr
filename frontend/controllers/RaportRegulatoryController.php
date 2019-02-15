@@ -71,8 +71,8 @@ class RaportRegulatoryController extends Controller{
 
     public function actionView($id){
 
-        $brigade_guid = Yii::$app->user->identity->brigade_guid;
-        if(!$brigade_guid){
+        $user = Yii::$app->user->identity;
+        if(!$user->brigade_guid && !$user->is_master){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -80,9 +80,14 @@ class RaportRegulatoryController extends Controller{
         if(!(int)$id) 
             throw new \Exception("Документ не найден!",404);
 
-        $model = RaportRegulatory::findOne(['id'=>(int)$id,'brigade_guid'=>$brigade_guid]);
+        $q = RaportRegulatory::find()->where(['id'=>(int)$id]);
 
-        if(!isset($model->id))
+        if(!$user->is_master){
+            $q->andWhere(['brigade_guid'=>$user->brigade_guid]);
+        }
+        $model = $q->one();
+
+        if(!isset($model->id) || ($user->is_master && $user->guid != $model->master_guid))
             throw new \Exception("Документ не найден!",404);
 
         return $this->render('view',['model'=>$model]);
@@ -94,8 +99,7 @@ class RaportRegulatoryController extends Controller{
     public function actionForm($id = null){
 
         $user = Yii::$app->user->identity;
-        $brigade_guid = $user->brigade_guid;
-        if(!$brigade_guid){
+        if(!$user->brigade_guid && !$user->is_master){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -109,8 +113,15 @@ class RaportRegulatoryController extends Controller{
         if($id || isset($post['model_id'])){
             $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
 
-            $model =  RaportRegulatory::findOne(['id'=>$id,'brigade_guid'=>$brigade_guid]);
-            if(!isset($model->id))
+            $q = RaportRegulatory::find()->where(['id'=>(int)$id]);
+
+            if(!$user->is_master){
+                $q->andWhere(['brigade_guid'=>$user->brigade_guid]);
+            }
+
+            $model = $q->one();
+            
+            if(!isset($model->id) || ($user->is_master && $user->guid != $model->master_guid))
                 throw new \Exception("Документ не найден!",404);
 
             if(!$model->isCanUpdate)
@@ -131,8 +142,11 @@ class RaportRegulatoryController extends Controller{
         if(isset($post['RaportRegulatory'])){
 
             $data = $post;
-            $data['RaportRegulatory']['user_guid']=$user->guid;
-            $data['RaportRegulatory']['brigade_guid']=$user->brigade_guid;
+            if(!boolval($user->is_master)){
+                $data['RaportRegulatory']['user_guid']=$user->guid;
+                $data['RaportRegulatory']['brigade_guid']=$user->brigade_guid;   
+            }
+            
 
             if($model->load($data) && $model->save(1)){
                         

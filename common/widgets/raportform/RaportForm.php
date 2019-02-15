@@ -20,6 +20,8 @@ class RaportForm extends Widget
 
     public $forManager = false;
 
+    public $disableMaster = false;
+
     public $user;
 
     public $masters;
@@ -78,6 +80,7 @@ class RaportForm extends Widget
             'model'=>$this->model,
             'forManager'=>$this->forManager,
             'user'=>$this->user,
+            'disableMaster'=>$this->disableMaster,
             'masters'=>$this->masters,
             'BrigadeConsist'=>$this->BrigadeConsist,
             'ActualBrigadeRemnants'=>$this->ActualBrigadeRemnants,

@@ -6,8 +6,14 @@ use Yii;
 use common\models\{User,Raport};
 use common\modules\exceptions\{
 	InvalidPasswordException,
-	EmptyRequiredPropertiesException
+	EmptyRequiredPropertiesException,
+	ValidateErrorsException,
+	ErrorRelationEntitiesException,
+	ErrorExportTo1C,
+	ModelNotFoundException,
+	ModelCantUpdateException
 };
+
 
 class RaportServiceSaver{
 
@@ -17,18 +23,24 @@ class RaportServiceSaver{
 
 	protected $model;
 
+	public $onlyOwner = true;
+
+	public $onlyMaster = false;
+
 	public function __construct(User $user){
 		$this->user = $user;
 
 		$this->enableGuardValidPassword = !boolval($user->is_master);
+		$this->onlyOwner = !boolval($user->is_master);
+		$this->onlyMaster = boolval($user->is_master);
 	}
 
 
-	public function userCant($entity_id = null){
+	public function userCan($entity_id = null){
 
         $brigade_guid = $this->user->brigade_guid;
 
-        return !$brigade_guid && (!$this->user->is_master && !$entity_id);
+        return ($this->onlyOwner && $brigade_guid) || (!$this->onlyOwner && $entity_id);
 	}
 
 
@@ -43,17 +55,20 @@ class RaportServiceSaver{
             $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
             $q = Raport::find()->where(['id'=>$id]);
             
-            if(!$user->is_master){
+            if($this->onlyOwner){
                 $q->andWhere(['brigade_guid'=>$brigade_guid]);
             }
 
             $model =  $q->one();
             if(!isset($model->id))
-                throw new \Exception("Документ не найден!",404);
+                throw new ModelNotFoundException("Model not found");
 
-            if(!$model->isCanUpdate && !$user->is_master)
-                throw new \Exception("Нет доступа к редактированию документа!",404);
+            if(!$model->isCanUpdate && $this->onlyOwner)
+                throw new ModelCantUpdateException("Model can not update");
 
+            if($this->onlyMaster && $model->master_guid != $user->guid)
+                throw new ModelCantUpdateException("Model can not update");
+            
         }else{
            $model = new Raport(); 
         }
@@ -72,17 +87,13 @@ class RaportServiceSaver{
 
 
 
-
-
-
-
-	public function save(){
+	public function save($post){
 
 		$user = $this->user;
 		$model = $this->model;
 
 		$data = $post;
-		if(!boolval($user->is_master)){
+		if(boolval($this->onlyOwner)){
 			$data['Raport']['user_guid']= $user->guid;
         	$data['Raport']['brigade_guid']= $user->brigade_guid;	
 		}
@@ -98,58 +109,22 @@ class RaportServiceSaver{
             }
         }
 
-        if($model->load($data)){
 
+        if(!($model->load($data) && $model->save(1))){
+        	throw new ValidateErrorsException("Error whe validate form data!");
         }
-               
+        
+        $model->saveRelationEntities();       
 
-        if($model->save(1)){
-                        
-                        $model->saveRelationEntities();
+        if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
+        	throw new ErrorRelationEntitiesException("Relation entities has errors!");
+        }
 
-                        if(count($model->getConsistErrors()) || count($model->getWorksErrors()) || count($model->getMaterialsErrors())){
-                            Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
-                            Yii::warning("Error when save raport tables data","raportform");
-                            Yii::warning(json_encode($model->getConsistErrors()),"raportform");
-                            Yii::warning(json_encode($model->getWorksErrors()),"raportform");
-                            Yii::warning(json_encode($model->getMaterialsErrors()),"raportform");
-                            $errors = count($errors) ? $errors : $model->getConsistErrors();
-                            $errors = count($errors) ? $errors : $model->getWorksErrors();
-                            $errors = count($errors) ? $errors : $model->getMaterialsErrors();
-                        }else{
-                            Yii::$app->session->setFlash("success","Рапорт успешно сохранен!");
-
-                            //Отправить в 1С
-                            if($model->sendToConfirmation()){
-                                Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
-                            }else{
-                                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
-                            }
+		//Отправить в 1С
+        if(!$model->sendToConfirmation()){
+            throw new ErrorExportTo1C("Error when export to 1C");
+        }
                             
-
-                            return $this->redirect(['raport/index']);
-                        }
-                    }else{
-                        Yii::$app->session->setFlash("error","Рапорт не сохранен!");
-                        Yii::warning("Error when save raport","raportform");
-                        Yii::warning(json_encode($model->getErrors()),"raportform");
-                        $errors = $model->getErrors();
-                    }
-
-                }
-
-            if(count($errors)){
-                foreach ($errors as $key => $er) {
-                    if(!is_array($er)){
-                        Yii::$app->session->setFlash("warning",$er);
-                        Yii::warning($key.": ",$er,"raportform");
-                    }else{
-                        foreach ($er as $key2 => $e) {
-                            Yii::$app->session->setFlash("warning",$e);
-                            Yii::warning($key2.": ",$e,"raportform");
-                        }
-                    }
-                }
-            }
+        return $model;
 	}
 }
