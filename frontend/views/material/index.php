@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
-use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\{ExchangeStatuses,DocumentTypes};
 /* @var $this yii\web\View */
 
 $this->title = 'Мои материалы';
@@ -122,7 +122,7 @@ $this->title = 'Мои материалы';
                         <td><?php echo "";?></td>
                         <td><?php echo $item['status'];?></td>
                         <td><?php echo "Расход";?></td>
-                        <td><?php echo "Перевод на другого мол";?></td>
+                        <td><?php echo DocumentTypes::getLabels(DocumentTypes::TYPE_TRANSFER);?></td>
                         <td>
                             <?php echo Html::a("Изменить",['transfer-materials/form','request'=>$req['id']]);?>
                         </td>
