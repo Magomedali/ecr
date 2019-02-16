@@ -157,7 +157,7 @@ class TransferMaterialsController extends Controller{
             if($model->load($data) && $model->validate()){
 
                 if(count($model->getMaterialsError())){
-                    Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.. Некорректные данные в табличной части документа имеют не корректные данные");
+                    Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.. Некорректные данные в табличной части документа.");
                     Yii::warning("Error when validate transfer tables data","transferMaterialForm");
                     Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
                     $errors = $model->getMaterialsError();
@@ -168,7 +168,7 @@ class TransferMaterialsController extends Controller{
                         Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
                         return $this->redirect(['material/index']);
                     }else{
-                        Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на проверку в 1С");
+                        Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на подтверждение в 1С");
                         return $this->redirect(['material/index']);
                     }
 

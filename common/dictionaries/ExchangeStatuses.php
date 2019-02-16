@@ -3,7 +3,6 @@
 namespace common\dictionaries;
 
 
-
 class ExchangeStatuses extends Dictionary{
 	
 	const CREATED = 1;
@@ -11,13 +10,13 @@ class ExchangeStatuses extends Dictionary{
 	const CONFIRMED= 3;
 	const DELETED = 4;
 
+
 	protected static $labels = array(
 		self::CREATED=>"Создан",
 		self::IN_CONFIRMING=>"На подтверждении",
 		self::CONFIRMED=>"Принят",
 		self::DELETED=>"Отклонен",
-	); 
-
+	);
 
 
 	public static $notification = array(

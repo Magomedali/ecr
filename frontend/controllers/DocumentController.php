@@ -107,10 +107,6 @@ class DocumentController extends Controller{
             if(SendUpdateStatusDocument::export($doc_data)){
                 return $this->redirect(['material/index']);
             }
-
-            // print_r($post);
-            // exit;
-
         }
 
         return $this->redirect(['material/index']);

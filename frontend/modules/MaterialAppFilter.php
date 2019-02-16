@@ -104,8 +104,11 @@ class MaterialAppFilter extends MaterialsApp
         
         $query->andWhere(['user_guid'=>$this->user_guid]);
 
-        if($this->statusCode)
+        if(is_array($this->statusCode) && count($this->statusCode)){
+            $query->andFilterWhere(['in','status',$this->statusCode]);
+        }elseif(!is_array($this->statusCode) && $this->statusCode){
             $query->andWhere(['status'=>$this->statusCode]);
+        }
         
 
         if($this->month){

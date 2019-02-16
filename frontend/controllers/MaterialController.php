@@ -97,7 +97,7 @@ class MaterialController extends Controller{
         $params = Yii::$app->request->queryParams;
         $params['MaterialAppFilter']['user_guid']=$user->guid;
         
-        //$params['MaterialAppFilter']['statusCode']=ExchangeStatuses::CONFIRMED;
+        $params['MaterialAppFilter']['statusCode']=[ExchangeStatuses::IN_CONFIRMING,ExchangeStatuses::CREATED];
         
         $dataProvider = $modelFilters->filter($params);
 
