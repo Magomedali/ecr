@@ -2,10 +2,11 @@
 
 namespace common\models;
 
+use common\dictionaries\DocumentTypes;
 
 class DocumentReturnToStoockRoom extends Document{
 
-	public function setMovement_type(){
-		$this->movement_type = DocumentFactory::TYPE_RETURN_TO_STOOCKROOM;
+	public function setType_of_operation(){
+		$this->type_of_operation = DocumentTypes::TYPE_RETURN_TO_STOOCKROOM;
 	}
 }

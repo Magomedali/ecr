@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use common\widgets\docnotes\DocNotes;
 
 
 AppAsset::register($this);
@@ -53,10 +54,17 @@ AppAsset::register($this);
                 
                 <!-- /.dropdown -->
                 <?php if(isset($this->params['shift_start'])){?>
-                    <li class="shifttime">
+                    <li>
                         <?php echo "Начало смены: ",date("d.m.Y H:i",strtotime($this->params['shift_start']));?>
                     </li>
                 <?php } ?>
+                
+                <?php if(isset(Yii::$app->params['notes'])){ ?>
+                    <li class="shifttime">
+                        <?php echo DocNotes::widget(['notes'=>Yii::$app->params['notes'],'count'=>Yii::$app->params['notes_count']]); ?>
+                    </li>
+                <?php } ?>
+
                 <li class="dropdown">
                     <?php echo Html::a(Yii::$app->user->identity->name,['site/index']);?>
                 </li>

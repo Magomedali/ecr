@@ -154,6 +154,14 @@ input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
 
 span.hint_length,span.hint_count{
     position: absolute;
+    margin-top: 5px;
     display: none;
     color: #6d6d6d;
+    max-width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px;
+    background: white;
+    word-break: break-all;
+    z-index: 25;
 }

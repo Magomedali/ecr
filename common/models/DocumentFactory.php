@@ -8,7 +8,7 @@ use common\dictionaries\DocumentTypes;
 final class DocumentFactory{
 
 	
-	public static function create($type,$params = array):Document{
+	public static function create($type,$params = array()):Document{
 
 		switch ($type) {
 			case DocumentTypes::TYPE_TRANSFER:
@@ -22,10 +22,6 @@ final class DocumentFactory{
 				break;
 			case DocumentTypes::TYPE_RECEIPT_FROM_STOOCKROOM:
 				return new DocumentReturnFromStoockRoom($params);
-				break;
-			
-			default:
-				throw new \Exception("Wrong document type");
 				break;
 		}
 	}

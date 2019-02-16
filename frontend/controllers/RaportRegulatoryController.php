@@ -44,6 +44,10 @@ class RaportRegulatoryController extends Controller{
                     
                     };
                 }
+            ],
+            'LoadNotes'=>[
+                'class'=>\common\behaviors\LoadNotes::className(),
+                'actions'=>['index','view'],
             ]
         ];
     }

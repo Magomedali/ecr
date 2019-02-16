@@ -13,8 +13,11 @@ use common\modules\ImportListOfDocuments;
 use common\modules\ExportMaterialsApp;
 use common\modules\TransferMaterials;
 use common\modules\CheckCloseShift;
-use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\{ExchangeStatuses,DocumentTypes};
 use common\base\Controller;
+
+
+use common\modules\notes\NoteCollections;
 
 class MaterialController extends Controller{
 
@@ -56,6 +59,10 @@ class MaterialController extends Controller{
                     
                     };
                 }
+            ],
+            'LoadNotes'=>[
+                'class'=>\common\behaviors\LoadNotes::className(),
+                'actions'=>['index','view'],
             ]
         ];
     }
@@ -101,7 +108,8 @@ class MaterialController extends Controller{
         
         $dataProvider = $modelFilters->filter($params);
 
-        $documents = ImportListOfDocuments::import($user->guid);
+        $documents = NoteCollections::getDocs();
+
         $remnants = $user->getActualBrigadeRemnants();
         
         $unExportedDocs = TransferMaterials::getActualTransfersFromUser(Yii::$app->user->id);

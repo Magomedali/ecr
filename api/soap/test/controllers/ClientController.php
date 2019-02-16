@@ -82,7 +82,8 @@ class ClientController extends Controller
 
         $par = [
             ['guid'=>'1asdasjdhuu32423jkasdfa','name'=>'Бригада100'],
-            ['guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4','name'=>'BORUM 06 Ноздренков А.И.']
+            ['guid'=>'c6fb11c4-3476-418b-85cc-299e34ad58c4','name'=>'BORUM 06 Ноздренков А.И.'],
+            ['guid'=>'57fec609-3104-11e9-8154-005056b47a2e','name'=>'15 fevr']
         ];
 
 
@@ -146,6 +147,16 @@ class ClientController extends Controller
                 'login'=>'nozdrenkovai',
                 'password'=>'12345qwE',
                 'status'=>10
+            ],
+            [
+                'guid'=>'01a373e5-40af-11e8-8114-005056b47a2e',
+                'name'=>'Бондарчук Геннадий Владимирович',
+                'brigade_guid'=>'57fec609-3104-11e9-8154-005056b47a2e',
+                'technic_guid'=>'c5947304-d200-11e8-8124-005056b47a2e',
+                'is_master'=>false,
+                'ktu'=>0,
+                'login'=>'bondarchukgv',
+                'password'=>'12345qwE'
             ]
         ];
 
@@ -189,6 +200,12 @@ class ClientController extends Controller
                 'name'=>'Р663СВ Газель',
                 'marka'=>"Газель",
                 'number'=>"Р663СВ"
+            ],
+            [
+                'guid'=>'c5947304-d200-11e8-8124-005056b47a2e',
+                'name'=>'А 321 ТВ 197 ГАЗ 2705',
+                'marka'=>'ГАЗ 2705',
+                'number'=>'А321ТВ197'
             ]
         ];
 

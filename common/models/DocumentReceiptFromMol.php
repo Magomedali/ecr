@@ -2,10 +2,11 @@
 
 namespace common\models;
 
+use common\dictionaries\DocumentTypes;
 
 class DocumentReceiptFromMol extends Document{
 
-	public function setMovement_type(){
-		$this->movement_type = DocumentFactory::TYPE_RECEIPT_FROM_MOL;
+	public function setType_of_operation(){
+		$this->type_of_operation = DocumentTypes::TYPE_RECEIPT_FROM_MOL;
 	}
 }

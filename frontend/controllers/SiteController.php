@@ -47,6 +47,10 @@ class SiteController extends Controller
                     ]
                 ],
             ],
+            'LoadNotes'=>[
+                'class'=>\common\behaviors\LoadNotes::className(),
+                'actions'=>['index'],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

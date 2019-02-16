@@ -12,15 +12,6 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 ?>
 <div class="row">
 	<div class="col-md-12">
-		<?php
-			echo "<PRE>";
-			print_r($doc);
-			echo "</PRE>";
-		?>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
 		<?php $form = ActiveForm::begin(['id'=>'commitDocument','action'=>['document/form']]);?>
 		<div class="row">
 			<div class="col-md-3 form-group">
@@ -32,7 +23,7 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 				<?php echo Html::input("text",'doc[number]',$doc['number'],['class'=>'form-control','readonly'=>true]);?>
 			</div>
 			<div class="col-md-3 form-group">
-				<label>Движение:</label>
+				<label>Статус:</label>
 				<?php 
 					echo Html::input("text",'doc[status]',$doc['status'],['class'=>'form-control','readonly'=>true]);
 				?>
@@ -43,12 +34,22 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 				<?php
 					if(isset($doc['interaction_name']) && $doc['interaction_name']){
 						?>
-						<p><strong>От:</strong> <?php echo $doc['interaction_name'];?></p>
+						<p><strong>От:</strong></p>
+						<p><?php echo $doc['interaction_name'];?></p>
+						<p><strong>Комментарии:</strong></p>
+						<p><?php echo $doc['comment_interaction'];?></p>
 						<?php
 					}
 				?>
 			</div>
 			<div class="col-md-3 form-group">
+				<label>Вид движения:</label>
+				<?php
+					echo Html::textInput('movement_type',$doc['movement_type'],['class'=>'form-control','readonly'=>true]);
+				?>
+			</div>
+			<div class="col-md-3 form-group">
+				<label>Комментарии:</label>
 				<?php
 					echo Html::textarea('doc[comment]',$doc['comment'],['class'=>'form-control','readonly'=>true]);
 				?>

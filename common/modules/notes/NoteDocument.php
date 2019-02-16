@@ -4,7 +4,7 @@ namespace common\modules\notes;
 use yii\base\BaseObject;
 use common\models\Document;
 
-abstract class NoteDocument extends BaseObject implements Note{
+abstract class NoteDocument extends BaseObject implements NoteInterface{
 
 	protected $doc;
 
@@ -15,7 +15,7 @@ abstract class NoteDocument extends BaseObject implements Note{
 
 
 	public function getDoc(){
-		return $doc;
+		return $this->doc;
 	}
 
 }

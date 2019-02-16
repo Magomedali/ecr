@@ -12,21 +12,22 @@ use soapclient\methods\GetDocumentData;
  */
 class LoadDocument
 {
-	
+    
 
-	public static function import($document_guid,$movement_type){
+    public static function import($document_guid,$movement_type){
 
-		$method = new GetDocumentData(['document_guid'=>$document_guid,'movement_type'=>$movement_type]);
-		
-		$document = [];
+        $method = new GetDocumentData(['document_guid'=>$document_guid,'movement_type'=>$movement_type]);
+        
+        $document = [];
 
-		if($method->validate()){
+        if($method->validate()){
             try {
 
                 Yii::warning("Call unload GetDocumentData","GetDocumentData");
                 Yii::warning("Parameters","GetDocumentData");
                 Yii::warning(json_encode($method->parameters),"GetDocumentData");
                 $resp = Yii::$app->webservice1C->send($method);
+               
                 $resp = json_decode(json_encode($resp),1);
 
                 Yii::warning("Response","GetDocumentData");
@@ -35,18 +36,16 @@ class LoadDocument
                 $resp = isset($resp['return']) ? $resp['return'] : $resp;
 
                 if(isset($resp['error'])){
-                	Yii::warning("GetDocumentData-Error: ".$resp['error'],"GetDocumentData");
-                	Yii::$app->session->setFlash("error","Произошла ошибка при запросе документа из 1С : ".$resp['error']);
+                    Yii::warning("GetDocumentData-Error: ".$resp['error'],"GetDocumentData");
+                    Yii::$app->session->setFlash("error","Произошла ошибка при запросе документа из 1С : ".$resp['error']);
 
-                	return [];
+                    return [];
                 }
 
-                return $resp;
-
-                if(isset($resp['success']) && boolval($resp['success']) && isset($resp['documents'])){
-                    $items = $resp['documents'];
+                if(isset($resp['success']) && boolval($resp['success']) && count($resp)){
+                    $items = $resp;
                     
-                    \yii\helpers\ArrayHelper::isAssociative($items) ? $documents[] = $items : $documents = $items;
+                    \yii\helpers\ArrayHelper::isAssociative($items) ? $documents = $items : $documents = reset($items);
                     
                     return $documents;
                 }
@@ -61,7 +60,7 @@ class LoadDocument
         }
 
         return $documents;
-	}
-	
+    }
+    
 }
 ?>

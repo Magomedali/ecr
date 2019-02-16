@@ -42,7 +42,9 @@ class SClient extends Component
     public function send(BaseMethod $method)
     {   
         $this->beforeSend();
-
+        ini_set('default_socket_timeout', 600);
+        set_time_limit(0);
+        ini_set("soap.wsdl_cache_enabled", 0);
         $methodName = pathinfo(str_replace('\\', '/', get_class($method)), PATHINFO_BASENAME);
         
         $result = @call_user_func_array([$this->client, $methodName], [$method->parameters]);
@@ -78,6 +80,7 @@ class SClient extends Component
             'password' => $this->password,
             'exceptions' => 1,
             //'cache_wsdl' =>  WSDL_CACHE_MEMORY,
+            'cache_wsdl' =>  WSDL_CACHE_NONE,
         ];
 
         if($this->location){

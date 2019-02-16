@@ -1,9 +1,15 @@
 <?php
+
 namespace common\modules\notes;
 
+use yii\helpers\Html;
 
-interface Note{
+class Note extends NoteDocument{
 
-	public function displayNote();
 
+	public function displayNote(){
+		$doc = $this->doc;
+
+		return Html::a('#'.$doc->number."(Открыть)",['document/open','guid'=>$doc->guid,'movement_type'=>$doc->movement_type]);
+	}
 }

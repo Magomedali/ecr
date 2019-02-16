@@ -44,7 +44,7 @@ class CheckShift extends Behavior{
         if(!$checkerShift->isClosed()){
 
             if ($this->errorCallback !== null) {
-                //call_user_func($this->errorCallback, $this->user, $event->action);
+                call_user_func($this->errorCallback, $this->user, $event->action);
             }else{
                 $this->redirect();
             }

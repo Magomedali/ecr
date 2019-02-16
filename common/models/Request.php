@@ -179,8 +179,7 @@ class Request extends ActiveRecordVersionable
         $client = Yii::$app->webservice1C->getClient();
 
         try {
-            ini_set('default_socket_timeout', 600);
-            set_time_limit(0);
+            
             if($method->validate()){
                 $responce = Yii::$app->webservice1C->send($method);
                 Yii::warning(json_encode($responce),"api");

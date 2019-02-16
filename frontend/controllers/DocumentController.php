@@ -35,6 +35,10 @@ class DocumentController extends Controller{
                         'roles' => ['@'],
                     ],
                 ],
+            ],
+            'LoadNotes'=>[
+                'class'=>\common\behaviors\LoadNotes::className(),
+                'actions'=>['open'],
             ]
         ];
     }

@@ -1,0 +1,48 @@
+
+.docNotes{
+
+}
+
+	.docNotes ul{
+		padding: 5px;
+		width: 220px;
+	}
+
+	.docNotes .count{
+		position: relative;
+		top: -10px;
+		left: 2px;
+		color:red;
+	}
+
+	.docNotes li.docs{
+
+	}
+
+		.docNotes li.docs ul.doc-items{
+			margin: 0px;
+			padding: 0px;
+		}
+
+			.docNotes li.docs:last-child{
+				border-bottom:none;
+			}
+
+			.docNotes li.docs{
+				border-bottom: 1px solid #ccc;
+			    margin-bottom: 5px;
+			    margin-top: 5px;
+			}
+
+			.docNotes li.docs p{
+				margin: 0px;
+			}
+
+			.docNotes li.docs ul.doc-items li{
+	
+			}
+
+				.docNotes li.docs ul.doc-items li a{
+					display: block;
+    				padding: 1px 5px;
+				}
