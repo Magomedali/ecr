@@ -50,6 +50,7 @@ class MaterialController extends Controller{
             'checkShift'=>[
                 'class'=>\common\behaviors\CheckShift::className(),
                 'actions'=>['form'],
+                'methods'=>['GET'],
                 'errorCallback'=>function($user,$action){
                     
                     $action->controller->command = function(){
@@ -63,6 +64,7 @@ class MaterialController extends Controller{
             'LoadNotes'=>[
                 'class'=>\common\behaviors\LoadNotes::className(),
                 'actions'=>['index','view'],
+                'methods'=>['GET'],
             ]
         ];
     }

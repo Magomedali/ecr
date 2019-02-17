@@ -9,6 +9,7 @@ use common\models\Nomenclature;
 
 $this->title = $doc['type_of_operation'];
 $this->params['backlink']['url']=Url::to(['material/index']);
+
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -36,8 +37,10 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 						?>
 						<p><strong>От:</strong></p>
 						<p><?php echo $doc['interaction_name'];?></p>
-						<p><strong>Комментарии:</strong></p>
-						<p><?php echo $doc['comment_interaction'];?></p>
+						<?php if(isset($doc['comment_interaction'])){?>
+							<p><strong>Комментарии:</strong></p>
+							<p><?php echo $doc['comment_interaction'];?></p>
+						<?php } ?>
 						<?php
 					}
 				?>

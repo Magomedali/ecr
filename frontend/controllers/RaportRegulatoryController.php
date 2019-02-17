@@ -35,11 +35,13 @@ class RaportRegulatoryController extends Controller{
             'checkShift'=>[
                 'class'=>\common\behaviors\CheckShift::className(),
                 'actions'=>['form'],
+                'enableNotes'=>true,
+                'methods'=>['GET'],
                 'errorCallback'=>function($user,$action){
                     
                     $action->controller->command = function(){
                     
-                        \Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта. У вас есть неподтвержденные документы за предыдущую смену!");
+                        \Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта или у вас есть неподтвержденные документы!");
                         return Yii::$app->response->redirect(['raport/index']);
                     
                     };
@@ -48,6 +50,7 @@ class RaportRegulatoryController extends Controller{
             'LoadNotes'=>[
                 'class'=>\common\behaviors\LoadNotes::className(),
                 'actions'=>['index','view'],
+                'methods'=>['GET'],
             ]
         ];
     }

@@ -18,6 +18,9 @@ class CheckShift extends Behavior{
 
 	public $redirect = ['site/index'];
 
+    public $enableNotes = false;
+
+    public $methods = ['GET'];
 
     public $errorCallback;
 
@@ -40,20 +43,40 @@ class CheckShift extends Behavior{
 
 		if(!in_array($action_id, $this->actions)) return true;
 
-		$checkerShift = new CheckCloseShift($this->user);
-        if(!$checkerShift->isClosed()){
-
-            if ($this->errorCallback !== null) {
-                call_user_func($this->errorCallback, $this->user, $event->action);
-            }else{
-                $this->redirect();
-            }
-
-            return false;
+        $verb = Yii::$app->getRequest()->getMethod();
+        $allowed = array_map('strtoupper', $this->methods);
+        if (!in_array($verb, $allowed)) {
+            
+            return true;
         }
 
+        //Проверка закрытия смены
+		$checkerShift = new CheckCloseShift($this->user);
+        if(!$checkerShift->isClosed()){
+            return $this->denyAccess($event->action);
+        }
+
+        //Проверка отсутствие уведомлении о документах на подтверждении или отклонении
+        if($this->enableNotes && isset($this->user->guid) && $this->user->guid && !boolval($this->user->is_master)){
+            \common\modules\notes\NoteInit::init($this->user);
+
+            if(\common\modules\notes\NoteCollections::getCount()){
+                return $this->denyAccess($event->action);
+            }
+        }
         return true;
 	}
+
+
+    protected function denyAccess($action){
+
+        if ($this->errorCallback !== null) {
+            return call_user_func($this->errorCallback, $this->user, $action);
+        }else{
+            return $this->redirect();
+        }
+    }
+
 
 
     protected function redirect()

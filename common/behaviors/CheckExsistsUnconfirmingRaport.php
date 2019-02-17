@@ -15,6 +15,7 @@ class CheckExsistsUnconfirmingRaport extends Behavior{
 
     public $actions = [];
 
+    public $methods = ['GET'];
 
     public $redirect = ['site/index'];
 
@@ -40,11 +41,17 @@ class CheckExsistsUnconfirmingRaport extends Behavior{
 
 		if(!in_array($action_id, $this->actions)) return true;
 
+        $verb = Yii::$app->getRequest()->getMethod();
+        $allowed = array_map('strtoupper', $this->methods);
+        if (!in_array($verb, $allowed)) {
+            return true;
+        }
+
 		$checker = new CheckExistsUnconfirmingRaport($this->user);
         if(!$checker->isClosed()){
 
             if ($this->errorCallback !== null) {
-                //call_user_func($this->errorCallback, $this->user, $event->action);
+                call_user_func($this->errorCallback, $this->user, $event->action);
             }else{
                 $this->redirect();
             }

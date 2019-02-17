@@ -12,6 +12,7 @@ class LoadNotes extends Behavior{
 
 	protected $user;
 
+    public $methods = ['GET'];
 
 	public $actions = [];
 
@@ -35,6 +36,12 @@ class LoadNotes extends Behavior{
 
 		if(!in_array($action_id, $this->actions)) return true;
 
+        $verb = Yii::$app->getRequest()->getMethod();
+        $allowed = array_map('strtoupper', $this->methods);
+        if (!in_array($verb, $allowed)) {
+            return true;
+        }
+        
 		$user = $this->user;
         if(isset($user->guid) && $user->guid && !boolval($user->is_master)){
         	\common\modules\notes\NoteInit::init($user);

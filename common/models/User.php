@@ -466,40 +466,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function unloadRemnantsFrom1C(){
         if(!$this->guid || !$this->id) return false;
         
-        $method = new Unloadremnant(['guidmol'=>$this->guid]);
-        
-        $items = [];
-        
-        if($method->validate()){
-            try {
-
-                Yii::warning("Call unload remnant","unloadremnant");
-                Yii::warning("Parameters","unloadremnant");
-                Yii::warning(json_encode($method->parameters),"unloadremnant");
-                $resp = Yii::$app->webservice1C->send($method);
-                $resp = json_decode(json_encode($resp),1);
-
-                Yii::warning("Response","unloadremnant");
-                Yii::warning(json_encode($resp),"unloadremnant");
-
-                if(isset($resp['return']) && isset($resp['return']['remnant'])){
-                    $remnants = $resp['return']['remnant'];
-                    
-                    \yii\helpers\ArrayHelper::isAssociative($remnants) ? $items[] = $remnants : $items = $remnants;
-                    
-                    return $this->saveRemnants($items);
-                }elseif(isset($resp['return'])  && isset($resp['return']['success']) && (int)$resp['return']['success']){
-                    $this->disableActualRemnantsPackage();
-                }
-
-            }catch (\SoapFault $e) {
-                
-            }catch (\Exception $e) {
-                
-            }
-        }
-        
-        return false;        
+        \common\modules\RemnantsDispatcher::loadFor($this);      
     }
 
 

@@ -14,7 +14,7 @@ final class NoteInit{
 		//Получаем документы из 1С, которые нужно подтвердить или отклонить
 		$docs = ImportListOfDocuments::import($user->guid);
 		
-		if(!count($docs)) return null;
+		if(!count($docs) || NoteCollections::getCount()) return null;
 
 		foreach ($docs as $key => $doc) {
 			if(!isset($doc['type_of_operation'])) return null;	
