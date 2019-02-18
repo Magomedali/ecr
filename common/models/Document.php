@@ -10,6 +10,8 @@ abstract class Document extends Model{
 
 	const STATUS_DONT_ACCEPTED = "НеПринят";
 
+	public $openUrl = 'document/open';
+
 	protected $guid;
 
 	protected $status;
@@ -136,4 +138,7 @@ abstract class Document extends Model{
 		return $this->comment_interaction;
 	}
 
+
+
+	
 }

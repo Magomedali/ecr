@@ -10,6 +10,6 @@ class Note extends NoteDocument{
 	public function displayNote(){
 		$doc = $this->doc;
 
-		return Html::a('#'.$doc->number."(Открыть)",['document/open','guid'=>$doc->guid,'movement_type'=>$doc->movement_type]);
+		return Html::a('#'.$doc->number."(Открыть)",[$doc->openUrl,'guid'=>$doc->guid,'movement_type'=>$doc->movement_type]);
 	}
 }

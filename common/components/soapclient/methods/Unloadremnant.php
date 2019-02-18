@@ -15,7 +15,9 @@ class Unloadremnant extends BaseMethod{
 		];
 	}
 
-	
+	public function setParameters(array $parameters){
+		$this->attributes = $parameters;
+	}
 
 
 	public function getParameters(){

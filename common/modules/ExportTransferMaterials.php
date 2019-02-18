@@ -4,9 +4,10 @@ namespace common\modules;
 
 use Yii;
 use yii\db\Query;
-use common\models\Request;
+use common\models\{Request,Document};
 use common\modules\TransferMaterials;
 use soapclient\methods\TransferOfMaterials;
+use common\dictionaries\ExchangeStatuses;
 
 class ExportTransferMaterials{
 
@@ -14,8 +15,9 @@ class ExportTransferMaterials{
 	public static function export(TransferMaterials $model){
         
 		$params = [
+            'guid'=>$model->guid,
 			'date'=>date("Y-m-d\TH:i:s",strtotime($model['date'])),
-			'status'=>"Создан",
+			'status'=>$model['status'],
 			'mol_guid'=>$model['mol_guid'],
             'mol_guid_recipient'=>$model['mol_guid_recipient'],
 			'comment'=>$model['comment']
@@ -31,13 +33,19 @@ class ExportTransferMaterials{
             $req_params = [
                 'request'=>get_class($method),
                 'params_in'=>json_encode($params),
-                'resource_id'=>null,
+                'resource_id'=>$model->guid,
                 'user_id'=>$user_id,
                 'actor_id'=>$user_id
             ];
 
             if($model->requestId){
                 $request = Request::findOne($model->requestId);
+            }elseif($model->guid){
+                //Предыдущие запросы по этому документы закрываем
+                Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`resource_id`=:resource_id AND `request`=:request AND  completed=0")
+                ->bindValue(":request",$request->request)
+                ->bindValue(":resource_id",$model->guid)
+                ->execute();
             }
 
             if(!isset($request->id) || !$request->load(['Request'=>$req_params])){

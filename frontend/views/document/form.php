@@ -5,7 +5,7 @@ use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use common\models\User;
-use common\models\Nomenclature;
+use common\models\{Nomenclature,DocumentTransfer};
 
 $this->title = $doc['type_of_operation'];
 $this->params['backlink']['url']=Url::to(['material/index']);
@@ -13,7 +13,7 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 ?>
 <div class="row">
 	<div class="col-md-12">
-		<?php $form = ActiveForm::begin(['id'=>'commitDocument','action'=>['document/form']]);?>
+		<?php $form = ActiveForm::begin(['id'=>'formCommitDocument','action'=>['document/form']]);?>
 		<div class="row">
 			<div class="col-md-3 form-group">
 				<label>Дата создания документа:</label>
@@ -54,10 +54,199 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 			<div class="col-md-3 form-group">
 				<label>Комментарии:</label>
 				<?php
-					echo Html::textarea('doc[comment]',$doc['comment'],['class'=>'form-control','readonly'=>true]);
+					echo Html::textarea('doc[comment]',$doc['comment'],['class'=>'form-control','readonly'=>false]);
 				?>
 			</div>
 		</div>
+		<?php
+			if($doc instanceof DocumentTransfer && count($remnants)){
+		?>
+		<div class="row">
+			<div class="col-md-12" style="margin-bottom: 5px;">
+				<?php 
+					echo Html::a("Очистить",null,['class'=>'btn btn-danger pull-right','id'=>'transferResetMaterials']);
+					echo Html::a("Передать все",null,['class'=>'btn btn-primary pull-right','id'=>'transferAllMaterials']);
+					echo Html::hiddenInput("doc[mol_guid_recipient]",$mol_guid);
+				?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table id="tableMaterials" class="table table-bordered table-hovered table-collapsed">
+					<thead>
+						<tr>
+							<td>Номенклатура</td>
+							<td>Серия</td>
+							<td>Количество</td>
+							<td>Передать</td>
+							<td>Остается</td>
+						</tr>
+					</thead>
+					<tbody>
+						<?php if(is_array($remnants)){
+								foreach ($remnants as $key => $item) {
+							?>
+						<tr>
+							<td>
+								<?php echo Html::hiddenInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired'])?>
+
+								<?php 
+									if(!isset($item['nomenclature_name'])){
+										$nomen = Nomenclature::findOne(['guid'=>$item['nomenclature_guid']]);
+										$nomenclature_name = $nomen && isset($nomen->name) ? $nomen->name : "";
+									}else{
+										$nomenclature_name = $item['nomenclature_name'];
+									}
+									echo Html::textInput("materials[{$key}][nomenclature_name]",$nomenclature_name,['class'=>'form-control input-sm isRequired','readonly'=>true]);
+								?>
+							</td>
+							<td>
+								<?php echo Html::hiddenInput("materials[{$key}][series_guid]",$item['series_guid'],['class'=>'form-control input-sm isRequired'])?>
+								<?php echo Html::textInput("materials[{$key}][series_name]",$item['series_name'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
+							</td>
+							<td>
+								<?php echo Html::input("number","materials[{$key}][count]",$item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control was_input input-sm','readonly'=>true])?>
+							</td>
+							<td>
+								<?php 
+									$sended = null;
+									
+									if(is_array($unLoadedMaterials) && count($unLoadedMaterials) 
+										&& array_key_exists($item['nomenclature_guid'], $unLoadedMaterials)
+										&& array_key_exists($item['series_guid'], $unLoadedMaterials[$item['nomenclature_guid']])
+										&& array_key_exists('count', $unLoadedMaterials[$item['nomenclature_guid']][$item['series_guid']])){
+
+										$sended = $unLoadedMaterials[$item['nomenclature_guid']][$item['series_guid']]['count'];
+									}elseif(isset($item['send'])){
+										$sended = $item['send'];
+									}
+
+									echo Html::input("number","materials[{$key}][send]",$sended,['min'=>0,'step'=>'0.001','max'=>$item['count'],'class'=>'form-control input-sm spent_input isRequired']);
+								?>
+							</td>
+							<td>
+								<?php echo Html::input("number","materials[{$key}][rest]",isset($item['rest']) ? $item['rest'] : $item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control rest_input input-sm','readonly'=>true])?>
+							</td>
+						</tr>
+						<?php
+								}
+							}
+						?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<?php
+
+
+		$js = <<<JS
+
+		var enableValidateCheck = true;
+
+
+		var checkRemnants = function(){
+			var fields = $("input[name^=materials][name$='[send]']");
+			var valid = false;
+			if(!fields.length) return false;
+
+			fields.each(function(){
+				if($(this).val() > 0) valid = true;
+			});
+			
+			if(valid){
+				fields.removeClass("fieldHasError");
+			}else{
+				fields.addClass("fieldHasError");
+			}
+
+			return valid;
+		}
+
+		
+		if($("#documentCancel").length){
+			$("#documentCancel").click(function(event){
+				enableValidateCheck = false;
+			});
+		}
+
+		//form submit
+		$("form#formCommitDocument").submit(function(event){
+			
+			$("#documentConfirm").prop("disabled",true);
+			
+			if(enableValidateCheck && !checkRemnants()){
+				event.preventDefault();
+		        $("#documentConfirm").prop("disabled",false);
+			}
+		});
+
+
+		$('body').on("click","#transferAllMaterials",function(event){
+			event.preventDefault();
+			var sends = $("#tableMaterials input.spent_input");
+
+			if(!sends.length) return false;
+
+			sends.each(function(){
+				var count = $(this).parents("tr").find("input.was_input");
+				if(count.length){
+					$(this).val(count.val());
+				}
+			});
+		});
+
+		$('body').on("click","#transferResetMaterials",function(event){
+			event.preventDefault();
+			var sends = $("#tableMaterials input.spent_input");
+
+			if(sends.length) sends.val(null);
+
+		});
+
+
+		$("body").on("change",".spent_input",function(){
+			var rest = $(this).parents("tr").find(".rest_input");
+			var total = parseFloat($(this).attr("max"));
+			var value = parseFloat($(this).val());
+			if(value){
+				var r = parseFloat(total - value);
+	    		rest.val(r.toFixed(3));
+			}else{
+				rest.val(total);
+			}
+			
+		});
+
+		$("body").on("keyup",".spent_input",function(){
+			var rest = $(this).parents("tr").find(".rest_input");
+			
+			var total = parseFloat($(this).attr("max"));
+			var min = parseFloat($(this).attr("min"));
+			var value = parseFloat($(this).val());
+	        
+			if(min > value){
+				$(this).val(min);
+				value = min;
+			}else if(total < value){
+				$(this).val(total);
+				value = total;
+			}
+
+			if(value || value === 0){
+				var rest_value = parseFloat(total - value);
+				rest.val(rest_value.toFixed(3));
+			}else{
+				rest.val("");
+			}
+			
+		});
+
+JS;
+
+		$this->registerJs($js);
+		?>
+
+		<?php }else{ ?>
 		<div class="row">
 			<div class="col-md-12">
 				<table class="table table-sm table-bordered table-collapsed table-hovered">
@@ -90,14 +279,16 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 				</table>
 			</div>
 		</div>
+		<?php } ?>
 		<div class="row">
 			<div class="col-md-6 form-group">
 				<?php 
+					$disable = $doc instanceof DocumentTransfer && !count($remnants);
 					echo Html::hiddenInput("doc[guid]",$doc['guid']);
 					echo Html::hiddenInput("doc[movement_type]",$doc['movement_type']);
 					echo Html::hiddenInput("doc[type_of_operation]",$doc['type_of_operation']);
-					echo Html::submitButton('Отменить',['name'=>'cancel','class'=>'btn btn-danger']);
-					echo Html::submitButton('Подтвердить',['name'=>'commit','class'=>'btn btn-success']);
+					echo Html::submitButton('Отменить',['name'=>'cancel','class'=>'btn btn-danger','id'=>"documentCancel"]);
+					echo Html::submitButton('Подтвердить',['name'=>'commit','class'=>'btn btn-success','id'=>"documentConfirm",'disabled'=>$disable]);
 				?>
 			</div>
 		</div>

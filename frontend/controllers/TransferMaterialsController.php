@@ -14,6 +14,8 @@ use frontend\modules\MaterialAppFilter;
 use common\models\{Raport,Request};
 use common\dictionaries\ExchangeStatuses;
 use soapclient\methods\TransferOfMaterials;
+use common\modules\LoadDocument;
+use common\models\Document;
 
 class TransferMaterialsController extends Controller{
 
@@ -35,7 +37,7 @@ class TransferMaterialsController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view','form'],
+                        'actions' => ['view','form','open'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -219,12 +221,4 @@ class TransferMaterialsController extends Controller{
             'unLoadedMaterials'=>$unLoadedMaterials
         ]);
     }
-
-
-
-
-    
-
-
-
 }

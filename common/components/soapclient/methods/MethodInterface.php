@@ -7,4 +7,7 @@ interface MethodInterface{
 
 
 	public function getParameters();
+
+
+	public function setParameters(array $params);
 }

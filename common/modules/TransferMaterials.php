@@ -4,13 +4,16 @@ namespace common\modules;
 
 use yii\db\Query;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 use common\models\User;
-use common\models\Request;
+use common\models\{Request,Document};
 use common\dictionaries\ExchangeStatuses;
 use soapclient\methods\TransferOfMaterials;
 
 
 class TransferMaterials extends Model{
+
+    public $guid = null;
 
     public $mol_guid;
     
@@ -22,6 +25,7 @@ class TransferMaterials extends Model{
 
     public $status;
     
+
 	/**
 	* Associative multiple array
 	* key: nomenclature_guid,count,series_guid
@@ -44,9 +48,9 @@ class TransferMaterials extends Model{
             }],
             ['date','default','value'=>date("Y-m-d\TH:i:s",time())],
             [['comment'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            [['comment',],'default','value'=>null],
-            [['mol_guid','mol_guid_recipient'],'string','max'=>36],
-            ['status','default','value'=>ExchangeStatuses::CREATED]
+            [['comment','guid'],'default','value'=>null],
+            [['mol_guid','mol_guid_recipient','guid'],'string','max'=>36],
+            ['status','default','value'=>Document::STATUS_ACCEPTED]
         ];
     }
 
@@ -151,6 +155,10 @@ class TransferMaterials extends Model{
     public function getUnLoadedStructuredMaterials(){
         if(!is_array($this->materials) || !count($this->materials)) return [];
 
+        if(ArrayHelper::isAssociative($this->materials)){
+            $this->materials =  [$this->materials];
+        }
+        
         $structured = [];
         foreach ($this->materials as $key => $m) {
             $structured[$m['nomenclature_guid']][$m['series_guid']]['count'] = $m['count'];
@@ -230,11 +238,6 @@ class TransferMaterials extends Model{
                 ->all();
 
         return $docs;
-    }
-
-
-    public function getActualTransfersToMe(){
-        
     }
 
 }

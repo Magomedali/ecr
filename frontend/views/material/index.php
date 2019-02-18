@@ -120,7 +120,7 @@ $this->title = 'Мои материалы';
                     <tr>
                         <td><?php echo date("d.m.Y",strtotime($item['date']));?></td>
                         <td><?php echo "";?></td>
-                        <td><?php echo $item['status'];?></td>
+                        <td><?php echo isset($item['status']) ? $item['status'] : "";?></td>
                         <td><?php echo "Расход";?></td>
                         <td><?php echo DocumentTypes::getLabels(DocumentTypes::TYPE_TRANSFER);?></td>
                         <td>
@@ -142,7 +142,7 @@ $this->title = 'Мои материалы';
                         <td><?php echo $item['movement_type'];?></td>
                         <td><?php echo $item['type_of_operation'];?></td>
                         <td>
-                            <?php echo Html::a("Открыть",['document/open','guid'=>$item['guid'],'movement_type'=>$item['movement_type']]);?>
+                            <?php echo Html::a("Открыть",[$item->openUrl,'guid'=>$item['guid'],'movement_type'=>$item['movement_type']]);?>
                         </td>
                     </tr>
                 <?php

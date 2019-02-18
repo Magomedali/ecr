@@ -18,7 +18,7 @@ class ExportMaterialsApp{
 		$params = [
 			'guid'=>$model['guid'],
 			'date'=>date("Y-m-d\TH:i:s",strtotime($model['created_at'])),
-			'status'=>ExchangeStatuses::getLabels($model['status']),
+			'status'=>ExchangeStatuses::getLabels(ExchangeStatuses::CREATED),
 			'mol_guid'=>$model['user_guid'],
             'master_guid'=>$model['master_guid'],
 			'warehouse_guid'=>$model['stockroom_guid'],
