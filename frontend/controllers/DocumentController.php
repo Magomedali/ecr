@@ -131,7 +131,7 @@ class DocumentController extends Controller{
 
         if(isset($post['doc']) && (isset($post['cancel']) || isset($post['commit']))){
             
-            if(isset($post['materials']) && isset($post['doc']) && isset($post['doc']['guid']) && $post['doc']['type_of_operation'] != DocumentTypes::TYPE_TRANSFER){
+            if(isset($post['materials']) && isset($post['doc']) && isset($post['doc']['guid']) && $post['doc']['type_of_operation'] == DocumentTypes::TYPE_TRANSFER){
 
                 $model = new TransferMaterials();
 
@@ -172,7 +172,6 @@ class DocumentController extends Controller{
 
                 SendUpdateStatusDocument::export($doc_data);
                 return $this->redirect(['material/index']);
-                    
             }
 
             
