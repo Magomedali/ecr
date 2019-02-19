@@ -121,10 +121,11 @@ class TransferMaterials extends Model{
                     array_push($this->materialsError, "Недостаточное количество материала");
                     continue;
                 }
-
-                $filterMaterials[$key]['nomenclature_guid'] = $material['nomenclature_guid'];
-                $filterMaterials[$key]['series_guid'] = $material['series_guid'];
-                $filterMaterials[$key]['count'] = $material['send'];
+                $m = array();
+                $m['nomenclature_guid'] = $material['nomenclature_guid'];
+                $m['series_guid'] = $material['series_guid'];
+                $m['count'] = $material['send'];
+                array_push($filterMaterials, $m);
             }
 
         }
