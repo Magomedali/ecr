@@ -12,7 +12,9 @@ class UpdateStatusDocument extends BaseMethod{
 
 	public function rules(){
 		return [
-			[['document_guid','movement_type','status','comment'],'required'],
+			[['document_guid','movement_type','status'],'required'],
+			['comment','safe'],
+			['comment','default','value'=>null]
 		];
 	}
 
