@@ -9,15 +9,19 @@ $this->title = 'Мои материалы';
 ?>
 
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-4 materialbtns">
         <div class="row">
             <div class="col-md-12">
-                <?php echo Html::a("Создать заявку на получение материала",['material/form'],['class'=>'btn btn-success btn-lg']);?>
+                <?php
+                    echo Html::a("Создать заявку на получение материала",['material/form'],['class'=>'btn btn-success btn-lg']);
+                ?>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12" style="margin-top:25px; ">
-                <?php echo Html::a("Создать документ на перевод материала",['transfer-materials/form'],['class'=>'btn btn-success btn-lg']);?>
+            <div class="col-md-12" style="margin-top:25px;">
+                <?php
+                    echo Html::a("Создать документ на перевод материала",['transfer-materials/form'],['class'=>'btn btn-success btn-lg']);
+                ?>
             </div>
         </div>
 	</div>
