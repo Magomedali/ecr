@@ -140,25 +140,7 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 															'inputKeyName'=>"RaportRegulatoryWork[$key][user_name]",
 															'inputKeyName_Value'=>$item['user_name'],
 															'placeholder'=>'Укажите физ.лицо',
-															'labelShow'=>false,
-															'generateSearchFiltersCallback'=>"function(){
-																	
-																var users = $('#tableWorks').find('input[name$=\'[user_guid]\'][name^=\'RaportRegulatoryWork\']');
-
-																if(users.length){
-																	var data = [];
-																	users.each(function(){
-																		data.push($(this).val());
-																	});
-
-																	return {
-																		users_extends:data
-																	}
-
-																}else{
-																	return {};
-																}
-															}"
+															'labelShow'=>false
 														]);
 													?>
 												</td>

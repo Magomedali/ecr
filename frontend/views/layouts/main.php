@@ -99,9 +99,17 @@ AppAsset::register($this);
                     if($show_backLink){
                     ?>
                     <div class="col-lg-6" style="padding-top: 50px;">
-                        <?php echo Html::a("Назад",$this->params['backlink']['url'],['class'=>'btn btn-danger pull-right'])?>
+                        <?php echo Html::a("X",$this->params['backlink']['url'],['id'=>'backLinkBtn','class'=>'btn btn-danger pull-right'])?>
                     </div>
                     <?php
+                        $JS = <<<JS
+                            $("#backLinkBtn").click(function(event){
+                                if(!confirm("Подтвердите свои действия!"))
+                                    event.preventDefault();
+                            });
+JS;
+                        
+                        $this->registerJs($JS);
                     }
                 ?>
             </div>

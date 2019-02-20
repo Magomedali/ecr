@@ -6,7 +6,7 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use common\widgets\autocomplete\AutoComplete;
 
-$this->title = "Заявка на получения материала";
+$this->title = "Заявка на получение материала";
 $this->params['backlink']['url']=Url::to(['material/index']);
 if(!$hasErrors){
 	$materialsAppItem = isset($model->id) ? $model->getMaterialsAppItems() : [];

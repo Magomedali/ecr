@@ -16,25 +16,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>"RaportRegulatoryWork[$count][user_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
-			'labelShow'=>false,
-			'generateSearchFiltersCallback'=>"function(){
-																	
-				var users = $('#tableWorks').find('input[name$=\'[user_guid]\'][name^=\'RaportRegulatoryWork\']');
-
-				if(users.length){
-					var data = [];
-					users.each(function(){
-						data.push($(this).val());
-					});
-
-					return {
-						users_extends:data
-					}
-
-				}else{
-					return {};
-				}
-			}"
+			'labelShow'=>false
 		]);
 	?>
 	</td>
