@@ -208,6 +208,8 @@ class TransferMaterials extends Model{
 
 
     public static function loadFromRequest($request){
+        if(!(int)$request) return new static();
+
         $req = (new Query())->select(['id','params_in'])
                 ->from(Request::tableName())
                 ->where(['id'=>$request])

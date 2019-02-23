@@ -10,6 +10,7 @@ use common\models\User;
 
 $this->title = "Перевод материалов на другого бригадира";
 $this->params['backlink']['url']=Url::to(['material/index']);
+$this->params['backlink']['confirm']=true;
 
 if($hasErrors){
 	$mol_guid_recipient_name = $errorsTransfer['mol_guid_recipient_name'];
@@ -47,11 +48,16 @@ if($hasErrors){
 					]);
 				?>
 			</div>
-			<div class="col-md-2" style="padding-top:24px; ">
+			<div class="col-md-4" style="padding-top:24px; ">
+				<div class="btn-group pull-right" role="group" aria-label="Basic example">
 				<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
-				<?php 
-					echo Html::submitButton("Отменить",['id'=>'transferMaterialCancel','name'=>'transferMaterialCancel','class'=>'btn btn-danger']);
-				?>
+					<?php 
+						if($request){
+							echo Html::hiddenInput("cancel",0,['id'=>'cancelInput']);
+							echo Html::submitButton("Отменить",['id'=>'transferMaterialCancel','name'=>'transferMaterialCancel','class'=>'btn btn-danger']);
+						}
+					?>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -61,10 +67,12 @@ if($hasErrors){
 		</div>
 		<div class="row">
 			<div class="col-md-12" style="margin-bottom: 5px;">
-				<?php 
-					echo Html::a("Очистить",null,['class'=>'btn btn-danger pull-right','id'=>'transferResetMaterials']);
-					echo Html::a("Передать все",null,['class'=>'btn btn-primary pull-right','id'=>'transferAllMaterials']);
-				?>
+				<div class="btn-group btn-group-sm pull-right" role="group" aria-label="Basic example">
+					<?php 
+						echo Html::button("Передать все",['class'=>'btn btn-default','id'=>'transferAllMaterials']);
+						echo Html::button("Очистить",['class'=>'btn btn-default','id'=>'transferResetMaterials']);
+					?>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -199,8 +207,16 @@ if($hasErrors){
 		if($("#transferMaterialCancel").length){
 			$("#transferMaterialCancel").click(function(event){
 				enableValidateCheck = false;
+				var cancelInput = $("#cancelInput");
+				if(cancelInput.length) cancelInput.val(1);
 			});
 		}
+
+		$("#btnMaterialFormSubmit").click(function(event){
+			enableValidateCheck = true;
+			var cancelInput = $("#cancelInput");
+			if(cancelInput.length) cancelInput.val(0);
+		});
 
 		//form submit
 		$("form#transferMaterialForm").submit(function(event){
@@ -211,6 +227,15 @@ if($hasErrors){
 			if(enableValidateCheck && (!validateRaportForm() || !checkRemnants())){
 				event.preventDefault();
 		        $("#btnMaterialFormSubmit").prop("disabled",false);
+			}else if(typeof pluginReqPassPreSubmit == 'object'){
+				if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
+					pluginReqPassPreSubmit.openWindow();
+					event.preventDefault();
+					$("#btnMaterialFormSubmit").prop("disabled",false);
+				}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
+					event.preventDefault();
+					$("#btnMaterialFormSubmit").prop("disabled",false);
+				}
 			}
 		});
 
@@ -280,6 +305,14 @@ JS;
 		$this->registerJs($js);
 		?>
 
+<?php 
+	$inValidPassword = isset($inValidPassword) ? $inValidPassword : false;
+	echo \common\widgets\reqpasspresubmit\ReqPassPreSubmit::widget([
+		'inValidPassword'=>$inValidPassword,
+		'id'=>'modalPassword',
+		'formId'=>'transferMaterialForm'
+	]);
+?>
 		<?php ActiveForm::end();?>
 	</div>
 </div>

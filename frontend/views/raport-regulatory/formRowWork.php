@@ -31,7 +31,14 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>"RaportRegulatoryWork[$count][work_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
-			'labelShow'=>false
+			'labelShow'=>false,
+			'generateSearchFiltersCallback'=>"function(){
+				return {
+					extends:{
+						is_regulatory:1
+					}
+				}
+			}"
 		]);
 	?>	
 	</td>

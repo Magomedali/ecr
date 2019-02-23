@@ -22,6 +22,13 @@ class TypeOfWork  extends ApiModel
     */
     public $name;
 
+
+    /**
+    * @var boolean
+    * @nillable
+    */
+    public $is_regulatory;
+    
     /**
     * @var string
     * @minOccurs 0

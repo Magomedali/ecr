@@ -309,6 +309,8 @@ class AutocompleteController extends Controller{
             $data = [];
             $get = Yii::$app->request->get();
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
+            
+            $is_regulatory = isset($get['extends']) &&  isset($get['extends']['is_regulatory']) ? boolval($get['extends']['is_regulatory']) : null;
 
             $query = (new Query())->select(['guid as `value`','name as title','GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'])
                                     ->from(TypeOfWork::tableName())
@@ -317,6 +319,10 @@ class AutocompleteController extends Controller{
 
             if($key){
                 $query->where("`name` LIKE '%{$key}%'");
+            }
+
+            if($is_regulatory !== null){
+                $query->andWhere(['is_regulatory'=>$is_regulatory]);
             }
 
             $results = $query->all();

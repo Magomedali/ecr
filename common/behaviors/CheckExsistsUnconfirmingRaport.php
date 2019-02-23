@@ -19,7 +19,14 @@ class CheckExsistsUnconfirmingRaport extends Behavior{
 
     public $redirect = ['site/index'];
 
-
+    /**
+    * Callable
+    */
+    public $exceptCondition = null;
+    
+    /**
+    * Callable
+    */
     public $errorCallback;
 
 
@@ -44,6 +51,10 @@ class CheckExsistsUnconfirmingRaport extends Behavior{
         $verb = Yii::$app->getRequest()->getMethod();
         $allowed = array_map('strtoupper', $this->methods);
         if (!in_array($verb, $allowed)) {
+            return true;
+        }
+
+        if($this->exceptCondition && is_callable($this->exceptCondition) && call_user_func($this->exceptCondition)){
             return true;
         }
 

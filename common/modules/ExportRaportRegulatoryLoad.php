@@ -62,21 +62,21 @@ class ExportRaportRegulatoryLoad{
                 $responce = json_decode($request->params_out,1);
 
                 if($request->result && isset($responce['return']) && isset($responce['return']['guid']) && $responce['return']['guid'] && isset($responce['return']['number']) && $responce['return']['number']){
-                        $model->guid = $responce['return']['guid'];
-                        $model->number = $responce['return']['number'];
+                    
+                    $model->guid = $responce['return']['guid'];
+                    $model->number = $responce['return']['number'];
 
-                        if($model->status == ExchangeStatuses::CREATED){
-                            $model->status = ExchangeStatuses::IN_CONFIRMING;
-                        }
-                        
-                        return $model->save(1);
+                    if($model->status == ExchangeStatuses::CREATED){
+                        $model->status = ExchangeStatuses::IN_CONFIRMING;
+                    }
+                    $model->save(1);
+                    return true;
                 }
             }
                  
             
         } catch (\Exception $e) {
             Yii::warning($e->getMessage(),'api');
-            throw $e;
         }
         
         return false;

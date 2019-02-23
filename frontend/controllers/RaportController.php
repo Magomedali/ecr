@@ -12,7 +12,7 @@ use frontend\modules\RaportFilter;
 use frontend\modules\RaportRegulatoryFilter;
 use common\models\Raport;
 use common\models\RaportFile;
-use common\modules\RaportServiceSaver;
+use common\services\RaportSaverService;
 use common\modules\exceptions\{
     InvalidPasswordException,
     EmptyRequiredPropertiesException,
@@ -26,7 +26,7 @@ use common\modules\exceptions\{
 class RaportController extends Controller{
 
 
-    public $raportServiceSaver;
+    public $RaportSaverService;
 
 
 
@@ -35,7 +35,7 @@ class RaportController extends Controller{
     
     public function __construct($id,$module,$config = []){
         
-        $this->raportServiceSaver = new RaportServiceSaver(Yii::$app->user->identity);
+        $this->RaportSaverService = new RaportSaverService(Yii::$app->user->identity);
         parent::__construct($id, $module, $config);
     }
 
@@ -69,6 +69,11 @@ class RaportController extends Controller{
                         return Yii::$app->response->redirect(['raport/index']);
                     
                     };
+                },
+                'exceptCondition'=>function(){
+                    $get = Yii::$app->request->get();
+                    $post = Yii::$app->request->post();
+                    return (isset($get['id']) && (int)$get['id']) || (isset($post['model_id']) && (int)$post['model_id']);
                 }
             ],
             'LoadNotes'=>[
@@ -202,7 +207,7 @@ class RaportController extends Controller{
 
     public function actionForm($id = null){
 
-        if(!$this->raportServiceSaver->userCan($id)){
+        if(!$this->RaportSaverService->userCan($id)){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -213,7 +218,7 @@ class RaportController extends Controller{
 
         $post = Yii::$app->request->post();
         try {
-            $model = $this->raportServiceSaver->getForm($post,$id);
+            $model = $this->RaportSaverService->getForm($post,$id);
         } catch (ModelNotFoundException $e) {
             Yii::$app->session->setFlash("error","Документ не найден.");
             return $this->redirect(['raport/index']);
@@ -238,7 +243,7 @@ class RaportController extends Controller{
         if(isset($post['Raport'])){
             try{
             
-                $this->raportServiceSaver->save($post);
+                $this->RaportSaverService->save($post);
                 Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");
                 return $this->redirect(['raport/index']);
             

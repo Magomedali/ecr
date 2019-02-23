@@ -16,6 +16,16 @@ use common\dictionaries\ExchangeStatuses;
 use soapclient\methods\TransferOfMaterials;
 use common\modules\LoadDocument;
 use common\models\Document;
+use common\services\TransferMaterialsSaverService;
+use common\modules\exceptions\{
+    InvalidPasswordException,
+    EmptyRequiredPropertiesException,
+    ValidateErrorsException,
+    ErrorRelationEntitiesException,
+    ErrorExportTo1C,
+    ModelNotFoundException,
+    ModelCantUpdateException
+};
 
 class TransferMaterialsController extends Controller{
 
@@ -26,6 +36,13 @@ class TransferMaterialsController extends Controller{
 
     protected $brigade_guid;
 
+    public $transferMaterialsSaverService;
+
+    public function __construct($id,$module,$config = []){
+        
+        $this->transferMaterialsSaverService = new TransferMaterialsSaverService(Yii::$app->user->identity);
+        parent::__construct($id, $module, $config);
+    }
 
 	/**
      * @inheritdoc
@@ -54,6 +71,11 @@ class TransferMaterialsController extends Controller{
                         return Yii::$app->response->redirect(['material/index']);
                     
                     };
+                },
+                'exceptCondition'=>function(){
+                    $get = Yii::$app->request->get();
+                    $post = Yii::$app->request->post();
+                    return (isset($get['id']) && (int)$get['id']) || (isset($post['model_id']) && (int)$post['model_id']);
                 }
             ],
             'LoadNotes'=>[
@@ -96,8 +118,6 @@ class TransferMaterialsController extends Controller{
 
     public function actionView($id){
 
-       
-
         if(!(int)$id) 
             throw new \Exception("Документ не найден!",404);
 
@@ -120,30 +140,31 @@ class TransferMaterialsController extends Controller{
 
         $post = Yii::$app->request->post();
         
-        if($request){
-            if(isset($post['transferMaterialCancel'])){
-                $req = Request::findOne(['id'=>(int)$request,'user_id'=>$this->user->id]);
+        $model = $this->transferMaterialsSaverService->getForm($request);
+        $unLoadedMaterials = $model->getUnLoadedStructuredMaterials();
+        
 
-                if(isset($req->id) && $req->id){
-                    $req->completed = 1;
-                    if($req->save()){
-                        Yii::$app->session->setFlash("success","Документ отклонен!");
-                    }else{
-                        Yii::$app->session->setFlash("error","Документ не удалось отклонить!");
-                    }
-                    return $this->redirect(['material/index']);
-
-                }else{
-                    Yii::$app->session->setFlash("error","Документ для отклонения не найден!");
-                    return $this->redirect(['transfer-materials/form','request'=>$request]);
-                }
+        if($request && isset($post['cancel']) && boolval($post['cancel'])){
+            try {
+                $this->transferMaterialsSaverService->cancel($post,$request);
+                Yii::$app->session->setFlash("success","Документ отклонен!");
+                return $this->redirect(['material/index']);
+            }catch(InvalidPasswordException $e){
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
+                return $this->redirect(['transfer-materials/form','request'=>$request]);
+            }catch(EmptyRequiredPropertiesException $e){
+                $inValidPassword = true;
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
+                return $this->redirect(['transfer-materials/form','request'=>$request]);
+            }catch (ValidateErrorsException $e) {
+                Yii::$app->session->setFlash("error","Документ не удалось отклонить!");
+                return $this->redirect(['transfer-materials/form','request'=>$request]);
+                
+            } catch (ModelNotFoundException $e) {
+                Yii::$app->session->setFlash("error","Документ для отклонения не найден!");
+                return $this->redirect(['material/index']);
             }
-
-            $model = TransferMaterials::loadFromRequest($request);
-            $unLoadedMaterials = $model->getUnLoadedStructuredMaterials();
-        }else{
-            $model = new TransferMaterials();
-            $unLoadedMaterials = [];
         }
 
         if($this->command && is_callable($this->command)){
@@ -157,37 +178,37 @@ class TransferMaterialsController extends Controller{
 
         if(isset($post['TransferMaterials'])){
             
-            $data = $post;
-            $data['TransferMaterials']['mol_guid']=$this->user->guid;
+            try {
+                $this->transferMaterialsSaverService->save($post);
+                Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
+                return $this->redirect(['material/index']);
+            }catch(InvalidPasswordException $e){
+            
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
+            
+            }catch(EmptyRequiredPropertiesException $e){
+                $inValidPassword = true;
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
 
-            if($model->load($data) && $model->validate()){
-
-                if(count($model->getMaterialsError())){
-                    Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.. Некорректные данные в табличной части документа.");
-                    Yii::warning("Error when validate transfer tables data","transferMaterialForm");
-                    Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
-                    $errors = $model->getMaterialsError();
-                }else{
-                    
-                    //Отправить заявку в 1С
-                    if(ExportTransferMaterials::export($model)){
-                        Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
-                        return $this->redirect(['material/index']);
-                    }else{
-                        Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на подтверждение в 1С");
-                        return $this->redirect(['material/index']);
-                    }
-
-                }
-                   
-            }else{
-                
+            }catch(ValidateErrorsException $e){
                 Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.");
                 Yii::warning("Error when validate transfermaterials document","transferMaterialForm");
                 Yii::warning(json_encode($model->getErrors()),"transferMaterialForm");
                 $errors = $model->getErrors();
-
+            }catch(ErrorRelationEntitiesException $e){
+                
+                Yii::$app->session->setFlash("error","Обнаружены ошибки при заполнении документа.. Некорректные данные в табличной части документа.");
+                Yii::warning("Error when validate transfer tables data","transferMaterialForm");
+                Yii::warning(json_encode($model->getMaterialsError()),"transferMaterialForm");
+                $errors = $model->getMaterialsError();
+                
+            }catch(ErrorExportTo1C $e){
+                Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на подтверждение в 1С");
+                return $this->redirect(['material/index']);
             }
+                   
+            
 
             if(count($errors)){
                 foreach ($errors as $key => $er) {
@@ -217,6 +238,7 @@ class TransferMaterialsController extends Controller{
             'remnants'=>$remnants,
             'hasErrors'=>$hasErrors,
             'errors'=>$errors,
+            'request'=>$request,
             'errorsTransfer'=>$errorsTransfer,
             'unLoadedMaterials'=>$unLoadedMaterials
         ]);

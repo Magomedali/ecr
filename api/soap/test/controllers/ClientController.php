@@ -126,7 +126,7 @@ class ClientController extends Controller
                 'password'=>'12345qwE',
                 'ktu'=>0.85,
                 'is_master'=>false,
-                'status'=>10
+                'status'=>1
             ],
             [
                 'guid'=>'4eed6dd1-28b6-11e7-80e9-000c29a0432f',
@@ -146,7 +146,7 @@ class ClientController extends Controller
                 'is_master'=>false,
                 'login'=>'nozdrenkovai',
                 'password'=>'12345qwE',
-                'status'=>10
+                'status'=>1
             ],
             [
                 'guid'=>'01a373e5-40af-11e8-8114-005056b47a2e',
@@ -385,6 +385,7 @@ class ClientController extends Controller
             [
                 'guid'=>'1cd95cf7-201f-11e8-8112-005056b47a2e',
                 'name'=>'Закраска разметки',
+                'is_regulatory'=>1,
                 'nomenclatures_guid'=>[
                     'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
                     'c2643f0a-0278-11e7-80f9-005056b47a2e'
@@ -393,6 +394,7 @@ class ClientController extends Controller
             [
                 'guid'=>'2483a64e-201f-11e8-8112-005056b47a2e',
                 'name'=>'Зачистка разметки',
+                'is_regulatory'=>1,
                 'nomenclatures_guid'=>[
                     'c0dbfe08-d8d0-11e6-80f1-005056b47a2e'
                 ]
@@ -400,6 +402,7 @@ class ClientController extends Controller
             [
                 'guid'=>'2c8fe8b0-201f-11e8-8112-005056b47a2e',
                 'name'=>'Разметка готовыми формами',
+                'is_regulatory'=>0,
                 'nomenclatures_guid'=>[
                     'c2643f0a-0278-11e7-80f9-005056b47a2e',
                     'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
@@ -416,6 +419,7 @@ class ClientController extends Controller
             [
                 'guid'=>'4327f0f2-201f-11e8-8112-005056b47a2e',
                 'name'=>'Разметка холодным пластиком',
+                'is_regulatory'=>0,
             ],
             [
                 'guid'=>'126d493f-201f-11e8-8112-005056b47a2e',

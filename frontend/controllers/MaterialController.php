@@ -10,7 +10,6 @@ use common\models\MaterialsApp;
 use frontend\modules\MaterialAppFilter;
 
 use common\modules\ImportListOfDocuments;
-use common\modules\ExportMaterialsApp;
 use common\modules\TransferMaterials;
 use common\modules\CheckCloseShift;
 use common\dictionaries\{ExchangeStatuses,DocumentTypes};
@@ -18,17 +17,34 @@ use common\base\Controller;
 
 
 use common\modules\notes\NoteCollections;
+use common\services\MaterialSaverService;
+use common\modules\exceptions\{
+    InvalidPasswordException,
+    EmptyRequiredPropertiesException,
+    ValidateErrorsException,
+    ErrorRelationEntitiesException,
+    ErrorExportTo1C,
+    ModelNotFoundException,
+    ModelCantUpdateException
+};
 
 class MaterialController extends Controller{
 
 
     protected $user;
-
     
     public $command;
 
+    protected $materialSaverService;
 
     protected $brigade_guid;
+
+
+    public function __construct($id,$module,$config = []){
+        
+        $this->materialSaverService = new MaterialSaverService(Yii::$app->user->identity);
+        parent::__construct($id, $module, $config);
+    }
 
 
 	/**
@@ -59,6 +75,11 @@ class MaterialController extends Controller{
                         return Yii::$app->response->redirect(['material/index']);
                     
                     };
+                },
+                'exceptCondition'=>function(){
+                    $get = Yii::$app->request->get();
+                    $post = Yii::$app->request->post();
+                    return (isset($get['id']) && (int)$get['id']) || (isset($post['model_id']) && (int)$post['model_id']);
                 }
             ],
             'LoadNotes'=>[
@@ -71,18 +92,9 @@ class MaterialController extends Controller{
 
 	
     public function beforeAction($action){
-        
         if(defined('YII_DEBUG') && YII_DEBUG){
             Yii::$app->assetManager->forceCopy = true;
         }
-
-        $this->user = Yii::$app->user->identity;
-        $this->brigade_guid = isset($this->user->brigade_guid) ? $this->user->brigade_guid : null;
-        if(!$this->brigade_guid){
-            Yii::$app->user->logout();
-            return $this->goHome();
-        }
-
         return parent::beforeAction($action);
     }
 
@@ -151,58 +163,67 @@ class MaterialController extends Controller{
 
     public function actionForm($id = null){
 
-        $post = Yii::$app->request->post();
-
-        if($id || isset($post['model_id'])){
-            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
-
-            $model =  MaterialsApp::findOne(['id'=>$id,'user_guid'=>$this->user->guid]);
-            if(!isset($model->id))
-                throw new \Exception("Документ не найден!",404);
-
-        }else{
-           $model = new MaterialsApp(); 
+        if(!$this->materialSaverService->userCan($id)){
+            Yii::$app->user->logout();
+            return $this->goHome();
         }
-        
 
         if($this->command && is_callable($this->command)){
             return call_user_func($this->command);
         }
 
+        $post = Yii::$app->request->post();
+        try {
+            $model = $this->materialSaverService->getForm($post,$id);
+        } catch (ModelNotFoundException $e) {
+            Yii::$app->session->setFlash("error","Документ не найден.");
+            return $this->redirect(['material/index']);
+        } catch (ModelCantUpdateException $e) {
+            Yii::$app->session->setFlash("error","Документ неьзя редактировать.");
+            return $this->redirect(['material/index']);
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");
+            return $this->redirect(['material/index']);
+        }
+
         $hasErrors = false;
+        $inValidPassword = false;
         $errorsMaterialsApp=[];
         $errorsMaterialsAppItem = [];
         $errors = [];
         if(isset($post['MaterialsApp'])){
 
-            $data = $post;
-            $data['MaterialsApp']['user_guid']=Yii::$app->user->identity->guid;
+            try {
+                $this->materialSaverService->save($post);
+                Yii::$app->session->setFlash("success","Заявка успешно отправлена на проверку!");
+                return $this->redirect(['material/index']);
+            }catch(InvalidPasswordException $e){
+            
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
+            
+            }catch(EmptyRequiredPropertiesException $e){
+                $inValidPassword = true;
+                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
 
-            if($model->load($data) && $model->save(1)){
-                
-                $model->saveRelationEntities();
-
-                if(count($model->getItemsErrors())){
-                    Yii::$app->session->setFlash("error","Заявка не сохранена. Некорректные данные в табличной части заявки имеют не корректные данные");
-                    Yii::warning("Error when save raport tables data","materialform");
-                    Yii::warning(json_encode($model->getItemsErrors()),"materialform");
-                    $errors = $model->getItemsErrors();
-                }else{
-                    Yii::$app->session->setFlash("success","Заявка сохранена");
-
-                    //Отправить заявку в 1С
-                    ExportMaterialsApp::export($model);
-
-                    return $this->redirect(['material/index']);
-                }
-                   
-            }else{
+            }catch(ValidateErrorsException $e){
                 Yii::$app->session->setFlash("error","Возникла ошибка при сохранении заявки. Заявка не сохранена!");
                 Yii::warning("Error when save raport","materialform");
                 Yii::warning(json_encode($model->getErrors()),"materialform");
                 $errors = $model->getErrors();
+            }catch(ErrorRelationEntitiesException $e){
+                
+                Yii::$app->session->setFlash("error","Заявка не сохранена. Некорректные данные в табличной части заявки имеют не корректные данные");
+                Yii::warning("Error when save raport tables data","materialform");
+                Yii::warning(json_encode($model->getItemsErrors()),"materialform");
+                $errors = $model->getItemsErrors();
+                
+            }catch(ErrorExportTo1C $e){
+                Yii::$app->session->setFlash("success","Заявка успешно сохранена!");
+                Yii::$app->session->setFlash("error","Ошибка, при отправлении заявки на проверку");
+                return $this->redirect(['material/index']);
             }
-
+                
             if(count($errors)){
                 foreach ($errors as $key => $er) {
                     if(!is_array($er)){
@@ -216,10 +237,10 @@ class MaterialController extends Controller{
                     }
                 }
             }
+
             $hasErrors = true;
             $errorsMaterialsApp = isset($post['MaterialsApp']) ? $post['MaterialsApp'] : [];
             $errorsMaterialsAppItem = isset($post['MaterialsAppItem']) ? $post['MaterialsAppItem'] : [];
-
         }
 
 
@@ -227,6 +248,7 @@ class MaterialController extends Controller{
             'model'=>$model,
             'hasErrors'=>$hasErrors,
             'errors'=>$errors,
+            'inValidPassword'=>$inValidPassword,
             'errorsMaterialsApp'=>$errorsMaterialsApp,
             'errorsMaterialsAppItem'=>$errorsMaterialsAppItem
         ]);

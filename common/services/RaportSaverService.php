@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules;
+namespace common\services;
 
 use Yii;
 use common\models\{User,Raport};
@@ -15,7 +15,7 @@ use common\modules\exceptions\{
 };
 
 
-class RaportServiceSaver{
+class RaportSaverService{
 
 	public $enableGuardValidPassword = true;
 
@@ -98,9 +98,12 @@ class RaportServiceSaver{
         	$data['Raport']['brigade_guid']= $user->brigade_guid;	
 		}
         
+        if(!$model->load($data)){
+            throw new ValidateErrorsException("Error whe validate form data!");
+        }
 
         if($this->enableGuardValidPassword){
-        	if(!isset($post['password']))
+        	if(!isset($post['password']) || !$post['password'])
         		throw new EmptyRequiredPropertiesException("password not found");
 
         	$password = trim(strip_tags($post['password']));
@@ -109,8 +112,7 @@ class RaportServiceSaver{
             }
         }
 
-
-        if(!($model->load($data) && $model->save(1))){
+        if(!$model->save(1)){
         	throw new ValidateErrorsException("Error whe validate form data!");
         }
         

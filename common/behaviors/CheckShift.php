@@ -12,9 +12,7 @@ class CheckShift extends Behavior{
 
 	protected $user;
 
-
 	public $actions = [];
-
 
 	public $redirect = ['site/index'];
 
@@ -23,6 +21,11 @@ class CheckShift extends Behavior{
     public $methods = ['GET'];
 
     public $errorCallback;
+
+    /**
+    * Callable
+    */
+    public $exceptCondition = null;
 
 
 	/**
@@ -47,6 +50,10 @@ class CheckShift extends Behavior{
         $allowed = array_map('strtoupper', $this->methods);
         if (!in_array($verb, $allowed)) {
             
+            return true;
+        }
+
+        if($this->exceptCondition && is_callable($this->exceptCondition) && call_user_func($this->exceptCondition)){
             return true;
         }
 

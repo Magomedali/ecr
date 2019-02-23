@@ -108,8 +108,10 @@ AppAsset::register($this);
                                     event.preventDefault();
                             });
 JS;
+                        if(isset($this->params['backlink']['confirm']) && boolval($this->params['backlink']['confirm'])){
+                           $this->registerJs($JS); 
+                        }
                         
-                        $this->registerJs($JS);
                     }
                 ?>
             </div>

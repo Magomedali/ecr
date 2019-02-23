@@ -8,6 +8,8 @@ use common\widgets\autocomplete\AutoComplete;
 
 $this->title = "Заявка на получение материала";
 $this->params['backlink']['url']=Url::to(['material/index']);
+$this->params['backlink']['confirm']=true;
+
 if(!$hasErrors){
 	$materialsAppItem = isset($model->id) ? $model->getMaterialsAppItems() : [];
 }else{
@@ -86,7 +88,7 @@ if(isset($model->id)){
 						</tr>
 					</thead>
 					<tbody>
-						<?php if(is_array($materialsAppItem)){
+						<?php if(is_array($materialsAppItem) && count($materialsAppItem)){
 								foreach ($materialsAppItem as $key => $item) {
 									if(!array_key_exists('count', $item) || !array_key_exists('nomenclature_name', $item) || !array_key_exists('nomenclature_guid', $item)) continue;
 											?>
@@ -104,7 +106,7 @@ if(isset($model->id)){
 															'placeholder'=>'Номенклатура',
 															'labelShow'=>false,
 															'properties'=>[
-																['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit span'],
+																['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit input'],
 															],
 															'generateSearchFiltersCallback'=>"function(){
 																
@@ -131,14 +133,16 @@ if(isset($model->id)){
 														<?php echo Html::input("number","MaterialsAppItem[{$key}][count]",$item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control input-sm isRequired'])?>
 													</td>
 													<td class="nomenclature_unit">
-														<span><?php echo $item['nomenclature_unit'];?></span>
+														<?php echo Html::textInput("MaterialsAppItem[{$key}][nomenclature_unit]",$item['nomenclature_unit'],['readonly'=>true,'class'=>'form-control']);?>
 													</td>
 													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow'])?></td>
 												</tr>
 											<?php
-												}
-											}
-											?>
+									}
+								}else{
+									echo $this->render("formRowMaterial",['count'=>0]);
+								}
+							?>
 					</tbody>
 				</table>
 			</div>
@@ -182,7 +186,6 @@ if(isset($model->id)){
 
 				});
 			}
-
 			return !hasError;
 		}
 
@@ -194,7 +197,19 @@ if(isset($model->id)){
 			if(!validateRaportForm()){
 				event.preventDefault();
 		        $("#btnMaterialFormSubmit").prop("disabled",false);
+			}else if(typeof pluginReqPassPreSubmit == 'object'){
+				if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
+					pluginReqPassPreSubmit.openWindow();
+					event.preventDefault();
+					$("#btnMaterialFormSubmit").prop("disabled",false);
+				}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
+					event.preventDefault();
+					$("#btnMaterialFormSubmit").prop("disabled",false);
+				}
 			}
+
+			
+
 		});
 
 
@@ -248,9 +263,21 @@ JS;
 		$this->registerJs($js);
 		?>
 
+
+<?php 
+	$inValidPassword = isset($inValidPassword) ? $inValidPassword : false;
+	echo \common\widgets\reqpasspresubmit\ReqPassPreSubmit::widget([
+		'inValidPassword'=>$inValidPassword,
+		'id'=>'modalPassword',
+		'formId'=>'materialForm'
+	]);
+?>
+
+
 		<?php ActiveForm::end();?>
 	</div>
 </div>
+
 
 
 

@@ -9,7 +9,7 @@ use common\models\{Nomenclature,DocumentTransfer};
 
 $this->title = $doc['type_of_operation'];
 $this->params['backlink']['url']=Url::to(['material/index']);
-
+$this->params['backlink']['confirm']=true;
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -63,11 +63,13 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 		?>
 		<div class="row">
 			<div class="col-md-12" style="margin-bottom: 5px;">
-				<?php 
-					echo Html::a("Очистить",null,['class'=>'btn btn-danger pull-right','id'=>'transferResetMaterials']);
-					echo Html::a("Передать все",null,['class'=>'btn btn-primary pull-right','id'=>'transferAllMaterials']);
-					echo Html::hiddenInput("doc[mol_guid_recipient]",$mol_guid);
-				?>
+				<div class="btn-group btn-group-sm pull-right" role="group" aria-label="Basic example">
+					<?php 
+						echo Html::button("Передать все",['class'=>'btn btn-default','id'=>'transferAllMaterials']);
+						echo Html::button("Очистить",['class'=>'btn btn-default','id'=>'transferResetMaterials']);
+					?>
+				</div>
+				<?php echo Html::hiddenInput("doc[mol_guid_recipient]",$mol_guid);?>
 			</div>
 		</div>
 		<div class="row">
@@ -166,6 +168,14 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 		if($("#documentCancel").length){
 			$("#documentCancel").click(function(event){
 				enableValidateCheck = false;
+				$("#cancelInput").val(1);
+			});
+		}
+
+		if($("#documentConfirm").length){
+			$("#documentConfirm").click(function(event){
+				enableValidateCheck = true;
+				$("#cancelInput").val(0);
 			});
 		}
 
@@ -177,6 +187,15 @@ $this->params['backlink']['url']=Url::to(['material/index']);
 			if(enableValidateCheck && !checkRemnants()){
 				event.preventDefault();
 		        $("#documentConfirm").prop("disabled",false);
+			}else if(typeof pluginReqPassPreSubmit == 'object'){
+				if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
+					pluginReqPassPreSubmit.openWindow();
+					event.preventDefault();
+					$("#documentConfirm").prop("disabled",false);
+				}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
+					event.preventDefault();
+					$("#documentConfirm").prop("disabled",false);
+				}
 			}
 		});
 
@@ -279,6 +298,39 @@ JS;
 				</table>
 			</div>
 		</div>
+
+		<?php
+			$js = <<<JS
+
+
+				if($("#documentCancel").length){
+					$("#documentCancel").click(function(event){
+						$("#cancelInput").val(1);
+					});
+				}
+
+				if($("#documentConfirm").length){
+					$("#documentConfirm").click(function(event){
+						$("#cancelInput").val(0);
+					});
+				}
+
+				$("form#formCommitDocument").submit(function(){
+					if(typeof pluginReqPassPreSubmit == 'object'){
+						if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
+							pluginReqPassPreSubmit.openWindow();
+							event.preventDefault();
+							$("#documentConfirm").prop("disabled",false);
+						}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
+							event.preventDefault();
+							$("#documentConfirm").prop("disabled",false);
+						}
+					}
+				})
+JS;
+			$this->registerJs($js);
+		?>
+
 		<?php } ?>
 		<div class="row">
 			<div class="col-md-6 form-group">
@@ -287,11 +339,25 @@ JS;
 					echo Html::hiddenInput("doc[guid]",$doc['guid']);
 					echo Html::hiddenInput("doc[movement_type]",$doc['movement_type']);
 					echo Html::hiddenInput("doc[type_of_operation]",$doc['type_of_operation']);
-					echo Html::submitButton('Отменить',['name'=>'cancel','class'=>'btn btn-danger','id'=>"documentCancel"]);
-					echo Html::submitButton('Подтвердить',['name'=>'commit','class'=>'btn btn-success','id'=>"documentConfirm",'disabled'=>$disable]);
+					echo Html::hiddenInput("cancel",0,['id'=>'cancelInput']);
 				?>
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<?php 
+						echo Html::submitButton('Подтвердить',['name'=>'commitbtn','class'=>'btn btn-success','id'=>"documentConfirm",'disabled'=>$disable]);
+						echo Html::submitButton('Отменить',['name'=>'cancelbtn','class'=>'btn btn-danger','id'=>"documentCancel"]);
+					?>
+				</div>
 			</div>
 		</div>
+
+		<?php 
+			$inValidPassword = isset($inValidPassword) ? $inValidPassword : false;
+			echo \common\widgets\reqpasspresubmit\ReqPassPreSubmit::widget([
+				'inValidPassword'=>$inValidPassword,
+				'id'=>'modalPassword',
+				'formId'=>'formCommitDocument'
+			]);
+		?>
 		<?php ActiveForm::end();?>
 	</div>
 </div>

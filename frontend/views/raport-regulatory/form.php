@@ -43,6 +43,7 @@ if(isset($model->id)){
 
 $this->title = "Форма регламентного рапорта";
 $this->params['backlink']['url']=Url::to(['raport/index']);
+$this->params['backlink']['confirm']=true;
 ?>
 
 <?php $form = ActiveForm::begin(['id'=>'raportRegulatoryForm']);?>
@@ -154,7 +155,14 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 															'inputKeyName'=>"RaportRegulatoryWork[$key][work_name]",
 															'inputKeyName_Value'=>$item['work_name'],
 															'placeholder'=>'Укажите вид работы',
-															'labelShow'=>false
+															'labelShow'=>false,
+															'generateSearchFiltersCallback'=>"function(){
+																return {
+																	extends:{
+																		is_regulatory:1
+																	}
+																}
+															}"
 														]);
 													?>
 												</td>
@@ -185,6 +193,19 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 		</div>
 	</div>
 </div>
+
+<?php 
+	if(!$user->is_master){
+		$inValidPassword = isset($inValidPassword) ? $inValidPassword : false;
+		echo \common\widgets\reqpasspresubmit\ReqPassPreSubmit::widget([
+			'inValidPassword'=>$inValidPassword,
+			'id'=>'modalPassword',
+			'formId'=>'raportRegulatoryForm'
+		]);
+	}
+	
+?>
+
 <?php ActiveForm::end();?>
 
 <?php 
@@ -235,7 +256,16 @@ $script = <<<JS
 		if(!validateRaportForm()){
 			event.preventDefault();
 	        $("#btnRaportFormSubmitPassword").prop("disabled",false);
-		}
+		}else if(typeof pluginReqPassPreSubmit == 'object'){
+				if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
+					pluginReqPassPreSubmit.openWindow();
+					event.preventDefault();
+					$("#btnRaportFormSubmitPassword").prop("disabled",false);
+				}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
+					event.preventDefault();
+					$("#btnRaportFormSubmitPassword").prop("disabled",false);
+				}
+			}
 	});
 
 

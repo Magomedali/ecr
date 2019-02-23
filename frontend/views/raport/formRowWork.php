@@ -20,7 +20,14 @@ use common\widgets\autocomplete\AutoComplete;
 			'labelShow'=>false,
 			'properties'=>[
 				['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
-			]
+			],
+			'generateSearchFiltersCallback'=>"function(){
+				return {
+					extends:{
+						is_regulatory:0
+					}
+				}
+			}"
 		]);
 	?>
 	<?php

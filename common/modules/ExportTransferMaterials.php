@@ -43,7 +43,7 @@ class ExportTransferMaterials{
             }elseif($model->guid){
                 //Предыдущие запросы по этому документы закрываем
                 Yii::$app->db->createCommand()->update(Request::tableName(),['completed'=>1,'completed_at'=>date("Y-m-d\TH:i:s",time())],"`resource_id`=:resource_id AND `request`=:request AND  completed=0")
-                ->bindValue(":request",$request->request)
+                ->bindValue(":request",$req_params['request'])
                 ->bindValue(":resource_id",$model->guid)
                 ->execute();
             }
@@ -83,6 +83,7 @@ class ExportTransferMaterials{
         } catch (\Exception $e) {
             Yii::warning($e->getMessage(),'api');
             Yii::$app->session->setFlash("error",$e->getMessage());
+            throw $e;
         }
         
         return false;

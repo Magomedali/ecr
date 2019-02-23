@@ -75,7 +75,9 @@ class ExportMaterialsApp{
                     $model->status = ExchangeStatuses::IN_CONFIRMING;
                		
                 	Yii::$app->session->setFlash("info","Заявка выгружена в 1С");
-                    return $model->save(1);
+
+                    $model->save(1);
+                    return true;
                 }
             }
             

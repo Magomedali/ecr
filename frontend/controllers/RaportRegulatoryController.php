@@ -8,13 +8,31 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\web\HttpException;
 use common\models\RaportRegulatory;
-use common\modules\ExportRaportRegulatoryLoad;
 use common\modules\CheckCloseShift;
+use common\services\RaportRegulatorySaverService;
+use common\modules\exceptions\{
+    InvalidPasswordException,
+    EmptyRequiredPropertiesException,
+    ValidateErrorsException,
+    ErrorRelationEntitiesException,
+    ErrorExportTo1C,
+    ModelNotFoundException,
+    ModelCantUpdateException
+};
+
 
 class RaportRegulatoryController extends Controller{
 
+    public $raportRegulatorySaverService;
 
     public $command;
+
+
+    public function __construct($id,$module,$config = []){
+        
+        $this->raportRegulatorySaverService = new RaportRegulatorySaverService(Yii::$app->user->identity);
+        parent::__construct($id, $module, $config);
+    }
 
 	/**
      * @inheritdoc
@@ -45,6 +63,11 @@ class RaportRegulatoryController extends Controller{
                         return Yii::$app->response->redirect(['raport/index']);
                     
                     };
+                },
+                'exceptCondition'=>function(){
+                    $get = Yii::$app->request->get();
+                    $post = Yii::$app->request->post();
+                    return (isset($get['id']) && (int)$get['id']) || (isset($post['model_id']) && (int)$post['model_id']);
                 }
             ],
             'LoadNotes'=>[
@@ -105,8 +128,7 @@ class RaportRegulatoryController extends Controller{
 
     public function actionForm($id = null){
 
-        $user = Yii::$app->user->identity;
-        if(!$user->brigade_guid && !$user->is_master){
+        if(!$this->raportRegulatorySaverService->userCan($id)){
             Yii::$app->user->logout();
             return $this->goHome();
         }
@@ -117,28 +139,18 @@ class RaportRegulatoryController extends Controller{
         
         $post = Yii::$app->request->post();
 
-        if($id || isset($post['model_id'])){
-            $id = isset($post['model_id']) ? (int)$post['model_id'] : (int)$id;
-
-            $q = RaportRegulatory::find()->where(['id'=>(int)$id]);
-
-            if(!$user->is_master){
-                $q->andWhere(['brigade_guid'=>$user->brigade_guid]);
-            }
-
-            $model = $q->one();
-            
-            if(!isset($model->id) || ($user->is_master && $user->guid != $model->master_guid))
-                throw new \Exception("Документ не найден!",404);
-
-            if(!$model->isCanUpdate)
-                throw new \Exception("Нет доступа к редактированию документа!",404);
-
-        }else{
-           $model = new RaportRegulatory(); 
+        try {
+            $model = $this->raportRegulatorySaverService->getForm($post,$id);
+        } catch (ModelNotFoundException $e) {
+            Yii::$app->session->setFlash("error","Документ не найден.");
+            return $this->redirect(['raport/index']);
+        } catch (ModelCantUpdateException $e) {
+            Yii::$app->session->setFlash("error","Документ неьзя редактировать.");
+            return $this->redirect(['raport/index']);
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");
+            return $this->redirect(['raport/index']);
         }
-        
-
 
         $hasErrors = false;
         $inValidPassword = false;
@@ -147,48 +159,43 @@ class RaportRegulatoryController extends Controller{
         $errors = [];
 
         if(isset($post['RaportRegulatory'])){
-
-            $data = $post;
-            if(!boolval($user->is_master)){
-                $data['RaportRegulatory']['user_guid']=$user->guid;
-                $data['RaportRegulatory']['brigade_guid']=$user->brigade_guid;   
-            }
             
+            try{
+            
+                $this->raportRegulatorySaverService->save($post);
+                Yii::$app->session->setFlash("success","Регламентный рапорт успешно отправлен на проверку!");
+                return $this->redirect(['raport/index']);
+            
+            }catch(InvalidPasswordException $e){
+            
+                Yii::$app->session->setFlash("error","Введен неправильный пароль!");
+                $inValidPassword = true;
+            
+            }catch(EmptyRequiredPropertiesException $e){
+                $inValidPassword = true;
+                Yii::$app->session->setFlash("error","Регламентный рапорт не сохранен. Отсутствуют обязательные данные!");
 
-            if($model->load($data) && $model->save(1)){
-                        
-                $model->saveRelationEntities();
+            }catch(ValidateErrorsException $e){
 
-                if(count($model->getWorksErrors())){
-                    Yii::$app->session->setFlash("error","Рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
-                    Yii::warning("Error when save raport tables data","raportform");
-                    Yii::warning(json_encode($model->getWorksErrors()),"raportform");
-                    $errors = count($errors) ? $errors : $model->getWorksErrors();
-                }else{
-                    Yii::$app->session->setFlash("success","Рапорт успешно сохранен");
-
-                    try {
-                        //Отправить заявку в 1С
-                        if(ExportRaportRegulatoryLoad::export($model)){
-                            Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");  
-                        }else{
-                            Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
-                        }
-                        
-                    } catch (\Exception $e) {
-                        Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
-                    }
-                    
-
-                    return $this->redirect(['raport/index']);
-                }
-            }else{
-                Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
+                Yii::$app->session->setFlash("error","Регламентный рапорт не сохранен. Отсутствуют обязательные данные!");
                 Yii::warning("Error when save raport","raportform");
                 Yii::warning(json_encode($model->getErrors()),"raportform");
                 $errors = $model->getErrors();
-            }
 
+            }catch(ErrorRelationEntitiesException $e){
+                
+                Yii::$app->session->setFlash("error","Регламентный рапорт не сохранен. Некорректные данные в табличной части рапорта имеют не корректные данные");
+                    Yii::warning("Error when save raport tables data","raportform");
+                    Yii::warning(json_encode($model->getWorksErrors()),"raportform");
+                    $errors = count($errors) ? $errors : $model->getWorksErrors();
+                
+            }catch(ErrorExportTo1C $e){
+
+                Yii::$app->session->setFlash("success","Регламентный рапорт успешно сохранен!");
+                Yii::$app->session->setFlash("error","Ошибка, при отправлении рапорта на проверку");
+                return $this->redirect(['raport/index']);
+                
+            }
 
             if(count($errors)){
                 foreach ($errors as $key => $er) {

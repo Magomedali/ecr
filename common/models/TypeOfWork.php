@@ -32,6 +32,7 @@ class TypeOfWork extends ActiveRecordVersionable
         return [
             'guid',
             'name',
+            'is_regulatory',
             'isDeleted',
         ];
     }
@@ -46,7 +47,8 @@ class TypeOfWork extends ActiveRecordVersionable
             [['guid'],'string','max'=>36],
             [['name'],'string','max'=>128],
             [['name'], 'filter','filter'=>function($v){return trim(strip_tags($v));}],
-            
+            ['is_regulatory','boolean'],
+            ['is_regulatory','default','value'=>0],
         ];
     }
 

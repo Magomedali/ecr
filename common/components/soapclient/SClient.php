@@ -41,6 +41,7 @@ class SClient extends Component
 
     public function send(BaseMethod $method)
     {   
+        
         $this->beforeSend();
         ini_set('default_socket_timeout', 600);
         set_time_limit(0);

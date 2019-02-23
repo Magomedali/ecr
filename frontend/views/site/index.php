@@ -110,7 +110,7 @@ $this->title = 'Мои кабинет';
                 },
                 'columns'=>[
                     [
-                        'attribute'=>"work",
+                        'attribute'=>"month",
                         "label"=>"Вид работы",
                         'value'=>function($item){
                         	if(!isset($item['type_of_work_guid'])) return "Неизвестный вид работы";
@@ -120,6 +120,7 @@ $this->title = 'Мои кабинет';
                         	if(!isset($m->name)) return "Неизвестный вид работы";
                         	return $m->name;
                         },
+                        'filter'=>Html::dropDownList("TotalOutputFilter[month]",$TotalOutputFilter->month,$TotalOutputFilter::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
                     ],
                     [
                         'attribute'=>"status",

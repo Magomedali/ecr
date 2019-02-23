@@ -129,8 +129,22 @@ class DocumentController extends Controller{
 
         $post = Yii::$app->request->post();
 
-        if(isset($post['doc']) && (isset($post['cancel']) || isset($post['commit']))){
+        if(isset($post['doc']) && isset($post['doc']['guid']) && isset($post['doc']['movement_type'])){
             
+            //Проверка пароля
+            if(!isset($post['password']) || !$post['password']){
+                Yii::$app->session->setFlash("warning","Введите пароль от учетной записи.");
+                return $this->redirect(['document/open','guid'=>$post['doc']['guid'],'movement_type'=>$post['doc']['movement_type']]);
+            }
+
+            $password = trim(strip_tags($post['password']));
+            if(!$this->user->validatePassword($password)){
+                Yii::$app->session->setFlash("warning","Неверный пароль");
+
+                return $this->redirect(['document/open','guid'=>$post['doc']['guid'],'movement_type'=>$post['doc']['movement_type']]);    
+            }
+
+
             if(isset($post['materials']) && isset($post['doc']) && isset($post['doc']['guid']) && $post['doc']['type_of_operation'] == DocumentTypes::TYPE_TRANSFER){
 
                 $model = new TransferMaterials();
@@ -141,7 +155,7 @@ class DocumentController extends Controller{
                 $data['guid']=$post['doc']['guid'];
                 $data['comment']=$post['doc']['comment'];
                 $data['date']=$post['doc']['date'];
-                $data['status'] = isset($post['cancel']) ? Document::STATUS_DONT_ACCEPTED : Document::STATUS_ACCEPTED;
+                $data['status'] = isset($post['cancel']) && boolval($post['cancel']) ? Document::STATUS_DONT_ACCEPTED : Document::STATUS_ACCEPTED;
                 $data['materials'] = $post['materials'];
 
                 if($model->load(['TransferMaterials'=>$data]) && $model->validate()){
@@ -167,14 +181,12 @@ class DocumentController extends Controller{
             }elseif(isset($post['doc']['guid']) && isset($post['doc']['movement_type']) || isset($post['doc']['comment'])){
                 $doc_data['document_guid'] = $post['doc']['guid'];
                 $doc_data['movement_type'] = $post['doc']['movement_type'];
-                $doc_data['status'] = isset($post['cancel']) ? Document::STATUS_DONT_ACCEPTED : Document::STATUS_ACCEPTED;
+                $doc_data['status'] = isset($post['cancel']) && boolval($post['cancel']) ? Document::STATUS_DONT_ACCEPTED : Document::STATUS_ACCEPTED;
                 $doc_data['comment'] = $post['doc']['comment'];
 
                 SendUpdateStatusDocument::export($doc_data);
                 return $this->redirect(['material/index']);
             }
-
-            
         }
 
         return $this->redirect(['material/index']);

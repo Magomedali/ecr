@@ -68,7 +68,7 @@ if(isset($model->id)){
 
 $this->title = "Форма рапорта";
 $this->params['backlink']['url']=Url::to(['raport/index']);
-
+$this->params['backlink']['confirm']=true;
 $loadStandarsUrl = Url::to(['autocomplete/project-standarts']);
 ?>
 
@@ -102,7 +102,5 @@ $loadStandarsUrl = Url::to(['autocomplete/project-standarts']);
 		
 	}
 	
-
 	echo RaportForm::widget($formParams);
-
 ?>
