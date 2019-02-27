@@ -90,8 +90,7 @@ if(isset($model->id)){
 					<tbody>
 						<?php if(is_array($materialsAppItem) && count($materialsAppItem)){
 								foreach ($materialsAppItem as $key => $item) {
-									if(!array_key_exists('count', $item) || !array_key_exists('nomenclature_name', $item) || !array_key_exists('nomenclature_guid', $item)) continue;
-											?>
+						?>
 												<tr>
 													<td>
 													<?php 
@@ -130,10 +129,10 @@ if(isset($model->id)){
 													?>
 													</td>
 													<td>
-														<?php echo Html::input("number","MaterialsAppItem[{$key}][count]",$item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control input-sm isRequired'])?>
+														<?php echo Html::input("number","MaterialsAppItem[{$key}][count]",isset($item['count']) ? $item['count'] : null,['min'=>0,'step'=>'0.001','class'=>'form-control input-sm isRequired'])?>
 													</td>
 													<td class="nomenclature_unit">
-														<?php echo Html::textInput("MaterialsAppItem[{$key}][nomenclature_unit]",$item['nomenclature_unit'],['readonly'=>true,'class'=>'form-control']);?>
+														<?php echo Html::textInput("MaterialsAppItem[{$key}][nomenclature_unit]",isset($item['nomenclature_unit']) ? $item['nomenclature_unit'] : null,['readonly'=>true,'class'=>'form-control']);?>
 													</td>
 													<td><?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow'])?></td>
 												</tr>
