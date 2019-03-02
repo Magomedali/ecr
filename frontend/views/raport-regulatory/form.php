@@ -96,8 +96,7 @@ $this->params['backlink']['confirm']=true;
 										
 									?>
 									<?php echo $form->field($model,'comment')->textarea(['class'=>'form-control input-sm','autocomplete'=>'off']);?>
-
-									<?php echo Html::submitButton("Сохранить",['id'=>'btnRaportFormSubmitPassword','class'=>'btn btn-primary']);?>
+									
 								</div>
 							</div>
 						</div>
@@ -205,17 +204,37 @@ $this->params['backlink']['confirm']=true;
 	}
 	
 ?>
+<div class="row">
+	<div class="col-md-3">
+		<?php echo Html::submitButton("Отправить",['id'=>'btnRaportFormSubmitPassword','class'=>'btn btn-primary']);?>
+	</div>
+</div>
 
 <?php ActiveForm::end();?>
 
 <?php 
 
 $script = <<<JS
+		
 
-	var requiredFields = [
+		var requiredFields = [
 			"input.autocomplete_required",
 			"input.isRequired"
 		];
+
+		var behaviorWhenSuccess = function(input){
+			if(input.hasClass('autocomplete_required')){
+				var val_input = input.siblings("input.autocomplete_input_value");
+				if(val_input.val()){
+					val_input.removeClass("fieldHasError");
+					input.removeClass("fieldHasError");
+					input.addClass("fieldIsSuccess");
+				}
+			}else{
+				input.removeClass("fieldHasError");
+				input.addClass("fieldIsSuccess");
+			};
+		};
 
 		var validateRaportForm = function(){
 
@@ -232,14 +251,12 @@ $script = <<<JS
 						
 						if(!fieldForm.val()){
 							hasError = true;
-
 							fieldForm.addClass("fieldHasError");
-							
 							//hide p.help-block
 							var pHelpBlock = fieldForm.siblings("p.help-block");
 							pHelpBlock.length ? pHelpBlock.remove() : null;
 						}else{
-							fieldForm.removeClass("fieldHasError");
+							behaviorWhenSuccess(fieldForm);
 						}
 					})
 
@@ -249,7 +266,8 @@ $script = <<<JS
 			return !hasError;
 		}
 
-
+	validateRaportForm();
+	
 	//form submit
 	$("form#raportRegulatoryForm").submit(function(event){
 	    $("#btnRaportFormSubmitPassword").prop("disabled",true);

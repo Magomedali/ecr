@@ -34,12 +34,10 @@ class SendUpdateStatusDocument{
                 if(isset($responce['error'])){
                 	Yii::warning("Error","UpdateStatusDocument");
                 	Yii::warning($responce['error'],"UpdateStatusDocument");
-                	Yii::$app->session->setFlash("warning","Ошибка при попытке обновления статуса документа в 1С");
                 	Yii::$app->session->setFlash("error",$responce['error']);
                 }
 
                 if($request->result && isset($responce['success']) && $responce['success']){
-                	Yii::$app->session->setFlash("success","Информация о статусе документа передана в 1С");
                     return true;
                 }
             }

@@ -65,7 +65,7 @@ $this->params['backlink']['confirm']=true;
 			<div class="col-md-12" style="margin-bottom: 5px;">
 				<div class="btn-group btn-group-sm pull-right" role="group" aria-label="Basic example">
 					<?php 
-						echo Html::button("Передать все",['class'=>'btn btn-default','id'=>'transferAllMaterials']);
+						echo Html::button("Передать весь материал",['class'=>'btn btn-default','id'=>'transferAllMaterials']);
 						echo Html::button("Очистить",['class'=>'btn btn-default','id'=>'transferResetMaterials']);
 					?>
 				</div>
@@ -164,6 +164,7 @@ $this->params['backlink']['confirm']=true;
 			return valid;
 		}
 
+		checkRemnants();
 		
 		if($("#documentCancel").length){
 			$("#documentCancel").click(function(event){
@@ -341,9 +342,13 @@ JS;
 					echo Html::hiddenInput("doc[type_of_operation]",$doc['type_of_operation']);
 					echo Html::hiddenInput("cancel",0,['id'=>'cancelInput']);
 				?>
-				<div class="btn-group" role="group" aria-label="Basic example">
+				<div class="btn-group">
 					<?php 
 						echo Html::submitButton('Подтвердить',['name'=>'commitbtn','class'=>'btn btn-success','id'=>"documentConfirm",'disabled'=>$disable]);
+					?>
+				</div>
+				<div class="btn-group">
+					<?php
 						echo Html::submitButton('Отменить',['name'=>'cancelbtn','class'=>'btn btn-danger','id'=>"documentCancel"]);
 					?>
 				</div>

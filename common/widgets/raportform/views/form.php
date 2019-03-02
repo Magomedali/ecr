@@ -29,49 +29,6 @@ use common\widgets\autocomplete\AutoComplete;
 							<div class="row">
 								<div class="col-md-12">
 									<div class="row">
-										<div class="col-md-6">
-											<div class="row">
-												<div class="col-md-12">
-													<?php if(!$disableMaster || !$model->master_guid){ ?>
-													<div id="master_autocomplete">
-														<?php
-															echo AutoComplete::widget([
-																'data'=>ArrayHelper::map($masters,'guid','name'),
-																'apiUrl'=>Url::to(['/autocomplete/masters']),
-																'inputValueName'=>'Raport[master_guid]',
-																'inputValueName_Value'=>$model->master_guid,
-																'inputKeyName'=>'Raport[master_name]',
-																'inputKeyName_Value'=>$master_name,
-																'placeholder'=>'Укажите мастера',
-																'label'=>'Мастер'
-															]);
-														?>
-													</div>
-													<?php }else{
-															echo Html::hiddenInput("Raport[master_guid]",$model->master_guid);
-														}
-													?>
-													
-													
-
-
-													<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
-
-													<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm isRequired']); ?>
-
-													<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm isRequired']);?>
-
-													<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
-
-													<?php 
-														if($forManager){
-														echo $form->field($model,'brigade_guid')->hiddenInput()->label(false);
-														echo $form->field($model,'user_guid')->hiddenInput()->label(false);
-														} 
-													?>
-												</div>
-											</div>
-										</div>
 										<div class="col-md-6 object_form">
 											<div class="row">
 												<div class="col-md-12 object_autocomplete">
@@ -122,6 +79,50 @@ use common\widgets\autocomplete\AutoComplete;
 
 													
 													<?php echo $form->field($model,'boundary_guid')->hiddenInput()->label(false);?>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+											<div class="row">
+												<div class="col-md-12">
+													<?php if(!$disableMaster || !$model->master_guid){ ?>
+													<div id="master_autocomplete">
+														<?php
+															echo AutoComplete::widget([
+																'data'=>ArrayHelper::map($masters,'guid','name'),
+																'apiUrl'=>Url::to(['/autocomplete/masters']),
+																'inputValueName'=>'Raport[master_guid]',
+																'inputValueName_Value'=>$model->master_guid,
+																'inputKeyName'=>'Raport[master_name]',
+																'inputKeyName_Value'=>$master_name,
+																'placeholder'=>'Укажите мастера',
+																'label'=>'Мастер'
+															]);
+														?>
+													</div>
+													<?php }else{
+															echo Html::hiddenInput("Raport[master_guid]",$model->master_guid);
+														}
+													?>
+													
+													
+
+
+													<?php echo $form->field($model,'created_at')->input("datetime-local",['value'=>isset($model->id) ? date("Y-m-d\TH:i:s",strtotime($model->created_at)) : date("Y-m-d\TH:i:s",time()),'readonly'=>true,'class'=>'form-control input-sm']); ?>
+
+													<?php echo $form->field($model,'starttime')->input("time",['class'=>'form-control input-sm isRequired']); ?>
+
+													<?php echo $form->field($model,'endtime')->input("time",['class'=>'form-control input-sm isRequired']);?>
+
+													<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
+
+													<?php 
+														if($forManager){
+															echo $form->field($model,'brigade_guid')->hiddenInput()->label(false);
+															echo $form->field($model,'user_guid')->hiddenInput()->label(false);
+														} 
+													?>
 												</div>
 											</div>
 										</div>
@@ -407,6 +408,13 @@ use common\widgets\autocomplete\AutoComplete;
 												<?php } ?>
 											<?php } ?>
 										</tbody>
+										<tfoot>
+											<tr>
+												<th colspan="5">Итого</th>
+												<th><span class='common_square'></span></th>
+												<th></th>
+											</tr>
+										</tfoot>
 									</table>
 								</div>
 							</div>
@@ -474,6 +482,7 @@ use common\widgets\autocomplete\AutoComplete;
 										<thead>
 											<tr>
 												<th>Вид работы</th>
+												<th>Общий объем m2</th>
 												<th>Норматив</th>
 												<th>Средний расход</th>
 												<th>Отклонение</th>
@@ -569,6 +578,20 @@ $script = <<<JS
 		return true;
 	}
 
+	var behaviorWhenSuccess = function(input){
+			if(input.hasClass('autocomplete_required')){
+				var val_input = input.siblings("input.autocomplete_input_value");
+				if(val_input.val()){
+					val_input.removeClass("fieldHasError");
+					input.removeClass("fieldHasError");
+					input.addClass("fieldIsSuccess");
+				}
+			}else{
+				
+				input.addClass("fieldIsSuccess");
+			};
+	};
+
 	var validateRaportForm = function(){
 
 		var hasError = false;
@@ -604,7 +627,7 @@ $script = <<<JS
 						var pHelpBlock = fieldForm.siblings("p.help-block");
 						pHelpBlock.length ? pHelpBlock.remove() : null;
 					}else{
-						fieldForm.removeClass("fieldHasError");
+						behaviorWhenSuccess(fieldForm);
 					}
 				})
 
@@ -614,6 +637,8 @@ $script = <<<JS
 		return !hasError;
 	}
 
+	//Запускаем проверку формы
+	validateRaportForm();
 
 	//Если требуется пароль
 	if(enableGuardPassword){
@@ -1022,6 +1047,9 @@ $script = <<<JS
 
 			var tr = $("<tr/>");
 			tr.append($("<td/>").addClass("std_work").attr("data-guid",standart.typeofwork_guid).text(standart.typeofwork_name));
+			
+			//Объем
+			tr.append($("<td/>").addClass("std_common_square").text(null));
 			
 			//Норматив
 			tr.append($("<td/>").addClass("std").text(standart.standard));

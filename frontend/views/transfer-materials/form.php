@@ -18,7 +18,7 @@ if($hasErrors){
 
 	if($model->mol_guid_recipient){
 		$mol = User::findOne(['guid'=>$model->mol_guid_recipient]);
-		$mol_guid_recipient_name = isset($mol->name) ? $mol->name : "Неизвестный мол";
+		$mol_guid_recipient_name = isset($mol->name) ? $mol->name : "Неизвестный бригадир";
 	}else{
 		$mol_guid_recipient_name = "";
 	}
@@ -48,17 +48,6 @@ if($hasErrors){
 					]);
 				?>
 			</div>
-			<div class="col-md-4" style="padding-top:24px; ">
-				<div class="btn-group pull-right" role="group" aria-label="Basic example">
-				<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
-					<?php 
-						if($request){
-							echo Html::hiddenInput("cancel",0,['id'=>'cancelInput']);
-							echo Html::submitButton("Отменить",['id'=>'transferMaterialCancel','name'=>'transferMaterialCancel','class'=>'btn btn-danger']);
-						}
-					?>
-				</div>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
@@ -69,7 +58,7 @@ if($hasErrors){
 			<div class="col-md-12" style="margin-bottom: 5px;">
 				<div class="btn-group btn-group-sm pull-right" role="group" aria-label="Basic example">
 					<?php 
-						echo Html::button("Передать все",['class'=>'btn btn-default','id'=>'transferAllMaterials']);
+						echo Html::button("Передать весь материал",['class'=>'btn btn-default','id'=>'transferAllMaterials']);
 						echo Html::button("Очистить",['class'=>'btn btn-default','id'=>'transferResetMaterials']);
 					?>
 				</div>
@@ -93,7 +82,7 @@ if($hasErrors){
 							?>
 						<tr>
 							<td>
-								<?php echo Html::hiddenInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired'])?>
+								<?php echo Html::hiddenInput("materials[{$key}][nomenclature_guid]",$item['nomenclature_guid'],['class'=>'form-control input-sm isRequired fieldHasError'])?>
 
 								<?php 
 									if(!isset($item['nomenclature_name'])){
@@ -102,12 +91,12 @@ if($hasErrors){
 									}else{
 										$nomenclature_name = $item['nomenclature_name'];
 									}
-									echo Html::textInput("materials[{$key}][nomenclature_name]",$nomenclature_name,['class'=>'form-control input-sm isRequired','readonly'=>true]);
+									echo Html::textInput("materials[{$key}][nomenclature_name]",$nomenclature_name,['class'=>'form-control input-sm isRequired fieldHasError','readonly'=>true]);
 								?>
 							</td>
 							<td>
-								<?php echo Html::hiddenInput("materials[{$key}][series_guid]",$item['series_guid'],['class'=>'form-control input-sm isRequired'])?>
-								<?php echo Html::textInput("materials[{$key}][series_name]",$item['series_name'],['class'=>'form-control input-sm isRequired','readonly'=>true])?>
+								<?php echo Html::hiddenInput("materials[{$key}][series_guid]",$item['series_guid'],['class'=>'form-control input-sm isRequired fieldHasError'])?>
+								<?php echo Html::textInput("materials[{$key}][series_name]",$item['series_name'],['class'=>'form-control input-sm isRequired fieldHasError','readonly'=>true])?>
 							</td>
 							<td>
 								<?php echo Html::input("number","materials[{$key}][count]",$item['count'],['min'=>0,'step'=>'0.001','class'=>'form-control was_input input-sm','readonly'=>true])?>
@@ -126,7 +115,7 @@ if($hasErrors){
 										$sended = $item['send'];
 									}
 
-									echo Html::input("number","materials[{$key}][send]",$sended,['min'=>0,'step'=>'0.001','max'=>$item['count'],'class'=>'form-control input-sm spent_input isRequired']);
+									echo Html::input("number","materials[{$key}][send]",$sended,['min'=>0,'step'=>'0.001','max'=>$item['count'],'class'=>'form-control input-sm spent_input isRequired fieldHasError']);
 								?>
 							</td>
 							<td>
@@ -150,6 +139,20 @@ if($hasErrors){
 		var requiredFields = [
 			"input.autocomplete_required",
 		];
+ 		
+ 		var behaviorWhenSuccess = function(input){
+			if(input.hasClass('autocomplete_required')){
+				var val_input = input.siblings("input.autocomplete_input_value");
+				if(val_input.val()){
+					val_input.removeClass("fieldHasError");
+					input.removeClass("fieldHasError");
+					input.addClass("fieldIsSuccess");
+				}
+			}else{
+				input.removeClass("fieldHasError");
+				input.addClass("fieldIsSuccess");
+			};
+		};
 
 		var enableValidateCheck = true;
 
@@ -175,7 +178,7 @@ if($hasErrors){
 							var pHelpBlock = fieldForm.siblings("p.help-block");
 							pHelpBlock.length ? pHelpBlock.remove() : null;
 						}else{
-							fieldForm.removeClass("fieldHasError");
+							behaviorWhenSuccess(fieldForm);
 						}
 					})
 
@@ -313,6 +316,21 @@ JS;
 		'formId'=>'transferMaterialForm'
 	]);
 ?>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="btn-group">
+				<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
+			</div>
+			<div class="btn-group">
+				<?php 
+					if($request){
+						echo Html::hiddenInput("cancel",0,['id'=>'cancelInput']);
+						echo Html::submitButton("Отменить",['id'=>'transferMaterialCancel','name'=>'transferMaterialCancel','class'=>'btn btn-danger']);
+					}
+				?>
+			</div>
+		</div>
+	</div>
 		<?php ActiveForm::end();?>
 	</div>
 </div>

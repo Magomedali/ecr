@@ -26,7 +26,7 @@ $this->title = 'Мои материалы';
         </div>
 	</div>
     <div class="col-md-8">
-        <h3>Заявки на метериал:</h3>
+        <h3>Заявки на материал:</h3>
         <?php
             echo \yii\grid\GridView::widget([
                 'dataProvider' => $dataProvider,

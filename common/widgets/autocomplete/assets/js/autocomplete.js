@@ -127,11 +127,38 @@ $(function(){
             });
         }
     };
-
     $("body").on("keyup",".autocomplete__widget_block .autocomplete_input_key",function(){
         searchEntityByKey($(this));
     });
+
+    var checkFormAutocompleteFields = function(input){
+        
+        if(!input.length) return;
+
+        if(!input.val()){
+            input.removeClass("fieldIsSuccess");
+            input.addClass("fieldHasError");
+            input.siblings("span.reset_autocomplete").hide();
+        }else{
+            var val_input = input.siblings("input.autocomplete_input_value");
+            if(val_input.val()){
+                val_input.removeClass("fieldHasError");
+                input.removeClass("fieldHasError");
+                input.addClass("fieldIsSuccess");
+            }
+            input.siblings("span.reset_autocomplete").show();
+        }
+    }
     
+    $("body").on("keyup","input.autocomplete_required",function(){
+        checkFormAutocompleteFields($(this));
+    });
+    $("body").on("keypress","input.autocomplete_required",function(){
+        checkFormAutocompleteFields($(this));
+    });
+    $("body").on("change","input.autocomplete_required",function(){
+        checkFormAutocompleteFields($(this));
+    });
 
     $("body").on("focusin",".autocomplete__widget_block .autocomplete_input_key",function(){
         $(this).siblings(".autocomplete_data").show(100);
@@ -204,5 +231,13 @@ $(function(){
     	$(this).parents(".autocomplete_data").hide(100);
     });
 
+
+
+    $("body").on("click","span.reset_autocomplete",function(){
+        var input_key = $(this).siblings("input.autocomplete_input_key");
+        var input_value = $(this).siblings("input.autocomplete_input_value");
+        input_value.val(null).trigger("change");
+        input_key.val(null).trigger("change");
+    });
     					
 })

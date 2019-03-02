@@ -170,9 +170,11 @@ class DocumentController extends Controller{
 
                     //Отправить заявку в 1С
                     if(ExportTransferMaterials::export($model)){
-                        Yii::$app->session->setFlash("success","Документ перевода отправлен на подтверждение!");
+                        $msg = $doc_data['status'] == Document::STATUS_DONT_ACCEPTED ? "Документ перевода отменен успешно!" : "Документ перевода отправлен на подтверждение!";
+                        Yii::$app->session->setFlash("success",$msg);
                     }else{
-                        Yii::$app->session->setFlash("warning","Ошибка при попытке отправить документ на подтверждение в 1С");
+                        $msg = $doc_data['status'] == Document::STATUS_DONT_ACCEPTED ? "Ошибка при попытке отправить документ на отмену в 1С" : "Ошибка при попытке отправить документ на подтверждение в 1С";
+                        Yii::$app->session->setFlash("warning",$msg);
                     }
 
                 }
@@ -184,7 +186,14 @@ class DocumentController extends Controller{
                 $doc_data['status'] = isset($post['cancel']) && boolval($post['cancel']) ? Document::STATUS_DONT_ACCEPTED : Document::STATUS_ACCEPTED;
                 $doc_data['comment'] = $post['doc']['comment'];
 
-                SendUpdateStatusDocument::export($doc_data);
+                if(SendUpdateStatusDocument::export($doc_data)){
+                    $msg = $doc_data['status'] == Document::STATUS_DONT_ACCEPTED ? "Документ отменен успешно" : "Документ подтвержден успешно!";
+                    Yii::$app->session->setFlash("success",$msg);
+                }else{
+                    $msg = $doc_data['status'] == Document::STATUS_DONT_ACCEPTED ? "При отмене документа произошла ошибка" : "При подтверждении документа произошла ошибка";
+                    Yii::$app->session->setFlash("warning",$msg);
+                }
+
                 return $this->redirect(['material/index']);
             }
         }

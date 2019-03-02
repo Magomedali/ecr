@@ -42,7 +42,8 @@ class MaterialController extends Controller{
 
     public function __construct($id,$module,$config = []){
         
-        $this->materialSaverService = new MaterialSaverService(Yii::$app->user->identity);
+        $this->user = Yii::$app->user->identity;
+        $this->materialSaverService = new MaterialSaverService($this->user);
         parent::__construct($id, $module, $config);
     }
 
@@ -141,8 +142,6 @@ class MaterialController extends Controller{
 
     public function actionView($id){
 
-       
-
         if(!(int)$id) 
             throw new \Exception("Документ не найден!",404);
 
@@ -179,7 +178,7 @@ class MaterialController extends Controller{
             Yii::$app->session->setFlash("error","Документ не найден.");
             return $this->redirect(['material/index']);
         } catch (ModelCantUpdateException $e) {
-            Yii::$app->session->setFlash("error","Документ неьзя редактировать.");
+            Yii::$app->session->setFlash("error","Документ нельзя редактировать.");
             return $this->redirect(['material/index']);
         } catch (\Exception $e) {
             Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");

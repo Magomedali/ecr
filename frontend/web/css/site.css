@@ -64,10 +64,21 @@ a.asc:after {
 }
 
 
+.isRequired{
+    /*border: 1px solid #a94442;*/
+}
 
+input.fieldIsSuccess,textarea.fieldIsSuccess,select.fieldIsSuccess{
+    border-color: #3c763d;
+}
 
 input.fieldHasError,textarea.fieldHasError,select.fieldHasError{
     border: 1px solid #a94442;
+}
+
+.nav > li > a{
+    padding: 15px 15px;
+    font-size: 16px;
 }
 
 .pipeline{

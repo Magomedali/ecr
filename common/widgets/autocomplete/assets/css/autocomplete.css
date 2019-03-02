@@ -47,3 +47,18 @@
                 background:#3b98de;
     			color: #fff;
             }
+
+
+.reset_autocomplete{
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    text-transform: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #a94442;
+}
+
+.reset_autocomplete.withLabel{
+    top: 30px;
+}

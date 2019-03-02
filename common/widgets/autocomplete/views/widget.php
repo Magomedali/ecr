@@ -19,6 +19,8 @@ use yii\helpers\Html;
 
     <input type="text" name="<?php echo $inputKeyName;?>" autocomplete="off" value="<?php echo Html::encode($inputKeyName_Value);?>" class="form-control autocomplete_input_key <?php echo $required ? 'autocomplete_required' : '';?> input-sm" id="autocomplete_input_key-<?php echo $id; ?>" data-action="<?php echo $apiUrl;?>" placeholder='<?php echo $placeholder;?>'>
 
+    <span class="reset_autocomplete <?php echo $labelShow ? 'withLabel' : '';?>" <?php echo $inputKeyName_Value ? '' : 'style="display:none;"'?>>X</span>
+
     <div class="autocomplete_data" id="autocomplete_data-<?php echo $id ?>" data-block="0">
     	<ul id="autocomplete_itemse-<?php echo $id ?>" class="form-control autocomplete_items ">
     		<?php

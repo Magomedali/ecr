@@ -55,10 +55,6 @@ if(isset($model->id)){
 					]);
 				?>
 			</div>
-			<div class="col-md-2" style="padding-top:24px; ">
-				<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
-				<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
@@ -157,6 +153,20 @@ if(isset($model->id)){
 			"input.isRequired"
 		];
 
+		var behaviorWhenSuccess = function(input){
+			if(input.hasClass('autocomplete_required')){
+				var val_input = input.siblings("input.autocomplete_input_value");
+				if(val_input.val()){
+					val_input.removeClass("fieldHasError");
+					input.removeClass("fieldHasError");
+					input.addClass("fieldIsSuccess");
+				}
+			}else{
+				input.removeClass("fieldHasError");
+				input.addClass("fieldIsSuccess");
+			};
+		};
+
 		var validateRaportForm = function(){
 
 			var hasError = false;
@@ -179,7 +189,7 @@ if(isset($model->id)){
 							var pHelpBlock = fieldForm.siblings("p.help-block");
 							pHelpBlock.length ? pHelpBlock.remove() : null;
 						}else{
-							fieldForm.removeClass("fieldHasError");
+							behaviorWhenSuccess(fieldForm);
 						}
 					})
 
@@ -188,7 +198,7 @@ if(isset($model->id)){
 			return !hasError;
 		}
 
-
+		validateRaportForm();
 
 		//form submit
 		$("form#materialForm").submit(function(event){
@@ -272,7 +282,12 @@ JS;
 	]);
 ?>
 
-
+	<div class="row">
+		<div class="col-md-2">
+			<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
+			<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
+		</div>
+	</div>
 		<?php ActiveForm::end();?>
 	</div>
 </div>

@@ -34,7 +34,7 @@ class AppAsset extends AssetBundle
         // 'js/raphael.min.js',
         // 'js/sb-admin-2.js',
         // 'js/jquery-ui.min.js',
-        // 'js/main.js'
+        'js/main.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
