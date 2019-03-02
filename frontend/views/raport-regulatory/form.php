@@ -302,6 +302,7 @@ $script = <<<JS
 				data:{count:count},
 				dataType:'json',
 				beforeSend:function(){
+					$("#btnAddWork").prop("disabled",true);
 					sendGetRowWork = 1;
 				},
 				success:function(json){
@@ -313,6 +314,7 @@ $script = <<<JS
 					console.log(msg);
 				},
 				complete:function(){
+					$("#btnAddWork").prop("disabled",false);
 					sendGetRowWork = 0;
 				}
 			});

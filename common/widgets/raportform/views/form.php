@@ -752,6 +752,7 @@ $script = <<<JS
 	var sendGetConsistRow = 0;
 	$("#btnAddConsist,#btnAddWork").click(function(event){
 		event.preventDefault();
+		var thisBtn = $(this);
 		var action = $(this).attr("href");
 		var table = $(this).parents("table");
 		if(!table.length) return;
@@ -764,6 +765,7 @@ $script = <<<JS
 				dataType:'json',
 				beforeSend:function(){
 					sendGetConsistRow = 1;
+					thisBtn.prop("disabled",true);
 				},
 				success:function(json){
 					if(json.hasOwnProperty("html")){
@@ -774,6 +776,7 @@ $script = <<<JS
 					console.log(msg);
 				},
 				complete:function(){
+					thisBtn.prop("disabled",false);
 					sendGetConsistRow = 0;
 				}
 			});

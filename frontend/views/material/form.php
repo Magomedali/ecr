@@ -135,7 +135,7 @@ if(isset($model->id)){
 											<?php
 									}
 								}else{
-									echo $this->render("formRowMaterial",['count'=>0]);
+									echo $this->render("formRowMaterial",['count'=>1]);
 								}
 							?>
 					</tbody>
@@ -237,6 +237,7 @@ if(isset($model->id)){
 					data:{count:count},
 					dataType:'json',
 					beforeSend:function(){
+						$("#btnAddMaterial").prop("disabled",true);
 						sendGetMaterialRom = 1;
 					},
 					success:function(json){
@@ -248,6 +249,7 @@ if(isset($model->id)){
 						console.log(msg);
 					},
 					complete:function(){
+						$("#btnAddMaterial").prop("disabled",false);
 						sendGetMaterialRom = 0;
 					}
 				});
