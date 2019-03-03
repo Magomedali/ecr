@@ -89,11 +89,12 @@ class AutocompleteController extends Controller{
             $key = isset($get['key']) ? trim(strip_tags($get['key'])) : null;
             $users_extends = isset($get['users_extends']) && is_array($get['users_extends']) ? $get['users_extends'] : array();
 
-            $query = (new Query())->select(['u.guid','u.name','u.ktu'])
+            $query = (new Query())->select(['u.guid','u.name','u.ktu','u.technic_guid','t.name as technic_name'])
                                 ->from(['u'=>User::tableName()])
+                                ->leftJoin(['t'=>Technic::tableName()]," u.technic_guid = t.guid")
                                 ->where(['u.is_master'=>0])
                                 ->andWhere("u.`guid` is not null")
-                                ->andWhere(['status'=>User::STATUS_ACTIVE]);
+                                ->andWhere(['u.status'=>User::STATUS_ACTIVE]);
             if($key){
                 $query->andWhere("u.`name` LIKE '%{$key}%'");
             }
@@ -117,7 +118,10 @@ class AutocompleteController extends Controller{
                 $data[] = [
                     'value'=>$value['guid'],
                     'title'=>$value['name'],
-                    'ktu'=>$value['ktu']
+                    'ktu'=>$value['ktu'],
+                    'exists_technic'=>$value['technic_guid'] && 1,
+                    'technic_guid'=>$value['technic_guid'],
+                    'technic_name'=>$value['technic_name']
                 ]; 
             }
             

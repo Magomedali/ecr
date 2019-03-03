@@ -216,7 +216,8 @@ use common\widgets\autocomplete\AutoComplete;
 																'labelShow'=>false,
 																'properties'=>[
 																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
-																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu']
+																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
+																	['property'=>'exists_technic','commonElement'=>'tr','targetElement'=>'td.td_technic input.mock_object'],
 																],
 																'generateSearchFiltersCallback'=>"function(){
 																	
@@ -235,6 +236,21 @@ use common\widgets\autocomplete\AutoComplete;
 																	}else{
 																		return {};
 																	}
+																}",
+																'onSelectCallback'=>"function(item){
+																	if(!item.length) return;
+																	var exists_technic = item.attr('data-exists_technic');
+																	var commonEl = item.parents('tr');
+																	var InputElements = commonEl.find('td.td_technic input.autocomplete_input_key,td.td_technic input.autocomplete_input_value');
+
+																	if(exists_technic !== 'true'){
+																		InputElements.removeClass('autocomplete_required');
+																		InputElements.removeClass('fieldHasError');
+																		InputElements.addClass('fieldIsSuccess');
+																		InputElements.val(null);
+																	}else{
+																		InputElements.addClass('autocomplete_required');
+																	}											
 																}"
 															]);
 														}
@@ -251,7 +267,7 @@ use common\widgets\autocomplete\AutoComplete;
 																'inputKeyName'=>"RaportConsist[$key][technic_name]",
 																'inputKeyName_Value'=>$item['technic_name'],
 																'placeholder'=>'Укажите технику',
-																'labelShow'=>false
+																'labelShow'=>false,
 															]);
 														}else{
 															echo AutoComplete::widget([
@@ -262,7 +278,8 @@ use common\widgets\autocomplete\AutoComplete;
 																'inputKeyName'=>"RaportConsist[$key][technic_name]",
 																'inputKeyName_Value'=>"",
 																'placeholder'=>'Укажите технику',
-																'labelShow'=>false
+																'labelShow'=>false,
+																'required'=>false
 															]);
 														}
 														
@@ -303,7 +320,9 @@ use common\widgets\autocomplete\AutoComplete;
 											</tr>
 										</thead>
 										<tbody>
-											<?php if(is_array($RaportWorks)){?>
+											<?php $common_square = null;
+
+											if(is_array($RaportWorks)){?>
 												<?php foreach ($RaportWorks as $key => $item) {?>
 												<tr>
 													<td>
@@ -399,7 +418,10 @@ use common\widgets\autocomplete\AutoComplete;
 														<span class="hint_field hint_count"><?php echo isset($item['hint_count']) ? $item['hint_count'] : ""?></span>
 													</td>
 													<td class="td_squaremeter">
-														<?php echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]); ?>
+														<?php 
+															echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]);
+															$common_square +=$item['squaremeter'];
+														?>
 													</td>
 													<td>
 														<?php echo html::a('-',null,['class'=>'btn btn-sm btn-danger btnRemoveRow']);?>
@@ -411,7 +433,9 @@ use common\widgets\autocomplete\AutoComplete;
 										<tfoot>
 											<tr>
 												<th colspan="5">Итого</th>
-												<th><span class='common_square'></span></th>
+												<th><span class='common_square'>
+													<?php echo $common_square;?>
+												</span></th>
 												<th></th>
 											</tr>
 										</tfoot>
@@ -843,7 +867,17 @@ $script = <<<JS
 	});
 
 
+	var calcCommonSquare = function(){
+		var cc = parseFloat(0);
 
+		var trs = $("#tableWorks tbody tr td.td_squaremeter input");
+		if(!trs.length) return;
+		trs.each(function(){
+			cc += parseFloat($(this).val());
+		});
+
+		$("#tableWorks tfoot span.common_square").text(parseFloat(cc).toFixed(3));
+	};
 
 	//Function calcsquare
 	var calcsquare = function(tr){
@@ -870,6 +904,7 @@ $script = <<<JS
 			success:function(json){
 				if(json.hasOwnProperty("result") && json.result){
 					tr.find("td.td_squaremeter input").val(json.result);
+					calcCommonSquare();//рассчет общей площади
 					calcAVGStandard();//рассчет норматива
 				}
 				
@@ -905,6 +940,11 @@ $script = <<<JS
 	});
 
 
+	//рассчет норматива при выборе вида работы
+	$("body").on("click","input[name^=\'RaportWork\'][name$=\'[work_guid]\'] ~ div.autocomplete_data .autocomplete_items li",function(){
+		calcAVGStandard();
+	});
+
 	//Открываем список проектов при выборе объекта
 	$("body").on("click",".object_autocomplete ul.autocomplete_items li",function(){
 		var project_at = $(".autocomplete__widget_block input[name='Raport[project_name]']");
@@ -915,8 +955,6 @@ $script = <<<JS
 			project_at.focus();
 		}
 	});
-
-
 
 	$("body").on("focus","td.td_length input[type=number],td.td_count input[type=number]",function(){
 		var hint = $(this).siblings(".hint_field");
@@ -929,17 +967,9 @@ $script = <<<JS
 		hint.hide();
 	});
 
-
-
-
-
-
 	var projectStandarts = {
 		data:[]
 	}
-
-
-
 
 	var disableRemnantsField = function(){
 		var remnants = $("#tableRemnants tr");
@@ -1036,6 +1066,7 @@ $script = <<<JS
 		}
 		// console.log(projectStandarts.data);
 		var data_length = projectStandarts.data.length;
+		
 		for(var i = 0; i < data_length; i++){
 			
 			var standart = projectStandarts.data[i];
@@ -1051,6 +1082,7 @@ $script = <<<JS
 			var tr = $("<tr/>");
 			tr.append($("<td/>").addClass("std_work").attr("data-guid",standart.typeofwork_guid).text(standart.typeofwork_name));
 			
+
 			//Объем
 			tr.append($("<td/>").addClass("std_common_square").text(null));
 			
@@ -1113,6 +1145,9 @@ $script = <<<JS
 			var avg = parseFloat(materials_spent/works_calcsquare);
 			var std = parseFloat(tr.find(".std").text());
 			// console.log(materials_spent+"/"+works_calcsquare+"="+avg);
+			//Объем общий
+			tr.find(".std_common_square").text(works_calcsquare.toFixed(3));
+
 			tr.find(".avg_spent").text(avg.toFixed(3));
 			var offset = parseFloat(std - avg).toFixed(3);
 			tr.find(".std_offset").text(offset).css("color",offset > 0 ? "green" : "red");

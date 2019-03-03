@@ -19,8 +19,8 @@ use common\widgets\autocomplete\AutoComplete;
 			'placeholder'=>'Номенклатура',
 			'labelShow'=>false,
 			'properties'=>[
-																['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit input'],
-															],
+				['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit input'],
+			],
 			'generateSearchFiltersCallback'=>"function(){
 				
 				var ns = $('#tableMaterials').find('input[name$=\'[nomenclature_guid]\'][name^=\'MaterialsAppItem\']');

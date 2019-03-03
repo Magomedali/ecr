@@ -22,9 +22,42 @@ use common\widgets\autocomplete\AutoComplete;
 				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
 
 				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
-				//['property'=>'technic_guid','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_value'],
+				['property'=>'exists_technic','commonElement'=>'tr','targetElement'=>'td.td_technic input.mock_object'],
 				//['property'=>'technic_name','commonElement'=>'tr','targetElement'=>'td.td_technic input.autocomplete_input_key']
-			]
+			],
+			'generateSearchFiltersCallback'=>"function(){
+				
+				var users = $('#tableConsist').find('input[name$=\'[user_guid]\'][name^=\'RaportConsist\']');
+
+				if(users.length){
+					var data = [];
+					users.each(function(){
+						data.push($(this).val());
+					});
+
+					return {
+						users_extends:data
+					}
+
+				}else{
+					return {};
+				}
+			}",
+			'onSelectCallback'=>"function(item){
+				if(!item.length) return;
+				var exists_technic = item.attr('data-exists_technic');
+				var commonEl = item.parents('tr');
+				var InputElements = commonEl.find('td.td_technic input.autocomplete_input_key,td.td_technic input.autocomplete_input_value');
+
+				if(exists_technic !== 'true'){
+					InputElements.removeClass('autocomplete_required');
+					InputElements.removeClass('fieldHasError');
+					InputElements.addClass('fieldIsSuccess');
+					InputElements.val(null);
+				}else{
+					InputElements.addClass('autocomplete_required');
+				}											
+			}"
 		]);
 	?>
 	</td>

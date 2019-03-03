@@ -30,8 +30,9 @@ class RaportConsist extends ActiveRecord
 	public function rules(){
         return [
             // name, email, subject and body are required
-            [['raport_id','technic_guid','user_guid'], 'required','message'=>' is required'],
+            [['raport_id','user_guid'], 'required','message'=>' is required'],
             ['raport_id','number'],
+            ['technic_guid','default','value'=>null],
             [['technic_guid','user_guid'],'string','max'=>36]
         ];
     }
@@ -57,7 +58,6 @@ class RaportConsist extends ActiveRecord
         
         if(parent::load($data, $formName)){
 
-            //Проверяем есть ли гуид номенклатуры в базе
             if($this->technic_guid){
                 $m = Technic::findOne(['guid'=>$this->technic_guid]);
                 if(!isset($m->id)){

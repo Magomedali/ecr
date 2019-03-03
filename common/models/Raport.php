@@ -428,7 +428,7 @@ class Raport extends ActiveRecordVersionable
         if($this->id){
             return (new Query)->select(['u.name as user_name','u.ktu as user_ktu','u.guid as user_guid','t.guid as technic_guid','t.name as technic_name'])->from(['rc'=>RaportConsist::tableName()])
                                 ->innerJoin(['u'=>User::tableName()]," u.guid = rc.user_guid")
-                                ->innerJoin(['t'=>Technic::tableName()]," t.guid = rc.technic_guid")
+                                ->leftJoin(['t'=>Technic::tableName()]," t.guid = rc.technic_guid")
                                 ->where(['raport_id'=>$this->id])
                                 ->orderBy(['u.ktu'=>SORT_DESC])
                                 ->all();

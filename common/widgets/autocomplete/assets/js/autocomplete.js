@@ -127,9 +127,7 @@ $(function(){
             });
         }
     };
-    $("body").on("keyup",".autocomplete__widget_block .autocomplete_input_key",function(){
-        searchEntityByKey($(this));
-    });
+
 
     var checkFormAutocompleteFields = function(input){
         
@@ -138,7 +136,6 @@ $(function(){
         if(!input.val()){
             input.removeClass("fieldIsSuccess");
             input.addClass("fieldHasError");
-            input.siblings("span.reset_autocomplete").hide();
         }else{
             var val_input = input.siblings("input.autocomplete_input_value");
             if(val_input.val()){
@@ -146,9 +143,17 @@ $(function(){
                 input.removeClass("fieldHasError");
                 input.addClass("fieldIsSuccess");
             }
+        }
+    };
+
+    var showResetBtn = function(input){
+        if(!input.length) return;
+        if(!input.val()){
+            input.siblings("span.reset_autocomplete").hide();
+        }else{
             input.siblings("span.reset_autocomplete").show();
         }
-    }
+    };
     
     $("body").on("keyup","input.autocomplete_required",function(){
         checkFormAutocompleteFields($(this));
@@ -158,6 +163,18 @@ $(function(){
     });
     $("body").on("change","input.autocomplete_required",function(){
         checkFormAutocompleteFields($(this));
+    });
+
+    $("body").on("keyup",".autocomplete__widget_block .autocomplete_input_key",function(){
+        searchEntityByKey($(this));
+        showResetBtn($(this));
+    });
+    
+    $("body").on("keypress","input.autocomplete_input_key",function(){
+        showResetBtn($(this));
+    });
+    $("body").on("change","input.autocomplete_input_key",function(){
+        showResetBtn($(this));
     });
 
     $("body").on("focusin",".autocomplete__widget_block .autocomplete_input_key",function(){

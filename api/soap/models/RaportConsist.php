@@ -14,7 +14,8 @@ class RaportConsist  extends ApiModel
 {
 
     /**
-     * @var string
+    * @var string
+    * @nillable
     */
     public $technic_guid;
 

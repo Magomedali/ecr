@@ -60,7 +60,7 @@ class RaportController extends Controller{
                 'class'=>\common\behaviors\CheckShift::className(),
                 'actions'=>['form'],
                 'enableNotes'=>true,
-                'methods'=>['GET'],
+                'methods'=>[null],
                 'errorCallback'=>function($user,$action){
                     
                     $action->controller->command = function(){
