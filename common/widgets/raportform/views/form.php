@@ -934,19 +934,19 @@ $script = <<<JS
 
 
 	//Расчет кв м
-	$("body").on("click",".td_line_guid .autocomplete_items li",function(){
+	$("body").on("click",".td_line_guid .autocomplete_items .autocomplete_item",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});
 
 
 	//рассчет норматива при выборе вида работы
-	$("body").on("click","input[name^=\'RaportWork\'][name$=\'[work_guid]\'] ~ div.autocomplete_data .autocomplete_items li",function(){
+	$("body").on("click","input[name^=\'RaportWork\'][name$=\'[work_guid]\'] ~ div.autocomplete_data .autocomplete_items .autocomplete_item",function(){
 		calcAVGStandard();
 	});
 
 	//Открываем список проектов при выборе объекта
-	$("body").on("click",".object_autocomplete ul.autocomplete_items li",function(){
+	$("body").on("click",".object_autocomplete select.autocomplete_items .autocomplete_item",function(){
 		var project_at = $(".autocomplete__widget_block input[name='Raport[project_name]']");
 		if(project_at.length){
 			//очищаем ранее выбранное значение

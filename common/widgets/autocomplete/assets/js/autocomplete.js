@@ -15,8 +15,6 @@ $(function(){
             if(val.length < options.minKeyLength) return;
         }
 
-
-
         var properties = thisElement.siblings("input.autocomplete_properties").data("properties");
         var parameters = thisElement.siblings("input.autocomplete_parameters").data("parameters");
         var autocomplete_items = thisElement.siblings(".autocomplete_data").find(".autocomplete_items");
@@ -92,7 +90,7 @@ $(function(){
                             $.each(data,function(i,item){
 
                                 if(item.hasOwnProperty("title") && item.hasOwnProperty("value")){
-                                    var li = "<li data-value='"+item.value+"'";
+                                    var opt = "<option class='autocomplete_item' data-value='"+item.value+"'";
                                     
                                     //Additional properties
                                     if(properties.length){
@@ -100,14 +98,14 @@ $(function(){
                                             if(p.hasOwnProperty("commonElement") && p.hasOwnProperty("property") && p.hasOwnProperty("targetElement")){
                                                 
                                                 if(item.hasOwnProperty(p.property)){
-                                                     li+= " data-"+p.property+"='"+item[p.property]+"'";
+                                                     opt+= " data-"+p.property+"='"+item[p.property]+"'";
                                                 }
                                             }
                                         })
                                     }
 
-                                    li += ">"+item.title + "</li>";
-                                    html += li;
+                                    opt += ">"+item.title + "</option>";
+                                    html += opt;
                                 }
                             })
 
@@ -192,7 +190,7 @@ $(function(){
     $("body").on("focusout",".autocomplete__widget_block .autocomplete_input_key",function(){
         var block_data = $(this).siblings(".autocomplete_data");
         if(block_data.length && !parseInt(block_data.attr("data-block")))
-            block_data.hide(100);
+           block_data.hide(100);
     });
 
     $("body").on("mouseover",".autocomplete__widget_block .autocomplete_items",function(){
@@ -204,7 +202,7 @@ $(function(){
     });
 
     
-    $("body").on("click",".autocomplete__widget_block .autocomplete_items li",function(){
+    $("body").on("click",".autocomplete__widget_block .autocomplete_items .autocomplete_item",function(){
 
     	var value = $(this).attr("data-value");
     		
@@ -256,5 +254,6 @@ $(function(){
         input_value.val(null).trigger("change");
         input_key.val(null).trigger("change");
     });
-    					
+    
+
 })

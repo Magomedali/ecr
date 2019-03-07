@@ -22,17 +22,17 @@ use yii\helpers\Html;
     <span class="reset_autocomplete <?php echo $labelShow ? 'withLabel' : '';?>" <?php echo $inputKeyName_Value ? '' : 'style="display:none;"'?>>X</span>
 
     <div class="autocomplete_data" id="autocomplete_data-<?php echo $id ?>" data-block="0">
-    	<ul id="autocomplete_itemse-<?php echo $id ?>" class="form-control autocomplete_items ">
+    	<select id="autocomplete_itemse-<?php echo $id ?>" class="form-control autocomplete_items" size="6">
     		<?php
     			if(is_array($data) && count($data)){
     				foreach ($data as $key => $value) {
     		?>
-    			<li data-value="<?php echo $key?>"> <?php echo $value?> </li>
+    			<option class="autocomplete_item" data-value="<?php echo $key?>"> <?php echo $value?> </option>
     		<?php
     				}
     			}
     		?>
-    	</ul>
+    	</select>
     </div>
     <script type="text/javascript">
         var WObject_<?php echo $id?> = {
