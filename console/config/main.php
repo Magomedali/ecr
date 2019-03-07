@@ -18,14 +18,7 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['info'],
-                    'enableRotation'=>false,
-                    'logFile'=>'@console/logs/info.log',
-                    'logVars'=>['cron']
-                ],
+                ]
             ],
         ],
     ],
