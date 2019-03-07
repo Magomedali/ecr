@@ -3,6 +3,7 @@
 namespace common\services;
 
 use Yii;
+use common\dictionaries\{AppStatuses};
 use common\models\{User,MaterialsApp};
 use common\modules\ExportMaterialsApp;
 use common\modules\exceptions\{
@@ -12,7 +13,8 @@ use common\modules\exceptions\{
 	ErrorRelationEntitiesException,
 	ErrorExportTo1C,
 	ModelNotFoundException,
-	ModelCantUpdateException
+	ModelCantUpdateException,
+    UserNotMasterException
 };
 
 
@@ -60,6 +62,10 @@ class MaterialSaverService{
                 $q->andWhere(['user_guid'=>$user_guid]);
             }
 
+            if($this->onlyMaster){
+                $q->andWhere(['master_guid'=>$user_guid]);
+            }
+
             $model =  $q->one();
             if(!isset($model->id))
                 throw new ModelNotFoundException("Model not found");
@@ -86,6 +92,24 @@ class MaterialSaverService{
 	}
 
 
+    public function changeStatus($status){
+
+        if(!$this->onlyMaster){
+            throw new UserNotMasterException("password not found");
+        }
+        
+
+        $this->model->status = $status;
+        
+        if(!$this->model->validate() || !$this->model->save(1)){
+            throw new ValidateErrorsException("Error whe validate form data!");
+        }
+
+        //Отправить в 1С
+        if(!ExportMaterialsApp::export($this->model)){
+            throw new ErrorExportTo1C("Error when export to 1C");
+        }
+    }
 
 
 	public function save($post){
@@ -112,6 +136,9 @@ class MaterialSaverService{
             }
         }
 
+        if(isset($model->id) && $model->id && isset($post['cancel']) && boolval($post['cancel'])){
+            $model->status = AppStatuses::DELETED;
+        }
 
         if(!$model->save(1)){
         	throw new ValidateErrorsException("Error whe validate form data!");

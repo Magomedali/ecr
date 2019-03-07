@@ -10,7 +10,7 @@ use api\soap\Exceptions\ApiException;
 use api\soap\Exceptions\ApiExceptionMethodNotExists;
 use api\soap\Exceptions\ApiExceptionWrongType;
 
-use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\{ExchangeStatuses,AppStatuses};
 use common\models\Brigade;
 use common\models\Technic;
 use common\models\User;
@@ -863,12 +863,11 @@ class Api{
             $responce->error = "MaterialsAppNotFounded";
             $responce->errorMessage = "Not founded materials app by guid";
             $responce->errorUserMessage = "Заявка не найдена!";
-
             return $responce;
         }
 
-        $model->setStatus($data['status']);
-        $model->status = $model->status <= ExchangeStatuses::CREATED ? ExchangeStatuses::IN_CONFIRMING : $model->status;
+        $model->setStatusFromTransferValue($data['status']);
+        $model->status = $model->status <= AppStatuses::CREATED ? AppStatuses::IN_CONFIRMING : $model->status;
         
         if(!$model->save(1)){
             $erros[] = json_encode($model->getErrors());

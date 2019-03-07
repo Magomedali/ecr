@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use common\dictionaries\RaportStatuses;
+use common\dictionaries\ExchangeStatuses;
 use yii\bootstrap\ActiveForm;
 
 use common\models\User;
@@ -150,7 +150,7 @@ $actualBrigadeRemnants = $model->getActualBrigadeRemnants(false);
                 'rowOptions'=>function($model){
                     $ops = [];
 
-                    $ops['class']=array_key_exists($model->status, RaportStatuses::$notification) ? RaportStatuses::$notification[$model->status] : "";
+                    $ops['class']=array_key_exists($model->status, ExchangeStatuses::$notification) ? ExchangeStatuses::$notification[$model->status] : "";
 
                     return $ops;
                 },

@@ -19,7 +19,7 @@ use common\modules\exceptions\{
     ModelNotFoundException,
     ModelCantUpdateException
 };
-use common\modules\RaportServiceSaver;
+use common\services\RaportSaverService;
 
 class RaportController extends Controller{
 
@@ -27,7 +27,7 @@ class RaportController extends Controller{
 
     public function __construct($id,$module,$config = []){
         
-        $this->raportServiceSaver = new RaportServiceSaver(Yii::$app->user->identity);
+        $this->raportServiceSaver = new RaportSaverService(Yii::$app->user->identity);
         $this->raportServiceSaver->enableGuardValidPassword = false;
         $this->raportServiceSaver->onlyOwner = false;
         $this->raportServiceSaver->onlyMaster = false;

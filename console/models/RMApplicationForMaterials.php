@@ -5,7 +5,7 @@ namespace console\models;
 use Yii;
 use yii\db\Query;
 use common\models\{MaterialsApp};
-use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\AppStatuses;
 
 class RMApplicationForMaterials extends RequestMethod{
 
@@ -47,8 +47,8 @@ class RMApplicationForMaterials extends RequestMethod{
                 $model->guid = $responce['return']['guid'];
                 $model->number = $responce['return']['number'];
 
-                if($model->status == ExchangeStatuses::CREATED){
-                    $model->status = ExchangeStatuses::IN_CONFIRMING;
+                if($model->status == AppStatuses::CREATED){
+                    $model->status = AppStatuses::IN_CONFIRMING;
                 }
 
                 $model->save(1);

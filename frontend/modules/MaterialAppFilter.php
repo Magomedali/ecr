@@ -24,7 +24,7 @@ class MaterialAppFilter extends MaterialsApp
     public function rules()
     {
         return [
-            [['user_guid'],'required'],
+            [['user_guid','master_guid'],'string'],
             [['month','statusCode'],'safe']
         ];
     }
@@ -77,7 +77,6 @@ class MaterialAppFilter extends MaterialsApp
         $query = self::find()
                 ->orderby(['created_at'=>SORT_DESC]);
 
-
         /**
         * Создаём DataProvider, указываем ему запрос, настраиваем пагинацию
         */
@@ -88,28 +87,25 @@ class MaterialAppFilter extends MaterialsApp
             ]
         ]);
 
-
         //если данные не фильтра не переданы или переданы не валидные данныеы
         if(!($this->load($params) && $this->validate())){
-            
-            if($this->user_guid){
-                $query->andWhere(['user_guid'=>$this->user_guid]);
-            }else{
-                $query->where("id < 0");
-            }
-            
+            $query->where("id < 0");
             return $dataProvider;
         }
         
-        
-        $query->andWhere(['user_guid'=>$this->user_guid]);
+        if($this->user_guid){
+           $query->andWhere(['user_guid'=>$this->user_guid]); 
+        }
+
+        if($this->master_guid){
+           $query->andWhere(['master_guid'=>$this->master_guid]); 
+        }
 
         if(is_array($this->statusCode) && count($this->statusCode)){
             $query->andFilterWhere(['in','status',$this->statusCode]);
         }elseif(!is_array($this->statusCode) && $this->statusCode){
             $query->andWhere(['status'=>$this->statusCode]);
         }
-        
 
         if($this->month){
             $now = time();

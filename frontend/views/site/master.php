@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\AppStatuses;
 
 /* @var $this yii\web\View */
 
@@ -157,6 +158,71 @@ $this->title = 'Кабинет мастера';
                                 return $model->isCanUpdate ? Html::a('<i class="glyphicon glyphicon-pencil"></i>', Url::to(['/raport-regulatory/form', 'id' => $model->id]), [
                                      'title' => Yii::t('yii', 'Изменить')
                                 ]) : ""; 
+                            }, 
+                        ]
+                    ]
+                ]
+            ]);
+        ?>
+    </div>
+</div>
+
+<div class="row raports_list">
+    <div class="col-md-12">
+        <h3>Заявки на материал:</h3>
+    </div>
+    <div class="col-md-12">
+        <?php
+            echo \yii\grid\GridView::widget([
+                'dataProvider' => $dataProviderMaterialApp,
+                'filterModel' => $MaterialAppFilter,
+                'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => ''],
+                'tableOptions'=>['class'=>'table table-striped table-bordered table-sm table-hover vertical-table'],
+                'showFooter'=>false,
+                'summary'=> "",
+                'layout'=>"{items}",
+                'emptyText'=>"Список пуст",
+                'rowOptions'=>function($model){
+                    $ops = [];
+
+                    $ops['class']=array_key_exists($model->status, AppStatuses::$notification) ? AppStatuses::$notification[$model->status] : "";
+
+                    return $ops;
+                },
+                'columns'=>[
+                    [
+                        'attribute'=>"number",
+                        "value"=>"number",
+                    ],
+                    [
+                        'attribute'=>"created_at",
+                        'value'=>function($m){
+                            return date("d.m.Y",strtotime($m['created_at']));
+                        },
+                        'filter'=>Html::dropDownList("MaterialAppFilter[month]",$MaterialAppFilter->month,$MaterialAppFilter::getMonths(),['class'=>'form-control input-sm','prompt'=>'Выберите месяц'])
+                    ],
+                    [
+                        'attribute'=>"user_guid",
+                        'value'=>function($m){
+                            $user = $m->getUser();
+                            return $user ? $user['name'] : "";
+                        },
+                    ],
+                    [
+                        'attribute'=>"status",
+                        'value'=>function($m){
+                            return $m->statusTitle;
+                        },
+                    ],
+                  
+                    ['class' => 'yii\grid\ActionColumn',
+                        'template' => '{view}',
+                        'buttons' =>
+                        [
+                            'view' => function ($url, $model) {
+                                return Html::a('Открыть', Url::to(['/material/open', 'id' => $model->id]), [
+                                     'title' => Yii::t('yii', 'Открыть')
+                                ]);
                             }, 
                         ]
                     ]

@@ -200,6 +200,19 @@ if(isset($model->id)){
 
 		validateRaportForm();
 
+		if($("#MaterialAppCancel").length){
+			$("#MaterialAppCancel").click(function(event){
+				enableValidateCheck = false;
+				var cancelInput = $("#cancelInput");
+				if(cancelInput.length) cancelInput.val(1);
+			});
+		}
+
+		$("#btnMaterialFormSubmit").click(function(event){
+			var cancelInput = $("#cancelInput");
+			if(cancelInput.length) cancelInput.val(0);
+		});
+
 		//form submit
 		$("form#materialForm").submit(function(event){
 		    $("#btnMaterialFormSubmit").prop("disabled",true);
@@ -216,11 +229,7 @@ if(isset($model->id)){
 					$("#btnMaterialFormSubmit").prop("disabled",false);
 				}
 			}
-
-			
-
 		});
-
 
 
 		var sendGetMaterialRom = 0;
@@ -286,8 +295,16 @@ JS;
 
 	<div class="row">
 		<div class="col-md-2">
-			<?php if(isset($model->id)){ echo Html::hiddenInput('model_id',$model->id); }?>
 			<?php echo Html::submitButton("Отправить",['id'=>'btnMaterialFormSubmit','class'=>'btn btn-primary'])?>
+			<div class="btn-group">
+			<?php 
+				if(isset($model->id)){
+					echo Html::hiddenInput('model_id',$model->id);
+					echo Html::hiddenInput("cancel",0,['id'=>'cancelInput']);
+					echo Html::submitButton("Отменить",['id'=>'MaterialAppCancel','name'=>'MaterialAppCancel','class'=>'btn btn-danger']);
+				}
+			?>
+			</div>
 		</div>
 	</div>
 		<?php ActiveForm::end();?>

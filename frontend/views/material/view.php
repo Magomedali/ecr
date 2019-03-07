@@ -8,6 +8,7 @@ use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
 use common\models\RaportWork;
 use common\models\RaportFile;
+use common\dictionaries\{AppStatuses};
 
 $user = Yii::$app->user->identity;
 
@@ -20,7 +21,7 @@ $master_name = isset($master->id) ? $master->name : "";
 $materialsAppItem = $model->getMaterialsAppItems();
 
 $this->title = "Заявка " . $model->number;
-$this->params['backlink']['url']=Url::to(['material/index']);
+$this->params['backlink']['url']= $user->is_master ? Url::to(['site/index']) : Url::to(['material/index']);
 $this->params['backlink']['confirm']=false;
 ?>
 <div class="row">
@@ -73,4 +74,24 @@ $this->params['backlink']['confirm']=false;
 		</div>
 	</div>
 </div>
-
+<div class="row">
+	<div class="col-md-4">
+		<?php $form = ActiveForm::begin();?>
+		<div class="row">
+			<div class="col-md-4">
+				<p>Выберите статус:</p>
+				<?php
+					echo Html::dropDownList("new_status",$model->status,AppStatuses::getLabels(),['class'=>'form-control']);
+				?>
+			</div>
+			<div class="col-md-4" style="margin-top:30px; ">
+				<?php
+					echo Html::submitButton("Изменить статус",['class'=>'btn btn-primary']);
+				?>
+			</div>
+		</div>
+		
+		
+		<?php ActiveForm::end();?>
+	</div>
+</div>

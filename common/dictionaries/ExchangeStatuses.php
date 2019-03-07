@@ -19,6 +19,7 @@ class ExchangeStatuses extends Dictionary{
 	);
 
 
+
 	public static $notification = array(
 		self::CREATED=>"default",
 		self::IN_CONFIRMING=>"info",

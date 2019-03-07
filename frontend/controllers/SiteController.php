@@ -12,6 +12,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\modules\TotalOutputFilter;
 
 use frontend\modules\RaportFilter;
+use frontend\modules\MaterialAppFilter;
 use frontend\modules\RaportRegulatoryFilter;
 use common\models\{User,Setting};
 
@@ -98,12 +99,18 @@ class SiteController extends Controller
             $params['RaportRegulatoryFilter']['master_guid']=$user->guid;
             $dataProviderRaportRegulatory = $RaportRegulatoryFilter->filter($params);
 
+            $MaterialAppFilter = new MaterialAppFilter;
+            $params = Yii::$app->request->queryParams;
+            $params['MaterialAppFilter']['master_guid']=$user->guid;
+            $dataProviderMaterialApp = $MaterialAppFilter->filter($params);
 
             return $this->render('master',[
                 'dataProviderRaport'=>$dataProviderRaport,
                 'RaportFilter'=>$RaportFilter,
                 'dataProviderRaportRegulatory'=>$dataProviderRaportRegulatory,
                 'RaportRegulatoryFilter'=>$RaportRegulatoryFilter,
+                'MaterialAppFilter'=>$MaterialAppFilter,
+                'dataProviderMaterialApp'=>$dataProviderMaterialApp,
             ]);
 
         }else{

@@ -14,7 +14,7 @@ use common\models\User;
 use common\models\MaterialsAppItem;
 use common\models\Nomenclature;
 use common\models\StockRoom;
-use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\AppStatuses;
 
 
 use common\base\ActiveRecordVersionable;
@@ -53,12 +53,13 @@ class MaterialsApp extends ActiveRecordVersionable
             [['user_guid','stockroom_guid','master_guid'], 'string', 'max' => 36],
             ['created_at','default','value'=>date("Y-m-d\TH:i:s",time())],
             ['number','default','value'=>null],
-            ['status', 'default', 'value' => ExchangeStatuses::CREATED],
+            ['status', 'default', 'value' => AppStatuses::CREATED],
             ['status', 'in', 'range' => [
-                ExchangeStatuses::CREATED, 
-                ExchangeStatuses::IN_CONFIRMING,
-                ExchangeStatuses::CONFIRMED,
-                ExchangeStatuses::DELETED]
+                AppStatuses::CREATED, 
+                AppStatuses::IN_CONFIRMING,
+                AppStatuses::CONFIRMED,
+                AppStatuses::COMPLETED,
+                AppStatuses::DELETED]
             ],
         ];
 	}
@@ -154,8 +155,7 @@ class MaterialsApp extends ActiveRecordVersionable
         return $this->itemsErrors;
     }
 
-
-
+    
     public function getUser(){
         if(!$this->user_guid) return null;
 
@@ -188,19 +188,30 @@ class MaterialsApp extends ActiveRecordVersionable
     }
 
 
+    public function setStatusFromTransferValue($status){
+        if(is_numeric($status)){
+            $labels = AppStatuses::getTransferValue();
+            $this->status = array_key_exists($status, $labels) ? $status : AppStatuses::CREATED;
+        }else{
+            $code = AppStatuses::getCodeByTransferValue($status);
+            $this->status = $code ? $code : AppStatuses::CREATED;
+        }
+    }
+
+
     public function setStatus($status){
         if(is_numeric($status)){
-            $labels = ExchangeStatuses::getLabels();
-            $this->status = array_key_exists($status, $labels) ? $status : ExchangeStatuses::CREATED;
+            $labels = AppStatuses::getLabels();
+            $this->status = array_key_exists($status, $labels) ? $status : AppStatuses::CREATED;
         }else{
-            $code = ExchangeStatuses::getCode($status);
-            $this->status = $code ? $code : ExchangeStatuses::CREATED;
+            $code = AppStatuses::getCode($status);
+            $this->status = $code ? $code : AppStatuses::CREATED;
         }
     }
 
 
     public function getStatusTitle(){
-        $title = ExchangeStatuses::getLabels($this->status);
+        $title = AppStatuses::getLabels($this->status);
 
         return !is_array($title) ? $title : null;
     }
@@ -208,7 +219,7 @@ class MaterialsApp extends ActiveRecordVersionable
 
 
     public function getIsCanUpdate(){
-        return $this->status != ExchangeStatuses::CONFIRMED;
+        return $this->status != AppStatuses::CONFIRMED;
     }
 
 

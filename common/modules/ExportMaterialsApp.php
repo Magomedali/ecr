@@ -7,7 +7,7 @@ use yii\db\Query;
 use common\models\MaterialsApp;
 use common\models\MaterialsAppItem;
 use common\models\Request;
-use common\dictionaries\ExchangeStatuses;
+use common\dictionaries\AppStatuses;
 use soapclient\methods\ApplicationForMaterials;
 
 class ExportMaterialsApp{
@@ -18,7 +18,7 @@ class ExportMaterialsApp{
 		$params = [
 			'guid'=>$model['guid'],
 			'date'=>date("Y-m-d\TH:i:s",strtotime($model['created_at'])),
-			'status'=>ExchangeStatuses::getLabels(ExchangeStatuses::CREATED),
+			'status'=>AppStatuses::getTransferValue($model['status']),
 			'mol_guid'=>$model['user_guid'],
             'master_guid'=>$model['master_guid'],
 			'warehouse_guid'=>$model['stockroom_guid'],
@@ -41,7 +41,6 @@ class ExportMaterialsApp{
                 'resource_id'=>$model['id'],
                 'actor_id'=>Yii::$app->user->id
             ]);
-
 
             $method->setParameters($params);
 
@@ -72,7 +71,9 @@ class ExportMaterialsApp{
                     $model->guid = $responce['guid'];
                     $model->number = $responce['number'];
 
-                    $model->status = ExchangeStatuses::IN_CONFIRMING;
+                    if($model->status < AppStatuses::IN_CONFIRMING){
+                        $model->status = AppStatuses::IN_CONFIRMING;
+                    }
                		
                 	Yii::$app->session->setFlash("info","Заявка выгружена в 1С");
 

@@ -12,7 +12,7 @@ use frontend\modules\MaterialAppFilter;
 use common\modules\ImportListOfDocuments;
 use common\modules\TransferMaterials;
 use common\modules\CheckCloseShift;
-use common\dictionaries\{ExchangeStatuses,DocumentTypes};
+use common\dictionaries\{AppStatuses,DocumentTypes};
 use common\base\Controller;
 
 
@@ -25,7 +25,8 @@ use common\modules\exceptions\{
     ErrorRelationEntitiesException,
     ErrorExportTo1C,
     ModelNotFoundException,
-    ModelCantUpdateException
+    ModelCantUpdateException,
+    UserNotMasterException
 };
 
 class MaterialController extends Controller{
@@ -58,7 +59,7 @@ class MaterialController extends Controller{
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','view','form','get-row-material'],
+                        'actions' => ['index','view','open','form','get-row-material'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -118,8 +119,7 @@ class MaterialController extends Controller{
         $modelFilters = new MaterialAppFilter;
         $params = Yii::$app->request->queryParams;
         $params['MaterialAppFilter']['user_guid']=$user->guid;
-        
-        $params['MaterialAppFilter']['statusCode']=[ExchangeStatuses::IN_CONFIRMING,ExchangeStatuses::CREATED];
+        $params['MaterialAppFilter']['statusCode']=[AppStatuses::IN_CONFIRMING,AppStatuses::CREATED,AppStatuses::CONFIRMED];
         
         $dataProvider = $modelFilters->filter($params);
 
@@ -155,7 +155,57 @@ class MaterialController extends Controller{
 
 
 
+    public function actionOpen($id){
 
+        if(!(int)$id) 
+            throw new \Exception("Документ не найден!",404);
+
+        if(!$this->materialSaverService->userCan($id)){
+            Yii::$app->user->logout();
+            return $this->goHome();
+        }
+        $post = Yii::$app->request->post();
+        try {
+            $model = $this->materialSaverService->getForm($post,$id);
+        } catch (ModelNotFoundException $e) {
+            Yii::$app->session->setFlash("error","Документ не найден.");
+            return $this->redirect(['site/index']);
+        } catch (ModelCantUpdateException $e) {
+            Yii::$app->session->setFlash("error","Документ нельзя редактировать.");
+            return $this->redirect(['site/index']);
+        } catch (\Exception $e) {
+            Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");
+            return $this->redirect(['site/index']);
+        }
+
+        if(isset($post['new_status']) && (int)$post['new_status']){
+            try {
+                $this->materialSaverService->changeStatus((int)$post['new_status']);
+                Yii::$app->session->setFlash("success","Статус заявки успешно изменен!");
+                return $this->redirect(['site/index']);
+            }catch(UserNotMasterException $e){
+                Yii::$app->session->setFlash("error","Недостаточно парв!");
+                Yii::$app->user->logout();
+                return $this->goHome();
+            }catch(ValidateErrorsException $e){
+                Yii::$app->session->setFlash("error","Неправильный формат данных");
+                Yii::warning("Error when save raport","materialChangeStatusform");
+                Yii::warning(json_encode($model->getErrors()),"materialChangeStatusform");
+            }catch(ErrorExportTo1C $e){
+                Yii::$app->session->setFlash("success","Статус заявки успешно изменен!");
+                Yii::$app->session->setFlash("error","Ошибка, при отправлении изменения статуса в 1С");
+                return $this->redirect(['site/index']);
+            }catch (\Exception $e) {
+                Yii::$app->session->setFlash("error","Ошибка при обработке запроса, обратитесь в тех. поддержку!");
+                return $this->redirect(['site/index']);
+            }
+        }
+
+        if(!isset($model->id))
+            throw new \Exception("Документ не найден!",404);
+
+        return $this->render('view',['model'=>$model]);
+    }
 
 
 
@@ -185,6 +235,7 @@ class MaterialController extends Controller{
             return $this->redirect(['material/index']);
         }
 
+
         $hasErrors = false;
         $inValidPassword = false;
         $errorsMaterialsApp=[];
@@ -194,7 +245,12 @@ class MaterialController extends Controller{
 
             try {
                 $this->materialSaverService->save($post);
-                Yii::$app->session->setFlash("success","Заявка успешно отправлена на проверку!");
+                if($model->status == AppStatuses::DELETED){
+                    Yii::$app->session->setFlash("success","Заявка успешно отменена!");
+                }else{
+                    Yii::$app->session->setFlash("success","Заявка успешно отправлена на проверку!");
+                }
+                
                 return $this->redirect(['material/index']);
             }catch(InvalidPasswordException $e){
             

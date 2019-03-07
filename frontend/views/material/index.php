@@ -2,7 +2,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
-use common\dictionaries\{ExchangeStatuses,DocumentTypes};
+use common\dictionaries\{AppStatuses,DocumentTypes};
 /* @var $this yii\web\View */
 
 $this->title = 'Мои материалы';
@@ -40,7 +40,7 @@ $this->title = 'Мои материалы';
                 'rowOptions'=>function($model){
                     $ops = [];
 
-                    $ops['class']=array_key_exists($model->status, ExchangeStatuses::$notification) ? ExchangeStatuses::$notification[$model->status] : "";
+                    $ops['class']=array_key_exists($model->status, AppStatuses::$notification) ? AppStatuses::$notification[$model->status] : "";
 
                     
                     return $ops;
