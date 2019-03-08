@@ -30,6 +30,7 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+            ['login','checkaccess']
         ];
     }
 
@@ -59,6 +60,25 @@ class LoginForm extends Model
             $user = $this->getUser();
            
             if (!$user || !$user->validatePassword($this->password)) {
+                $this->addError($attribute, 'Не правильно заполнено поле логин или пароль.');
+            }
+        }
+    }
+
+
+    /**
+     * Validates the password.
+     * This method serves as the inline validation for password.
+     *
+     * @param string $attribute the attribute currently being validated
+     * @param array $params the additional name-value pairs given in the rule
+     */
+    public function checkaccess($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+           
+            if (!$user->is_master && !$user->brigade_guid) {
                 $this->addError($attribute, 'Не правильно заполнено поле логин или пароль.');
             }
         }
