@@ -302,4 +302,13 @@ $(function(){
         widget.find(".autocomplete_data .autocomplete_items .autocomplete_item").eq(number).trigger("click");
         $(this).parents(".tabletWindow").hide();
     });
+
+
+    $("body").on("click",".tabletWindow .tabletWindowInputKeyResetBtn",function(){
+        var id = $(this).parents(".tabletWindow").attr("data-id");
+        if(!id) return;
+        var widget = $("#autocomplete_block-"+id);
+        if(!widget.length) return;
+        $(this).parents(".tabletWindow").find(".tabletWindowInputKey").val("").trigger("keyup");
+    });
 })

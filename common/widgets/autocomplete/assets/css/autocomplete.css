@@ -68,9 +68,6 @@
     top: 30px;
 }
 
-#tabletWindow_w1{
-    display: block;
-}
 .tabletWindow{
     display: none;
     position: fixed;
@@ -87,9 +84,19 @@
         color: white;
     }
 
-    .tabletWindowInputKey{
-
+    .tabletWindowInputKeyBlock{
+        position: relative;
     }
+
+        .tabletWindowInputKey{
+
+        }
+
+        .tabletWindowInputKeyResetBtn{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
 
     .tabletWindowBtnClose{
         display: block;
@@ -102,6 +109,9 @@
     .tabletWindowList{
         margin: 0px;
         padding: 0px;
+        height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
         .tabletWindowList .autocomplete_item{

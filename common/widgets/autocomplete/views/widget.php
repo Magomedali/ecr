@@ -41,21 +41,26 @@ use yii\helpers\Html;
             tabletWindow:"",
             tabletWindowBtnClose:"",
             tabletWindowInputKey:"",
+            tabletWindowInputKeyResetBtn:"",
             tabletWindowList:"",
             initTabletWindow:function(){
                 this.tabletWindow = $("<div/>").attr("id","tabletWindow_"+'<?php echo $id?>').addClass("tabletWindow").attr("data-id","<?php echo $id?>");
                 this.tabletWindowInputKey = $("<input/>").attr("text","input").attr("name","tabletWindowInputKey").addClass("tabletWindowInputKey form-control").attr("placeholder","Искать");
+                this.tabletWindowInputKeyResetBtn = $("<button/>").addClass("tabletWindowInputKeyResetBtn btn btn-danger").text("X");
                 this.tabletWindowList = $("<ul/>").addClass("tabletWindowList");
-                this.tabletWindowBtnClose = $("<span/>").addClass("tabletWindowBtnClose").text("X");
+                this.tabletWindowBtnClose = $("<span/>").addClass("tabletWindowBtnClose").text("Закрыть");
+
+                var divInput = $("<div/>").addClass("tabletWindowInputKeyBlock").html(this.tabletWindowInputKey).append(this.tabletWindowInputKeyResetBtn);
                 var divRow1 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12").html($("<h2/>").text("<?php echo $label?>")));
                 var divRow2 = $("<div/>").addClass("row")
-                        .html($("<div/>").addClass("col-md-11").append(this.tabletWindowInputKey))
+                        .html($("<div/>").addClass("col-md-11").append(divInput))
                         .append($("<div/>").addClass("col-md-1").append(this.tabletWindowBtnClose));
 
                 var divRow3 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12").html(this.tabletWindowList));
 
                 this.tabletWindow.append(divRow1).append(divRow2).append(divRow3);
                 $("body").append(this.tabletWindow);
+                this.tabletWindow.css("height",document.body.scrollHeight+"px");
                 this.enabledTabletWindow = 1;
             },
             onSelectCallback : <?php echo $onSelectCallback;?>,
@@ -63,7 +68,9 @@ use yii\helpers\Html;
         }
 
         $(function(){
-            WObject_<?php echo $id?>.initTabletWindow();
+            if(window.innerWidth*window.devicePixelRatio <= 1024){
+                WObject_<?php echo $id?>.initTabletWindow();
+            }
         })
     </script>
 </div>
