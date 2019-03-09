@@ -17,7 +17,8 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>"RaportWork[$count][work_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
-			'labelShow'=>false
+			'labelShow'=>false,
+			'label'=>'Вид работы'
 		]);
 	?>
 	</td>
@@ -33,6 +34,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите линию',
 			'labelShow'=>false,
+			'label'=>'Линия',
 			'properties'=>[
 				['property'=>'hint_length','commonElement'=>'tr','targetElement'=>'td.td_length span.hint_length,td.td_length input[type=hidden].hint_length'],
 				['property'=>'hint_count','commonElement'=>'tr','targetElement'=>'td.td_count span.hint_count,td.td_count input[type=hidden].hint_count'],

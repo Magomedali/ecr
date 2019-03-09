@@ -18,6 +18,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Номенклатура',
 			'labelShow'=>false,
+			'label'=>'Номенклатура',
 			'properties'=>[
 				['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit input'],
 			],

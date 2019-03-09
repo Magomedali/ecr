@@ -22,23 +22,48 @@ use yii\helpers\Html;
     <span class="reset_autocomplete <?php echo $labelShow ? 'withLabel' : '';?>" <?php echo $inputKeyName_Value ? '' : 'style="display:none;"'?>>X</span>
 
     <div class="autocomplete_data" id="autocomplete_data-<?php echo $id ?>" data-block="0">
-    	<select id="autocomplete_itemse-<?php echo $id ?>" class="form-control autocomplete_items" size="6">
+    	<ul id="autocomplete_itemse-<?php echo $id ?>" class="form-control autocomplete_items" size="6">
     		<?php
     			if(is_array($data) && count($data)){
     				foreach ($data as $key => $value) {
     		?>
-    			<option class="autocomplete_item" data-value="<?php echo $key?>"> <?php echo $value?> </option>
+    			<li class="autocomplete_item" data-value="<?php echo $key?>"> <?php echo $value?> </li>
     		<?php
     				}
     			}
     		?>
-    	</select>
+    	</ul>
     </div>
     <script type="text/javascript">
         var WObject_<?php echo $id?> = {
             id : '<?php echo $id?>',
+            enabledTabletWindow:0,
+            tabletWindow:"",
+            tabletWindowBtnClose:"",
+            tabletWindowInputKey:"",
+            tabletWindowList:"",
+            initTabletWindow:function(){
+                this.tabletWindow = $("<div/>").attr("id","tabletWindow_"+'<?php echo $id?>').addClass("tabletWindow").attr("data-id","<?php echo $id?>");
+                this.tabletWindowInputKey = $("<input/>").attr("text","input").attr("name","tabletWindowInputKey").addClass("tabletWindowInputKey form-control").attr("placeholder","Искать");
+                this.tabletWindowList = $("<ul/>").addClass("tabletWindowList");
+                this.tabletWindowBtnClose = $("<span/>").addClass("tabletWindowBtnClose").text("X");
+                var divRow1 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12").html($("<h2/>").text("<?php echo $label?>")));
+                var divRow2 = $("<div/>").addClass("row")
+                        .html($("<div/>").addClass("col-md-11").append(this.tabletWindowInputKey))
+                        .append($("<div/>").addClass("col-md-1").append(this.tabletWindowBtnClose));
+
+                var divRow3 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12").html(this.tabletWindowList));
+
+                this.tabletWindow.append(divRow1).append(divRow2).append(divRow3);
+                $("body").append(this.tabletWindow);
+                this.enabledTabletWindow = 1;
+            },
             onSelectCallback : <?php echo $onSelectCallback;?>,
             generateSearchFiltersCallback: <?php echo $generateSearchFiltersCallback; ?>
         }
+
+        $(function(){
+            WObject_<?php echo $id?>.initTabletWindow();
+        })
     </script>
 </div>

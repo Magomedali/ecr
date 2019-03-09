@@ -18,6 +18,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите физ.лицо',
 			'labelShow'=>false,
+			'label'=>'Физ. лицо',
 			'properties'=>[
 				['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
 
@@ -72,6 +73,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>"RaportConsist[$count][technic_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите технику',
+			'label'=>'Техника',
 			'labelShow'=>false
 		]);
 	?>	

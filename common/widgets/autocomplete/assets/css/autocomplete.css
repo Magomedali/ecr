@@ -23,8 +23,8 @@
         .autocomplete_items{
             position: absolute;
             z-index: 199;
-            /*min-height: 100px;
-            max-height: 200px;*/
+            min-height: 100px;
+            max-height: 200px;
             width: 100%;
             overflow-y: scroll;
             overflow-x: hidden;
@@ -33,7 +33,6 @@
             background: #fff;
             border: 1px solid #a4b9ca;
             z-index: 1001;
-            /*top: -30px;*/
         }
 
             .autocomplete_items .autocomplete_item{
@@ -68,3 +67,53 @@
 .reset_autocomplete.withLabel{
     top: 30px;
 }
+
+#tabletWindow_w1{
+    display: block;
+}
+.tabletWindow{
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000001;
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+}
+    
+    .tabletWindow h2{
+        color: white;
+    }
+
+    .tabletWindowInputKey{
+
+    }
+
+    .tabletWindowBtnClose{
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    .tabletWindowList{
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .tabletWindowList .autocomplete_item{
+            cursor: pointer;
+            display: block;
+            padding: 5px 0px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .tabletWindowList .autocomplete_item:hover{
+            background-color: #7d7dd6; 
+        }

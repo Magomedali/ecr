@@ -140,6 +140,7 @@ $this->params['backlink']['confirm']=true;
 															'inputKeyName'=>"RaportRegulatoryWork[$key][user_name]",
 															'inputKeyName_Value'=>$item['user_name'],
 															'placeholder'=>'Укажите физ.лицо',
+															'label'=>'Физ.лицо',
 															'labelShow'=>false
 														]);
 													?>
@@ -155,6 +156,7 @@ $this->params['backlink']['confirm']=true;
 															'inputKeyName_Value'=>$item['work_name'],
 															'placeholder'=>'Укажите вид работы',
 															'labelShow'=>false,
+															'label'=>'Вид работы',
 															'generateSearchFiltersCallback'=>"function(){
 																return {
 																	extends:{

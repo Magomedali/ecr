@@ -15,8 +15,9 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputValueName_Value'=>"",
 			'inputKeyName'=>"RaportRegulatoryWork[$count][user_name]",
 			'inputKeyName_Value'=>"",
-			'placeholder'=>'Укажите вид работы',
-			'labelShow'=>false
+			'placeholder'=>'Укажите физ. лицо',
+			'labelShow'=>false,
+			'label'=>'Физ. лицо',
 		]);
 	?>
 	</td>
@@ -31,6 +32,7 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName'=>"RaportRegulatoryWork[$count][work_name]",
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
+			'label'=>'Вид работы',
 			'labelShow'=>false,
 			'generateSearchFiltersCallback'=>"function(){
 				return {

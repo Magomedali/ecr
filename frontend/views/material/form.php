@@ -100,6 +100,7 @@ if(isset($model->id)){
 															'inputKeyName_Value'=>$item['nomenclature_name'],
 															'placeholder'=>'Номенклатура',
 															'labelShow'=>false,
+															'label'=>'Номенклатура',
 															'properties'=>[
 																['property'=>'unit','commonElement'=>'tr','targetElement'=>'td.nomenclature_unit input'],
 															],

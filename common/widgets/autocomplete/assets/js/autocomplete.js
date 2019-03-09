@@ -47,10 +47,15 @@ $(function(){
 
         var wId = thisElement.siblings("span.autocomplete_widget_id").data("widget_id");
         var widgetObject = "WObject_"+wId;
+        var tabletList = null;
         if(window.hasOwnProperty(widgetObject)){
             var WObject = window[widgetObject];
             if(WObject.hasOwnProperty('generateSearchFiltersCallback'))
                 data = WObject.generateSearchFiltersCallback($(this));
+
+            if(WObject.hasOwnProperty("tabletWindowList") && WObject.tabletWindowList.length){
+                tabletList = WObject.tabletWindowList;
+            }
         }
 
         data['key']=val;
@@ -86,32 +91,33 @@ $(function(){
                         var data = json.data;
                         if(data.length){
                             var html = "";
-
                             $.each(data,function(i,item){
-
                                 if(item.hasOwnProperty("title") && item.hasOwnProperty("value")){
-                                    var opt = "<option class='autocomplete_item' data-value='"+item.value+"'";
-                                    
+                                    var opt = "<li class='autocomplete_item' data-value='"+item.value+"'";
                                     //Additional properties
                                     if(properties.length){
                                         $.each(properties,function(i,p){
                                             if(p.hasOwnProperty("commonElement") && p.hasOwnProperty("property") && p.hasOwnProperty("targetElement")){
-                                                
                                                 if(item.hasOwnProperty(p.property)){
                                                      opt+= " data-"+p.property+"='"+item[p.property]+"'";
                                                 }
                                             }
                                         })
                                     }
-
-                                    opt += ">"+item.title + "</option>";
+                                    opt += ">"+item.title + "</li>";
                                     html += opt;
                                 }
-                            })
-
+                            });
                             autocomplete_items.html(html);
+                            if(tabletList){
+                                tabletList.html(html);
+                            }
+                            
                         }else{
                             autocomplete_items.html("");
+                            if(tabletList){
+                                tabletList.html("");
+                            }
                         }
                     }
 
@@ -184,6 +190,15 @@ $(function(){
             searchEntityByKey($(this));
         }
 
+        var wId = $(this).siblings("span.autocomplete_widget_id").data("widget_id");
+        var widgetObject = "WObject_"+wId;
+        if(window.hasOwnProperty(widgetObject)){
+            var WObject = window[widgetObject];
+            if(WObject.hasOwnProperty('enabledTabletWindow') && WObject.enabledTabletWindow){
+                WObject.tabletWindowInputKey.val($(this).val());
+                WObject.tabletWindow.show();
+            }
+        }
     });
 
 
@@ -256,4 +271,35 @@ $(function(){
     });
     
 
+
+    $("body").on("click",".tabletWindowBtnClose",function(){
+        $(this).parents(".tabletWindow").hide();
+    });
+
+    $("body").on("focusin",".tabletWindowInputKey",function(){
+        var id = $(this).parents(".tabletWindow").attr("data-id");
+        if(!id) return;
+        var widget = $("#autocomplete_block-"+id);
+        if(!widget.length) return;
+        widget.find(".autocomplete_input_key").trigger("focusin");
+    });
+
+    $("body").on("keyup","input.tabletWindowInputKey",function(){
+        var id = $(this).parents(".tabletWindow").attr("data-id");
+        if(!id) return;
+        var widget = $("#autocomplete_block-"+id);
+        if(!widget.length) return;
+        var val = $(this).val();
+        widget.find(".autocomplete_input_key").val(val).trigger("keyup");
+    });
+
+    $("body").on("click",".tabletWindowList .autocomplete_item",function(){
+        var id = $(this).parents(".tabletWindow").attr("data-id");
+        if(!id) return;
+        var widget = $("#autocomplete_block-"+id);
+        if(!widget.length) return;
+        var number = $(this).index();
+        widget.find(".autocomplete_data .autocomplete_items .autocomplete_item").eq(number).trigger("click");
+        $(this).parents(".tabletWindow").hide();
+    });
 })

@@ -214,6 +214,7 @@ use common\widgets\autocomplete\AutoComplete;
 																'inputKeyName_Value'=>"",
 																'placeholder'=>'Укажите физ.лицо',
 																'labelShow'=>false,
+																'label'=>'Физ.лицо',
 																'properties'=>[
 																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu span'],
 																	['property'=>'ktu','commonElement'=>'tr','targetElement'=>'td.person_ktu input.hidden_user_ktu'],
@@ -268,6 +269,7 @@ use common\widgets\autocomplete\AutoComplete;
 																'inputKeyName_Value'=>$item['technic_name'],
 																'placeholder'=>'Укажите технику',
 																'labelShow'=>false,
+																'label'=>'Техника'
 															]);
 														}else{
 															echo AutoComplete::widget([
@@ -279,6 +281,7 @@ use common\widgets\autocomplete\AutoComplete;
 																'inputKeyName_Value'=>"",
 																'placeholder'=>'Укажите технику',
 																'labelShow'=>false,
+																'label'=>'Техника',
 																'required'=>false
 															]);
 														}
@@ -336,6 +339,7 @@ use common\widgets\autocomplete\AutoComplete;
 															'inputKeyName_Value'=>$item['work_name'],
 															'placeholder'=>'Укажите вид работы',
 															'labelShow'=>false,
+															'label'=>'Вид работы',
 															'properties'=>[
 																['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
 															],
@@ -363,6 +367,7 @@ use common\widgets\autocomplete\AutoComplete;
 															'inputKeyName_Value'=>$item['line_name'],
 															'placeholder'=>'Укажите линию',
 															'labelShow'=>false,
+															'label'=>'Линия',
 															'properties'=>[
 																['property'=>'hint_length','commonElement'=>'tr','targetElement'=>'td.td_length span.hint_length,td.td_length input[type=hidden].hint_length'],
 																['property'=>'hint_count','commonElement'=>'tr','targetElement'=>'td.td_count span.hint_count,td.td_count input[type=hidden].hint_count'],
@@ -946,7 +951,7 @@ $script = <<<JS
 	});
 
 	//Открываем список проектов при выборе объекта
-	$("body").on("click",".object_autocomplete select.autocomplete_items .autocomplete_item",function(){
+	$("body").on("click",".object_autocomplete .autocomplete_items .autocomplete_item",function(){
 		var project_at = $(".autocomplete__widget_block input[name='Raport[project_name]']");
 		if(project_at.length){
 			//очищаем ранее выбранное значение
