@@ -51,10 +51,9 @@ use yii\helpers\Html;
                 this.tabletWindowBtnClose = $("<span/>").addClass("tabletWindowBtnClose").text("Закрыть");
 
                 var divInput = $("<div/>").addClass("tabletWindowInputKeyBlock").html(this.tabletWindowInputKey).append(this.tabletWindowInputKeyResetBtn);
-                var divRow1 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12").html($("<h2/>").text("<?php echo $label?>")));
+                var divRow1 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12 tabletWindowHeader").html($("<h2/>").text("<?php echo $label?>")).append(this.tabletWindowBtnClose));
                 var divRow2 = $("<div/>").addClass("row")
-                        .html($("<div/>").addClass("col-md-11").append(divInput))
-                        .append($("<div/>").addClass("col-md-1").append(this.tabletWindowBtnClose));
+                        .html($("<div/>").addClass("col-md-12").append(divInput));
 
                 var divRow3 = $("<div/>").addClass("row").html($("<div/>").addClass("col-md-12").html(this.tabletWindowList));
 
@@ -68,7 +67,7 @@ use yii\helpers\Html;
         }
 
         $(function(){
-            if(window.innerWidth*window.devicePixelRatio <= 1024){
+            if(window.innerWidth <= 1024){
                 WObject_<?php echo $id?>.initTabletWindow();
             }
         })
