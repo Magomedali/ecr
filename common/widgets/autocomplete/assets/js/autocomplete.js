@@ -195,7 +195,7 @@ $(function(){
         if(window.hasOwnProperty(widgetObject)){
             var WObject = window[widgetObject];
             if(WObject.hasOwnProperty('enabledTabletWindow') && WObject.enabledTabletWindow){
-                WObject.tabletWindowInputKey.val($(this).val()).trigger("focusin");
+                WObject.tabletWindowInputKey.val($(this).val());
                 WObject.tabletWindow.show();
             }
         }
