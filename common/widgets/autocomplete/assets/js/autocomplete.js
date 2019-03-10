@@ -182,21 +182,26 @@ $(function(){
     });
 
     $("body").on("focusin",".autocomplete__widget_block .autocomplete_input_key",function(){
-        $(this).siblings(".autocomplete_data").show(100);
-
-        var options = $(this).siblings(".autocomplete_options").data("options");
         
-        if(options.hasOwnProperty("searchOnFocusin") && options.searchOnFocusin){
-            searchEntityByKey($(this));
-        }
-
         var wId = $(this).siblings("span.autocomplete_widget_id").data("widget_id");
         var widgetObject = "WObject_"+wId;
+        var tabletWindowOpened = false;
         if(window.hasOwnProperty(widgetObject)){
             var WObject = window[widgetObject];
             if(WObject.hasOwnProperty('enabledTabletWindow') && WObject.enabledTabletWindow){
                 WObject.tabletWindowInputKey.val($(this).val());
                 WObject.tabletWindow.show();
+                tabletWindowOpened = true;
+            }
+        }
+
+        if(!tabletWindowOpened){
+            $(this).siblings(".autocomplete_data").show(100);
+
+            var options = $(this).siblings(".autocomplete_options").data("options");
+            
+            if(options.hasOwnProperty("searchOnFocusin") && options.searchOnFocusin){
+                searchEntityByKey($(this));
             }
         }
     });
@@ -281,7 +286,14 @@ $(function(){
         if(!id) return;
         var widget = $("#autocomplete_block-"+id);
         if(!widget.length) return;
-        widget.find(".autocomplete_input_key").trigger("focusin");
+
+        var inputKey = widget.find(".autocomplete_input_key");
+        if(!inputKey.length) return;
+        var options = inputKey.siblings(".autocomplete_options").data("options");
+            
+        if(options.hasOwnProperty("searchOnFocusin") && options.searchOnFocusin){
+            searchEntityByKey(inputKey);
+        }
     });
 
     $("body").on("keyup","input.tabletWindowInputKey",function(){
