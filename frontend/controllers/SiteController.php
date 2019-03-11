@@ -7,6 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use common\dictionaries\AppStatuses;
 use frontend\models\LoginForm;
 use frontend\models\ResetPasswordForm;
 use frontend\modules\TotalOutputFilter;
@@ -102,6 +103,7 @@ class SiteController extends Controller
             $MaterialAppFilter = new MaterialAppFilter;
             $params = Yii::$app->request->queryParams;
             $params['MaterialAppFilter']['master_guid']=$user->guid;
+            $params['MaterialAppFilter']['statusCode']=[AppStatuses::IN_CONFIRMING,AppStatuses::CREATED,AppStatuses::CONFIRMED,AppStatuses::DELETED];
             $dataProviderMaterialApp = $MaterialAppFilter->filter($params);
 
             return $this->render('master',[

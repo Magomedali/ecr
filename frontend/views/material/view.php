@@ -81,7 +81,9 @@ $this->params['backlink']['confirm']=false;
 			<div class="col-md-4">
 				<p>Выберите статус:</p>
 				<?php
-					echo Html::dropDownList("new_status",$model->status,AppStatuses::getLabels(),['class'=>'form-control']);
+					echo Html::dropDownList("new_status",$model->status,array_filter(AppStatuses::getLabels(),function($v,$key){
+						return (int)$key != AppStatuses::COMPLETED;
+					},ARRAY_FILTER_USE_BOTH),['class'=>'form-control']);
 				?>
 			</div>
 			<div class="col-md-4" style="margin-top:30px; ">
