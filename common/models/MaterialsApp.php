@@ -289,7 +289,7 @@ class MaterialsApp extends ActiveRecordVersionable
             $items[$Type] = $items;
         }
         
-        if(!array_key_exists(0, $items[$Type])){
+        if(ArrayHelper::isAssociative($items[$Type])){
             $items[$Type] =  [$items[$Type]];
         }
         
