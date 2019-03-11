@@ -98,7 +98,7 @@ AppAsset::register($this);
                 <?php
                     if($show_backLink){
                     ?>
-                    <div class="col-lg-6" style="padding-top: 50px;">
+                    <div class="col-lg-6 backlink">
                         <?php echo Html::a("X",$this->params['backlink']['url'],['id'=>'backLinkBtn','class'=>'btn btn-danger pull-right'])?>
                     </div>
                     <?php

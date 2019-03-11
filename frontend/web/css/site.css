@@ -183,3 +183,7 @@ span.hint_length,span.hint_count{
     word-break: break-word;
     max-width: 385px;
 }
+
+.backlink{
+    padding-top: 50px;
+}

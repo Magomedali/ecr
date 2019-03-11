@@ -13,4 +13,40 @@
 	.pipeline > div:after {
 	    right: -18px;
 	}
+
+	.pipeline{
+
+	}
+		.pipeline:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		.pipeline > div{
+			float: left;
+			width: 25%;
+			font-size: 10px;
+		}
+
+			.pipeline > div:after {
+			    border: none;
+			    height: 34px;
+			    width: 34px;
+			    top: 0px;
+			    right: -10px;
+			    transform: rotate(0.125turn);
+			    z-index: 20;
+			    background: blue;
+			}
+
+	.paddingLess{
+		padding-left: -15px;
+		padding-right: -15px;
+	}
+
+	.backlink{
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	}
 }

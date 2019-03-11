@@ -87,11 +87,33 @@ AppAsset::register($this);
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
+                <?php
+                    $show_backLink = isset($this->params['backlink']) && isset($this->params['backlink']['url']);
+                ?>
+                <div class="<?php echo $show_backLink ? 'col-lg-6' : 'col-lg-12';?>">
                     <h1 class="page-header"><?php echo $this->title;?></h1>
                 </div>
+                <?php
+                    if($show_backLink){
+                    ?>
+                    <div class="col-lg-6 backlink">
+                        <?php echo Html::a("X",$this->params['backlink']['url'],['id'=>'backLinkBtn','class'=>'btn btn-danger pull-right'])?>
+                    </div>
+                    <?php
+                        $JS = <<<JS
+                            $("#backLinkBtn").click(function(event){
+                                if(!confirm("Подтвердите свои действия!"))
+                                    event.preventDefault();
+                            });
+JS;
+                        if(isset($this->params['backlink']['confirm']) && boolval($this->params['backlink']['confirm'])){
+                           $this->registerJs($JS); 
+                        }
+                        
+                    }
+                ?>
             </div>
-            
+
             <?php  echo Breadcrumbs::widget([
                             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     ]) 
