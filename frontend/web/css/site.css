@@ -184,6 +184,6 @@ span.hint_length,span.hint_count{
     max-width: 385px;
 }
 
-.backlink{
-    padding-top: 50px;
+.backlink a{
+    margin-top: 50px;
 }

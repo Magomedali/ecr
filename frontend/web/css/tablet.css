@@ -1,4 +1,4 @@
-@media (min-width: 768px) and (max-width: 1024px){
+@media (min-width: 768px) and (max-width: 1130px){
 	.sidebar {
 	    width: 165px;
 	}
@@ -20,5 +20,10 @@
 	.raports_list{
 		margin-right: 0px;
     	margin-left: -15px;
+	}
+
+	.backlink a{
+	    margin-top: 0px;
+	    margin-bottom: 10px;
 	}
 }
