@@ -67,7 +67,7 @@ use yii\helpers\Html;
         }
 
         $(function(){
-            if(window.matchMedia('(max-width: 1024px)').matches){
+            if(window.innerWidth <= 1140){
                 WObject_<?php echo $id?>.initTabletWindow();
             }
         })
