@@ -1065,10 +1065,6 @@ $script = <<<JS
 
 		$("#tableProjectStandarts tbody").html("");
 		
-		if(!projectStandarts.data.length){
-			return;
-		}
-
 		var data_length = projectStandarts.data.length;
 		var trs = $("#tableWorks tbody tr");
 		trs.each(function(){
