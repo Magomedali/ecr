@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         //'css/morris.css',
         //'css/font-awesome.min.css',
     ];
+    
     public $js = [
         'js/bootstrap.min.js',
         //'js/jquery.minicolors.js',
@@ -38,8 +39,13 @@ class AppAsset extends AssetBundle
         //'js/sb-admin-2.js',
         //'js/main.js',
     ];
+
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+    ];
+
+    public $jsOptions = [
+        'position' => \yii\web\View::POS_HEAD
     ];
 }
