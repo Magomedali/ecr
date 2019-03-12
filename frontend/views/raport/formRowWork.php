@@ -7,7 +7,6 @@ use common\widgets\autocomplete\AutoComplete;
 <tr>
 	<td>
 	<?php 
-
 		echo AutoComplete::widget([
 			'data'=>[],
 			'userId'=>"wUserId_rww_$count",
