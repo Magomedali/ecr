@@ -314,10 +314,10 @@ $this->title = "Рапорт " . $model->number;
 						<div id="files" class="tab-pane fade in">
 							<h3>Файлы</h3>
 							<div class="row formAddFiles">
-								<?php $form = ActiveForm::begin(['action'=>['raport/add-files'],'options'=>['enctype'=>'multipart/form-data']])?>
+								<?php $form = ActiveForm::begin(['id'=>'addFileForm','action'=>['raport/add-files'],'options'=>['enctype'=>'multipart/form-data']])?>
 								<div class="col-md-4">
 									<?php 
-										echo Html::fileInput("files[]",null,['multiple'=>true]);
+										echo Html::fileInput("files[]",null,['multiple'=>true,'id'=>'fileInput']);
 										echo Html::hiddenInput('model_id',$model->id);
 									?>
 								</div>
@@ -326,6 +326,22 @@ $this->title = "Рапорт " . $model->number;
 										echo Html::submitButton("Добавить",['class'=>"btn btn-primary"]);
 									?>
 								</div>
+								<?php
+
+									$js = <<<JS
+
+										$("#addFileForm").submit(function(event){
+											if(!$("#fileInput").val()){
+												$("#fileInput").addClass("fieldHasError");
+												event.preventDefault();
+											}else{
+												$("#fileInput").removeClass("fieldHasError");
+											}
+										});
+JS;
+
+									$this->registerJs($js);
+								?>
 								<?php ActiveForm::end();?>
 							</div>
 							<div class="row">

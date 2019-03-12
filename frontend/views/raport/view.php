@@ -334,6 +334,7 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 										$("#addFileForm").submit(function(event){
 											if(!$("#fileInput").val()){
 												$("#fileInput").addClass("fieldHasError");
+												event.preventDefault();
 											}else{
 												$("#fileInput").removeClass("fieldHasError");
 											}
