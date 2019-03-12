@@ -244,7 +244,7 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 											<tr>
 												<td>Вид работы</td>
 												<td>Линия</td>
-												<td>Механизировання</td>
+												<td>Механизированная</td>
 												<td>П.М./Шт</td>
 												<td>Количество</td>
 												<td>кв. м</td>
