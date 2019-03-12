@@ -315,7 +315,7 @@ use common\widgets\autocomplete\AutoComplete;
 											<tr>
 												<td>Вид работы</td>
 												<td>Линия</td>
-												<td>Механизировання</td>
+												<td>Мех.</td>
 												<td>П.М./Шт</td>
 												<td>Количество</td>
 												<td>кв. м</td>
@@ -1062,47 +1062,63 @@ $script = <<<JS
 	loadStandars();
 
 	var drawProjectStandart = function(){
-		// console.log("Рисуем таблицу нормативов для выбранного проекта");
 
 		$("#tableProjectStandarts tbody").html("");
 		
 		if(!projectStandarts.data.length){
 			return;
 		}
-		// console.log(projectStandarts.data);
+
 		var data_length = projectStandarts.data.length;
-		
-		for(var i = 0; i < data_length; i++){
-			
-			var standart = projectStandarts.data[i];
+		var trs = $("#tableWorks tbody tr");
+		trs.each(function(){
+			var tr = $(this);
+			var work_guid_input = tr.find("input[name^=\'RaportWork\'][name$=\'[work_guid]\']");
+			var work_name_input = tr.find("input[name^=\'RaportWork\'][name$=\'[work_name]\']");
 
-			//Проверка есть ли в списке работ текущая работа
-			if(!standart.hasOwnProperty("typeofwork_guid")) continue;
+			if(!work_guid_input.length || !work_name_input.length || !work_guid_input.val()) return;
 
-			var work = $("#tableWorks tr input[name^=\'RaportWork\'][name$=\'[work_guid]\'][value=\'"+standart.typeofwork_guid+"\']");
+			var work_guid = work_guid_input.val();
 
-			// console.log(work);
-			if(!work.length) continue;
+			//поиск в нормативах этот гуид;
+			var cur_standard = null;
+			for(var i = 0; i < data_length; i++){
+				var standart = projectStandarts.data[i];
+				//Проверка есть ли в списке работ текущая работа
+				if(!standart.hasOwnProperty("typeofwork_guid")) continue;
 
-			var tr = $("<tr/>");
-			tr.append($("<td/>").addClass("std_work").attr("data-guid",standart.typeofwork_guid).text(standart.typeofwork_name));
-			
+				if(standart.typeofwork_guid == work_guid){
+					cur_standard = standart;
+					break;
+				}
+			}
 
-			//Объем
-			tr.append($("<td/>").addClass("std_common_square").text(null));
-			
-			//Норматив
-			tr.append($("<td/>").addClass("std").text(standart.standard));
-			
-			//Сред расход
-			tr.append($("<td/>").addClass("avg_spent"));
-			
-			//Отклонение
-			tr.append($("<td/>").addClass("std_offset").text(standart.standard));
-			
-			$("#tableProjectStandarts tbody").append(tr);
-		};
+			//поиск в таблице нормативов
+			var already_td = $("#tableProjectStandarts tbody").find("tr td.std_work[data-guid=\'"+work_guid+"\']");
 
+			var new_tr;
+			if(!already_td.length){
+				new_tr = $("<tr/>");
+				new_tr.append($("<td/>").addClass("std_work").attr("data-guid",work_guid).text(work_name_input.val()));
+				
+				//Объем
+				new_tr.append($("<td/>").addClass("std_common_square").text(null));
+				
+				//Норматив
+				new_tr.append($("<td/>").addClass("std").text(cur_standard ? cur_standard.standard : ''));
+				
+				//Сред расход
+				new_tr.append($("<td/>").addClass("avg_spent"));
+				
+				//Отклонение
+				new_tr.append($("<td/>").addClass("std_offset").text(cur_standard ? cur_standard.standard : ''));
+
+				$("#tableProjectStandarts tbody").append(new_tr);
+			}else{
+				already_td.siblings("td.std").text(cur_standard ? cur_standard.standard : '');
+				already_td.siblings("td.std_offset").text(cur_standard ? cur_standard.standard : '');
+			}
+		});
 	};
 
 	var calcAVGStandard = function(){
@@ -1116,7 +1132,6 @@ $script = <<<JS
 
 		if(!trs.length) return; 
 		
-
 		trs.each(function(){
 			var tr = $(this);
 			var guid = tr.find(".std_work").attr("data-guid");
@@ -1131,31 +1146,31 @@ $script = <<<JS
 				works_calcsquare += parseFloat($(this).parents("tr").find(".td_squaremeter input").val());
 			});
 			
-			var nomen = works.eq(0).parents("td").find("input.work_assigned_nomencaltures").val();
-			if(!nomen.length) return;
-			
-			var arr_nomen = nomen.split("|");
-			if(!arr_nomen.length) return;
-			
 			var materials_spent = 0;
 
-			for(var i=0; i < arr_nomen.length;i++){
-				var rem = $("#tableRemnants input[name$=\'[nomenclature_guid]\'][value=\'"+arr_nomen[i]+"\']");
-				if(!rem.length) continue;
-				materials_spent +=parseFloat(rem.parents("tr").find(".tableRemnant_spent input").val());
+			var nomen = works.eq(0).parents("td").find("input.work_assigned_nomencaltures").val();
+			if(nomen.length){
+				var arr_nomen = nomen.split("|");
+				if(arr_nomen.length){
+					for(var i=0; i < arr_nomen.length;i++){
+						var rem = $("#tableRemnants input[name$=\'[nomenclature_guid]\'][value=\'"+arr_nomen[i]+"\']");
+						if(!rem.length) continue;
+						materials_spent +=parseFloat(rem.parents("tr").find(".tableRemnant_spent input").val());
+					}
+				}
 			}
 
 			if(works_calcsquare <= 0) return;
 			materials_spent = materials_spent > 0 ? materials_spent : 0;
 			var avg = parseFloat(materials_spent/works_calcsquare);
 			var std = parseFloat(tr.find(".std").text());
-			// console.log(materials_spent+"/"+works_calcsquare+"="+avg);
+			
 			//Объем общий
 			tr.find(".std_common_square").text(works_calcsquare.toFixed(3));
 
 			tr.find(".avg_spent").text(avg.toFixed(3));
 			var offset = parseFloat(std - avg).toFixed(3);
-			tr.find(".std_offset").text(offset).css("color",offset > 0 ? "green" : "red");
+			tr.find(".std_offset").text(std ? offset : '').css("color",offset > 0 ? "green" : "red");
 		});
 	}
 
