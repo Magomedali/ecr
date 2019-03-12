@@ -1149,7 +1149,7 @@ $script = <<<JS
 			var materials_spent = 0;
 
 			var nomen = works.eq(0).parents("td").find("input.work_assigned_nomencaltures").val();
-			if(nomen.length){
+			if(nomen && nomen.length){
 				var arr_nomen = nomen.split("|");
 				if(arr_nomen.length){
 					for(var i=0; i < arr_nomen.length;i++){
