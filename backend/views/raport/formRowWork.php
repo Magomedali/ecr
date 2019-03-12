@@ -18,8 +18,21 @@ use common\widgets\autocomplete\AutoComplete;
 			'inputKeyName_Value'=>"",
 			'placeholder'=>'Укажите вид работы',
 			'labelShow'=>false,
-			'label'=>'Вид работы'
+			'label'=>'Вид работы',
+			'properties'=>[
+				['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
+			],
+			'generateSearchFiltersCallback'=>"function(){
+				return {
+					extends:{
+						is_regulatory:0
+					}
+				}
+			}"
 		]);
+	?>
+	<?php
+		echo Html::hiddenInput("RaportWork[$count][work_nomenclatures]",null,['class'=>'work_assigned_nomencaltures']);
 	?>
 	</td>
 	<td class="td_line_guid">

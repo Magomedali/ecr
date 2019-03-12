@@ -1067,7 +1067,7 @@ $script = <<<JS
 		
 		var data_length = projectStandarts.data.length;
 		var trs = $("#tableWorks tbody tr");
-		console.log(trs);
+		
 		trs.each(function(){
 			var tr = $(this);
 			var work_guid_input = tr.find("input[name^=\'RaportWork\'][name$=\'[work_guid]\']");
