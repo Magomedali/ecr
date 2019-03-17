@@ -56,6 +56,7 @@ class RaportForm extends Widget
 
     public $statuses = [];
 
+    public $raportWorkPercents = [];
 
     /**
      * @inheritdoc
@@ -96,7 +97,8 @@ class RaportForm extends Widget
             'urlLoadRaportConsistRow'=>$this->urlLoadRaportConsistRow,
             'requiredFile'=>$this->requiredFile,
             'updateStatus'=>$this->updateStatus,
-            'statuses'=>$this->statuses
+            'statuses'=>$this->statuses,
+            'raportWorkPercents'=>$this->raportWorkPercents
         ]);
 
     }

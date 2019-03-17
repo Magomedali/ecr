@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use common\models\User;
 use common\widgets\raportform\RaportForm;
 use common\dictionaries\ExchangeStatuses;
+use common\models\RaportWork;
 
 $user = Yii::$app->user->identity;
 $masters = User::find()->where(['is_master'=>true])->asArray()->all();
@@ -31,6 +32,7 @@ if(!$hasErrors){
 		'hint_length'=>null,
 		'count'=>null,
 		'hint_count'=>null,
+		'percent_save'=>null,
 		'squaremeter'=>null
 	]];
 }else{
@@ -90,7 +92,8 @@ $loadStandarsUrl = Url::to(['autocomplete/project-standarts']);
 		'requiredFile'=>true,
 		'enableGuardPassword'=>true,
 		'urlLoadRaportWorkRow'=>['raport/get-row-work'],
-		'urlLoadRaportConsistRow'=>['raport/get-row-consist']
+		'urlLoadRaportConsistRow'=>['raport/get-row-consist'],
+		'raportWorkPercents'=>RaportWork::getPercents()
 	];
 
 	if($user->is_master){

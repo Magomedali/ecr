@@ -246,6 +246,7 @@ $this->title = "Рапорт " . $model->number;
 												<td>Механизированная</td>
 												<td>П.М./Шт</td>
 												<td>Количество</td>
+												<td>Процент сохранности</td>
 												<td>кв. м</td>
 											</tr>
 										</thead>
@@ -266,6 +267,7 @@ $this->title = "Рапорт " . $model->number;
 														<?php echo $item['length'];?>
 													</td>
 													<td><?php echo $item['count'];?></td>
+													<td><?php echo $item['percent_save'];?></td>
 													<td><?php echo $item['squaremeter'];?></td>
 												</tr>
 												<?php } ?>

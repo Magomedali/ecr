@@ -36,6 +36,7 @@ class RaportWork extends ActiveRecordVersionable
             'mechanized',
             'length',
             'count',
+            'percent_save',
             'squaremeter',
             'isDeleted',
         ];
@@ -49,7 +50,7 @@ class RaportWork extends ActiveRecordVersionable
             // name, email, subject and body are required
             [['raport_id','work_guid','line_guid','length'], 'required','message'=>'Обязательное поле'],
             
-            [['length','count','squaremeter'], 'number'],
+            [['length','count','squaremeter','percent_save'], 'number'],
 
             [['length','count','squaremeter'], 'default','value'=>0],
             
@@ -81,7 +82,14 @@ class RaportWork extends ActiveRecordVersionable
     	);
     }
 
-
+    public static function getPercents(){
+        return [
+            '0.25'=>0.25,
+            '0.5'=>0.5,
+            '0.75'=>0.75,
+            '1'=>1
+        ];
+    }
 
     public function load($data, $formName = null){
         

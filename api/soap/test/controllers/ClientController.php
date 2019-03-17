@@ -403,6 +403,7 @@ class ClientController extends Controller
                 'guid'=>'2c8fe8b0-201f-11e8-8112-005056b47a2e',
                 'name'=>'Разметка готовыми формами',
                 'is_regulatory'=>0,
+                'req_percent_save'=>1,
                 'nomenclatures_guid'=>[
                     'c2643f0a-0278-11e7-80f9-005056b47a2e',
                     'c0dbfe08-d8d0-11e6-80f1-005056b47a2e',
@@ -420,10 +421,12 @@ class ClientController extends Controller
                 'guid'=>'4327f0f2-201f-11e8-8112-005056b47a2e',
                 'name'=>'Разметка холодным пластиком',
                 'is_regulatory'=>0,
+                'req_percent_save'=>0
             ],
             [
                 'guid'=>'126d493f-201f-11e8-8112-005056b47a2e',
                 'name'=>'Демаркировка разметки',
+                'req_percent_save'=>1
             ]
         ];
 
@@ -718,6 +721,7 @@ class ClientController extends Controller
                         'mechanized'=>true,
                         'length'=>10,
                         'count'=>2.3,
+                        'percent_save'=>0.5,
                         'squaremeter'=>222.2
                     ],
                     [
@@ -726,6 +730,7 @@ class ClientController extends Controller
                         'mechanized'=>false,
                         'length'=>30,
                         'count'=>2.3,
+                        'percent_save'=>'0.9',
                         'squaremeter'=>222.2
                     ]
                 ],

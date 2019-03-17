@@ -28,7 +28,7 @@ class ExportRaportLoad{
             ]);
 
             
-            $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$model->id])->all();
+            $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','percent_save','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$model->id])->all();
 
             $params['consist'] = (new Query)->select(['user_guid','technic_guid'])->from(RaportConsist::tableName())->where(['raport_id'=>$model->id])->all();
             

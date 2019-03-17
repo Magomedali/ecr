@@ -28,6 +28,14 @@ class TypeOfWork  extends ApiModel
     * @nillable
     */
     public $is_regulatory;
+
+
+    /**
+    * @var boolean
+    * @nillable
+    */
+    public $req_percent_save;
+
     
     /**
     * @var string

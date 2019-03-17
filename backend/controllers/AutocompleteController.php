@@ -316,7 +316,7 @@ class AutocompleteController extends Controller{
             
             $is_regulatory = isset($get['extends']) &&  isset($get['extends']['is_regulatory']) ? boolval($get['extends']['is_regulatory']) : null;
 
-            $query = (new Query())->select(['guid as `value`','name as title','GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'])
+            $query = (new Query())->select(['guid as `value`','name as title','req_percent_save','GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'])
                                     ->from(TypeOfWork::tableName())
                                     ->leftJoin(['rtn'=>NomenclatureOfTypeOfWorks::tableName()],'rtn.typeofwork_guid = guid')
                                     ->groupBy(['guid']);

@@ -3,6 +3,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use common\widgets\autocomplete\AutoComplete;
+use common\models\RaportWork;
+
 ?>
 <tr>
 	<td>
@@ -21,7 +23,23 @@ use common\widgets\autocomplete\AutoComplete;
 			'label'=>'Вид работы',
 			'properties'=>[
 				['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
+				['property'=>'req_percent_save','commonElement'=>'tr','targetElement'=>'td.td_percent_save input[type=hidden].req_percent_save']
 			],
+			'onSelectCallback'=>"function(item){
+				if(!item.length) return;
+				var commonEl = item.parents('tr');
+				var req_percent_save = parseInt(item.attr('data-req_percent_save'));
+				var selectElement = commonEl.find('td.td_percent_save select');
+				selectElement.attr('disabled',!req_percent_save);
+																
+				if(!req_percent_save){
+					selectElement.removeClass('isRequired');
+					selectElement.removeClass('fieldHasError');
+					selectElement.val(null).trigger('change');
+				}else{
+					selectElement.addClass('isRequired').addClass('fieldHasError');
+				}
+			}",
 			'generateSearchFiltersCallback'=>"function(){
 				return {
 					extends:{
@@ -88,6 +106,20 @@ use common\widgets\autocomplete\AutoComplete;
 		<?php echo Html::hiddenInput("RaportWork[$count][hint_count]",null,['class'=>'hint_count'])?>
 		<?php echo Html::hiddenInput("RaportWork[$count][is_countable]",null,['class'=>'is_countable'])?>
 		<span class="hint_field hint_count"></span>
+	</td>
+	<td class="td_percent_save">
+		<?php 
+			echo Html::dropDownList("RaportWork[$count][percent_save]",null,
+															RaportWork::getPercents(),
+															[
+																'prompt'=>'Выбрать',
+																'class'=>'form-control input-sm',
+																'disabled'=>true
+															]
+				); 
+		?>
+
+		<?php echo Html::hiddenInput("RaportWork[$count][req_percent_save]",null,['class'=>'req_percent_save'])?>
 	</td>
 	<td class="td_squaremeter">
 		<?php echo Html::textInput("RaportWork[$count][squaremeter]",null,['class'=>'form-control input-sm','readonly'=>1]); ?>

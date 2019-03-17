@@ -318,6 +318,7 @@ use common\widgets\autocomplete\AutoComplete;
 												<td>Мех.</td>
 												<td>П.М./Шт</td>
 												<td>Количество</td>
+												<td>Процент<br>сохранности</td>
 												<td>кв. м</td>
 												<td><?php echo html::a('+',$urlLoadRaportWorkRow,['class'=>'btn btn-sm btn-primary','id'=>'btnAddWork'])?></td>
 											</tr>
@@ -342,7 +343,24 @@ use common\widgets\autocomplete\AutoComplete;
 															'label'=>'Вид работы',
 															'properties'=>[
 																['property'=>'work_nomenclatures','commonElement'=>'td','targetElement'=>'.work_assigned_nomencaltures'],
+																['property'=>'req_percent_save','commonElement'=>'tr','targetElement'=>'td.td_percent_save input[type=hidden].req_percent_save']
 															],
+															'onSelectCallback'=>"function(item){
+																if(!item.length) return;
+																var commonEl = item.parents('tr');
+																var req_percent_save = parseInt(item.attr('data-req_percent_save'));
+																var selectElement = commonEl.find('td.td_percent_save select');
+																selectElement.attr('disabled',!req_percent_save);
+																
+																if(!req_percent_save){
+																	selectElement.removeClass('isRequired');
+																	selectElement.removeClass('fieldHasError');
+																	selectElement.val(null).trigger('change');
+																}else{
+																	selectElement.addClass('isRequired').addClass('fieldHasError');
+																}
+
+															}",
 															'generateSearchFiltersCallback'=>"function(){
 																return {
 																	extends:{
@@ -371,7 +389,7 @@ use common\widgets\autocomplete\AutoComplete;
 															'properties'=>[
 																['property'=>'hint_length','commonElement'=>'tr','targetElement'=>'td.td_length span.hint_length,td.td_length input[type=hidden].hint_length'],
 																['property'=>'hint_count','commonElement'=>'tr','targetElement'=>'td.td_count span.hint_count,td.td_count input[type=hidden].hint_count'],
-																['property'=>'is_countable','commonElement'=>'tr','targetElement'=>'td.td_count input[type=hidden].is_countable'],
+																['property'=>'is_countable','commonElement'=>'tr','targetElement'=>'td.td_count input[type=hidden].is_countable']
 															],
 															'onSelectCallback'=>"function(item){
 																if(!item.length) return;
@@ -380,7 +398,6 @@ use common\widgets\autocomplete\AutoComplete;
 																var InputElement = commonEl.find('td.td_count input[type=number]');
 																InputElement.attr('readonly',!is_countable);
 																
-
 																if(!is_countable){
 																	commonEl.find('td.td_count input[type=hidden].hint_count').val(null);
 																	commonEl.find('td.td_count span.hint_count').html(null);
@@ -390,7 +407,6 @@ use common\widgets\autocomplete\AutoComplete;
 																}else{
 																	InputElement.addClass('isRequired');
 																}
-																
 															}"
 														]);
 													?>	
@@ -422,6 +438,23 @@ use common\widgets\autocomplete\AutoComplete;
 														<?php echo Html::hiddenInput("RaportWork[$key][is_countable]",isset($item['is_countable']) ? $item['is_countable'] : "",['class'=>'is_countable'])?>
 														<span class="hint_field hint_count"><?php echo isset($item['hint_count']) ? $item['hint_count'] : ""?></span>
 													</td>
+													<td class="td_percent_save">
+														<?php 
+														$requiredPercentSave = isset($item['req_percent_save']) && boolval($item['req_percent_save']) ? "isRequired" : null;
+
+														echo Html::dropDownList("RaportWork[$key][percent_save]",
+															$requiredPercentSave ? $item['percent_save'] : null,
+															$raportWorkPercents,
+															[
+																'prompt'=>'Выбрать',
+																'class'=>'form-control input-sm '.$requiredPercentSave,
+																'disabled'=>!boolval($requiredPercentSave)
+															]
+														); 
+														?>
+
+														<?php echo Html::hiddenInput("RaportWork[$key][req_percent_save]",isset($item['req_percent_save']) ? $item['req_percent_save'] : "",['class'=>'req_percent_save'])?>
+													</td>
 													<td class="td_squaremeter">
 														<?php 
 															echo Html::textInput("RaportWork[$key][squaremeter]",$item['squaremeter'],['class'=>'form-control input-sm','readonly'=>1]);
@@ -437,7 +470,7 @@ use common\widgets\autocomplete\AutoComplete;
 										</tbody>
 										<tfoot>
 											<tr>
-												<th colspan="5">Итого</th>
+												<th colspan="6">Итого</th>
 												<th><span class='common_square'>
 													<?php echo $common_square;?>
 												</span></th>
@@ -592,7 +625,8 @@ $script = <<<JS
 
 	var requiredFields = [
 		"input.autocomplete_required",
-		"input.isRequired"
+		"input.isRequired",
+		"select.isRequired"
 	];
 
 	var enableGuardPassword = parseInt({$enableGuardPassword});
@@ -891,7 +925,8 @@ $script = <<<JS
 		var line_guid = tr.find("td.td_line_guid input.autocomplete_input_value").val();
 		var count = tr.find("td.td_count input").val();
 		var length = tr.find("td.td_length input").val();
-		
+		var percentSave = parseFloat(tr.find("td.td_percent_save select").val());
+
 		if(!line_guid || !length) return;
 
 		$.ajax({
@@ -908,7 +943,14 @@ $script = <<<JS
 			},
 			success:function(json){
 				if(json.hasOwnProperty("result") && json.result){
-					tr.find("td.td_squaremeter input").val(json.result);
+					var square = json.result;
+
+					if(percentSave > 0){
+						console.log(square + " * "+percentSave + " = "+square * percentSave);
+						square = parseFloat(square * percentSave).toFixed(3);
+					}
+
+					tr.find("td.td_squaremeter input").val(square);
 					calcCommonSquare();//рассчет общей площади
 					calcAVGStandard();//рассчет норматива
 				}
@@ -940,6 +982,13 @@ $script = <<<JS
 
 	//Расчет кв м
 	$("body").on("click",".td_line_guid .autocomplete_items .autocomplete_item",function(){
+		var tr = $(this).parents("tr");
+		calcsquare(tr);
+	});
+
+
+	//Расчет кв м
+	$("body").on("change",".td_percent_save select",function(){
 		var tr = $(this).parents("tr");
 		calcsquare(tr);
 	});

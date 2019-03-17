@@ -454,6 +454,8 @@ class Raport extends ActiveRecordVersionable
                 'l.hint_length',
                 'l.hint_count',
                 'l.is_countable',
+                'tw.req_percent_save',
+                'rw.percent_save',
                 'rw.count',
                 'rw.squaremeter',
                 'GROUP_CONCAT(rtn.nomenclature_guid SEPARATOR "|") as work_nomenclatures'

@@ -42,6 +42,13 @@ class RaportWork  extends ApiModel
 
     /**
     * @var float
+    * @nillable
+    */
+    public $percent_save;
+
+
+    /**
+    * @var float
     */
     public $squaremeter;
 }
