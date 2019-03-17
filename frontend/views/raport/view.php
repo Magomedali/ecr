@@ -268,7 +268,8 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 														<?php echo $item['length'];?>
 													</td>
 													<td><?php echo $item['count'];?></td>
-													<td><?php echo $item['percent_save'];?></td>
+													
+													<td><?php echo $item['percent_save'] ? $item['percent_save'] : null;?>
 													<td><?php echo $item['squaremeter'];?></td>
 												</tr>
 												<?php } ?>

@@ -267,7 +267,7 @@ $this->title = "Рапорт " . $model->number;
 														<?php echo $item['length'];?>
 													</td>
 													<td><?php echo $item['count'];?></td>
-													<td><?php echo $item['percent_save'];?></td>
+													<td><?php echo $item['percent_save'] ? $item['percent_save'] : null;?></td>
 													<td><?php echo $item['squaremeter'];?></td>
 												</tr>
 												<?php } ?>
