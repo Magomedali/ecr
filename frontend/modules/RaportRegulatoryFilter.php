@@ -53,7 +53,7 @@ class RaportRegulatoryFilter extends RaportRegulatory
     public static function getMonths(){
         return [
             '01'=>'Январь',
-            '02'=>'Февряль',
+            '02'=>'Февраль',
             '03'=>'Март',
             '04'=>'Апрель',
             '05'=>'Май',

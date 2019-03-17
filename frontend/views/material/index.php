@@ -59,7 +59,8 @@ $this->title = 'Мои материалы';
                         "value"=>"number",
                     ],
                     [
-                        'attribute'=>"master_guid",
+                        'attribute'=>"master_name",
+                        'label'=>"Мастер",
                         'value'=>function($m){
                             $master = $m->master;
                             return isset($master->id) ? $master['name'] : "";
