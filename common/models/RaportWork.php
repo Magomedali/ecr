@@ -84,10 +84,10 @@ class RaportWork extends ActiveRecordVersionable
 
     public static function getPercents(){
         return [
-            '0.25'=>0.25,
-            '0.5'=>0.5,
+            '1'=>1,
             '0.75'=>0.75,
-            '1'=>1
+            '0.5'=>0.5,
+            '0.25'=>0.25
         ];
     }
 

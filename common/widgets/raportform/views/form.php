@@ -355,7 +355,7 @@ use common\widgets\autocomplete\AutoComplete;
 																if(!req_percent_save){
 																	selectElement.removeClass('isRequired');
 																	selectElement.removeClass('fieldHasError');
-																	selectElement.val(null).trigger('change');
+																	selectElement.val('1').trigger('change');
 																}else{
 																	selectElement.addClass('isRequired').addClass('fieldHasError');
 																}
@@ -446,7 +446,6 @@ use common\widgets\autocomplete\AutoComplete;
 															$requiredPercentSave ? $item['percent_save'] : null,
 															$raportWorkPercents,
 															[
-																'prompt'=>'Выбрать',
 																'class'=>'form-control input-sm '.$requiredPercentSave,
 																'disabled'=>!boolval($requiredPercentSave)
 															]

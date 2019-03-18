@@ -35,7 +35,7 @@ use common\models\RaportWork;
 				if(!req_percent_save){
 					selectElement.removeClass('isRequired');
 					selectElement.removeClass('fieldHasError');
-					selectElement.val(null).trigger('change');
+					selectElement.val('1').trigger('change');
 				}else{
 					selectElement.addClass('isRequired').addClass('fieldHasError');
 				}
@@ -112,7 +112,6 @@ use common\models\RaportWork;
 			echo Html::dropDownList("RaportWork[$count][percent_save]",null,
 															RaportWork::getPercents(),
 															[
-																'prompt'=>'Выбрать',
 																'class'=>'form-control input-sm',
 																'disabled'=>true
 															]
