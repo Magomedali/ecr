@@ -28,7 +28,7 @@ class m130524_201442_init extends Migration
             'auth_key' => $this->string(32)->null(),
             'password_hash' => $this->string()->null(),
             'password_reset_token' => $this->string()->unique()->null(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(10)
+            'status' => $this->smallInteger()->notNull()->defaultValue(1)
         ], $tableOptions);
 
 
