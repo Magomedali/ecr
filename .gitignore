@@ -36,11 +36,15 @@ phpunit.phar
 /api/soap/test/runtime
 /api/soap/test/config/main-local.php
 
+/frontend/config/main-local.php
+/frontend/config/params-local.php
 /frontend/web/assets
 /frontend/web/assets/
 /frontend/web/tmp/
 /frontend/logs
 
+/backend/config/params-local.php
+/backend/config/params-local.php
 /backend/web/assets
 /backend/web/assets/
 /backend/web/tmp/
