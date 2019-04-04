@@ -247,6 +247,8 @@ class MaterialController extends Controller{
                 $this->materialSaverService->save($post);
                 if($model->status == AppStatuses::DELETED){
                     Yii::$app->session->setFlash("success","Заявка успешно отменена!");
+                }elseif($model->status == AppStatuses::CONFIRMED){
+                    Yii::$app->session->setFlash("success","Заявка успешно принята!");
                 }else{
                     Yii::$app->session->setFlash("success","Заявка успешно отправлена на проверку!");
                 }

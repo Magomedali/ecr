@@ -252,7 +252,8 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 											</tr>
 										</thead>
 										<tbody>
-											<?php if(is_array($RaportWorks)){?>
+											<?php $com_square =0;
+												if(is_array($RaportWorks)){?>
 												<?php foreach ($RaportWorks as $key => $item) {?>
 												<tr>
 													<td>
@@ -272,9 +273,18 @@ $this->params['backlink']['url']=Url::to(['raport/index']);
 													<td><?php echo $item['percent_save'] ? $item['percent_save'] : null;?>
 													<td><?php echo $item['squaremeter'];?></td>
 												</tr>
-												<?php } ?>
+												<?php 
+													$com_square += $item['squaremeter'];
+													} ?>
 											<?php } ?>
 										</tbody>
+										<tfoot>
+											<tr>
+												<th>Итого</th>
+												<th colspan="5"></th>
+												<th><?php echo $com_square;?></th>
+											</tr>
+										</tfoot>
 									</table>
 								</div>
 							</div>

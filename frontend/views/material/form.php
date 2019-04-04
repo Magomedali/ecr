@@ -136,7 +136,7 @@ if(isset($model->id)){
 											<?php
 									}
 								}else{
-									echo $this->render("formRowMaterial",['count'=>1]);
+									echo $this->render("formRowMaterial",['count'=>0]);
 								}
 							?>
 					</tbody>

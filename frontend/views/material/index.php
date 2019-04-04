@@ -156,11 +156,6 @@ $this->title = 'Мои материалы';
                 ?>
             </tbody>
         </table>
-        <?php
-            //echo "<PRE>";
-            //print_r($documents);
-            //echo "</PRE>";
-        ?>
 	</div>
     <div class="col-md-5">
         <h3>Остатки:</h3>
