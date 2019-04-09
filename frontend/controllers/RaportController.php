@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\web\HttpException;
+use common\dictionaries\ExchangeStatuses;
 use frontend\modules\RaportFilter;
 use frontend\modules\RaportRegulatoryFilter;
 use common\models\Raport;
@@ -245,6 +246,15 @@ class RaportController extends Controller{
             
                 $this->RaportSaverService->save($post);
                 Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");
+
+                if($model->status == ExchangeStatuses::DELETED){
+                    Yii::$app->session->setFlash("success","Рапорт успешно отменен!");
+                }elseif($model->status == ExchangeStatuses::CONFIRMED){
+                    Yii::$app->session->setFlash("success","Рапорт успешно принят!");
+                }else{
+                    Yii::$app->session->setFlash("success","Рапорт успешно отправлен на проверку!");
+                }
+
                 return $this->redirect(['raport/index']);
             
             }catch(InvalidPasswordException $e){
@@ -253,6 +263,7 @@ class RaportController extends Controller{
                 $inValidPassword = true;
             
             }catch(EmptyRequiredPropertiesException $e){
+
                 $inValidPassword = true;
                 Yii::$app->session->setFlash("error","Рапорт не сохранен. Отсутствуют обязательные данные!");
 

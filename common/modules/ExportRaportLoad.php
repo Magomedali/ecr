@@ -26,7 +26,8 @@ class ExportRaportLoad{
                 'version_id',
                 'number'
             ]);
-
+            
+            $params['status'] = $model->statusTitle;
             
             $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','percent_save','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$model->id])->all();
 

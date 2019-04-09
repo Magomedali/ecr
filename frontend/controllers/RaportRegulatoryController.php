@@ -10,6 +10,7 @@ use yii\web\HttpException;
 use common\models\RaportRegulatory;
 use common\modules\CheckCloseShift;
 use common\services\RaportRegulatorySaverService;
+use common\dictionaries\ExchangeStatuses;
 use common\modules\exceptions\{
     InvalidPasswordException,
     EmptyRequiredPropertiesException,
@@ -58,10 +59,8 @@ class RaportRegulatoryController extends Controller{
                 'errorCallback'=>function($user,$action){
                     
                     $action->controller->command = function(){
-                    
                         \Yii::$app->session->setFlash("warning","Предыдущая смена не закрыта или у вас есть неподтвержденные документы!");
                         return Yii::$app->response->redirect(['raport/index']);
-                    
                     };
                 },
                 'exceptCondition'=>function(){
@@ -163,7 +162,15 @@ class RaportRegulatoryController extends Controller{
             try{
             
                 $this->raportRegulatorySaverService->save($post);
-                Yii::$app->session->setFlash("success","Регламентный рапорт успешно отправлен на проверку!");
+                
+                if($model->status == ExchangeStatuses::DELETED){
+                    Yii::$app->session->setFlash("success","Рапорт успешно отменен!");
+                }elseif($model->status == ExchangeStatuses::CONFIRMED){
+                    Yii::$app->session->setFlash("success","Рапорт успешно принят!");
+                }else{
+                    Yii::$app->session->setFlash("success","Регламентный рапорт успешно отправлен на проверку!");
+                }
+
                 return $this->redirect(['raport/index']);
             
             }catch(InvalidPasswordException $e){

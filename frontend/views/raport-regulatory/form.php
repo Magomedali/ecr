@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Modal;
+use common\dictionaries\ExchangeStatuses;
 use common\models\User;
 use common\widgets\autocomplete\AutoComplete;
 use common\models\RaportRegulatoryWork;
@@ -81,6 +82,7 @@ $this->params['backlink']['confirm']=true;
 									
 										if(boolval($user->is_master) && $model->master_guid){
 											echo Html::hiddenInput("RaportRegulatory[master_guid]",$model->master_guid);
+											echo $form->field($model,'status')->dropDownList(ExchangeStatuses::getLabels());
 										}else{
 											echo AutoComplete::widget([
 												'data'=>ArrayHelper::map($masters,'guid','name'),
