@@ -203,7 +203,8 @@ $this->params['backlink']['confirm']=true;
 		echo \common\widgets\reqpasspresubmit\ReqPassPreSubmit::widget([
 			'inValidPassword'=>$inValidPassword,
 			'id'=>'modalPassword',
-			'formId'=>'raportRegulatoryForm'
+			'formId'=>'raportRegulatoryForm',
+			'submitBtnId'=>'submitBtnId'
 		]);
 	}
 	
@@ -274,20 +275,26 @@ $script = <<<JS
 	
 	//form submit
 	$("form#raportRegulatoryForm").submit(function(event){
+	    
 	    $("#btnRaportFormSubmitPassword").prop("disabled",true);
+		$("#submitBtnId").prop("disabled",true);
+
 		if(!validateRaportForm()){
 			event.preventDefault();
 	        $("#btnRaportFormSubmitPassword").prop("disabled",false);
+	        $("#submitBtnId").prop("disabled",false);
 		}else if(typeof pluginReqPassPreSubmit == 'object'){
-				if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
-					pluginReqPassPreSubmit.openWindow();
-					event.preventDefault();
-					$("#btnRaportFormSubmitPassword").prop("disabled",false);
-				}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
-					event.preventDefault();
-					$("#btnRaportFormSubmitPassword").prop("disabled",false);
-				}
+			if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
+				pluginReqPassPreSubmit.openWindow();
+				event.preventDefault();
+				$("#btnRaportFormSubmitPassword").prop("disabled",false);
+				$("#submitBtnId").prop("disabled",false);
+			}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
+				event.preventDefault();
+				$("#btnRaportFormSubmitPassword").prop("disabled",false);
+				$("#submitBtnId").prop("disabled",false);
 			}
+		}
 	});
 
 

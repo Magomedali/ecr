@@ -27,7 +27,7 @@ Modal::begin([
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<?php echo Html::submitButton("Подтвердить",['class'=>'btn btn-primary','id'=>'btnConfirmPassword']);?>
+			<?php echo Html::submitButton("Подтвердить",['class'=>'btn btn-primary','id'=>$submitBtnId]);?>
 		</div>
 	</div>
 </div>

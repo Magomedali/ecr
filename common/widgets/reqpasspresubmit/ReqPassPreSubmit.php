@@ -30,6 +30,8 @@ class ReqPassPreSubmit extends Widget
     public $formId = "null";
 
     public $confirmCallback = "null";
+
+    public $submitBtnId = "btnConfirmPassword";
    
 
 
@@ -53,6 +55,7 @@ class ReqPassPreSubmit extends Widget
         return $this->view->renderFile($this->getViewPath()."/widget.php",[
             'id'=>$this->id,
             'inValidPassword'=>$this->inValidPassword,
+            'submitBtnId'=>$this->submitBtnId
         ]);
 
     }
@@ -112,7 +115,7 @@ class ReqPassPreSubmit extends Widget
 
             var confirmCallback = {$this->confirmCallback};
             var formId = '{$this->formId}';
-            $("body").on("click","#btnConfirmPassword",function(){
+            $("body").on("click","#{$this->submitBtnId}",function(){
                 if(typeof confirmCallback == 'function'){
                     confirmCallback();
                 }else{

@@ -217,17 +217,21 @@ if(isset($model->id)){
 		//form submit
 		$("form#materialForm").submit(function(event){
 		    $("#btnMaterialFormSubmit").prop("disabled",true);
+		    $("#submitBtnId").prop("disabled",true);
 			if(!validateRaportForm()){
 				event.preventDefault();
 		        $("#btnMaterialFormSubmit").prop("disabled",false);
+		        $("#submitBtnId").prop("disabled",false);
 			}else if(typeof pluginReqPassPreSubmit == 'object'){
 				if(!pluginReqPassPreSubmit.checkPasswordWindowIsOpen()){
 					pluginReqPassPreSubmit.openWindow();
 					event.preventDefault();
 					$("#btnMaterialFormSubmit").prop("disabled",false);
+					$("#submitBtnId").prop("disabled",false);
 				}else if(!pluginReqPassPreSubmit.checkValidatePassword()){
 					event.preventDefault();
 					$("#btnMaterialFormSubmit").prop("disabled",false);
+					$("#submitBtnId").prop("disabled",false);
 				}
 			}
 		});
@@ -290,7 +294,8 @@ JS;
 	echo \common\widgets\reqpasspresubmit\ReqPassPreSubmit::widget([
 		'inValidPassword'=>$inValidPassword,
 		'id'=>'modalPassword',
-		'formId'=>'materialForm'
+		'formId'=>'materialForm',
+		'submitBtnId'=>'submitBtnId'
 	]);
 ?>
 
