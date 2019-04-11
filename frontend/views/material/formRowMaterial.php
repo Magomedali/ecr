@@ -5,7 +5,7 @@ use yii\helpers\ArrayHelper;
 use common\widgets\autocomplete\AutoComplete;
 ?>
 
-<tr>
+<tr data-order="<?php echo $count?>">
 	<td>
 	<?php 
 		echo AutoComplete::widget([

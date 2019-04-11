@@ -87,7 +87,7 @@ if(isset($model->id)){
 						<?php if(is_array($materialsAppItem) && count($materialsAppItem)){
 								foreach ($materialsAppItem as $key => $item) {
 						?>
-												<tr>
+												<tr data-order="<?php echo $key?>">
 													<td>
 													<?php 
 														echo AutoComplete::widget([
@@ -243,7 +243,14 @@ if(isset($model->id)){
 			var action = $(this).attr("href");
 			var table = $(this).parents("table");
 			if(!table.length) return;
-			var count = table.find("tbody tr").length;
+			
+			var count = 0;
+			if(table.find("tbody tr").length){
+				var last_tr = table.find("tbody tr").eq(-1);
+				var order = parseInt(last_tr.attr("data-order"));
+				count = order >= 0 ? order + 1 : 0;
+			}
+
 			if(action && !sendGetMaterialRom){
 				$.ajax({
 					url:action,

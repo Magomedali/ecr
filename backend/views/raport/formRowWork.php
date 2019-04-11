@@ -6,7 +6,7 @@ use common\widgets\autocomplete\AutoComplete;
 use common\models\RaportWork;
 
 ?>
-<tr>
+<tr data-order="<?php echo $count?>">
 	<td>
 	<?php 
 

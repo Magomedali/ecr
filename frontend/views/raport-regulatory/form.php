@@ -131,7 +131,7 @@ $this->params['backlink']['confirm']=true;
 								<tbody>
 									<?php if(is_array($RaportRegulatoryWorks)){?>
 										<?php foreach ($RaportRegulatoryWorks as $key => $item) {?>
-											<tr>
+											<tr data-order="<?php echo $key?>">
 												<td>
 												<?php 
 														echo AutoComplete::widget([
@@ -305,7 +305,15 @@ $script = <<<JS
 		var action = $(this).attr("href");
 		var table = $(this).parents("table");
 		if(!table.length) return;
-		var count = table.find("tbody tr").length;
+		
+		var count = 0;
+		if(table.find("tbody tr").length){
+			var last_tr = table.find("tbody tr").eq(-1);
+			var order = parseInt(last_tr.attr("data-order"));
+			count = order >= 0 ? order + 1 : 0;
+		}
+		
+
 		if(action && !sendGetRowWork){
 			$.ajax({
 				url:action,
