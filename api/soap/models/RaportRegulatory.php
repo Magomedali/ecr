@@ -75,4 +75,11 @@ class RaportRegulatory  extends ApiModel
     * @maxOccurs unbounded
     */
     public $works;
+
+
+    /**
+     * @var int 
+     * @nillable
+    */
+    public $id_site;
 }

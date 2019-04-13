@@ -25,6 +25,8 @@ class ExportMaterialsApp{
             'comment'=>''
 		];
 
+        $params['id_site'] = $model->id;
+
 		$params['materials'] = (new Query())->select([
 									'nomenclature_guid',
 									'count'

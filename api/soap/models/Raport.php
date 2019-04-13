@@ -142,4 +142,11 @@ class Raport  extends ApiModel
     * @maxOccurs unbounded
     */
     public $consist;
+
+
+    /**
+     * @var int 
+     * @nillable
+    */
+    public $id_site;
 }

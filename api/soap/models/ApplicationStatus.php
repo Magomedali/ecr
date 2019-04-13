@@ -13,15 +13,25 @@ use yii\base\Model;
 class ApplicationStatus  extends ApiModel
 {
 
-    /**
+	
+
+	/**
      * @var string 
     */
     public $guid;
+
 
 
     /**
     * @var string
     */
     public $status;
+
+
+    /**
+     * @var int 
+     * @nillable
+    */
+    public $id_site;
 
 }

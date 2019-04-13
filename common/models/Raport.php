@@ -223,6 +223,21 @@ class Raport extends ActiveRecordVersionable
 
             $scope = $formName === null ? $this->formName() : $formName;
             
+            if((!isset($this->id) || !$this->id) && (isset($data[$scope]['id_site']) || isset($data['id_site']))){
+                $id_site = isset($data['id_site']) ? (int)$data['id_site'] : (int)$data[$scope]['id_site'];
+                if($id_site){
+                    $record = self::findOne(['id'=>$id_site]);
+                    if(!isset($record->id)){
+                        $this->addError('guid',"Not found Raport by site_id!");
+                        return false;
+                    }else{
+                        $this->id = $record->id;
+                        $this->setOldAttributes($record->attributes);
+                    }
+                }
+            }
+            
+
             if(isset($data[$scope]['materials']) && is_array($data[$scope]['materials'])){
                 $this->materials = $data[$scope]['materials'];
             }elseif(isset($data['RaportMaterial']) && is_array($data['RaportMaterial'])){

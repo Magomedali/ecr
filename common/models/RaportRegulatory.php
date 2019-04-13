@@ -156,6 +156,8 @@ class RaportRegulatory extends ActiveRecordVersionable
                 }
             }
 
+            
+
             if(!isset($this->id) && $this->guid){
                 $model = self::find()->where(['guid'=>$this->guid])->one();
                 if ($model && isset($model->id)) {
@@ -163,9 +165,23 @@ class RaportRegulatory extends ActiveRecordVersionable
                     $this->setOldAttributes($model->attributes);           
                 } 
             }
-            
 
             $scope = $formName === null ? $this->formName() : $formName;
+
+            if((!isset($this->id) || !$this->id) && (isset($data[$scope]['id_site']) || isset($data['id_site']))){
+                $id_site = isset($data['id_site']) ? (int)$data['id_site'] : (int)$data[$scope]['id_site'];
+                if($id_site){
+                    $record = self::findOne(['id'=>$id_site]);
+                    if(!isset($record->id)){
+                        $this->addError('guid',"Not found RaportRegulatory by site_id!");
+                        return false;
+                    }else{
+                        $this->id = $record->id;
+                        $this->setOldAttributes($record->attributes);
+                    }
+                }
+            }
+            
             
             
             if(isset($data[$scope]['works']) && is_array($data[$scope]['works'])){

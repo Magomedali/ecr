@@ -858,10 +858,14 @@ class Api{
         $erros = [];
         $model = MaterialsApp::findOne(['guid'=>$data['guid']]);
         
+        if((!isset($model->id) || !$model->id) && isset($data['id_site']) && (int)$data['id_site']){
+            $model = MaterialsApp::findOne(['id'=>(int)$data['id_site']]);
+        }
+
         if(!isset($model->id) || !$model->id){
             $responce->success = false;
             $responce->error = "MaterialsAppNotFounded";
-            $responce->errorMessage = "Not founded materials app by guid";
+            $responce->errorMessage = "Not founded materials app by guid and by id_site";
             $responce->errorUserMessage = "Заявка не найдена!";
             return $responce;
         }
