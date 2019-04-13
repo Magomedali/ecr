@@ -13,7 +13,6 @@ use soapclient\methods\RaportRegulatoryLoad;
 
 class ExportRaportRegulatoryLoad{
 
-    const ID_PREFIX = "RR_";
 
 	public static function export(RaportRegulatory $model){
         
@@ -29,7 +28,7 @@ class ExportRaportRegulatoryLoad{
                 'status'
             ]);
 
-            $params['id_site'] = self::ID_PREFIX.$model->id;
+            $params['id_site'] = $model->id;
             
             $params['status'] = $model->statusTitle;
             

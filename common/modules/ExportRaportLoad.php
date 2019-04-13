@@ -12,7 +12,6 @@ use soapclient\methods\RaportLoad;
 
 class ExportRaportLoad{
 
-    const ID_PREFIX = "RS_";
 
 	public static function export(Raport $model){
         
@@ -28,7 +27,7 @@ class ExportRaportLoad{
                 'number'
             ]);
             
-            $params['id_site'] = self::ID_PREFIX.$model->id;
+            $params['id_site'] = $model->id;
             $params['status'] = $model->statusTitle;
             
             $params['works'] = (new Query)->select(['work_guid','line_guid','mechanized','length','count','percent_save','squaremeter'])->from(RaportWork::tableName())->where(['raport_id'=>$model->id])->all();
